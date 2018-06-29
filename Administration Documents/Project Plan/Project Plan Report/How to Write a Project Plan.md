@@ -28,4 +28,3 @@ title: Writing a Project Plan
 * Assumptions
 * Methodology for work (agile, waterfall)
 * Dependencies
-* 
