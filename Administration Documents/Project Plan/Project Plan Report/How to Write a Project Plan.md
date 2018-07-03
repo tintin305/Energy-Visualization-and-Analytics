@@ -28,3 +28,7 @@ title: Writing a Project Plan
 * Assumptions
 * Methodology for work (agile, waterfall)
 * Dependencies
+* Licenses for software and tools created need to be evaluated
+* Documentation
+* Unit Testing
+* How to properly do a project plan for a software project
