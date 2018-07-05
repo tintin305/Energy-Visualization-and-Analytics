@@ -7,7 +7,7 @@
 * The heart of what is required, specific details are not required
 * Plan can change, things are not concrete
 * ? Project management things ?
-* Will br included in the final report
+* Will be included in the final report
 
 ## Things to talk about
 * Weekly plan
