@@ -32,3 +32,8 @@ title: Writing a Project Plan
 * Documentation
 * Unit Testing
 * How to properly do a project plan for a software project
+* How different sections of the system interface with eachother (how the data gatherer links up with the data converter, how the data converter works to link up with the next stage)
+* Data Converter
+* Motives from different parties and what kinds of information they would want.
+* Look for differences between paid vs logged energy usage
+* Monetary evaluations
