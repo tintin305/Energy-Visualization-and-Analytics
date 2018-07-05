@@ -26,7 +26,7 @@ title: Writing a Project Plan
 * Success Criteria
 * Resources
 * Assumptions
-* Methodology for work (agile, waterfall)
+* Methodology for work (agile, waterfall, scrum)
 * Dependencies
 * Licenses for software and tools created need to be evaluated
 * Documentation
