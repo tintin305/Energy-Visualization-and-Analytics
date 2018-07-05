@@ -2,6 +2,19 @@
 title: Web Scraping
 ---
 
+# The Main Problem
+
+As described in the beginning of [this](https://www.youtube.com/watch?v=UrsUuVAJh5U) video, is that the data is not in the source, it is in the browser, and the reason why is that it only exists in Javascript. When you inspect the element you are able to see the data inside the table, however you can't see it in the source. This is why BeautifulSoup can't be used alone, this is why we are going to be using Python Requests.
+You can use Selenium, however it is slow.
+
+When looking at the Network, you are interested in looking at the POST methods.
+When you select the POST that appears to have the required information, you can see all kinds of information about it.
+If you select the "Response" tab of this post, you will see the data that is sent to the browser. In this case, the information is encrypted, so it is not human readable and not easy to find in the POST response.
+The Fiddler tool can make these requests without using Python just yet, this allows you to see the data come back for viewing.
+When copying the POST command from the Network viewer into the Fiddler tool and pasting it into the Composer > Parsed > and the paste it into the url space, select POST as the method. In the request body, go back to the Network viewer, and under the headers tab, find the Form Data, and view the source (you want the raw data), paste this into the request body.
+Then click execute in Fiddler.
+This process would normally get the required result, however, the response from the host was that a login is required, so this will require some more work.
+
 # Beautiful Soup
 
 ## Install
@@ -9,7 +22,7 @@ title: Web Scraping
 Install Python 3.6 (keep consistent)
 Install Anaconda
 Test out anaconda by going to the command line and typing: python
-You should see three >'s appear, this tells you that you are in the python environment. 
+You should see three >'s appear, this tells you that you are in the python environment.
 The next step is to install beautiful soup.
 Do this by:
 
@@ -81,26 +94,30 @@ driver.quit()
 
 This saves a screenshot of the "I am feeling lucky" page from google and saves it to the current directory.
 
-[This](https://www.youtube.com/watch?v=UrsUuVAJh5U) dude says that it can be slow. 
+[This](https://www.youtube.com/watch?v=UrsUuVAJh5U) dude says that it can be slow.
 
 ## Selenium with Python
 
 [This](http://selenium-python.readthedocs.io) page has lots of info for using Selenium with Python.
 
+[Another](https://medium.com/the-andela-way/introduction-to-web-scraping-using-selenium-7ec377a8cf72)
+
 ## Iteration Approach
 
 [This](https://medium.freecodecamp.org/better-web-scraping-in-python-with-selenium-beautiful-soup-and-pandas-d6390592e251) uses selenium, pandas, and BeautifulSoup to iterate through a website to gather a whole host of information.
 
+## In Depth
+
+[This](https://automatetheboringstuff.com/chapter11/) seems to go into quite a bit of depth, they do a few examples as well.
+
 # Mechanize
 
-Looks like a small version of selenium
-http://wwwsearch.sourceforge.net/mechanize/
+[Looks](http://wwwsearch.sourceforge.net/mechanize/) like a small version of selenium
 
 # PhantomJS
 
-This is a headless browser.
+[This](http://phantomjs.org) is a headless browser.
 Headless, and looks simple, works with selenium to do the work.
-http://phantomjs.org
 
 # Webbrowser (Python package)
 
@@ -110,11 +127,11 @@ Does not look like it can do much past loading a web page and viewing the inform
 
 Looks to have all the functionality that is required.
 [Robobrowser](http://robobrowser.readthedocs.io/en/latest/readme.html) is advertised in such a way that it will fulfill the criteria of the web scraper. It can fetch a page, click on links and buttons, and fill out and submit forms- all of these are highly important. It makes use of Requests and BeautifulSoup.
-[Here](https://www.youtube.com/watch?v=hrdDIrT9kJI) is a video illustrating some of its stuff. 
+[Here](https://www.youtube.com/watch?v=hrdDIrT9kJI) is a video illustrating some of its stuff.
 
 # Scrapy
 
-Haven't had a look at this yet, however it looks like quite a simple tool. 
+Haven't had a look at this yet, however it looks like quite a simple tool.
 
 # HTTrack
 
@@ -126,4 +143,4 @@ This [program](http://www.httrack.com/page/2/en/index.html), from what people sa
 
 # Fiddler
 
-Seems to be useful for debugging the application, it can be used to look at requests that take place within the browser.
+Seems to be useful for debugging the application, it can be used to look at requests that take place within the browser. I attemted to use Fiddler, it was capable of viewing the encrypted traffic sent by the website, when viewing the Inspectors tab, and in that the WebView tab, it was able to show the data inside the table.
