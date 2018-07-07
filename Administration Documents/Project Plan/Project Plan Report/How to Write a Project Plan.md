@@ -37,3 +37,4 @@ title: Writing a Project Plan
 * Motives from different parties and what kinds of information they would want.
 * Look for differences between paid vs logged energy usage
 * Monetary evaluations
+* Accessibility
