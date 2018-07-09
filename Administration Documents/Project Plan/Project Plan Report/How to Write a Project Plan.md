@@ -39,3 +39,4 @@ title: Writing a Project Plan
 * Monetary evaluations
 * Accessibility
 * Sensor fusion
+* More back-end based allows for easier unit testing

@@ -86,7 +86,7 @@ This section is discussed in further detail in section \ref{sec:server}.
 In order to allow for the visualization of energy, the use of standard front-end web tools will be employed in order to provide the user with interaction. 
 The back-end will provide all of the processing requirements, and will manage the data. the front-end communicates with the back-end (server) in order to illustrate the required information.
 The three main tools (commonly used in any website), are: Hypertext Markup Language (HTML), Cascading Style Sheets (CSS), and JavaScript. 
-These three tools communicate with eachother and the server in order to provide the user with the required information when viewed from a web browser. 
+These three tools communicate with each other and the server in order to provide the user with the required information when viewed from a web browser. 
 
 It is this part of the system where a multitude of visualization tools are used to gain insights into the data. These tools will be discussed in section \ref{sec:ApplicationsAndTools}
 
@@ -96,9 +96,18 @@ This completes the overall description of how the system is constructed and how 
 \section{Scope Statement} \label{sec:ScopeStatement}
 There are four sections to the scope for this project, these are: data gathering, back-end system, front-end system, and the ability to use the front-end system to gain insights. All of these sections for part of the scope for the project. 
 
-The data gathering is required to be capable of autonomously and periodically draw data from the IST server for all of the 
+The data gathering system is required to be capable of autonomously and periodically drawing data from the IST server for all of the data loggers and all of the data that they have attained since installation. There are a few details for this section which is left for section \ref{sec:DataGathering} as the system does not always need to gather in the same way.
 
-Pick a focus: something to attain (see how money works or how new lights changed things)
+The back-end system takes part in the data gathering process, this is why it is important that if functions as required. The back-end deals with all of the data storage, as well as processing of the data in order to send it through to the front-end such that a user can interact with the system. This is used as the system which manages the storage and manipulation of the data which is highly important. 
+In order to reduce the work required by the client (front-end), the majority of the presentation work will be done on the server, then once it is ready, sent through to the client. 
+There may be cases where client side processing will be used, this will be in cases where the visualization tools require it, an example of this will be dygraphs which required the clients browser to interact.
+
+The front-end is important for any web application, as this is the interface which allows user interaction, which is where the focus and importance rests. The front-end makes use of HTML, CSS, and JavaScript to generate the standard format of the system. This configuration is then used with a number of other tools in order to have multiple types of data visualization.
+The details of the front-end is discussed in section \ref{sec:WebsiteArchitecture}.
+
+Finally, the fourth key part of the scope is that of the data visualization. This will be done with the use of many tools and methods such that insights can be gained from the data. The most important decision for this part of the scope is that the system should be designed such that **** can be gained. Two examples of this are: verify that the billing from City power matches that from what the system says should be the bill, and another interesting, possibly engineering test, is to verify how much energy has been saved with the exchange of the old lights to all LED lights throughout campus. 
+
+% Pick a focus: something to attain (see how money works or how new lights changed things)
 
 Demonstrate concept
 
