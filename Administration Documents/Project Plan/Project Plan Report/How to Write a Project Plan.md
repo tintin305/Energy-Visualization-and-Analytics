@@ -38,3 +38,4 @@ title: Writing a Project Plan
 * Look for differences between paid vs logged energy usage
 * Monetary evaluations
 * Accessibility
+* Sensor fusion
