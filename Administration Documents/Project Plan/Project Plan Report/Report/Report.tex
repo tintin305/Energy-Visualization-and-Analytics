@@ -101,7 +101,7 @@ The data gathering system is required to be capable of autonomously and periodic
 
 The back-end system takes part in the data gathering process, this is why it is important that if functions as required. The back-end deals with all of the data storage, as well as processing of the data in order to send it through to the front-end such that a user can interact with the system. This is used as the system which manages the storage and manipulation of the data which is highly important. 
 In order to reduce the work required by the client (front-end), the majority of the presentation work will be done on the server, then once it is ready, sent through to the client. 
-There may be cases where client side processing will be used, this will be in cases where the visualization tools require it, an example of this will be dygraphs which required the clients browser to interact.
+There may be cases where client side processing will be used, this will be in cases where the visualization tools require it, an example of this will be Dygraphs which required the clients browser to interact.
 
 The front-end is important for any web application, as this is the interface which allows user interaction, which is where the focus and importance rests. The front-end makes use of HTML, CSS, and JavaScript to generate the standard format of the system. This configuration is then used with a number of other tools in order to have multiple types of data visualization.
 The details of the front-end is discussed in section \ref{sec:WebsiteArchitecture}.
@@ -110,7 +110,7 @@ Finally, the fourth key part of the scope is that of the data visualization. Thi
 
 % Pick a focus: something to attain (see how money works or how new lights changed things)
 
-Demonstrate concept
+% Demonstrate concept
 
 
 \section{Timeline} \label{sec:Timeline}
@@ -183,7 +183,7 @@ Where:
 \end{itemize}
 
 As it commonly works with gantt charts, there will be tasks which take less time than is scheduled, and they can also run over time, this shifts sections of the chart and effects tasks further down the line.
-There are a number of tasks which run throughout the entire project, these are documentation and system testing, this is done as it helps with the development process to run smoothly and any changes that happen to the system are always tested so that different components in the system are not affected with changes to any other system. This testing helps the interfacing of the dfferent components run smoothly, this is discussed in section~\ref{sec:DependenciesInterfaces}.
+There are a number of tasks which run throughout the entire project, these are documentation and system testing, this is done as it helps with the development process to run smoothly and any changes that happen to the system are always tested so that different components in the system are not affected with changes to any other system. This testing helps the interfacing of the different components run smoothly, this is discussed in section~\ref{sec:DependenciesInterfaces}.
 
 Finally, there is a task called \textit{Iterative Methodology}, this is where the \textit{tracer bullets} system comes into play, all of the tasks before this are set out to get the system up and running so that vulnerabilities and loopholes can be found in the system, and further visualizations can be added to the system. Once the data sets and the system as a whole is set up, it becomes a matter of working with the data to provide multiple visualizations with that data.
 
@@ -199,7 +199,7 @@ There are a number of milestones that are used for the duration of the project, 
 
 \begin{itemize}
     \item Retrieval and Storage of Entire Database
-    \item Periodic Retrival and Storage of Database
+    \item Periodic Retrieval and Storage of Database
     \item Back-End Setup
     \item Front-End Skeletal Design
     \item Visualizations
@@ -212,8 +212,114 @@ The input from these stakeholders can guide the later stages of the project as i
 
 
 \section{Risks} \label{sec:Risks}
+Risks take part in any project, these risks need to be: assessed and analysed, evaluated, and in some cases, treated and responded to.
+The risk management process and methods will be applied to these risks such that the success of the project is not  compromised.
+Some of the risks posed by this project are unavoidable and will need to be dealt with on a case by case basis. 
+Other risks can have contingency plans in place. 
+A list of possible risks are discussed in the subsections to follow.
+
+
+\subsection{Data Outages} \label{sec:DataOutages}
+There are always cases where data loggers are damaged, data corruption occurs, or data is lost. This can happen for a number of reasons. This results in outages in sections of the data. 
+There are a number of ways in which the system can be made to estimate the missing data points, however, this will never represent the actual data that was present in the first case. 
+
+The way in which the data loggers have been installed throughout the university is such that many were installed at different times. 
+This means that, as one looks further back into the past, the picture painted by the data becomes less indicative of the energy usage across most of the university. 
+
+In some cases, it is can be useful to visualize just where the data is missing, rather than estimating what the data was in that outage.
+This implies that the project can make use of this missing data to its advantage. There are a number of tools that allow one to make use of this fact \cite{missingdata1,missingdata2}.
+
+This fact about the system can end up requiring a large amount of work, which can mean manipulating the data to suit the users needs.
+
+A second important point to note about the data outages is where the data is coming from, this is introduced in the following subsection.
+
+\subsection{Web Scraping Dependencies} \label{sec:WebScrapingDependencies}
+It must be known that a major portion of the project relies on the data relayed by IST. IST are in control of the database, and currently, the only method to access this data is through their web portal. Gathering the data from this system has posed some potential challenges which have currently been overcome with the use of web scraping tools. 
+These tools simulate user interaction on the website in order to download the data from the website in chunks. The web scraping tool is manipulated such that it enters the information and selects the buttons that a user would do when they are interacting with the website. 
+This poses a risk for the gathering of the data in the case that the website is changed and the scripts used no longer function as they did when created. 
+The use of this web scraping tool is employed for this first section of the project as direct access to the database has not yet been granted to the project. 
+The risk that this poses is unlikely to heavily impact the project as the chances of the website being altered within the allotted time for the project is low.
+
+There solar panels provide a non-negligible amount of energy to the campus, and this system provides users with energy generation data. The project will also make use of web scraping in order to draw the relevant data. This method of drawing the data will also have the same risk posed as it can stop functioning with changes to the site structure.
+
+Included in this section is that of the security and validity of the data provided from this system. It is assumed that the data housed by IST will be safe and secure for the duration of the project and for the continued use of this system to be created. 
+The access to this system has been granted to the student group for the duration of the project and it is assumed that access to the site will be granted for the duration.
+During the research of the web scraping tools during the July holidays, there were periods where the site was down for maintenance, and there were also periods where it had reduced performance, this resulted in slow page load times. Fortunately this happened before the official start of the project, however, if it does occur during the project, it can have an impact on the projects timeline.
+
+
+The University is a public research institution, as such much of the information that it generates is available to the public. The information gathered from this system has not been released to the public before this point.  As the energy costs are publicly available, this project has a large responsibility for how the data is handled. The system currently in place is used as an accounts verifier among other uses. This means that the data on the system should not be tampered with, corrupted, or lost.  The relevant stakeholders will assist in the correct way to acquire this data safely. During the web scraping testing, it appears as if the security of the system is not as it should be as the users have direct read and write access to the data.
+This implies that the handling of this system should be handled with care.
+
+
+\subsection{Licensing} \label{sec:Licensing}
+This project is likely to make use of a large number of programming languages and tools in order to get the functionality required. Consequently, the licenses of these tools need to be considered for use in the project. At this stage of the project, it is not planned for the program to be sold as a product or make any revenue. 
+However, in such a case that the project is successful, it makes will be easier for future work to take place if the tools used have GPL or MIT licenses. This reduces the future work to change out the tools which require licenses to be purchased. Some simple guidelines are used for the choice of tools throughout the project, the licenses that are chosen will be along the lines of the GPL, MIT, or similar \cite{yegor}.
+
 
 \section{System Architecture} \label{sec:SystemArchitecture}
+
+This section makes use of a number of figures in which to illustrate the structure of the system. 
+Illustrated in Fig.~\ref{fig:dataloggers} represents the data loggers and their connection to the relevant buildings, transformers, and systems- each of which is then connected to the IST system.
+
+\begin{center}
+    \begin{figure}[htb]
+        \centering
+        \includegraphics[width=0.8\textwidth]{Data Logger.pdf}
+        \caption{Data Loggers and their Connection to the IST Server}
+        \label{fig:dataloggers}
+    \end{figure}
+\end{center}
+In the figure, the devices which are being measured can be from multiple different sources. These can be connected to main transformers, or to individual buildings. The managing of all of these buildings and how the systems are interconnected will require some work as there will be cases where one data logger will be measuring a main incomer, and several other data loggers will make up the buildings that are supplied by that incomer. 
+Once the data has been drawn from the data loggers, it will be a matter of piecing together the different sensors so that the system can be represented. 
+The line connecting the data loggers to their relevant systems will be direct connections via the sensors. The data loggers are then connected to the communications channel via different methods. Some of the data loggers are connected to the server via the Wits network, and some via 3G or other communications media. The methods by which the data loggers are connected to the system are not of importance to this project and will not be investigated, unless it proves to be beneficial to get an idea of which method of communication results in higher data outages.
+
+The IST server, as discussed above draws data from the meters every thirty minutes. This is then stored on the IST database for use on the ecWin web portal.
+
+The next section is that of the back-end, it becomes pertinent to illustrate the two together as they work together to create the system. 
+
+\begin{itemize}
+    \item Back-End
+    \begin{itemize}
+        \item Node.js
+        \item Python
+        \item Python Flask
+        \item Python Beautiful Soup
+        \item Python Requests
+        \item Selenium
+        \item Tableau
+        \item mySQL
+    \end{itemize}
+    \item Front-End
+    \begin{itemize}
+        \item HTML
+        \item CSS
+        \item JavaScript
+        \item D3.js
+        \item Dygraphs
+        \item Google Maps
+    \end{itemize}
+\end{itemize}
+
+\subsection{The Back-End}
+The back-end will be run on local machines such that the system can be hosted locally while development is under way. 
+The local server will be run by making use of Python's Flask package, this will work hand in hand with Node.js in order to manage all of the different languages and tasks that are required to take place within the system. 
+
+Python will be handling the majority of the calculations and data manipulation for the system. There are multiple Python packages which are used these are listed below:
+Python Beautiful Soup: Web scraping tool that draws data from the HTML pages required.
+Python Requests: Another web scraping tool which allows the system to make HTTP requests to specific web pages and gather data from those sites. 
+Python Selenium: Selenium is a package that is available from the Python database, it is as a higher level of web scraping, such that a script is capable of further and more advanced web scraping capabilities. This tool is capable of interacting with the JavaScript layer of the web page, where the other tools fall short. The use of this package is highly useful for the ecWin website as well as the solar panel web portals as they make use of AJAX web development techniques.
+
+The next three tools: D3.js, Dygraphs, and Tableau are used for the visualizing of specific parts of the data. This not a final list of tools to be used, however, it is believed that the first two tools will feature heavily in the final system. 
+
+It is important to consider in what format the data will be stored. Commonly, standard relational databases are used for managing some kinds of datasets. However, it must be noted that Dygraphs is designed to perform well when given comma separated value (CSV) files. The database that is used should be chosen based on a number of factors: performance, size, ease of use, visualization tool requirements, etc. 
+The database is important as this is the interface between the data, and the tools used by the system. It may be the case that one database type does not have to be the only implemented; there may be multiple database formats used for the different tools.  
+
+\subsection{The Front-End} \label{sec:TheFrontEnd}
+The front-end has been discussed in some detail above, however it is important to note that in most cases the front-end will be designed such that the majority of the work will be done by the server side. A number of tools used do, however, require some processing on the client side. The processing on the client side will come about because of the data visualization tools such as Dygraphs and D3.js. 
+
+Google Maps is an interesting addition to the front-end, as an attempt to show energy usage overlaid on a map can provide a different perspective on the system.
+
+This is likely to be a small selection of the tools that the project will eventually use, however, these will be capable of undertaking the majority of the visualization needs.
 
 \subsection{Website/Portal Architecture} \label{sec:WebsiteArchitecture}
 
@@ -244,7 +350,6 @@ Testing methods
 \section{Dependencies and Interfaces} \label{sec:DependenciesInterfaces}
 
 
-\section{Licensing} \label{sec:Licensing}
 
 \section{Documentation} \label{sec:Documentation}
 documentation - each and every part of the system makes use of markdown files which enable users to interact with the system and test it out on their machines. 
