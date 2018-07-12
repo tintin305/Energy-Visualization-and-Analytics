@@ -2,6 +2,18 @@
 title: Writing a Project Plan
 ---
 
+# Stated in the Brief
+
+The reports should detail the overall project description, milestones, risks and required resources as well as the implementation and project management of the project. Groups will be required to present the project plan at the start of the laboratory project.
+
+Risks may arise from a number of sources:
+
+* Occupational health and safety hazards
+* Ethics contraventions
+* Intellectual property infringement
+* IT security risks and
+* Project dependencies (people, data, or equipment) which become unavailable.
+
 # Major Points
 
 * Major Deliverables
@@ -32,7 +44,7 @@ title: Writing a Project Plan
 * Documentation
 * Unit Testing
 * How to properly do a project plan for a software project
-* How different sections of the system interface with eachother (how the data gatherer links up with the data converter, how the data converter works to link up with the next stage)
+* How different sections of the system interface with each-other (how the data gatherer links up with the data converter, how the data converter works to link up with the next stage)
 * Data Converter
 * Motives from different parties and what kinds of information they would want.
 * Look for differences between paid vs logged energy usage
