@@ -1406,9 +1406,9 @@ Package pdftex.def Info: images/Data Logger.pdf used on input line 267.
 pdfTeX warning: pdflatex (file ./images/Data Logger.pdf): PDF inclusion: invali
 d other resource which is no dict (key 'ProcSets', type <array>); ignored.
 >]
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no ï¿½ in font ptmr7t!
+Missing character: There is no ï¿½ in font ptmr7t!
+Missing character: There is no ï¿½ in font ptmr7t!
  [8]
 
 LaTeX Warning: File `ecwin.png' not found on input line 370.
