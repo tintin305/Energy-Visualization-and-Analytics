@@ -23,29 +23,33 @@
     * python is good at handling large data sets, look at other options
 * Linking energy usage and environmental factors
 
- * Important to:
+#
+*  Important to:
     * Demonstrate the concept
     * Communication of decisions
     * Not underestimate data handling side of the project
 * Choose methodology to use for testing
 * Use aspects of agile and scrum
 
+#
 * Plan is not final
     * Show ability to think through the requirements of the project
     * Motivate why you plan on doing things
 
+#
 * Milestones
     * Consider when and what to show people 
     * Plan for meetings with interested stake-holders and time to implement their suggestions
     * Go to meetings with something to show
         * Prototype, skeleton set-up
 
+#
 * Look at:
     * Power BI
     * Options for handling large data sets
         * Python
 
-
+#
 * People to talk to:
     * Milka from Dlab -> Bis (has loads of data)
     * Fana? - later
