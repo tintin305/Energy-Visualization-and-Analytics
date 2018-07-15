@@ -182,16 +182,18 @@ Where:
     \item J - System Testing
 \end{itemize}
 
-As it commonly works with gantt charts, there will be tasks which take less time than is scheduled, and they can also run over time, this shifts sections of the chart and effects tasks further down the line.
+As it commonly works with gantt charts, there will be tasks which take less time than scheduled, and they can also run over time, this shifts sections of the chart and effects tasks further down the line.
 There are a number of tasks which run throughout the entire project, these are documentation and system testing, this is done as it helps with the development process to run smoothly and any changes that happen to the system are always tested so that different components in the system are not affected with changes to any other system. This testing helps the interfacing of the different components run smoothly, this is discussed in section~\ref{sec:DependenciesInterfaces}.
 
 Finally, there is a task called \textit{Iterative Methodology}, this is where the \textit{tracer bullets} system comes into play, all of the tasks before this are set out to get the system up and running so that vulnerabilities and loopholes can be found in the system, and further visualizations can be added to the system. Once the data sets and the system as a whole is set up, it becomes a matter of working with the data to provide multiple visualizations with that data.
 
+It should be noted that the tasks described in this section have been planned such that they all follow a consecutive order, however, as discussed further down in the report, there are sections of the system which can have clearly defined inputs and outputs, this allows for earlier development of modules. This means that in some cases, modules can be worked on in parallel.
+
 \subsection{Working Times} \label{sec:WorkingTimes}
-It has been recommended that the working times for this project should be kept to a standard 08:00 to 17:00 working time, this is done this way so that the project can simulate a \textit{real} project. 
+It has been recommended that the working times for this project should be kept to a standard 08:00 to 17:00 working time, this is done this way so that the project can simulate a \textit{real} project in the working world.
 There may be cases where these times will have to be altered such that certain tasks can be completed within scheduled times.
 
-Throughout the project, meetings with the project supervisor, as well as other individuals will take place, these will be used for consulting purposes and follow up meetings with progress on the project.
+Throughout the project, meetings with the project supervisor, as well as other individuals, will take place; these will be used for consulting purposes and follow up meetings with progress on the project.
 
 
 \subsection{Milestones and Deliverables} \label{sec:MilestonesAndDeliverables}
@@ -246,10 +248,41 @@ Included in this section is that of the security and validity of the data provid
 The access to this system has been granted to the student group for the duration of the project and it is assumed that access to the site will be granted for the duration.
 During the research of the web scraping tools during the July holidays, there were periods where the site was down for maintenance, and there were also periods where it had reduced performance, this resulted in slow page load times. Fortunately this happened before the official start of the project, however, if it does occur during the project, it can have an impact on the projects timeline.
 
+\subsection{Intellectual Property and Ethics} \label{sec:IntellectualPropertyEthics}
 
 The University is a public research institution, as such much of the information that it generates is available to the public. The information gathered from this system has not been released to the public before this point.  As the energy costs are publicly available, this project has a large responsibility for how the data is handled. The system currently in place is used as an accounts verifier among other uses. This means that the data on the system should not be tampered with, corrupted, or lost.  The relevant stakeholders will assist in the correct way to acquire this data safely. During the web scraping testing, it appears as if the security of the system is not as it should be as the users have direct read and write access to the data.
 This implies that the handling of this system should be handled with care.
 
+
+% Table for risks
+\begin{table}[!t]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+%if using array.sty, it might be a good idea to tweak the value of
+%\extrarowheight as needed to properly center the text within the cells
+\caption{Risks}
+\label{tab:risks}
+\centering
+% Some packages, such as MDW tools, offer better commands for making tables
+% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|c||c||c||c|}
+\hline
+Risk & Risk Level & Risk Impact & Comments \\
+\hline
+IST System Down & Four & & \\
+IST System Crash & & & \\
+IST System Change & & & \\
+Project Data Loss (damaged computer) & & & \\
+Team's ability & & & \\
+Intellectual Property/Plagiarism & & & \\
+Internet Access Loss & & & \\
+Budget Risk & & & \\
+Communication & & & \\
+Changes in Tools (leading to malfunctioning system) & & & \\
+
+\hline
+\end{tabular}
+\end{table}
 
 \subsection{Licensing} \label{sec:Licensing}
 This project is likely to make use of a large number of programming languages and tools in order to get the functionality required. Consequently, the licenses of these tools need to be considered for use in the project. At this stage of the project, it is not planned for the program to be sold as a product or make any revenue. 
