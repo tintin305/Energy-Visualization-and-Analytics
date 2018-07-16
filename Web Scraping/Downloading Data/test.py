@@ -37,7 +37,7 @@ def channelSelector():
         meterLimiter = 30
     else:
         meterLimiter = 99
-    channelIterator = range(prevMax+0,prevMax+meterLimiter)
+    channelIterator = range(prevMax,prevMax+meterLimiter)
     for checkBox in channelIterator:
         channelSelectorCheckBox = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelBtn' + str(checkBox) + '_D')
         # To check whether the selected checkbox is already checked
@@ -85,19 +85,19 @@ def chromeRun():
     # Find the operating system
     operatingSystem = platform.system()
     if operatingSystem is 'Windows':
-        chrome_path = "./Chrome_Driver/Windows/chromedriver.exe"
+        chromePath = "./Chrome_Driver/Windows/chromedriver.exe"
     if operatingSystem is "Mac":
-        chrome_path = "./Chrome_Driver/Mac/chromedriver"
+        chromePath = "./Chrome_Driver/Mac/chromedriver"
     if operatingSystem is "Linux":
-        chrome_path = "./Chrome_Driver/Linux/chromedriver"
+        chromePath = "./Chrome_Driver/Linux/chromedriver"
 
     # Run Chrome Headless
-    chrome_options = Options()
+    chromeOptions = Options()
     # chrome_options.add_argument("--headless")
     # chrome_options.add_argument("--window-size=1920x1080")
     # chrome_options.add_argument
     global driver
-    driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chrome_path)
+    driver = webdriver.Chrome(chrome_options=chromeOptions, executable_path=chromePath)
     driver.implicitly_wait(30)
     driver.maximize_window()
     driver.get(url)
@@ -115,8 +115,10 @@ def userLogin():
     loginButton.click()
 
     # Enter new url once logged in that redirects to the data editor
+    # https://www.ecwin.co.za/ecWIN/wits/7.0.12.1/MODULES/REPORT/aspx/ReportViewer.aspx
     dataEditorUrl = "https://www.ecwin.co.za/ecWIN/wits/7.0.12.1/MODULES/DATAEDITOR/aspx/DataEditor.aspx"
     driver.get(dataEditorUrl)
+    return
 
 #Main
 chromeRun()
