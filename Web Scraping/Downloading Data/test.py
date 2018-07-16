@@ -6,6 +6,7 @@ import re
 import pandas as pd
 import os
 from time import sleep
+import platform
 
 def channelDateSelector():
     # Click the arrow button which opens the channel and date selector panel
@@ -81,11 +82,22 @@ def nextChannelSet():
 
 def chromeRun():
     url = "https://www.ecwin.co.za/ecWIN/wits/Login"
-    chrome_options = Options()
+    # Find the operating system
+    operatingSystem = platform.system()
+    if operatingSystem is 'Windows':
+        chrome_path = "./Chrome_Driver/Windows/chromedriver.exe"
+    if operatingSystem is "Mac":
+        chrome_path = "./Chrome_Driver/Mac/chromedriver"
+    if operatingSystem is "Linux":
+        chrome_path = "./Chrome_Driver/Linux/chromedriver"
+
     # Run Chrome Headless
+    chrome_options = Options()
     # chrome_options.add_argument("--headless")
     # chrome_options.add_argument("--window-size=1920x1080")
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    # chrome_options.add_argument
+    global driver
+    driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chrome_path)
     driver.implicitly_wait(30)
     driver.maximize_window()
     driver.get(url)
@@ -110,12 +122,12 @@ def userLogin():
 chromeRun()
 userLogin()
 # The order of things:
-    1. channelDateSelector()
-    2. dateSelector()
-    3. channelSelector()
-    4. viewDataButton()
-    5. exportDataButton()
-    6. Loop
+    # 1. channelDateSelector()
+    # 2. dateSelector()
+    # 3. channelSelector()
+    # 4. viewDataButton()
+    # 5. exportDataButton()
+    # 6. Loop
 
 
 
