@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.action_chains import ActionChains
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
@@ -41,7 +42,7 @@ def dateSelector(year, isFirstHalf):
 def channelSelector(channelIterator):
 # Ensures that all checkboxes are un-ticked
     print("start of channel selector")
-    # tickAllToggleButton = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
+    tickAllToggleButton = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
     # tickAllToggleButton.click()
     # tickAllToggleButton.click()
     for checkBox in channelIterator:
@@ -49,10 +50,21 @@ def channelSelector(channelIterator):
         # To check whether the selected checkbox is already checked
         isTickedText = channelSelectorCheckBox.get_attribute("class")
         isCheckedTest = "dxWeb_edtCheckBoxChecked_DevEx dxICheckBox_DevEx dxichSys"
-        sleep(0.3)
-        if isTickedText != isCheckedTest:
+
+        # isCheckedTest = "dxICheckBox_DevEx dxichSys dxWeb_edtCheckBoxUnchecked_DevEx"
+        print(isTickedText)
+        print(len(isTickedText) == 59)
+        sleep(0.5)
+        c = isTickedText.count("Unchecked")
+        print(c)
+        # print(isTickedText == "dxWeb_edtCheckBoxChecked_DevEx dxICheckBox_DevEx dxichSys")
+        # if str(isTickedText) != "dxWeb_edtCheckBoxChecked_DevEx dxICheckBox_DevEx dxichSys":
+        # if len(isTickedText) == 59:
+        if c >0:
             channelSelectorCheckBox.click()
             print("click")
+        else:
+            print('Already ticked')
     return
 
 def channelRangeDeterminer(rangeNr):
@@ -114,10 +126,25 @@ def chromeRun():
     # chrome_options.add_argument("--headless")
     # chrome_options.add_argument("--window-size=1920x1080")
     # chrome_options.add_argument
+
+
     global driver
     driver = webdriver.Chrome(chrome_options=chromeOptions, executable_path=chromePath)
     driver.implicitly_wait(30)
     driver.maximize_window()
+
+    sleep(2)
+    # Proxy Settings
+   # driver.switchTo().alert().sendKeys("\788579");
+
+
+    # actions = ActionChains(driver)
+    # actions.send_keys("ISTPassword\788579")
+    # actions.send_keys(Keys.TAB)
+    # actions.send_keys("CNSPass5110")
+    # actions.send_keys(Keys.TAB)
+    # actions.send_keys(Keys.ENTER)
+
     driver.get(url)
     return
 
@@ -140,19 +167,25 @@ def userLogin():
 
 #Main
 chromeRun() # Opens chrome
+
+
+
 userLogin() # Logs into ecWin site, goes to data editor site
 channelDateSelector()  # Clicks button to open side panel
 
 totCheckBoxes = 623
 totNrRanges = math.ceil(totCheckBoxes/25)
 
-for checkBoxRange in range(1, totNrRanges+1):
-    if checkBoxRange%4 is 0:
-        nextChannelSet()
-        print('NextPage')
+# for checkBoxRange in range(1, totNrRanges+1):
+# for checkBoxRange in range(3, totNrRanges+1):
+#     if (checkBoxRange-1)%4 is 0:
+#         nextChannelSet()
+#         print('NextPage')
 
-    channelIter = channelRangeDeterminer(checkBoxRange)
-    channelSelector(channelIter)
+#     channelIter = channelRangeDeterminer(checkBoxRange)
+    # channelSelector(channelIter)
+channelSelector(range(1,5))
+channelSelector(range(3,7))
   
 
 
