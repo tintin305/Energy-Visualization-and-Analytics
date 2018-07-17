@@ -7,6 +7,8 @@ import pandas as pd
 import os
 from time import sleep
 import platform
+import datetime
+import math 
 
 def channelDateSelector():
     # Click the arrow button which opens the channel and date selector panel
@@ -14,15 +16,20 @@ def channelDateSelector():
     channelSelectorBtn.click()
     return
 
-def dateSelector(i,j):
+def dateSelector(year, isFirstHalf):
     # Enter the required dates
     dateSelectorStart = driver.find_element_by_id('ContentPlaceHolder_Body_ctrlEntitySelector_ctrlDatePicker_txtStartDate')
     dateSelectorEnd = driver.find_element_by_id('ContentPlaceHolder_Body_ctrlEntitySelector_ctrlDatePicker_txtEndDate')
 
+    if isFirstHalf is True:
     # Formatting the dates
-    startDate = str(i) + "-" + str(j) + "-" + "01" + " 00:00"
-    endDate = str(i) + "-" + str(j+1) + "-" + "01" + " 00:00"
-    
+        startDate = str(year) + "-" + str(1) + "-" + "01" + " 00:00"
+        endDate = str(year) + "-" + str(7) + "-" + "02" + " 00:00"
+    else:
+        startDate = str(year) + "-" + str(7) + "-" + "01" + " 00:00"
+        endDate = str(year+1) + "-" + str(1) + "-" + "02" + " 00:00"
+
+
     dateSelectorStart.send_keys(Keys.CONTROL, "a")
     dateSelectorStart.send_keys(startDate)
     dateSelectorStart.send_keys(Keys.ENTER)
@@ -31,24 +38,30 @@ def dateSelector(i,j):
     dateSelectorEnd.send_keys(Keys.ENTER)
     return
 
-def channelSelector():
-    # Select the required channel
-    if prevMax >= 600:
-        meterLimiter = 30
-    else:
-        meterLimiter = 99
-    channelIterator = range(prevMax,prevMax+meterLimiter)
+def channelSelector(channelIterator):
+# Ensures that all checkboxes are un-ticked
+    print("start of channel selector")
+    # tickAllToggleButton = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
+    # tickAllToggleButton.click()
+    # tickAllToggleButton.click()
+    # print('Click and un-clicked all')
     for checkBox in channelIterator:
         channelSelectorCheckBox = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelBtn' + str(checkBox) + '_D')
         # To check whether the selected checkbox is already checked
-        tickAllToggleButton = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
-        tickAllToggleButton.click()
-        tickAllToggleButton.click()
         isTickedText = channelSelectorCheckBox.get_attribute("class")
         isCheckedTest = "dxWeb_edtCheckBoxChecked_DevEx dxICheckBox_DevEx dxichSys"
         if isTickedText != isCheckedTest:
             channelSelectorCheckBox.click()
     return
+
+def channelRangeDeterminer(rangeNr):
+    # determines first and last checkbox in the required range
+    firstBox = (rangeNr-1)*25
+    lastBox = rangeNr*25 -1
+
+    channelRange = range(firstBox, lastBox)
+    print(firstBox)
+    return channelRange
 
 def viewDataButton():
     # Click the view button
@@ -64,12 +77,12 @@ def exportDataButton():
     exportDataButtonVar.click()
     return
 
-def loopDateGetter(prevMax):
-    # Define the dates to be downloaded
-    year = range(2013,2018)
-    month = range(1,12)
-    day = 1
-    return
+# def loopDateGetter(prevMax):
+#     # Define the dates to be downloaded
+#     year = range(2013,2018)
+#     month = range(1,12)
+#     day = 1
+#     return
 
 def nextChannelSet():
     # Click the arrow button which opens the channel and date selector panel then go to the next page of meters
@@ -121,9 +134,36 @@ def userLogin():
     return
 
 #Main
-chromeRun()
-userLogin()
-channelDateSelector()
+chromeRun() # Opens chrome
+userLogin() # Logs into ecWin site, goes to data editor site
+channelDateSelector()  # Clicks button to open side panel
+
+totCheckBoxes = 623
+totNrRanges = math.ceil(totCheckBoxes/25)
+print(totNrRanges)
+for checkBoxRange in range(1, totNrRanges):
+    channelIter = channelRangeDeterminer(checkBoxRange)
+    channelSelector(channelIter)
+    sleep(2)
+
+
+#now = datetime.datetime.now()
+currentYear = datetime.datetime.now().year
+# Define date range variables
+yearRange = range(2013, currentYear+1)
+
+# Loop channel selection
+    # Loop date selection
+
+#for year in yearRange:
+ #   dateSelector(year, True) # selects first 6 months in the year
+   
+  #  dateSelector(year, False) # selects last 6 months in the year 
+    
+
+
+
+
 
 # Two methods: 
     # 1: Loop through the dates for the first few selected channels, then loop through the next channels and the next dates
