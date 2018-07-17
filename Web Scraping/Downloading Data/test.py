@@ -43,8 +43,11 @@ def channelSelector(channelIterator):
 # Ensures that all checkboxes are un-ticked
     print("start of channel selector")
     tickAllToggleButton = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
-    # tickAllToggleButton.click()
-    # tickAllToggleButton.click()
+    sleep(1)
+    tickAllToggleButton.click()
+    sleep(2.75)
+    tickAllToggleButton2 = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
+    tickAllToggleButton2.click()
     for checkBox in channelIterator:
         channelSelectorCheckBox = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelBtn' + str(checkBox) + '_D')
         # To check whether the selected checkbox is already checked
