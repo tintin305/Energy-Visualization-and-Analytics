@@ -123,6 +123,14 @@ def userLogin():
 #Main
 chromeRun()
 userLogin()
+channelDateSelector()
+
+# Two methods: 
+    # 1: Loop through the dates for the first few selected channels, then loop through the next channels and the next dates
+    # 2: Loop through the channels for a date range, then go onto the next date range.
+    # I believe that 1. will be faster because it does not have to refresh the checkboxes panel and does not have to click the next page of channels button that often.
+
+
 # The order of things:
     # 1. channelDateSelector()
     # 2. dateSelector()
