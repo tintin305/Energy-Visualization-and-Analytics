@@ -44,23 +44,24 @@ def channelSelector(channelIterator):
     # tickAllToggleButton = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
     # tickAllToggleButton.click()
     # tickAllToggleButton.click()
-    # print('Click and un-clicked all')
     for checkBox in channelIterator:
         channelSelectorCheckBox = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelBtn' + str(checkBox) + '_D')
         # To check whether the selected checkbox is already checked
         isTickedText = channelSelectorCheckBox.get_attribute("class")
         isCheckedTest = "dxWeb_edtCheckBoxChecked_DevEx dxICheckBox_DevEx dxichSys"
+        sleep(0.3)
         if isTickedText != isCheckedTest:
             channelSelectorCheckBox.click()
+            print("click")
     return
 
 def channelRangeDeterminer(rangeNr):
     # determines first and last checkbox in the required range
     firstBox = (rangeNr-1)*25
-    lastBox = rangeNr*25 -1
+    lastBox = rangeNr*25 
 
     channelRange = range(firstBox, lastBox)
-    print(firstBox)
+    print(channelRange)
     return channelRange
 
 def viewDataButton():
@@ -86,11 +87,15 @@ def exportDataButton():
 
 def nextChannelSet():
     # Click the arrow button which opens the channel and date selector panel then go to the next page of meters
-    channelSelectorBtn = driver.find_element_by_id('ContentPlaceHolder_Body_ctrlEntitySelector_iconShowEntitySelection')
-    channelSelectorBtn.click()
+
+    # channelSelectorBtn = driver.find_element_by_id('ContentPlaceHolder_Body_ctrlEntitySelector_iconShowEntitySelection')
+    # channelSelectorBtn.click()
+
     # driver.get_screenshot_as_file("channelselectorbtn.png")
     nextChannelsButton = driver.find_element_by_class_name('dxWeb_pNext_DevEx')
     nextChannelsButton.click()
+    print("next page")
+    sleep(4)
     return
 
 def chromeRun():
@@ -140,11 +145,15 @@ channelDateSelector()  # Clicks button to open side panel
 
 totCheckBoxes = 623
 totNrRanges = math.ceil(totCheckBoxes/25)
-print(totNrRanges)
-for checkBoxRange in range(1, totNrRanges):
+
+for checkBoxRange in range(1, totNrRanges+1):
+    if checkBoxRange%4 is 0:
+        nextChannelSet()
+        print('NextPage')
+
     channelIter = channelRangeDeterminer(checkBoxRange)
     channelSelector(channelIter)
-    sleep(2)
+  
 
 
 #now = datetime.datetime.now()
