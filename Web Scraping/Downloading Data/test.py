@@ -49,22 +49,10 @@ def channelSelector(channelIterator):
         channelSelectorCheckBox = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelBtn' + str(checkBox) + '_D')
         # To check whether the selected checkbox is already checked
         isTickedText = channelSelectorCheckBox.get_attribute("class")
-        isCheckedTest = "dxWeb_edtCheckBoxChecked_DevEx dxICheckBox_DevEx dxichSys"
-
-        # isCheckedTest = "dxICheckBox_DevEx dxichSys dxWeb_edtCheckBoxUnchecked_DevEx"
-        print(isTickedText)
-        print(len(isTickedText) == 59)
-        sleep(0.5)
+        sleep(0.3)
         c = isTickedText.count("Unchecked")
-        print(c)
-        # print(isTickedText == "dxWeb_edtCheckBoxChecked_DevEx dxICheckBox_DevEx dxichSys")
-        # if str(isTickedText) != "dxWeb_edtCheckBoxChecked_DevEx dxICheckBox_DevEx dxichSys":
-        # if len(isTickedText) == 59:
         if c >0:
             channelSelectorCheckBox.click()
-            print("click")
-        else:
-            print('Already ticked')
     return
 
 def channelRangeDeterminer(rangeNr):
@@ -177,15 +165,14 @@ totCheckBoxes = 623
 totNrRanges = math.ceil(totCheckBoxes/25)
 
 # for checkBoxRange in range(1, totNrRanges+1):
-# for checkBoxRange in range(3, totNrRanges+1):
-#     if (checkBoxRange-1)%4 is 0:
-#         nextChannelSet()
-#         print('NextPage')
+for checkBoxRange in range(1, totNrRanges+1):
+    if (checkBoxRange-1)%4 is 0:
+        if checkBoxRange != 1:
+            nextChannelSet()
+        print('NextPage')
 
-#     channelIter = channelRangeDeterminer(checkBoxRange)
-    # channelSelector(channelIter)
-channelSelector(range(1,5))
-channelSelector(range(3,7))
+    channelIter = channelRangeDeterminer(checkBoxRange)
+    channelSelector(channelIter)
   
 
 
