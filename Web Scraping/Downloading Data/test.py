@@ -85,7 +85,9 @@ def viewDataButton():
     #     element = WebDriverWait(driver, 200).until(expected_conditions.presence_of_element_located((By.ID, "ContentPlaceHolder_Body_btnSave")))
     # except:
     #     print('too slow')
-    sleep(50)
+    # sleep(50)
+    
+    WebDriverWait(driver, 150).until(expected_conditions.staleness_of(viewDataButtonVar)) 
     return
 
 def exportDataButton():
@@ -94,7 +96,7 @@ def exportDataButton():
     exportDataButtonVar = driver.find_element_by_id('ContentPlaceHolder_Body_btnExportData')
     exportDataButtonVar.click()
     print('export clicked')
-    sleep(10)
+    sleep(1)
     return
 
 # def loopDateGetter(prevMax):
