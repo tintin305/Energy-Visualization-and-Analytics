@@ -2,6 +2,11 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
@@ -43,9 +48,9 @@ def channelSelector(channelIterator):
 # Ensures that all checkboxes are un-ticked
     print("start of channel selector")
     tickAllToggleButton = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
-    sleep(1)
+    sleep(2)
     tickAllToggleButton.click()
-    sleep(2.8)
+    sleep(4)
     tickAllToggleButton2 = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
     tickAllToggleButton2.click()
     sleep(2)
@@ -63,7 +68,6 @@ def channelRangeDeterminer(rangeNr):
     # determines first and last checkbox in the required range
     firstBox = (rangeNr-1)*25
     lastBox = rangeNr*25 
-
     channelRange = range(firstBox, lastBox)
     print(channelRange)
     return channelRange
@@ -72,14 +76,21 @@ def viewDataButton():
     # Click the view button
     viewDataButtonVar = driver.find_element_by_id('ContentPlaceHolder_Body_btnView')
     viewDataButtonVar.click()
+    print('view clicked')
+    # try:
+    #     element = WebDriverWait(driver, 200).until(expected_conditions.presence_of_element_located((By.ID, "ContentPlaceHolder_Body_btnSave")))
+    # except:
+    #     print('too slow')
+    sleep(12)
     return
 
 def exportDataButton():
     # Click the export button
     # This sleep is required such that the error: "Other element would receive click" does not happen
-    sleep(15)
     exportDataButtonVar = driver.find_element_by_id('ContentPlaceHolder_Body_btnExportData')
     exportDataButtonVar.click()
+    print('export clicked')
+    sleep(15)
     return
 
 # def loopDateGetter(prevMax):
@@ -115,8 +126,9 @@ def chromeRun():
 
     # Run Chrome Headless
     chromeOptions = Options()
-    # chrome_options.add_argument("--headless")
-    # chrome_options.add_argument("--window-size=1920x1080")
+    # chromeOptions.add_argument("--headless")
+    # chromeOptions.add_argument("--window-size=1920x1080")
+
     # chrome_options.add_argument
 
 
@@ -163,27 +175,68 @@ chromeRun() # Opens chrome
 
 
 userLogin() # Logs into ecWin site, goes to data editor site
+# select number of decimal places (#.####)
+
+# s3= Select(driver.find_element_by_id('id_of_element'))
+# decimalPlaces = driver.find_element_by_class_name('filter-option pull-left')
+# drop down menu
+# decimalPlaces = driver.find_element_by_xpath("//[@id='ContentPlaceHolder_Body_divFilterPanel']/div[2]/table/tbody/tr[1]/td[2]/div/button")
+
+decimalPlaces = driver.find_element_by_xpath("//button[@data-id='ContentPlaceHolder_Body_ddlDecimalPlaces']")
+
+decimalPlaces.click()
+
+actionsTab = ActionChains(driver)
+actionsTab.send_keys(Keys.TAB)
+actionsTab.perform()
+sleep(2)
+actionsTab.perform()
+sleep(2)
+
+actionsEnter = ActionChains(driver)
+actionsEnter.send_keys(Keys.ENTER)
+actionsEnter.perform()
+
+# sleep(0.5)
+# selectedDropDown = driver.find_element_by_xpath("//button[@data-id='ContentPlaceHolder_Body_ddlDecimalPlaces']")
+
+# sleep(0.5)
+# selectedDropDown.send_keys(Keys.DOWN)
+# sleep(0.5)
+# selectedDropDown.send_keys(Keys.TAB)
+# sleep(0.5)
+# selectedDropDown.send_keys(Keys.ENTER)
+
+
+# decimalPlaces.select_by_visible_text('#.####')
+sleep(5)
+
 channelDateSelector()  # Clicks button to open side panel
 
 totCheckBoxes = 623
 totNrRanges = math.ceil(totCheckBoxes/25)
-
-# for checkBoxRange in range(1, totNrRanges+1):
-for checkBoxRange in range(1, totNrRanges+1):
-    if (checkBoxRange-1)%4 is 0:
-        if checkBoxRange != 1:
-            nextChannelSet()
-        print('NextPage')
-
-    channelIter = channelRangeDeterminer(checkBoxRange)
-    channelSelector(channelIter)
-  
-
+# totNrRanges = 2
 
 #now = datetime.datetime.now()
 currentYear = datetime.datetime.now().year
 # Define date range variables
 yearRange = range(2013, currentYear+1)
+
+# for checkBoxRange in range(1, totNrRanges+1):
+for checkBoxRange in range(1, totNrRanges+1):
+    if (checkBoxRange-1)%4 is 0:
+        if checkBoxRange != 1:
+            nextChannelSet() # goes to next page of check boxes
+        print('NextPage')
+
+    channelIter = channelRangeDeterminer(checkBoxRange) # determines the numbers for the checkboxes in that range
+    channelSelector(channelIter) # selects the checkboxes in the given range
+    viewDataButton() # clicks the view data button
+    exportDataButton()
+    # Need: reset button (for explicit wait)
+    channelDateSelector() # open side panel
+  
+
 
 # Loop channel selection
     # Loop date selection
