@@ -90,7 +90,7 @@ def exportDataButton():
     exportDataButtonVar = driver.find_element_by_id('ContentPlaceHolder_Body_btnExportData')
     exportDataButtonVar.click()
     print('export clicked')
-    sleep(15)
+    sleep(10)
     return
 
 # def loopDateGetter(prevMax):
@@ -169,55 +169,37 @@ def userLogin():
     driver.get(dataEditorUrl)
     return
 
+def selectDecimalPlaces():
+    decimalPlaces = driver.find_element_by_xpath("//button[@data-id='ContentPlaceHolder_Body_ddlDecimalPlaces']")
+
+    decimalPlaces.click()
+
+    actionsTab = ActionChains(driver)
+    actionsTab.send_keys(Keys.TAB)
+    actionsTab.perform()
+    sleep(2)
+    actionsTab.perform()
+    sleep(2)
+
+    actionsEnter = ActionChains(driver)
+    actionsEnter.send_keys(Keys.ENTER)
+    actionsEnter.perform()
+
+    
+    sleep(5)
+    return
+
 #Main
 chromeRun() # Opens chrome
 
 
 
 userLogin() # Logs into ecWin site, goes to data editor site
-# select number of decimal places (#.####)
-
-# s3= Select(driver.find_element_by_id('id_of_element'))
-# decimalPlaces = driver.find_element_by_class_name('filter-option pull-left')
-# drop down menu
-# decimalPlaces = driver.find_element_by_xpath("//[@id='ContentPlaceHolder_Body_divFilterPanel']/div[2]/table/tbody/tr[1]/td[2]/div/button")
-
-decimalPlaces = driver.find_element_by_xpath("//button[@data-id='ContentPlaceHolder_Body_ddlDecimalPlaces']")
-
-decimalPlaces.click()
-
-actionsTab = ActionChains(driver)
-actionsTab.send_keys(Keys.TAB)
-actionsTab.perform()
-sleep(2)
-actionsTab.perform()
-sleep(2)
-
-actionsEnter = ActionChains(driver)
-actionsEnter.send_keys(Keys.ENTER)
-actionsEnter.perform()
-
-# sleep(0.5)
-# selectedDropDown = driver.find_element_by_xpath("//button[@data-id='ContentPlaceHolder_Body_ddlDecimalPlaces']")
-
-# sleep(0.5)
-# selectedDropDown.send_keys(Keys.DOWN)
-# sleep(0.5)
-# selectedDropDown.send_keys(Keys.TAB)
-# sleep(0.5)
-# selectedDropDown.send_keys(Keys.ENTER)
-
-
-# decimalPlaces.select_by_visible_text('#.####')
-sleep(5)
-
+selectDecimalPlaces() # select number of decimal places (#.####)
 channelDateSelector()  # Clicks button to open side panel
-
 totCheckBoxes = 623
 totNrRanges = math.ceil(totCheckBoxes/25)
 # totNrRanges = 2
-
-#now = datetime.datetime.now()
 currentYear = datetime.datetime.now().year
 # Define date range variables
 yearRange = range(2013, currentYear+1)
@@ -227,10 +209,15 @@ for checkBoxRange in range(1, totNrRanges+1):
     if (checkBoxRange-1)%4 is 0:
         if checkBoxRange != 1:
             nextChannelSet() # goes to next page of check boxes
-        print('NextPage')
+            print('NextPage')
 
     channelIter = channelRangeDeterminer(checkBoxRange) # determines the numbers for the checkboxes in that range
     channelSelector(channelIter) # selects the checkboxes in the given range
+    
+#for year in yearRange:
+ #   dateSelector(year, True) # selects first 6 months in the year
+   
+  #  dateSelector(year, False) # selects last 6 months in the year 
     viewDataButton() # clicks the view data button
     exportDataButton()
     # Need: reset button (for explicit wait)
