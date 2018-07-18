@@ -46,13 +46,13 @@ def dateSelector(year, isFirstHalf):
 
 def channelSelector(channelIterator):
 # Ensures that all checkboxes are un-ticked
-    print("start of channel selector")
+    # print("start of channel selector")
     tickAllToggleButton = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
-    sleep(2)
+    sleep(1)
     tickAllToggleButton.click()
     
     WebDriverWait(driver, 10).until(expected_conditions.staleness_of(tickAllToggleButton)) 
-    print('after wait')
+    # print('after wait')
     tickAllToggleButton2 = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
     tickAllToggleButton2.click()
     
@@ -62,7 +62,7 @@ def channelSelector(channelIterator):
         channelSelectorCheckBox = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelBtn' + str(checkBox) + '_D')
         # To check whether the selected checkbox is already checked
         isTickedText = channelSelectorCheckBox.get_attribute("class")
-        sleep(0.3)
+        WebDriverWait(driver, 10).until(expected_conditions.visibility_of(channelSelectorCheckBox))  
         c = isTickedText.count("Unchecked")
         if c >0:
             channelSelectorCheckBox.click()
@@ -80,12 +80,7 @@ def viewDataButton():
     # Click the view button
     viewDataButtonVar = driver.find_element_by_id('ContentPlaceHolder_Body_btnView')
     viewDataButtonVar.click()
-    print('view clicked')
-    # try:
-    #     element = WebDriverWait(driver, 200).until(expected_conditions.presence_of_element_located((By.ID, "ContentPlaceHolder_Body_btnSave")))
-    # except:
-    #     print('too slow')
-    # sleep(50)
+    # print('view clicked')
     
     WebDriverWait(driver, 150).until(expected_conditions.staleness_of(viewDataButtonVar)) 
     return
@@ -95,7 +90,7 @@ def exportDataButton():
     # This sleep is required such that the error: "Other element would receive click" does not happen
     exportDataButtonVar = driver.find_element_by_id('ContentPlaceHolder_Body_btnExportData')
     exportDataButtonVar.click()
-    print('export clicked')
+    # print('export clicked')
     sleep(1)
     return
 
@@ -115,8 +110,7 @@ def nextChannelSet():
     # driver.get_screenshot_as_file("channelselectorbtn.png")
     nextChannelsButton = driver.find_element_by_class_name('dxWeb_pNext_DevEx')
     nextChannelsButton.click()
-    print("next page")
-    sleep(4)
+    WebDriverWait(driver, 10).until(expected_conditions.staleness_of(nextChannelsButton)) 
     return
 
 def chromeRun():
@@ -140,10 +134,12 @@ def chromeRun():
 
     global driver
     driver = webdriver.Chrome(chrome_options=chromeOptions, executable_path=chromePath)
-    driver.implicitly_wait(30)
+    # driver.implicitly_wait(30)
+    
+    WebDriverWait(driver, 30).until(expected_conditions.number_of_windows_to_be(1)) 
     driver.maximize_window()
 
-    sleep(2)
+    # sleep(2)
     # Proxy Settings
    # driver.switchTo().alert().sendKeys("\788579");
 
@@ -190,7 +186,7 @@ def selectDecimalPlaces():
     actionsEnter.perform()
 
     
-    sleep(5)
+    sleep(2)
     return
 
 #Main
@@ -213,7 +209,7 @@ for checkBoxRange in range(1, totNrRanges+1):
     if (checkBoxRange-1)%4 is 0:
         if checkBoxRange != 1:
             nextChannelSet() # goes to next page of check boxes
-            print('NextPage')
+            # print('NextPage')
 
     channelIter = channelRangeDeterminer(checkBoxRange) # determines the numbers for the checkboxes in that range
     channelSelector(channelIter) # selects the checkboxes in the given range
