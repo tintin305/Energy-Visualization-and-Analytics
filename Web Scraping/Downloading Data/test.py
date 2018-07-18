@@ -81,7 +81,7 @@ def viewDataButton():
     #     element = WebDriverWait(driver, 200).until(expected_conditions.presence_of_element_located((By.ID, "ContentPlaceHolder_Body_btnSave")))
     # except:
     #     print('too slow')
-    sleep(12)
+    sleep(50)
     return
 
 def exportDataButton():
@@ -214,14 +214,23 @@ for checkBoxRange in range(1, totNrRanges+1):
     channelIter = channelRangeDeterminer(checkBoxRange) # determines the numbers for the checkboxes in that range
     channelSelector(channelIter) # selects the checkboxes in the given range
     
-#for year in yearRange:
- #   dateSelector(year, True) # selects first 6 months in the year
-   
-  #  dateSelector(year, False) # selects last 6 months in the year 
-    viewDataButton() # clicks the view data button
-    exportDataButton()
-    # Need: reset button (for explicit wait)
-    channelDateSelector() # open side panel
+    for year in yearRange:
+        dateSelector(year, True) # selects first 6 months in the year
+        viewDataButton() # clicks the view data button
+        exportDataButton()
+        # Need: reset button (for explicit wait)
+        channelDateSelector() # open side panel
+        
+        dateSelector(year, False) # selects last 6 months in the year 
+        viewDataButton() # clicks the view data button
+        exportDataButton()
+        # Need: reset button (for explicit wait)
+        channelDateSelector() # open side panel
+
+    # viewDataButton() # clicks the view data button
+    # exportDataButton()
+    # # Need: reset button (for explicit wait)
+    # channelDateSelector() # open side panel
   
 
 
