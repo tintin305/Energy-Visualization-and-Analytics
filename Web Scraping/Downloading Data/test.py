@@ -50,7 +50,10 @@ def channelSelector(channelIterator):
     tickAllToggleButton = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
     sleep(2)
     tickAllToggleButton.click()
-    sleep(4)
+    # sleep(4)
+    
+    WebDriverWait(driver, 10).until(expected_conditions.staleness_of(tickAllToggleButton)) 
+    print('after wait')
     tickAllToggleButton2 = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
     tickAllToggleButton2.click()
     sleep(2)
