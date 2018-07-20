@@ -211,3 +211,9 @@ You can start MongoDB as a service, not sure if we should do that just yet.
 The folks at Graphite have created a system called "[Synthesize](http://graphiteapp.org/quick-start-guides/synthesize.html)" which is a "fully automated installation and configuration script for the Graphite stack".
 
 It appears that the easiest way to test it out is to use Vagrant (sort of like virtualbox).
+
+### KarosDB
+
+Following the [guide](http://kairosdb.github.io/docs/build/html/GettingStarted.html)
+
+[Link](https://github.com/kairosdb/kairosdb/releases/download/v1.3.0-beta1/kairosdb-1.3.0-0.1beta.tar.gz) for the download of the database.
