@@ -35,14 +35,18 @@ def dateSelector(year, isFirstHalf):
         startDate = str(year) + "-" + str(7) + "-" + "01" + " 00:00"
         endDate = str(year+1) + "-" + str(1) + "-" + "02" + " 00:00"
 
-
+    sleep(2)
     dateSelectorStart.send_keys(Keys.CONTROL, "a")
     dateSelectorStart.send_keys(startDate)
     dateSelectorStart.send_keys(Keys.ENTER)
     dateSelectorEnd.send_keys(Keys.CONTROL, "a")
     dateSelectorEnd.send_keys(endDate)
     dateSelectorEnd.send_keys(Keys.ENTER)
+<<<<<<< HEAD
     
+=======
+    print(startDate + ' to ' + endDate)
+>>>>>>> Updated webscraping, notes on csv manipulation
     return
 
 def channelSelector(channelIterator):
@@ -54,12 +58,13 @@ def channelSelector(channelIterator):
     
     WebDriverWait(driver, 10).until(expected_conditions.staleness_of(tickAllToggleButton)) 
     # print('after wait')
+    sleep(5)
     tickAllToggleButton2 = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
     tickAllToggleButton2.click()
     
     WebDriverWait(driver, 10).until(expected_conditions.staleness_of(tickAllToggleButton2)) 
     for checkBox in channelIterator:
-        
+        sleep(2)
         channelSelectorCheckBox = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelBtn' + str(checkBox) + '_D')
         # To check whether the selected checkbox is already checked
         isTickedText = channelSelectorCheckBox.get_attribute("class")
@@ -80,10 +85,12 @@ def channelRangeDeterminer(rangeNr):
 def viewDataButton():
     # Click the view button
     viewDataButtonVar = driver.find_element_by_id('ContentPlaceHolder_Body_btnView')
+    # sleep(5)
     viewDataButtonVar.click()
     # print('view clicked')
-    
+    # sleep(5)
     WebDriverWait(driver, 150).until(expected_conditions.staleness_of(viewDataButtonVar)) 
+    # sleep(5)
     return
 
 def exportDataButton():
@@ -113,6 +120,7 @@ def nextChannelSet():
     nextChannelsButton = driver.find_element_by_class_name('dxWeb_pNext_DevEx')
     nextChannelsButton.click()
     WebDriverWait(driver, 10).until(expected_conditions.staleness_of(nextChannelsButton)) 
+    print("next page")
     return
 
 def chromeRun():
@@ -213,6 +221,16 @@ nextChannelSet()
 nextChannelSet()
 
 # for checkBoxRange in range(1, totNrRanges+1):
+<<<<<<< HEAD
+=======
+sleep(2)
+nextChannelSet() # Temp!!! Just to start on the third page
+nextChannelSet()
+
+nextChannelSet()
+nextChannelSet()
+nextChannelSet()
+>>>>>>> Updated webscraping, notes on csv manipulation
 for checkBoxRange in range(23, totNrRanges+1):
     if (checkBoxRange-1)%4 is 0:
         if checkBoxRange != 1:
