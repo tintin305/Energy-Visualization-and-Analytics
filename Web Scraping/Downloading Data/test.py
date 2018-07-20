@@ -42,6 +42,7 @@ def dateSelector(year, isFirstHalf):
     dateSelectorEnd.send_keys(Keys.CONTROL, "a")
     dateSelectorEnd.send_keys(endDate)
     dateSelectorEnd.send_keys(Keys.ENTER)
+    
     return
 
 def channelSelector(channelIterator):
@@ -108,6 +109,7 @@ def nextChannelSet():
     # channelSelectorBtn.click()
 
     # driver.get_screenshot_as_file("channelselectorbtn.png")
+    sleep(2)
     nextChannelsButton = driver.find_element_by_class_name('dxWeb_pNext_DevEx')
     nextChannelsButton.click()
     WebDriverWait(driver, 10).until(expected_conditions.staleness_of(nextChannelsButton)) 
@@ -204,8 +206,14 @@ currentYear = datetime.datetime.now().year
 # Define date range variables
 yearRange = range(2013, currentYear+1)
 
+nextChannelSet()
+nextChannelSet()
+nextChannelSet()
+nextChannelSet()
+nextChannelSet()
+
 # for checkBoxRange in range(1, totNrRanges+1):
-for checkBoxRange in range(1, totNrRanges+1):
+for checkBoxRange in range(23, totNrRanges+1):
     if (checkBoxRange-1)%4 is 0:
         if checkBoxRange != 1:
             nextChannelSet() # goes to next page of check boxes

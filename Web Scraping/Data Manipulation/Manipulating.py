@@ -4,76 +4,72 @@ import csv
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Change the working directory to where the csv files are stored.
-os.chdir('C:\Project\data')
+def findCsvFiles(dataDirectory):
+    # Change the working directory to where the csv files are stored.
+    os.chdir(dataDirectory)
 
-# Makes a list of all the files in the directory
-allFiles = os.listdir()
+    # Makes a list of all the files in the directory
+    allFiles = os.listdir()
 
-# Creates an array that stores all of the names of the csv files in the cwd
-files = []
-for csvFiles in allFiles:
-    if csvFiles.endswith(".csv"):
-        files.append(csvFiles)
+    # Creates an array that stores all of the names of the csv files in the cwd
+    csvFiles = []
+    for fileName in allFiles:
+        if fileName.endswith(".csv"):
+            csvFiles.append(fileName)
+    return csvFiles
 
-# # Delete the extra day in the csv files
+def replaceNan(inFile):
+    inFile = inFile.fillna(-1)
+    return inFile
 
-# # Standard Python opening files
-# # csvFile = open(files[0])
+def removeExtraLines(inFile):
+    # Obtain time-date stamp of the first entry
+    firstEntry = inFile.iloc[0,0]
+    # Access the month in the time-date stamp
+    firstEntryMonth = firstEntry[6]
+    removeAmount = 0 # Used to track how many lines need to be removed from the file
+    if (firstEntryMonth == '1'):
+        removeMonth = '07'
+    else:
+        removeMonth = '01'
 
-# # print(csvFile.read())
-
-
-# # csvFile.close()
-
-
-# # Using csv package
-
-# csvFileOriginal = open(files[0])
-
-# csvFile = csv.reader(csvFileOriginal)
-
-
-
-# # for row in csvFile:
-# #     print(row)
-
-
-
-# csvFileOriginal.close()
-
-s = pd.read_csv(files[0], sep=",")
-
-# Replace NaN with 0
-s = s.fillna(0)
-
-# print(s)
-# print(s.iloc[0,0])
-
-firstEntry = s.iloc[0,0]
-
-firstEntryMonth = firstEntry[6]
-# print(firstEntryMonth)
-removeAmount = 0
-if (firstEntryMonth == '1'):
     # Do the delete from last day based on month check
-    for i, row in s.iterrows():
-        dateTime = s.iloc[i,0]
-        month = dateTime[6]
-        if (month == '7'):
+    for i, row in inFile.iterrows():
+        dateTime = inFile.iloc[i,0]
+        if len(dateTime) <=6:
             removeAmount = removeAmount + 1
+            print(len(dateTime))
+        else:
+            month = dateTime[5]+ dateTime[6]
+            if (month == removeMonth):
+                removeAmount = removeAmount + 1
+    
+    removedExtra = inFile[:-removeAmount]
+    return removedExtra
 
-    removedExtra = s[:-removeAmount]
-else:
-    # This corresponds to the second half of the year file
-    # Do the delete from last day based on month check
-    for i, row in s.iterrows():
-        dateTime = s.iloc[i,0]
-        month = dateTime[6]
-        if (month == '1'):
-            removeAmount = removeAmount + 1
- 
-    removedExtra = s[:-removeAmount]
- 
-os.chdir('C:\Project\data\Half Years')
-s.to_csv('1.csv', sep=',', encoding='utf-8')
+def outputToCsv(outputData, nameOfFile):
+    os.chdir('C:\Project\Data\Half Years')
+    # print(list(outputData).count('Unnamed: 26'))
+    if list(outputData).count('Unnamed: 26') >= 1:
+        outputData = outputData.drop('Unnamed: 26', 1)
+    # print(outputData)
+    # print(list(outputData))
+    
+    # print(list(outputData).count('Unnamed: 26'))
+    outputData.to_csv("Cut_"+nameOfFile, sep=',', encoding='utf-8', index = False, columns =list(outputData) )
+    os.chdir('C:\Project\Data\Raw Data')
+    return
+################################################################
+#                               Main
+################################################################
+
+files = findCsvFiles('C:\Project\Data\Raw Data')
+print(files)
+for nameOfFile in files:
+    fileData = pd.read_csv(nameOfFile, sep=",")
+    print(nameOfFile)
+
+    fileData = replaceNan(fileData)
+
+    halfYearOut = removeExtraLines(fileData)
+    outputToCsv(halfYearOut, nameOfFile)
