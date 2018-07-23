@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import errno
 
-os.chdir('C:\Project\data\Half Years')
+os.chdir('C:\Project\Data\Half Years')
 
 # Makes a list of all the files in the directory
 allFiles = os.listdir()
@@ -17,6 +17,7 @@ for csvFiles in allFiles:
         files.append(csvFiles)
 
 for ghara in files:
+    os.chdir('C:\Project\Data\Half Years')
     # Open the csv file so that panda can work with it
     s = pd.read_csv(ghara, sep=",")
 
@@ -29,13 +30,13 @@ for ghara in files:
         extracted = s[[s.columns.values[0], s.columns.values[columns]]]
 
         folderName = s.columns.values[columns]
-        os.chdir('C:\Project\data\Separated')
+        os.chdir('C:\Project\Data\Separated')
         try:
             os.makedirs(folderName)
         except OSError:
             if not os.path.isdir(folderName):
                 raise    
-        directory = 'C:\Project\data\Separated' + '\\' +  str(folderName) 
+        directory = 'C:\Project\Data\Separated' + '\\' +  str(folderName) 
         os.chdir(directory)
 
         # Making the file name
