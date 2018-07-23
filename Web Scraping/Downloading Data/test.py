@@ -19,6 +19,8 @@ import math
 def channelDateSelector():
     # Click the arrow button which opens the channel and date selector panel
     channelSelectorBtn = driver.find_element_by_id('ContentPlaceHolder_Body_ctrlEntitySelector_iconShowEntitySelection')
+    
+    WebDriverWait(driver, 10).until(expected_conditions.visibility_of(channelSelectorBtn)) 
     channelSelectorBtn.click()
     return
 
@@ -35,14 +37,18 @@ def dateSelector(year, isFirstHalf):
         startDate = str(year) + "-" + str(7) + "-" + "01" + " 00:00"
         endDate = str(year+1) + "-" + str(1) + "-" + "02" + " 00:00"
 
-    sleep(2)
+    
+    WebDriverWait(driver, 10).until(expected_conditions.visibility_of(dateSelectorStart)) 
     dateSelectorStart.send_keys(Keys.CONTROL, "a")
     dateSelectorStart.send_keys(startDate)
     dateSelectorStart.send_keys(Keys.ENTER)
+    
+    WebDriverWait(driver, 10).until(expected_conditions.visibility_of(dateSelectorEnd)) 
     dateSelectorEnd.send_keys(Keys.CONTROL, "a")
     dateSelectorEnd.send_keys(endDate)
     dateSelectorEnd.send_keys(Keys.ENTER)
-    print(startDate + ' to ' + endDate)
+    print(startDate)
+    
     return
 
 def channelSelector(channelIterator):
@@ -54,20 +60,19 @@ def channelSelector(channelIterator):
     
     WebDriverWait(driver, 10).until(expected_conditions.staleness_of(tickAllToggleButton)) 
     # print('after wait')
-    sleep(5)
     tickAllToggleButton2 = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelAllBtn0_D')
     tickAllToggleButton2.click()
     
     WebDriverWait(driver, 10).until(expected_conditions.staleness_of(tickAllToggleButton2)) 
-    for checkBox in channelIterator:
-        sleep(2)
-        channelSelectorCheckBox = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelBtn' + str(checkBox) + '_D')
-        # To check whether the selected checkbox is already checked
-        isTickedText = channelSelectorCheckBox.get_attribute("class")
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of(channelSelectorCheckBox))  
-        c = isTickedText.count("Unchecked")
-        if c >0:
-            channelSelectorCheckBox.click()
+    # for checkBox in channelIterator:
+        
+    channelSelectorCheckBox = driver.find_element_by_id('ctl00_ContentPlaceHolder_Body_ctrlEntitySelector_grdEntities_DXSelBtn' + str(channelIterator) + '_D')
+    # To check whether the selected checkbox is already checked
+    isTickedText = channelSelectorCheckBox.get_attribute("class")
+    WebDriverWait(driver, 10).until(expected_conditions.visibility_of(channelSelectorCheckBox))  
+    c = isTickedText.count("Unchecked")
+    if c >0:
+        channelSelectorCheckBox.click()
     return
 
 def channelRangeDeterminer(rangeNr):
@@ -81,12 +86,10 @@ def channelRangeDeterminer(rangeNr):
 def viewDataButton():
     # Click the view button
     viewDataButtonVar = driver.find_element_by_id('ContentPlaceHolder_Body_btnView')
-    # sleep(5)
     viewDataButtonVar.click()
     # print('view clicked')
-    # sleep(5)
+    
     WebDriverWait(driver, 150).until(expected_conditions.staleness_of(viewDataButtonVar)) 
-    # sleep(5)
     return
 
 def exportDataButton():
@@ -105,18 +108,19 @@ def exportDataButton():
 #     day = 1
 #     return
 
-def nextChannelSet():
+def nextChannelSet(currentPage):
     # Click the arrow button which opens the channel and date selector panel then go to the next page of meters
 
     # channelSelectorBtn = driver.find_element_by_id('ContentPlaceHolder_Body_ctrlEntitySelector_iconShowEntitySelection')
     # channelSelectorBtn.click()
 
     # driver.get_screenshot_as_file("channelselectorbtn.png")
+    sleep(2)
     nextChannelsButton = driver.find_element_by_class_name('dxWeb_pNext_DevEx')
     nextChannelsButton.click()
     WebDriverWait(driver, 10).until(expected_conditions.staleness_of(nextChannelsButton)) 
-    print("next page")
-    return
+    currentPage = currentPage + 1
+    return currentPage
 
 def chromeRun():
     url = "https://www.ecwin.co.za/ecWIN/wits/Login"
@@ -209,22 +213,30 @@ currentYear = datetime.datetime.now().year
 # Define date range variables
 yearRange = range(2013, currentYear+1)
 
+ChannelsToDownload = range(550, 623+1) # Download for channels 550 to 623
+pageNr = 1
+# nextChannelSet()
+# nextChannelSet()
+# nextChannelSet()
+# nextChannelSet()
+# nextChannelSet()
+
+for channel in ChannelsToDownload:
+    while (math.ceil(channel/100) != pageNr):
+        pageNr = nextChannelSet(pageNr)
+    channelSelector(channel)
+    print(channel)
+
+
 # for checkBoxRange in range(1, totNrRanges+1):
-sleep(2)
-nextChannelSet() # Temp!!! Just to start on the third page
-nextChannelSet()
+# for checkBoxRange in range(23, totNrRanges+1):
+#     if (checkBoxRange-1)%4 is 0:
+#         if checkBoxRange != 1:
+#             pageNr = nextChannelSet() # goes to next page of check boxes
+#             # print('NextPage')
 
-nextChannelSet()
-nextChannelSet()
-nextChannelSet()
-for checkBoxRange in range(23, totNrRanges+1):
-    if (checkBoxRange-1)%4 is 0:
-        if checkBoxRange != 1:
-            nextChannelSet() # goes to next page of check boxes
-            # print('NextPage')
-
-    channelIter = channelRangeDeterminer(checkBoxRange) # determines the numbers for the checkboxes in that range
-    channelSelector(channelIter) # selects the checkboxes in the given range
+#     channelIter = channelRangeDeterminer(checkBoxRange) # determines the numbers for the checkboxes in that range
+#     channelSelector(channelIter) # selects the checkboxes in the given range
     
     for year in yearRange:
         dateSelector(year, True) # selects first 6 months in the year
