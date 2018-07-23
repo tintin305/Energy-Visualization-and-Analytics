@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import errno
 import datetime
+import sys
 
 # Directory for where to find the separated csv files
 rootSeparatedFolder = 'C:\Project\Data\Separated'
@@ -19,7 +20,12 @@ except OSError:
 
 # Makes a list of all the folders in the cwd
 folderNames = []
-os.chdir(rootSeparatedFolder)
+
+try:
+    os.chdir(rootSeparatedFolder) # Change to seperated directory
+except:
+    sys.exit("Folder with seperated data does not exist") # Exit program if input data folder is not found
+
 folderNames = os.listdir()
 
 # Loop through all of the folders, this will work so that the work is done in each of the folders
