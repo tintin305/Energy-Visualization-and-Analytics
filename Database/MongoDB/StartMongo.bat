@@ -1,0 +1,1 @@
+"C:\Project\mongodb\bin\mongod.exe" --dbpath="C:\Project\Data\db"

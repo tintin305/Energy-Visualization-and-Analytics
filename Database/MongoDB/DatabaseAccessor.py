@@ -3,6 +3,7 @@ import pymongo
 import sys
 import pandas as pd
 import json
+import os
 
 def importData(path):
     mongoClient = pymongo.MongoClient('localhost', 27017)
@@ -12,14 +13,21 @@ def importData(path):
     cdir = os.path.dirname(__file__)
     fileRes = os.path.join(cdir, filepath)
 
-    data = pd.read_csv(file_res)
+    data = pd.read_csv(fileRes)
     dataJSON = json.loads(data.to_json(orient='records'))
     databaseCollectionName.remove()
     databaseCollectionName.insert(dataJSON)
 
 if __name__ == "__main__":
-    filepath = 'C:/Project/Data/CSV/'
-    importData(filepath)
+    rootPath = 'C:\Project\Data\Stitched'
+    os.chdir(rootPath)
+
+    folderNames = []
+    folderNames = os.listdir()
+
+    for file_ in folderNames:
+        filepath = 'C:/Project/Data/Stitched/' + file_
+        importData(filepath)
 
 # MONGODB_HOST = 'localhost'
 # MONGODB_PORT = 27017

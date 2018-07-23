@@ -189,7 +189,7 @@ https://www.youtube.com/watch?v=cYj1AJAU_mk
 Once mongodb is installed, then you can start a MongoDB database by: 
 "C:\Project\mongodb\bin\mongod.exe" --dbpath="C:\Project\data\db"
 
-The --dbpat option points to your database directory. 
+The --dbpath option points to your database directory. 
 
 If the MongoDB database is running correctly, then you will see: "[initandlisten] waiting for connections"
 
