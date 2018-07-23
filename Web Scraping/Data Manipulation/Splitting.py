@@ -4,22 +4,31 @@ import csv
 import numpy as np
 import matplotlib.pyplot as plt
 import errno
+import sys
 
-os.chdir('C:\Project\Data\Half Years')
+try:
+    os.chdir('C:\Project\Data\Half Years')
+except:
+    sys.exit('Data folder does not exist')
 
 # Makes a list of all the files in the directory
 allFiles = os.listdir()
 
 # Creates an array that stores all of the names of the csv files in the cwd
-files = []
-for csvFiles in allFiles:
-    if csvFiles.endswith(".csv"):
-        files.append(csvFiles)
+csvFiles = []
+for files in allFiles:
+    if files.endswith(".csv"):
+        csvFiles.append(files)
 
-for ghara in files:
-    os.chdir('C:\Project\Data\Half Years')
+for filename in csvFiles:
+    try:
+        os.chdir('C:\Project\Data\Half Years')
+    except:
+        os.makedirs('C:\Project\Data\Half Years')
+        os.chdir('C:\Project\Data\Half Years')
+    
     # Open the csv file so that panda can work with it
-    s = pd.read_csv(ghara, sep=",")
+    s = pd.read_csv(filename, sep=",")
 
     # Replace NaN with 0
     s = s.fillna(0)
@@ -30,7 +39,15 @@ for ghara in files:
         extracted = s[[s.columns.values[0], s.columns.values[columns]]]
 
         folderName = s.columns.values[columns]
-        os.chdir('C:\Project\Data\Separated')
+
+        try:
+            os.chdir('C:\Project\Data\Separated')
+        except:
+            os.makedirs('C:\Project\Data\Separated')
+            os.chdir('C:\Project\Data\Separated')
+            
+
+
         try:
             os.makedirs(folderName)
         except OSError:
