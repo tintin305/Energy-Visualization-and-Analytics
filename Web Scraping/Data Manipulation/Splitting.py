@@ -47,11 +47,27 @@ def makeDir(dirName, folderName):
 
     return
 
+def makeFilename(extracted):
+
+    # Making the file name
+    sensorName = extracted.columns.values[1]
+    date = extracted.iloc[1,0]
+    year = date[:4]
+    month = date[5:7]
+    if month == '01':
+        yearHalf = 1
+    else:
+        yearHalf = 2
+
+    filename = str(s.columns.values[columns]) + '-' + str(year) + '-' + str(yearHalf)  + '.csv'
+    return filename
+
 def splitIntoIndividualChannels(files, dataDirectory, outputDirectory):
     for fileToSplit in files:
         os.chdir(dataDirectory)
         # Open the csv file so that panda can work with it
         s = pd.read_csv(fileToSplit, sep=",")
+        
         # Looping through the files and getting out the date column and the selected column
         for columns in range(1,(len(s.columns.values))):
             # s.columns.values[] is used to select the columns required
@@ -60,28 +76,10 @@ def splitIntoIndividualChannels(files, dataDirectory, outputDirectory):
             folderName = s.columns.values[columns]
             changeToOutputDirectory()
             makeDir(outputDirectory)
-
+            filename = makeFilename(extracted)
+        s.to_csv(filename, sep=",", encoding='utf-8',columns=list(extracted), index=False)
     return
     
-
-
-
-        # Making the file name
-        sensorName = extracted.columns.values[1]
-        date = extracted.iloc[1,0]
-        year = date[:4]
-        month = date[5:7]
-        if month == '01':
-            yearHalf = 1
-        else:
-            yearHalf = 2
-
-        filename = str(s.columns.values[columns]) + '-' + str(year) + '-' + str(yearHalf)  + '.csv'
-
-        s.to_csv(filename, sep=",", encoding='utf-8',columns=list(extracted), index=False)
-
-
-
 ################################################################
 #                               Main
 ################################################################
