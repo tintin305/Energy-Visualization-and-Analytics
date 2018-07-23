@@ -3,10 +3,14 @@ import pandas as pd
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 
 def findCsvFiles(dataDirectory):
     # Change the working directory to where the csv files are stored.
-    os.chdir(dataDirectory)
+    try:
+        os.chdir(dataDirectory)
+    except:
+        sys.exit("Data directory does not exist")
 
     # Makes a list of all the files in the directory
     allFiles = os.listdir()
@@ -48,7 +52,12 @@ def removeExtraLines(inFile):
     return removedExtra
 
 def outputToCsv(outputData, nameOfFile):
-    os.chdir('C:\Project\Data\Half Years')
+    try:
+        os.chdir('C:\Project\Data\Half Years')
+    except:
+            os.makedirs('C:\Project\Data\Half Years')
+            os.chdir('C:\Project\Data\Half Years')
+
     # print(list(outputData).count('Unnamed: 26'))
     if list(outputData).count('Unnamed: 26') >= 1:
         outputData = outputData.drop('Unnamed: 26', 1)
