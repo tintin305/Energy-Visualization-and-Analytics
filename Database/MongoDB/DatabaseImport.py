@@ -13,7 +13,7 @@ def mongoimport(folderPath,csv_path, db_name, coll_name, db_url, db_port):
     coll = db[coll_name]
     data = pd.read_csv(csv_path)
     payload = json.loads(data.to_json(orient='records'))
-    # coll.delete_many()
+    coll.delete_many()
     coll.insert_many(payload)
     return coll.estimated_document_count()
 
@@ -26,12 +26,10 @@ folderNames = os.listdir()
 
 db_url = 'localhost'
 db_name = 'EnergyData'
-# coll_name = 'EnergyDataCollection'
 db_port = 27017
 
 
 for file_ in folderNames:
-    # mongodbPath = 'C:\Project\mongodb\bin\mongo.exe'
     filePath = 'C:\Project\Data\Stitched' + '\\'+ file_ + '\\' + file_+ '.csv'
     folderPath = 'C:\Project\Data\Stitched' + '\\'+ file_
     coll_name = file_
