@@ -39,8 +39,9 @@ def stitchChannelData(folders):
     files = listOfCSV()
 
     if len(files) != 12: # Only works for now... must take out later!!
-        print("Missing files in folder. Current files are: ") 
-        print(files)
+        print("Missing files in folder.") 
+        print(len(files))
+        print(loggerFolder)
         print(" ")
 
     list_ = []
