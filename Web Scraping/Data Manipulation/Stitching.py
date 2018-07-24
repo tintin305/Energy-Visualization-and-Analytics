@@ -38,6 +38,11 @@ def stitchChannelData(folders):
     # Now do the operations on the files
     files = listOfCSV()
 
+    if len(files) != 12: # Only works for now... must take out later!!
+        print("Missing files in folder. Current files are: ") 
+        print(files)
+        print(" ")
+
     list_ = []
     for file_ in files:
         df = pd.read_csv(file_, index_col=None, header=0)
@@ -68,7 +73,3 @@ folderNames = os.listdir()
 # Loop through all of the folders, this will work so that the work is done in each of the folders
 for folders in folderNames:
     stitchChannelData(folders)
-    
-    
-    
-    
