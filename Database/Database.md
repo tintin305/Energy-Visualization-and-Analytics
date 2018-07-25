@@ -205,20 +205,12 @@ You can start MongoDB as a service, not sure if we should do that just yet.
     - If you want to build a dashboard to visualize data that is constantly changing, then you need a database for managing the records. 
     - In this tutorial, I wanted to introduced all the building blocks for creating interactive visualization. Even though, I could have managed by not using a database, I think that showing how a database can be integrated can be useful for people who want to build dashboards with complex datasets.
 
-
 # Testing out Graphite
 
 The folks at Graphite have created a system called "[Synthesize](http://graphiteapp.org/quick-start-guides/synthesize.html)" which is a "fully automated installation and configuration script for the Graphite stack".
 
 It appears that the easiest way to test it out is to use Vagrant (sort of like virtualbox).
 
-<<<<<<< Updated upstream
-### KarosDB
-
-Following the [guide](http://kairosdb.github.io/docs/build/html/GettingStarted.html)
-
-[Link](https://github.com/kairosdb/kairosdb/releases/download/v1.3.0-beta1/kairosdb-1.3.0-0.1beta.tar.gz) for the download of the database.
-=======
 # Working on the Server
 
 ## Checking that Zookeeper is accessible
@@ -256,4 +248,31 @@ In order to get this to work, simply use:
     service opentsdb stop
 
 In order to edit the configuration file, you need to stop the service. After it is installed, it will not be running, this means that you will be able to edit the configuration file.
->>>>>>> Stashed changes
+
+## Accessing the Server localhost
+
+In order to access the server, you have to tunnel into the server. I made use of MobaXterm to do this. The MobaSSHTunnel tool allows you to set up forwarding for that port.
+
+This allows one to access: 127.0.0.1:4242 which is the GUI.
+
+
+/usr/share/opentsdb/bin/tsdb mkmetric mysql.bytes_received mysql.bytes_sent
+This now shows up on the GUI when searched for in the metric box.
+
+
+In order to get the csv data into the database a number of steps need to take place:
+
+Firstly, the csv data needs to be converted into a format read by OpenTSDB, this means that each csv file will be converted so that it has the form:
+
+    put metric timestamp value tags
+
+This should be in an OpenTSDB ASCII format.
+This system was found from [here](https://groups.google.com/forum/#!topic/opentsdb/rmx1pU6niY8)
+
+* The metric part will be the identifier of the data logger, which in this case will be the name of the sensor.
+* The timestamp is required to be in the form of a unix Epoch timestamp in seconds or milliseconds.
+* The value will be the value measured by the data logger at that point in time, which is given by an integer or a floating point value.
+* The tags are other unique pieces of information that may relate to that data entry, or to the sensor.
+
+[Another](https://stackoverflow.com/questions/8520612/how-to-insert-data-in-opentsdb-time-series-database) way to import the data to the database.
+
