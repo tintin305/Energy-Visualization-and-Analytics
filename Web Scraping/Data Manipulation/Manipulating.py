@@ -48,7 +48,11 @@ def removeExtraLines(inFile):
             if (month == removeMonth):
                 removeAmount = removeAmount + 1
     
-    removedExtra = inFile[:-removeAmount]
+    if removeAmount > 0:
+        removedExtra = inFile[:-removeAmount]
+    else:
+         removedExtra = inFile
+
     return removedExtra
 
 def outputToCsv(outputData, nameOfFile):

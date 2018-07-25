@@ -50,6 +50,8 @@ def makeFilename(extractedData):
     
     replace_punctuation = str.maketrans(string.punctuation, ' '*len(string.punctuation))
     sensorName = sensorName.translate(replace_punctuation)
+    replace_spaces = str.maketrans(' ', '_')
+    sensorName = sensorName.translate(replace_spaces)
     # print(sensorName)
     date = extractedData.iloc[1,0]
     year = date[:4]
@@ -67,7 +69,7 @@ def makeFilename(extractedData):
 def separateChannels(csvFiles, outputDir, dataDir):
     for filename in csvFiles:
         makeAndChangeDir(dataDir)
-        print(filename)
+        # print(filename)
         # Open the csv file so that panda can work with it
         s = pd.read_csv(filename, sep=",")
         # Looping through the files and getting out the date column and the selected column
@@ -78,6 +80,8 @@ def separateChannels(csvFiles, outputDir, dataDir):
             folderName = s.columns.values[columns]
             replace_punctuation = str.maketrans(string.punctuation, ' '*len(string.punctuation))
             folderName = folderName.translate(replace_punctuation)
+            replace_spaces = str.maketrans(' ', '_')
+            folderName = folderName.translate(replace_spaces)
             makeAndChangeDir(outputDir)
             newOutputDir(folderName, outputDir)
             filename = makeFilename(extracted)

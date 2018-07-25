@@ -40,8 +40,8 @@ def stitchChannelData(folders):
 
     if len(files) != 12: # Only works for now... must take out later!!
         print("Missing files in folder.") 
-        print(len(files))
-        print(loggerFolder)
+        for index in files:
+            print(index)
         print(" ")
 
     list_ = []
