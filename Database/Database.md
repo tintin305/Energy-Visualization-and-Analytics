@@ -212,8 +212,48 @@ The folks at Graphite have created a system called "[Synthesize](http://graphite
 
 It appears that the easiest way to test it out is to use Vagrant (sort of like virtualbox).
 
+<<<<<<< Updated upstream
 ### KarosDB
 
 Following the [guide](http://kairosdb.github.io/docs/build/html/GettingStarted.html)
 
 [Link](https://github.com/kairosdb/kairosdb/releases/download/v1.3.0-beta1/kairosdb-1.3.0-0.1beta.tar.gz) for the download of the database.
+=======
+# Working on the Server
+
+## Checking that Zookeeper is accessible
+
+One of the first steps in setting up OpenTSDB, from their [site](http://opentsdb.net/docs/build/html/installation.html#id1) is to check that Zookeeper is accessible. One can do this with the following commands:
+    telnet localhost 2181
+    stats
+
+This will tell you if it is set up.
+
+## Install
+
+We have assumed that the installation has been carried out successfully and that we are able to make use of the system.
+
+When searching through the file system, I found Hbase installed in /opt/hbase. This had all kinds of files for its workings. 
+
+I also found a folder with OpenTSDB stuff in the /etc folder. This had some config files.
+
+OpenTSDB files are installed in the following places:
+
+* /etc/opentsdb - Configuration files
+* /tmp/opentsdb - Temporary cache files
+* /usr/share/opentsdb - Application files
+* /usr/share/opentsdb/bin - The "tsdb" startup script that launches a TSD or command line tools
+* /usr/share/opentsdb/lib - Java JAR library files
+* /usr/share/opentsdb/plugins - Location for plugin files and dependencies
+* /usr/share/opentsdb/static - Static files for the GUI
+* /usr/share/opentsdb/tools - Scripts and other tools
+* /var/log/opentsdb - Logs
+
+The installation includes an init script at /etc/init.d/opentsdb that can start, stop, and restart OpenTSDB
+
+In order to get this to work, simply use:
+    service opentsdb start
+    service opentsdb stop
+
+In order to edit the configuration file, you need to stop the service. After it is installed, it will not be running, this means that you will be able to edit the configuration file.
+>>>>>>> Stashed changes
