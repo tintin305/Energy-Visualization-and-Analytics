@@ -40,9 +40,9 @@ def removeExtraLines(inFile):
     # Do the delete from last day based on month check
     for i, row in inFile.iterrows():
         dateTime = inFile.iloc[i,0]
-        if len(dateTime) <=6:
+        if len(dateTime) <=7:
             removeAmount = removeAmount + 1
-            print(len(dateTime))
+            # print(len(dateTime))
         else:
             month = dateTime[5]+ dateTime[6]
             if (month == removeMonth):
@@ -73,10 +73,10 @@ def outputToCsv(outputData, nameOfFile):
 ################################################################
 
 files = findCsvFiles('C:\Project\Data\Raw Data')
-print(files)
+# print(files)
 for nameOfFile in files:
     fileData = pd.read_csv(nameOfFile, sep=",")
-    print(nameOfFile)
+    # print(nameOfFile)
 
     fileData = replaceNan(fileData)
 

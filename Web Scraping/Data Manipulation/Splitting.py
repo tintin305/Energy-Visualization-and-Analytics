@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import errno
 import sys
+import string
 
 def listDataFiles(directory):
     try:
@@ -46,6 +47,10 @@ def newOutputDir(folderName, outputDir):
 def makeFilename(extractedData):
     # Making the file name
     sensorName = extractedData.columns.values[1]
+    
+    replace_punctuation = str.maketrans(string.punctuation, ' '*len(string.punctuation))
+    sensorName = sensorName.translate(replace_punctuation)
+    # print(sensorName)
     date = extractedData.iloc[1,0]
     year = date[:4]
     month = date[5:7]
@@ -62,6 +67,7 @@ def makeFilename(extractedData):
 def separateChannels(csvFiles, outputDir, dataDir):
     for filename in csvFiles:
         makeAndChangeDir(dataDir)
+        print(filename)
         # Open the csv file so that panda can work with it
         s = pd.read_csv(filename, sep=",")
         # Looping through the files and getting out the date column and the selected column
@@ -70,6 +76,8 @@ def separateChannels(csvFiles, outputDir, dataDir):
             extracted = s[[s.columns.values[0], s.columns.values[columns]]]
 
             folderName = s.columns.values[columns]
+            replace_punctuation = str.maketrans(string.punctuation, ' '*len(string.punctuation))
+            folderName = folderName.translate(replace_punctuation)
             makeAndChangeDir(outputDir)
             newOutputDir(folderName, outputDir)
             filename = makeFilename(extracted)
