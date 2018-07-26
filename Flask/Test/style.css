@@ -1,0 +1,30 @@
+ul {
+    list-style-type: none; // remove bullets
+    margin: 0; //remove browser default settings?
+    padding: 0;
+    overflow: hidden;
+    background-color: #fff099;
+}
+
+li {
+    float: left; // to get elements horizontally next to each other 
+    
+}
+
+li a {
+    display: block; // make whole block clickable
+    padding: 36px 150px;
+    color: black;
+    text-align: center;
+    text-decoration: none
+/*    background-color: #fff099;*/
+}
+
+li a:hover(.active) {
+    background-color: blue;
+    color: white
+}
+
+.active{
+    background-color: aqua
+}
