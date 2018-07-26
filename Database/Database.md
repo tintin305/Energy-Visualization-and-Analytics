@@ -6,15 +6,15 @@ title: Database
 
 ## Wiki
 
-### Common logical data models 
+### Common logical data models
 
 * Navigational databases
-    * Hierarchical database model
-    * Network model
-    * Graph database
+  * Hierarchical database model
+  * Network model
+  * Graph database
 * Relational model
 * Entity-relationship model
-    * Enhanced entity-relationship model
+  * Enhanced entity-relationship model
 * Object model
 * Document model
 * Entity-attribute-value model
@@ -44,7 +44,7 @@ Specialized models are optimize for particular types of data:
 
 ### OML
 
-This is a technique of accessing a relational database from an object-oriented language (from: https://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html). Yegor speaks about how the standard use of ORM is, instead of encapsulating database interaction inside an object, it extracts it away, literally tearing a solid and cohesive living organism apart.
+This is a technique of accessing a relational database from an object-oriented language ([site](https://www.yegor256.com/2014/12/01/orm-offensive-anti-pattern.html). Yegor speaks about how the standard use of ORM is, instead of encapsulating database interaction inside an object, it extracts it away, literally tearing a solid and cohesive living organism apart.
 
 ## NoSQL
 
@@ -76,7 +76,6 @@ Examples:
 * SQL Azure
 * SQLBase
 
-
 # Choice of database
 
 This should be determined chosen from a number of factors:
@@ -89,9 +88,8 @@ This should be determined chosen from a number of factors:
 * Disks are fast, memory is faster
 * Consider both reads and writes
 
-
 ## [Short guide](https://reflect.io/blog/analytics-101-choosing-the-right-database/)
- 
+
 The following section illustrates the different databases and what they are useful for and where they fall short:
 
 ### General purpose databases
@@ -110,7 +108,7 @@ Mostly relational, work well serving small to large size data sets in a high thr
 * HBase
 * BigTable
 
-Similar to the general purpose databases, however, they reduce their feature set in order to scale across a cluster. 
+Similar to the general purpose databases, however, they reduce their feature set in order to scale across a cluster.
 
 ### Key-value databases
 
@@ -119,7 +117,7 @@ Similar to the general purpose databases, however, they reduce their feature set
 * S3
 * SimpleDB
 
-Suited for when you know the exact data you need. They should be considered as being key-value only. 
+Suited for when you know the exact data you need. They should be considered as being key-value only.
 The main considerations are level of scale and [read consistency](https://en.wikipedia.org/wiki/Consistency_(database_systems))
 
 ### Massively parallel processing databases
@@ -139,7 +137,7 @@ The reasons for choosing a [time series database](https://www.influxdata.com/tim
 
 [Comparisons](https://blog.outlyer.com/top10-open-source-time-series-databases)
 
-https://thenewstack.io/use-time-series-database/
+[Other Site](https://thenewstack.io/use-time-series-database/)
 
 Top Rankings (according to InfluxDB (based on social media mentions, job postings, tech discussion, etc.)):
 
@@ -154,7 +152,8 @@ Top Rankings (according to InfluxDB (based on social media mentions, job posting
 9. eXtremeDB
 10. Riak TS
 
-KairosDB appears to make use of Cassandra which is a NoSQL datastore to manage its data.
+KairosDB appears to make use of Cassandra which is a NoSQL datastore to manage its data
+
 ## General Database Guide Links
 
 [Database Blog](https://blog.timescale.com)
@@ -170,7 +169,7 @@ https://blog.timescale.com/time-series-data-why-and-how-to-use-a-relational-data
 
 http://basho.com/resources/time-series-databases/
 
-A curated list of awesome time series databases , benchmarks and papers: https://github.com/xephonhq/awesome-time-series-database
+A curated list of awesome time series databases , benchmarks and papers: https://github.com/xephonhq/awesome-time-series-databas
 # General Notes
 
 It appears as if a time series database will work well for the data, or the use of a key-value database.
@@ -182,18 +181,18 @@ https://www.youtube.com/watch?v=34oOp1OLOUk
 
 # MongoDB
 
-Installing: 
+Installing:
 
 https://www.youtube.com/watch?v=cYj1AJAU_mk
 
-Once mongodb is installed, then you can start a MongoDB database by: 
+Once mongodb is installed, then you can start a MongoDB database by:
 "C:\Project\mongodb\bin\mongod.exe" --dbpath="C:\Project\data\db"
 
-The --dbpath option points to your database directory. 
+The --dbpath option points to your database directory.
 
 If the MongoDB database is running correctly, then you will see: "[initandlisten] waiting for connections"
 
-Then you can connect to the MongoDB by: 
+Then you can connect to the MongoDB by:
 
 "C:\Project\mongodb\bin\mongo.exe"
 
@@ -212,6 +211,17 @@ The folks at Graphite have created a system called "[Synthesize](http://graphite
 It appears that the easiest way to test it out is to use Vagrant (sort of like virtualbox).
 
 # Working on the Server
+
+## Server Details
+
+hostname:  tsdb.eie.wits.ac.za
+ip address: 146.141.16.82
+username: username
+password: password
+
+http://146.141.16.82:4242
+
+http://146.141.16.82:4242/api/suggest?type=metrics&max=10&q=
 
 ## Checking that Zookeeper is accessible
 
@@ -270,9 +280,56 @@ This should be in an OpenTSDB ASCII format.
 This system was found from [here](https://groups.google.com/forum/#!topic/opentsdb/rmx1pU6niY8)
 
 * The metric part will be the identifier of the data logger, which in this case will be the name of the sensor.
-* The timestamp is required to be in the form of a unix Epoch timestamp in seconds or milliseconds.
+* The timestamp is required to be in the form of a unix Epoch timestamp in seconds or milliseconds (ISO 9601 format).
 * The value will be the value measured by the data logger at that point in time, which is given by an integer or a floating point value.
 * The tags are other unique pieces of information that may relate to that data entry, or to the sensor.
 
 [Another](https://stackoverflow.com/questions/8520612/how-to-insert-data-in-opentsdb-time-series-database) way to import the data to the database.
 
+## Importing into Server
+
+Info found [here](http://opentsdb.net/docs/build/html/user_guide/cli/import.html)
+
+    import path [...paths]
+
+Example
+
+    import /home/hobbes/timeseries1.gz /home/hobbes/timeseries2.gz
+
+## My Experience
+
+The formatting of the files is most important.
+The first thing to consider is the naming of the metric, one should be consistent in the use of full stops or underscores. The use of spaces does not work.
+The next important point is that of the date formatting, the Unix Epoch Timestamp must not have a ".0" on its tail.
+
+In order to import data into the database, spaces are used to separate the fields.
+
+Tags are mandatory, these should be chosen appropriately, this can include things such as the location, install date, or a number of other chosen parameters.
+
+In order to import into the database use:
+    /usr/share/opentsdb/bin/tsdb import filename.gz
+
+This implies that the file should be zipped (the file should not have a file type when doing this (from my experience)).
+I did this by using:
+    gzip -k filename
+
+While testing out the server, I had issues with importing individual entries, I only had luck with importing a sensors data as a whole.
+
+When testing, there were multiple errors while attempting to input negative numbers or numbers with decimal points, this should be tested out.
+An error was given that ".0" would not be accepted. However, this could have been due to the ".0" in the Unix timestamp field.
+
+The following [site](https://www.erol.si/2014/06/opentsdb-the-perfect-database-for-your-internet-of-things-projects/) was highly useful.
+# Linux Commands Used
+
+## Copy Files
+
+pscp -r 'C:\...' username@opentsdb.eie.wits.ac.za:'/home/username/.../'
+
+## Count Files in Folder
+
+ls -1 | wc -l
+
+## Zip a File
+
+To make a .gz file simply:
+    gzip -k filename
