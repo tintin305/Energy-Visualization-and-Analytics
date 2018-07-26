@@ -49,6 +49,7 @@ def dateSelector(year, isFirstHalf):
     dateSelectorEnd.send_keys(Keys.ENTER)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
     print(startDate + ' to ' + endDate)
@@ -57,6 +58,10 @@ def dateSelector(year, isFirstHalf):
     print(startDate)
     
 >>>>>>> Download one channel at a time
+=======
+    print(startDate)
+    
+>>>>>>> d42b38a46acaab1e6ca56ef8f0717d030b7163ca
     return
 
 def channelSelector(channelIterator):
@@ -224,6 +229,7 @@ yearRange = range(2013, currentYear+1)
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 nextChannelSet()
 nextChannelSet()
 nextChannelSet()
@@ -272,6 +278,24 @@ for channel in ChannelsToDownload:
 
 
 # for checkBoxRange in range(1, totNrRanges+1):
+=======
+ChannelsToDownload = range(572, 623+1) # Download for channels 550 to 623
+pageNr = 1
+# nextChannelSet()
+# nextChannelSet()
+# nextChannelSet()
+# nextChannelSet()
+# nextChannelSet()
+
+for channel in ChannelsToDownload:
+    while (math.ceil(channel/100) != pageNr):
+        pageNr = nextChannelSet(pageNr)
+    channelSelector(channel)
+    print(channel)
+
+
+# for checkBoxRange in range(1, totNrRanges+1):
+>>>>>>> d42b38a46acaab1e6ca56ef8f0717d030b7163ca
 # for checkBoxRange in range(23, totNrRanges+1):
 #     if (checkBoxRange-1)%4 is 0:
 #         if checkBoxRange != 1:
@@ -280,7 +304,10 @@ for channel in ChannelsToDownload:
 
 #     channelIter = channelRangeDeterminer(checkBoxRange) # determines the numbers for the checkboxes in that range
 #     channelSelector(channelIter) # selects the checkboxes in the given range
+<<<<<<< HEAD
 >>>>>>> Download one channel at a time
+=======
+>>>>>>> d42b38a46acaab1e6ca56ef8f0717d030b7163ca
     
     for year in yearRange:
         dateSelector(year, True) # selects first 6 months in the year
