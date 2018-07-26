@@ -13,7 +13,7 @@ def mongoimport(folderPath,csv_path, db_name, coll_name, db_url, db_port):
     coll = db[coll_name]
     data = pd.read_csv(csv_path)
     payload = json.loads(data.to_json(orient='records'))
-    coll.delete_many()
+    # coll.delete_many()
     coll.insert_many(payload)
     return coll.estimated_document_count()
 
