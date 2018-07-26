@@ -37,8 +37,13 @@ def dateSelector(year, isFirstHalf):
         startDate = str(year) + "-" + str(7) + "-" + "01" + " 00:00"
         endDate = str(year+1) + "-" + str(1) + "-" + "02" + " 00:00"
 
+<<<<<<< HEAD
     WebDriverWait(driver, 10).until(expected_conditions.visibility_of(dateSelectorStart)) 
     dateSelectorStart.click()
+=======
+    
+    WebDriverWait(driver, 10).until(expected_conditions.visibility_of(dateSelectorStart)) 
+>>>>>>> Download one channel at a time
     dateSelectorStart.send_keys(Keys.CONTROL, "a")
     dateSelectorStart.send_keys(startDate)
     dateSelectorStart.send_keys(Keys.ENTER)
@@ -213,7 +218,11 @@ currentYear = datetime.datetime.now().year
 # Define date range variables
 yearRange = range(2013, currentYear+1)
 
+<<<<<<< HEAD
 ChannelsToDownload = range(572, 623+1) # Download for channels 550 to 623
+=======
+ChannelsToDownload = range(550, 623+1) # Download for channels 550 to 623
+>>>>>>> Download one channel at a time
 pageNr = 1
 # nextChannelSet()
 # nextChannelSet()
