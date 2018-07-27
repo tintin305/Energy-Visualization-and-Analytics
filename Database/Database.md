@@ -319,6 +319,11 @@ When testing, there were multiple errors while attempting to input negative numb
 An error was given that ".0" would not be accepted. However, this could have been due to the ".0" in the Unix timestamp field.
 
 The following [site](https://www.erol.si/2014/06/opentsdb-the-perfect-database-for-your-internet-of-things-projects/) was highly useful.
+
+### List Number of Metrics in Database
+
+Place [this](http://localhost:4242/api/suggest?type=metrics&max=10000s) into your web browser.
+
 # Linux Commands Used
 
 ## Copy Files
