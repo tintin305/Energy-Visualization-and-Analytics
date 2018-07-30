@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 import sys
 import datetime
 import time
-# This is the windows version of the formatter
+# This is the Linux version of the formatter
 # Doesn't work unless the r is there (not sure why, it didn't need it before)
 
-rootFormattingFolder = 'C:\Project\Data\Stitched'
-rootFormattedFolder = 'C:\Project\Data\OpenTSDB'
+rootFormattingFolder = '/home/username/Stitched'
+rootFormattedFolder = '/home/username/OpenTSDB_Data'
 try:
     os.makedirs(rootFormattedFolder)
 except OSError:
@@ -24,7 +24,7 @@ allFolders = []
 allFolders = os.listdir()
 
 for folders in allFolders:
-    os.chdir(rootFormattingFolder + '\\' + str(folders))
+    os.chdir(rootFormattingFolder + '/' + str(folders))
 
     allFiles = []
     allFiles = os.listdir()

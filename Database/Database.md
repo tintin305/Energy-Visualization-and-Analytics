@@ -320,6 +320,9 @@ An error was given that ".0" would not be accepted. However, this could have bee
 
 The following [site](https://www.erol.si/2014/06/opentsdb-the-perfect-database-for-your-internet-of-things-projects/) was highly useful.
 
+Linking the database with D3.js and some other tools. [This](https://gist.github.com/stuart-warren/5354116) has some useful info.
+
+
 ### List Number of Metrics in Database
 
 Place [this](http://localhost:4242/api/suggest?type=metrics&max=10000s) into your web browser.
@@ -328,7 +331,7 @@ Place [this](http://localhost:4242/api/suggest?type=metrics&max=10000s) into you
 
 ## Copy Files
 
-pscp -r 'C:\...' username@opentsdb.eie.wits.ac.za:'/home/username/.../'
+pscp -r 'C:\...' username@tsdb.eie.wits.ac.za:'/home/username/.../'
 
 ## Count Files in Folder
 
@@ -338,3 +341,20 @@ ls -1 | wc -l
 
 To make a .gz file simply:
     gzip -k filename
+
+## Size of Folder
+
+du -sh file_path
+
+## Getting a Shell Script to Work
+
+First create the shell script with:
+    touch filename.sh
+
+Then edit the file with the contents you want.
+You have to allow it to have execution ability, you can do this by using
+    chmod +x filename.sh
+
+Then you can run the script with
+    ./filename.sh
+Where the './' indicates that you are running it from inside the current folder.
