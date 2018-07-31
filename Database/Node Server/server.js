@@ -12,11 +12,19 @@ var mQuery = require('opentsdb-mquery')();
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
+// This will link up the javascript files that are called in the HTML file
 app.get('/js/', function(req, res){
   res.sendFile(__dirname + '/js/');
 });
+
+// This will get the value put in the dropdown box
+app.get('/getJson', function (req, res) {
+  // If it's not showing up, just use req.body to see what is actually being passed.
+  console.log(req.body.selectpicker);
+});
+
 
 // app.get('/js/index2.js', function(req, res){
   // res.sendFile(__dirname + '/js/index2.js');
@@ -29,6 +37,22 @@ app.get('/', function (req, res) {
 app.get('/profile/:DataloggerName', function(req, res){
   res.send('This will be to get a dataloggers JSON' + req.params.DataloggerName)
 })
+
+// app.get('/', function (req, res) {
+//   client.host('localhost');
+// client.port(4242);
+// client.ms( false );
+
+// client.metrics( function onResponse( error, metrics ) {
+//   if ( error ) {
+//       console.error( JSON.stringify( error ) );
+//       return;
+//   }
+//   res.send('This is the list of metrics on the database' + JSON.stringify( metrics ) );
+//   console.log( JSON.stringify( metrics ) );
+// });
+// })
+
 
 //https://www.npmjs.com/package/opentsdb
 
