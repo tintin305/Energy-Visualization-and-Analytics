@@ -5,3 +5,33 @@ h1 {
     font-size: 14px;
     font-weight: bold;
   }
+
+
+  .dygraph-legend{color:black;}
+.dygraph-title{color:black;float:left;}
+.dygraph-rangesel-bgcanvas{background-color:#ccc;}
+.dygraph-rangesel-zoomhandle{}
+.dygraph-axis-label{color:#fff;}
+.dygraph-rangesel-bgcanvas{background-color:rgba(255,255,255,0.8);}
+.dygraph-rangesel-bgcanvas, .dygraph-rangesel-fgcanvas{top:344px !important;}
+.dygraph-label.dygraph-xlabel{margin-top:30px;}
+.dygraph-axis-label-x{color:#000;}
+
+.test{background-color:rgba(255,255,255,1);width:95.2%;height:10%;margin-left:4.4%;bottom:14%;position:absolute;}
+
+canvas{width:100%;}
+
+#labels{float:right;margin-right:30px;margin-top: 10px;}
+
+body{font-family:arial;margin:2%;}
+.graphWrapper{background-color:#363d43;width:96%;display:inline-block;float:left;color:#fff;padding:20px;height:590px;}
+
+#demodiv{width:100%;height:400px;margin-top: 140px;}
+.dygraph-rangesel-zoomhandle{background:url(navigation.png) no-repeat;width:18px;height:34px;margin:10px 0 0 0;}
+
+.legendColor{list-style:none;position:absolute;}
+.Received{background-color:#e7cf79;}
+.Transmitted{background-color:#95bed4;}
+.HighUtilizationThreshold{background-color:#cd040b;}
+.smallBox{width:10px;height:10px;display:inline-block;margin-right:10px;}
+

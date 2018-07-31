@@ -20,6 +20,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.16.3",
+    "opentsdb": "^0.5.7",
     "request": "^2.81.0"
   }
 }
