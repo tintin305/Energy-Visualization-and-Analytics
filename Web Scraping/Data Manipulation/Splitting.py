@@ -48,10 +48,10 @@ def makeFilename(extractedData):
     # Making the file name
     sensorName = extractedData.columns.values[1]
     
-    replace_punctuation = str.maketrans(string.punctuation, ' '*len(string.punctuation))
-    sensorName = sensorName.translate(replace_punctuation)
-    replace_spaces = str.maketrans(' ', '_')
-    sensorName = sensorName.translate(replace_spaces)
+    # replace_punctuation = str.maketrans(string.punctuation, ' '*len(string.punctuation))
+    # sensorName = sensorName.translate(replace_punctuation)
+    # replace_spaces = str.maketrans(' ', '_')
+    # sensorName = sensorName.translate(replace_spaces)
     # print(sensorName)
     date = extractedData.iloc[1,0]
     year = date[:4]
@@ -72,19 +72,37 @@ def separateChannels(csvFiles, outputDir, dataDir):
         # print(filename)
         # Open the csv file so that panda can work with it
         s = pd.read_csv(filename, sep=",")
+
+        oldColumns = list(s.columns.values)
+        newColumns=[]
+        for i in range(0, len(oldColumns)):
+            replace_punctuation = str.maketrans(string.punctuation, ' '*len(string.punctuation))
+            temp = oldColumns[i].translate(replace_punctuation)
+            replace_spaces = str.maketrans(' ', '_')
+            temp = temp.translate(replace_spaces)
+            newColumns.append(temp)
+ 
+
+
+        
+        s.rename(columns=dict(zip(oldColumns, newColumns)), inplace=True)
+
         # Looping through the files and getting out the date column and the selected column
         for columns in range(1,(len(s.columns.values))):
             # s.columns.values[] is used to select the columns required
-            extracted = s[[s.columns.values[0], s.columns.values[columns]]]
+            
 
+            extracted = s[[s.columns.values[0], s.columns.values[columns]]]
             folderName = s.columns.values[columns]
-            replace_punctuation = str.maketrans(string.punctuation, ' '*len(string.punctuation))
-            folderName = folderName.translate(replace_punctuation)
-            replace_spaces = str.maketrans(' ', '_')
-            folderName = folderName.translate(replace_spaces)
+            # replace_punctuation = str.maketrans(string.punctuation, ' '*len(string.punctuation))
+            # folderName = folderName.translate(replace_punctuation)
+            # replace_spaces = str.maketrans(' ', '_')
+            # folderName = folderName.translate(replace_spaces)
             makeAndChangeDir(outputDir)
             newOutputDir(folderName, outputDir)
             filename = makeFilename(extracted)
+
+
             s.to_csv(filename, sep=",", encoding='utf-8',columns=list(extracted), index=False)
 
 
