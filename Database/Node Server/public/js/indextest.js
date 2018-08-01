@@ -24,7 +24,7 @@ g = new Dygraph(
   document.getElementById("graphdiv2"),
 
   // CSV or path to a CSV file.
-  "/Data/WITS_WC_Genmin_Sub_kVarh.csv",
+  "/Data/WITS_The_Junction_MSS___002_kWh.csv",
   {
   }    // Options
 

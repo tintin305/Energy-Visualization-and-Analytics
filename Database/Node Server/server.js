@@ -34,8 +34,9 @@ app.get('/', function (req, res) {
   res.render('index', {weather: null, error: null});
 })
 
-app.get('/profile/:DataloggerName', function(req, res){
-  res.send('This will be to get a dataloggers JSON' + req.params.DataloggerName)
+app.get('/profiles/:DataloggerName', function(req, res){
+  // res.send('This will be to get a dataloggers JSON ' + req.params.DataloggerName)
+  res.render('newThing', {passing: req.params.DataloggerName})
 })
 
 // app.get('/', function (req, res) {
@@ -69,8 +70,9 @@ client.metrics( function onResponse( error, metrics ) {
       console.error( JSON.stringify( error ) );
       return;
   }
-  res.send('This is the list of metrics on the database' + JSON.stringify( metrics ) );
-  console.log( JSON.stringify( metrics ) );
+  // res.send('This is the list of metrics on the database' + JSON.stringify( metrics ) );
+  // console.log( JSON.stringify( metrics ) );
+  res.render('things',{lists: metrics }) 
 });
 })
 

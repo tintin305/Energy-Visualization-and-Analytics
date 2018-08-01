@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="/css/test.css">
+    <script type="text/javascript" src="/js/dygraph.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/dygraph.css">
+
+
+    <style>
+        div.scrollmenu {
+            background-color: #333;
+            width : 500px;
+            height:500px;
+            overflow: auto;
+            white-space: nowrap;
+        }
+        
+        div.scrollmenu a {
+            display: inline-block;
+            color: white;
+            display: block;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }
+        
+        div.scrollmenu a:hover {
+            background-color: #777;
+        }
+        </style>
+  </head>
+  <body>
+
+<h1>
+  things
+</h1>
+
+
+  <!-- <table>
+    <% for(var i=0; i < lists.length; i++) { %>
+       <tr>
+         <td><%= lists[i] %></td>
+       </tr>
+    <% } %>
+    </table> -->
+
+    <!-- <ol>
+        <% for(var i=0; i < lists.length; i++) { %>
+            
+              <li>
+                <a href='profiles/<%= lists[i] %>'>
+                    <%= lists[i] %>
+                </a>
+            </li>
+            
+         <% } %>
+    </ol> -->
+
+
+
+<div class="scrollmenu">
+        <% for(var i=0; i < lists.length; i++) { %>
+            <a href='profiles/<%= lists[i] %>'><%= lists[i] %></a>
+            <% } %>
+
+</div>
+
+
+</body>
+</html>
+
