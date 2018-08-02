@@ -19,3 +19,5 @@ It appears as if Snap.svg may be useful for this problem, it also seems to allow
 Another way around this is to generate the image on the server side, then once this has happened, send a converted version of this SVG to the HTML to render.
 
 
+I believe that there is a way to get the data out of the JSON directly with the use of either parsing it, or getting out the required parameter that extracts the data. 
+This should make things faster than the way we are doing it currently. 
