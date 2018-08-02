@@ -322,6 +322,8 @@ The following [site](https://www.erol.si/2014/06/opentsdb-the-perfect-database-f
 
 Linking the database with D3.js and some other tools. [This](https://gist.github.com/stuart-warren/5354116) has some useful info.
 
+Query from command line:
+    /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
 
 ### List Number of Metrics in Database
 
