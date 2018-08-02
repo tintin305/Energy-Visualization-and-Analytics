@@ -13,8 +13,9 @@ var mQuery = require('opentsdb-mquery')();
 var d3 = require('d3');
 var jsdom = require('jsdom');
 
-
-
+// To export JSON to csv
+var jsonexport = require('jsonexport');
+var fs = require('fs');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,11 +42,56 @@ app.get('/', function (req, res) {
   res.render('index', {weather: null, error: null});
 })
 
-<<<<<<< HEAD
 app.get('/profiles/:DataloggerName', function(req, res){
-  // res.send('This will be to get a dataloggers JSON ' + req.params.DataloggerName)
-  res.render('newThing', {passing: req.params.DataloggerName})
-=======
+  //download temp file here
+  var end = Date.now();
+  var start = end - 100;
+
+  mQuery.aggregator('sum');
+  mQuery.downsample('5m-avg');
+  mQuery.rate(false);
+  mQuery.metric(req.params.DataloggerName);
+  mQuery.tags('DataLoggerName', req.params.DataloggerName);
+client.host('localhost');
+client.port(4242);
+client.ms(false);
+client.tsuids(false);
+client.annotations('none');
+// client.start( start );
+client.start('2013/01/01 01:00');
+client.end('2018/05/05 01:00');
+// client.arrays(false);
+// client.end( end );
+client.queries( mQuery );
+var url = client.url();
+client.get( function onData(error, data) {
+    if (error){
+      console.error( JSON.stringify(error));
+      return;
+    }
+    console.log(url);
+    console.log( data);
+    var dir = './tmp';
+
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+}
+//not exporting properly:
+    jsonexport(data, {rowDelimiter: '\t'},function(err, csv){
+    fs.writeFile("./tmp/test.csv", csv, function(err) {
+    if(err) {
+      console.log(err)
+    }
+    });
+ });
+  // console.log(JSON.stringify(data.dps))
+  });
+  
+
+  res.render('newThing', {passing: req.params.DataloggerName});
+  
+})
+
 app.get('/D3Test', function(req, res){
   res.render('D3Test');
 })
@@ -66,10 +112,6 @@ app.get('/HeatMapD3', function(req, res){
 })
 
 
-app.get('/profile/:DataloggerName', function(req, res){
-  res.send('This will be to get a dataloggers JSON' + req.params.DataloggerName)
->>>>>>> Testing out different functionality with Highmaps and D3.js, I have not got D3.js images to load to the HTML file yet.
-})
 
 // app.get('/', function (req, res) {
 //   client.host('localhost');
@@ -138,8 +180,8 @@ client.get( function onData(error, data) {
   });
   
 
-})
+});
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
-})
+});
