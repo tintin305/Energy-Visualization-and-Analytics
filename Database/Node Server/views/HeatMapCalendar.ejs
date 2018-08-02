@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" href="/css//Cal-Heatmap/cal-heatmap.css" />
+    <script type="text/javascript" src="js/Cal-Heatmap/cal-heatmap.min.js"></script>
+  
+<title>Data Calendar</title>
+<style>
+    .month {
+        fill: none;
+        stroke: #000;
+        stroke-width: 2px;
+    }
+    .day {
+        fill: #fff;
+        stroke: #ccc;
+    }
+    text    {
+        font-family:sans-serif;
+        font-size:1.5em;
+    }
+    .dayLabel   {
+        fill:#aaa;
+        font-size:0.8em;
+    }
+    .monthLabel {
+        text-anchor:middle;
+        font-size:0.8em;
+        fill:#aaa;
+    }
+    .yearLabel  {
+        fill:#aaa;
+        font-size:1.2em;
+    }
+    
+    .key    {font-size:0.5em;}
+    
+</style>
+</head>
+<body>
+  <div id="cal-heatmap" id="chart"></div>
+  <script type="text/javascript">
+    var cal = new CalHeatMap();
+    cal.init({
+      data: "/Data/ga.csv",
+      dataType: "csv",
+      domain: "day",
+      subDomain: "hour",
+	    range: 31,
+	    cellpadding: 1,
+	    itemName : ["visitor", "visitors"],
+	    scale: [2, 4, 6, 8, 10],
+	    start: new Date(2013, 03, 14),
+      afterLoadData: function(d) {
+        var start = +new Date(2013, 03, 14) / 1000;
+        var stats = {};
+        for (var i = 0, total = d.length; i < total; i++ ) {
+          o = d[i];
+          stats[(parseInt(o.Hour, 10) * 3600) + start] = o.Visits;
+        }
+        return stats;
+      }
+        });
+  </script>
+
+
+<div id="cal-heatmap"></div>
+<script type="text/javascript">
+	var cal = new CalHeatMap();
+	cal.init({});
+</script>
+
+</body>
+</html>
