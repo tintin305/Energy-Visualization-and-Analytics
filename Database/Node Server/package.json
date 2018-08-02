@@ -24,6 +24,7 @@
     "express": "^4.16.3",
     "gnuplot": "^0.3.1",
     "jsdom": "^11.12.0",
+    "jsonexport": "^2.2.1",
     "opentsdb": "^0.5.7",
     "request": "^2.81.0"
   }
