@@ -70,21 +70,34 @@ client.get( function onData(error, data) {
       return;
     }
     console.log(url);
-    console.log( data);
-    var dir = './tmp';
+    // console.log(JSON.stringify(data))
 
-if (!fs.existsSync(dir)){
-    fs.mkdirSync(dir);
-}
-//not exporting properly:
-    jsonexport(data, {rowDelimiter: '\t'},function(err, csv){
-    fs.writeFile("./tmp/test.csv", csv, function(err) {
-    if(err) {
-      console.log(err)
-    }
-    });
- });
-  // console.log(JSON.stringify(data.dps))
+  OGstring = JSON.stringify(data)
+  dataString = OGstring.replace("]", " ");
+  // console.log(dataString)
+  newstring = dataString;
+
+  newstring = newstring.replace(/\],\[/g, '\n');
+  dataIndex = newstring.indexOf('[[')
+  newstring = newstring.substring(dataIndex+2)
+
+
+    //  Remove unwanted brackets 
+    newstring = newstring.replace(/\]/g, '');
+    newstring = newstring.replace(/\}/g, '');
+    dammit = newstring.replace(/000,/g, ',');
+
+  var dir = './public/tmp';
+  if (!fs.existsSync(dir)){
+      fs.mkdirSync(dir);
+  }
+fs.writeFile("./public/tmp/temp.csv", dammit, function(err) {
+  if(err) {
+      return console.log(err);
+  }
+  console.log("The file was saved!");
+}); 
+
   });
   
 
