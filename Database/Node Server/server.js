@@ -93,8 +93,8 @@ fs.writeFile("./public/tmp/temp.csv", dammit, function(err) {
   
 })
 
-app.get('/D3Test', function(req, res){
-  res.render('D3Test');
+app.get('/D3RadialHeatMap', function(req, res){
+  res.render('D3RadialHeatMap');
 })
 
 app.get('/HighMapTest', function(req, res){
@@ -102,15 +102,12 @@ app.get('/HighMapTest', function(req, res){
 })
 
 
-
-app.get('/D3RadialMap', function(req, res){
-  res.render('D3RadialMap');
+app.get('/HeatMapCalendar', function(req, res){
+  var d3 = require('d3'); 
+  res.render('HeatMapCalendar');
 })
 
 
-app.get('/HeatMapD3', function(req, res){
-  res.render('HeatMapD3', testing);
-})
 
 
 
@@ -167,6 +164,10 @@ client.metrics( function onResponse( error, metrics ) {
   
 
 // });
+
+
+
+
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
