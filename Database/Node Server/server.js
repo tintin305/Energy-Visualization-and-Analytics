@@ -8,7 +8,13 @@ var opentsdb = require( 'opentsdb' );
 var client = require('opentsdb-client')();
 // var client = opentsdb.client();
 var mQuery = require('opentsdb-mquery')();
-// const apiKey = '*****************';
+
+// D3 Package
+var d3 = require('d3');
+var jsdom = require('jsdom');
+
+
+
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +32,7 @@ app.get('/getJson', function (req, res) {
 });
 
 
+
 // app.get('/js/index2.js', function(req, res){
   // res.sendFile(__dirname + '/js/index2.js');
 // });
@@ -34,9 +41,34 @@ app.get('/', function (req, res) {
   res.render('index', {weather: null, error: null});
 })
 
+<<<<<<< HEAD
 app.get('/profiles/:DataloggerName', function(req, res){
   // res.send('This will be to get a dataloggers JSON ' + req.params.DataloggerName)
   res.render('newThing', {passing: req.params.DataloggerName})
+=======
+app.get('/D3Test', function(req, res){
+  res.render('D3Test');
+})
+
+app.get('/HighMapTest', function(req, res){
+  res.render('HighMapTest');
+})
+
+
+
+app.get('/D3RadialMap', function(req, res){
+  res.render('D3RadialMap');
+})
+
+
+app.get('/HeatMapD3', function(req, res){
+  res.render('HeatMapD3', testing);
+})
+
+
+app.get('/profile/:DataloggerName', function(req, res){
+  res.send('This will be to get a dataloggers JSON' + req.params.DataloggerName)
+>>>>>>> Testing out different functionality with Highmaps and D3.js, I have not got D3.js images to load to the HTML file yet.
 })
 
 // app.get('/', function (req, res) {
