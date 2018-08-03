@@ -108,9 +108,13 @@ app.get('/HeatMapCalendar', function(req, res){
 })
 
 
+app.get('/D3Test', function(req, res){
+  res.sendFile(__dirname + '/Views/D3Test.html');
+})
 
-
-
+app.get('/CalHeatMap', function(req, res){
+  res.sendFile(__dirname + '/Views/CalHeatMap.html');
+})
 
 //https://www.npmjs.com/package/opentsdb
 
