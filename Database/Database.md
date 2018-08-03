@@ -269,7 +269,6 @@ This allows one to access: 127.0.0.1:4242 which is the GUI.
 /usr/share/opentsdb/bin/tsdb mkmetric mysql.bytes_received mysql.bytes_sent
 This now shows up on the GUI when searched for in the metric box.
 
-
 In order to get the csv data into the database a number of steps need to take place:
 
 Firstly, the csv data needs to be converted into a format read by OpenTSDB, this means that each csv file will be converted so that it has the form:
@@ -360,3 +359,16 @@ You have to allow it to have execution ability, you can do this by using
 Then you can run the script with
     ./filename.sh
 Where the './' indicates that you are running it from inside the current folder.
+
+## Checking if a Service is Running
+
+To check the status of a specific service:
+    service service_name status
+
+To check the status of all services on the system:
+    service --status-all
+
+To start, restart, stop, services:
+    service service_name stop
+    service service_name start
+    service service_name restart
