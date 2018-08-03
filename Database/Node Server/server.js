@@ -73,13 +73,19 @@ client.get( function onData(error, data) {
     //  Remove unwanted brackets 
     newstring = newstring.replace(/\]/g, '');
     newstring = newstring.replace(/\}/g, '');
-    dammit = newstring.replace(/000,/g, ',');
+    newstring = newstring.replace(/000,/g, ',');
+    
+
+    // NB //
+    // Test if this works properly
+    newstring = "Timestamp, " + req.params.DataloggerName   + "\n" + newstring;
+
 
   var dir = './public/tmp';
   if (!fs.existsSync(dir)){
       fs.mkdirSync(dir);
   }
-fs.writeFile("./public/tmp/temp.csv", dammit, function(err) {
+fs.writeFile("./public/tmp/temp.csv", newstring, function(err) {
   if(err) {
       return console.log(err);
   }
@@ -122,17 +128,18 @@ app.get('/CalHeatMap', function(req, res){
 app.get('/metrics/', function(req, res){
   // res.send('This is the list of metrics on the database' + req.params.DataloggerName)
 
+  console.log('here')
 client.host('localhost');
 client.port(4242);
 client.ms( false );
-
+console.log('here')
 client.metrics( function onResponse( error, metrics ) {
   if ( error ) {
       console.error( JSON.stringify( error ) );
       return;
   }
   // res.send('This is the list of metrics on the database' + JSON.stringify( metrics ) );
-  // console.log( JSON.stringify( metrics ) );
+  console.log( JSON.stringify( metrics ) );
   res.render('logger_list',{lists: metrics }) 
 });
 })
