@@ -122,6 +122,10 @@ app.get('/CalHeatMap', function(req, res){
   res.sendFile(__dirname + '/Views/CalHeatMap.html');
 })
 
+app.get('/D3TestEdited', function(req, res){
+  res.sendFile(__dirname + '/Views/D3TestEdited.html');
+})
+
 //https://www.npmjs.com/package/opentsdb
 
 // When the user enters 'localhost:3000/metrics/' then the server will query the database and return a list of metrics to the log and to the web page.
@@ -144,37 +148,37 @@ client.metrics( function onResponse( error, metrics ) {
 });
 })
 
-// app.get('/WITS_WC_Genmin_Sub_kVarh/', function(req, res){
-//   var end = Date.now();
-//   var start = end - 100;
+app.get('/WITS_WC_Genmin_Sub_kVarh/', function(req, res){
+  var end = Date.now();
+  var start = end - 100;
 
-//   mQuery.aggregator('sum');
-//   mQuery.downsample('5m-avg');
-//   mQuery.rate(false);
-//   mQuery.metric('WITS_WC_Genmin_Sub_kVarh');
-//   mQuery.tags('DataLoggerName', 'WITS_WC_Genmin_Sub_kVarh');
-// client.host('localhost');
-// client.port(4242);
-// client.ms(false);
-// client.tsuids(false);
-// client.annotations('none');
-// // client.start( start );
-// client.start('2013/01/01 01:00');
-// client.end('2018/05/05 01:00')
-// // client.end( end );
-// client.queries( mQuery );
-// var url = client.url();
-// client.get( function onData(error, data) {
-//     if (error){
-//       console.error( JSON.stringify(error));
-//       return;
-//     }
-//     console.log(url);
-//     console.log( JSON.stringify(data));
-//   });
+  mQuery.aggregator('sum');
+  mQuery.downsample('5m-avg');
+  mQuery.rate(false);
+  mQuery.metric('WITS_WC_Genmin_Sub_kVarh');
+  mQuery.tags('DataLoggerName', 'WITS_WC_Genmin_Sub_kVarh');
+client.host('localhost');
+client.port(4242);
+client.ms(false);
+client.tsuids(false);
+client.annotations('none');
+// client.start( start );
+client.start('2013/01/01 01:00');
+client.end('2018/05/05 01:00')
+// client.end( end );
+client.queries( mQuery );
+var url = client.url();
+client.get( function onData(error, data) {
+    if (error){
+      console.error( JSON.stringify(error));
+      return;
+    }
+    console.log(url);
+    console.log( JSON.stringify(data));
+  });
   
 
-// });
+});
 
 
 
