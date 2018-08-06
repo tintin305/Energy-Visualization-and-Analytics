@@ -27,7 +27,7 @@ app.get('/js/', function(req, res){
 
 
 app.get('/', function (req, res) {
-  res.render('homePage', {weather: null, error: null});
+  res.sendFile(__dirname + '/Views/index.html');
 })
 
 app.get('/profiles/:DataloggerName', function(req, res){
@@ -36,7 +36,7 @@ app.get('/profiles/:DataloggerName', function(req, res){
   var start = end - 100;
 
   mQuery.aggregator('sum');
-  mQuery.downsample('5m-avg');
+  mQuery.downsample('5ms-avg');
   mQuery.rate(false);
   mQuery.metric(req.params.DataloggerName);
   mQuery.tags('DataLoggerName', req.params.DataloggerName);
@@ -94,10 +94,15 @@ fs.writeFile("./public/tmp/temp.csv", newstring, function(err) {
 
   });
   
+  // res.render('profiles', {passing: req.params.DataloggerName});
+  res.sendFile(__dirname + '/Views/DygraphsShow.html');
 
-  res.render('profiles', {passing: req.params.DataloggerName});
-  
-})
+
+});
+
+app.get('/index', function(req, res){
+  res.sendFile(__dirname + '/Views/DygraphsShow.html');
+});
 
 app.get('/D3RadialHeatMap', function(req, res){
   res.render('D3RadialHeatMap');
