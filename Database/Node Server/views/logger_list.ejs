@@ -10,8 +10,7 @@
 
     <style>
         div.scrollmenu {
-            background-color: #333;
-            width : 400px;
+            width : 700px;
             height:500px;
             overflow: auto;
             white-space: nowrap;
@@ -29,6 +28,69 @@
         div.scrollmenu a:hover {
             background-color: #777;
         }
+        /* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
         </style>
 
   </head>
@@ -45,13 +107,41 @@
   </ul>
 
 
-
+<!-- 
 <div class="scrollmenu">
         <% for(var i=0; i < lists.length; i++) { %>
             <a href='profiles/<%= lists[i] %>'><%= lists[i] %></a>
             <% } %>
 
+</div> -->
+
+<p>Select a data logger</p>
+<!-- <form action="/action_page.php"> -->
+    
+<div class="scrollmenu">
+    <% for(var i=0; i < lists.length; i++) { %>
+        <!-- <input type="radio" name="browser" onclick="myFunction(this.value)" value='<%= lists[i] %>'><%= lists[i] %><br> -->
+      
+        <label class="container"><%= lists[i] %>
+            <input type="radio"  name="browser" onclick="myFunction(this.value)" value='<%= lists[i] %>'>
+            <span class="checkmark"></span>
+          </label>
+          <% } %>
+
 </div>
+    <br>
+  
+    Selected data logger is: <input type="text" id="result">
+    
+    <input type="submit" value="Submit form">
+  <!-- </form> -->
+  
+
+  <script>
+  function myFunction(browser) {
+      document.getElementById("result").value = browser;
+  }
+  </script>
 
 
 </body>
