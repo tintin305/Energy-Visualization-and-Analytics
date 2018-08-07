@@ -13,15 +13,16 @@ import matplotlib as mpl
 import datetime
 import matplotlib.dates as mdates
 
+# The /1000 is to counteract the extra zero's in the CSV. Dygraphs reads the csv using the three zero's so it is easy to remove them for this specific case.
 def calculate_dates(unix):
     dateStamp = datetime.datetime.fromtimestamp(
-        unix
+        unix/1000
     ).strftime('%Y-%m-%d')
     return dateStamp
     
 def calculate_times(unix):
     dateStamp = datetime.datetime.fromtimestamp(
-        unix
+        unix/1000
     ).strftime('%H:%M:%S')
     return dateStamp
 

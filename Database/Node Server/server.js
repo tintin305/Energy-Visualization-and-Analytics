@@ -124,52 +124,18 @@ app.get('/index', function(req, res){
 });
 
 app.get('/HeatMaps', function(req, res){
-  // const spawn = require("child_process").spawn;
-  // const pythonProcess = spawn('python', ["../public/Python_Scripts/GenerateHeatMap.py"]);
   PythonShell.run((__dirname +"/public/Python_Scripts/GenerateHeatMap.py"), function (err) {
     if (err) throw err;
     console.log('finished');
     res.sendFile(__dirname + '/Views/HeatMapShow.html');
-  });
-
-
-  // res.sendFile(__dirname + '/Public/Data/HeatMap/HeatMap.pdf')
 });
 
-app.get('/D3RadialHeatMap', function(req, res){
-  res.render('D3RadialHeatMap');
-})
-
-app.get('/HighMapTest', function(req, res){
-  res.render('HighMapTest');
-})
-
-
-app.get('/HeatMapCalendar', function(req, res){
-  var d3 = require('d3'); 
-  res.render('HeatMapCalendar');
-})
-
-
-app.get('/D3Test', function(req, res){
-  res.sendFile(__dirname + '/Views/D3Test.html');
-})
-
-app.get('/CalHeatMap', function(req, res){
-  res.sendFile(__dirname + '/Views/CalHeatMap.html');
-})
-
-app.get('/D3TestEdited', function(req, res){
-  res.sendFile(__dirname + '/Views/D3TestEdited.html');
-})
+});
 
 //https://www.npmjs.com/package/opentsdb
 
 // When the user enters 'localhost:3000/metrics/' then the server will query the database and return a list of metrics to the log and to the web page.
 app.get('/metrics/', function(req, res){
-  // res.send('This is the list of metrics on the database' + req.params.DataloggerName)
-
-  // console.log('here')
 client.host('localhost');
 client.port(4242);
 client.ms( false );
