@@ -156,18 +156,18 @@ app.get('/D3TestEdited', function(req, res){
 app.get('/metrics/', function(req, res){
   // res.send('This is the list of metrics on the database' + req.params.DataloggerName)
 
-  console.log('here')
+  // console.log('here')
 client.host('localhost');
 client.port(4242);
 client.ms( false );
-console.log('here')
+// console.log('here')
 client.metrics( function onResponse( error, metrics ) {
   if ( error ) {
       console.error( JSON.stringify( error ) );
       return;
   }
   // res.send('This is the list of metrics on the database' + JSON.stringify( metrics ) );
-  console.log( JSON.stringify( metrics ) );
+  // console.log( JSON.stringify( metrics ) );
   res.render('logger_list',{lists: metrics }) 
 });
 })
