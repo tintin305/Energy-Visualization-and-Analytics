@@ -106,7 +106,7 @@
     <!-- <li><a href="about.asp">About</a></li> -->
   </ul>
 
-
+  <% var selectedLogger; %>
 <!-- 
 <div class="scrollmenu">
         <% for(var i=0; i < lists.length; i++) { %>
@@ -123,7 +123,7 @@
         <!-- <input type="radio" name="browser" onclick="myFunction(this.value)" value='<%= lists[i] %>'><%= lists[i] %><br> -->
       
         <label class="container"><%= lists[i] %>
-            <input type="radio"  name="browser" onclick="myFunction(this.value)" value='<%= lists[i] %>'>
+            <input type="radio"  name="browser" onclick="myFunction(this.value)"  value='<%= lists[i] %>'>
             <span class="checkmark"></span>
           </label>
           <% } %>
@@ -131,15 +131,26 @@
 </div>
     <br>
   
-    Selected data logger is: <input type="text" id="result">
-    
-    <input type="submit" value="Submit form">
+    Selected data logger is: <input type="text" id="result"     <% selectedLogger =  'this.value'; %>>
+    <a type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
+    <!-- <input type="submit" value="Submit form"> -->
   <!-- </form> -->
   
 
   <script>
   function myFunction(browser) {
       document.getElementById("result").value = browser;
+      str = "/profiles/" + browser
+      document.getElementById("click").value = str;
+  
+  }
+  </script>
+
+  <script>
+  function redirectFunction(browser) {
+       console.log(browser);
+        location.href = browser;
+           
   }
   </script>
 
