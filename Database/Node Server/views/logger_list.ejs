@@ -139,10 +139,18 @@
   <!-- </form> -->
   
 
+Enter Start Date <input type="text" id="startDate" value="2013-01-01 01:00">
+Enter End Date <input type="text" id="endDate" value="2018-05-05 01:00">
+
   <script>
   function myFunction(browser) {
       document.getElementById("result").value = browser;
-      str = "/profiles/" + browser
+      startDate = document.getElementById("startDate").value;
+      endDate = document.getElementById("endDate").value;
+      
+    //   document.getElementById("startDate").value = startDate;
+    //   document.getElementById("endDate").value = endDate;
+      str = "/profiles/" + browser + "/" + startDate + "/" + endDate;
       document.getElementById("click").value = str;
   
   }

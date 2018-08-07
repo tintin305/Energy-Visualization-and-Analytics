@@ -5,7 +5,7 @@
   
     // CSV or path to a CSV file.
     "/tmp/temp.csv",
-    // {
+    {
       // axis : {
       //   x : {
       //     valueFormatter: Dygraph.dateString_,
@@ -13,8 +13,14 @@
       //     ticker: Dygraph.dateTicker                
       //   }
       // }
-    // }
-  {
+      axes: {
+        x : {
+          valueFormatter: Dygraph.dateString_,
+          ticker: Dygraph.dateTicker
+        }
+      },
+    }
+  // {
     // xRangePad: 10,
     // yRangePad: 10,
     // xValueFormatter: Dygraph.dateString_,
@@ -30,5 +36,5 @@
     // colors: ["orange", "blue", "black"],
     // strokeWidth: 1
  
-  }
+  // }
   );
