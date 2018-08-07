@@ -105,27 +105,20 @@
     <li><a href="/">Home</a></li>
     <li><a href="/metrics">Dygraphs</a></li>
     <li><a href="/HeatMaps">HeatMaps</a></li>
-    <!-- <li><a href="about.asp">About</a></li> -->
   </ul>
 
   <% var selectedLogger; %>
-<!-- 
-<div class="scrollmenu">
-        <% for(var i=0; i < lists.length; i++) { %>
-            <a href='profiles/<%= lists[i] %>'><%= lists[i] %></a>
-            <% } %>
 
-</div> -->
 
 <p>Select a data logger</p>
-<!-- <form action="/action_page.php"> -->
     
 <div class="scrollmenu">
+        <form name="form">
     <% for(var i=0; i < lists.length; i++) { %>
-        <!-- <input type="radio" name="browser" onclick="myFunction(this.value)" value='<%= lists[i] %>'><%= lists[i] %><br> -->
+
       
         <label class="container"><%= lists[i] %>
-            <input type="radio"  name="browser" onclick="myFunction(this.value)"  value='<%= lists[i] %>'>
+            <input type="radio"  name="group1" onclick="myFunction(this.value)"  value='<%= lists[i] %>'>
             <span class="checkmark"></span>
           </label>
           <% } %>
@@ -135,43 +128,43 @@
   
     Selected data logger is: <input type="text" id="result"     <% selectedLogger =  'this.value'; %>>
     <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
-    <!-- <input type="submit" value="Submit form"> -->
-  <!-- </form> -->
-  
 
-Enter Start Date <input type="text" id="startDate" value="2013-01-01 01:00">
-Enter End Date <input type="text" id="endDate" value="2018-05-05 01:00">
+
+Start date:
+<input type="date" id = "startTime" value="2013-01-02" >
+End date:
+<input type="date" id = "endTime" value="2018-05-31" >
+
 
   <script>
   function myFunction(browser) {
       document.getElementById("result").value = browser;
-      startDate = document.getElementById("startDate").value;
-      endDate = document.getElementById("endDate").value;
-      
-    //   document.getElementById("startDate").value = startDate;
-    //   document.getElementById("endDate").value = endDate;
-      str = "/profiles/" + browser + "/" + startDate + "/" + endDate;
-      document.getElementById("click").value = str;
-  
+    //   str = "/profiles/" + browser
+      document.getElementById("click").value = browser;
   }
-  </script>
 
-  <script>
   function redirectFunction(browser) {
-    //    console.log(browser);
-        // location.href = browser;
-        if (browser == undefined)
-        {
-            
-        // location.href = browser;
-      document.getElementById("result").value = browser;
-        } else
-        {
 
-        location.href = browser;
+            logger = getClicked();
+    var startDate = document.getElementById("startTime").value
+    var endDate = document.getElementById("endTime").value
+        location.href ="/profiles/" + logger + "/" + startDate + "/" + endDate;
         }
            
+
+
+  function getClicked(){
+    var found_it
+
+for (var i=0; i<document.form.group1.length; i++)  {
+    if (document.form.group1[i].checked)  {
+        found_it = document.form.group1[i].value
+        }
+    }
+    document.getElementById("result").value = found_it;
+    return found_it;
   }
+
   </script>
 
 
