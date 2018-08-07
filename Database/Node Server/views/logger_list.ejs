@@ -91,6 +91,8 @@
 	border-radius: 50%;
 	background: white;
 }
+
+
         </style>
 
   </head>
@@ -132,7 +134,7 @@
     <br>
   
     Selected data logger is: <input type="text" id="result"     <% selectedLogger =  'this.value'; %>>
-    <a type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
+    <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
     <!-- <input type="submit" value="Submit form"> -->
   <!-- </form> -->
   
@@ -148,8 +150,18 @@
 
   <script>
   function redirectFunction(browser) {
-       console.log(browser);
+    //    console.log(browser);
+        // location.href = browser;
+        if (browser == undefined)
+        {
+            
+        // location.href = browser;
+      document.getElementById("result").value = browser;
+        } else
+        {
+
         location.href = browser;
+        }
            
   }
   </script>
