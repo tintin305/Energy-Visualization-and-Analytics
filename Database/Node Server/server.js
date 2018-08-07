@@ -16,6 +16,11 @@ var jsdom = require('jsdom');
 // To export  to csv
 var fs = require('fs');
 
+
+//Running Python
+var PythonShell = require('python-shell');
+
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
@@ -90,18 +95,32 @@ fs.writeFile("./public/tmp/temp.csv", newstring, function(err) {
       return console.log(err);
   }
   console.log("The file was saved!");
+  res.sendFile(__dirname + '/Views/DygraphsShow.html');
 }); 
 
   });
   
   // res.render('profiles', {passing: req.params.DataloggerName});
-  res.sendFile(__dirname + '/Views/DygraphsShow.html');
+
 
 
 });
 
 app.get('/index', function(req, res){
   res.sendFile(__dirname + '/Views/DygraphsShow.html');
+});
+
+app.get('/HeatMaps', function(req, res){
+  // const spawn = require("child_process").spawn;
+  // const pythonProcess = spawn('python', ["../public/Python_Scripts/GenerateHeatMap.py"]);
+  PythonShell.run((__dirname +"/public/Python_Scripts/GenerateHeatMap.py"), function (err) {
+    if (err) throw err;
+    console.log('finished');
+    res.sendFile(__dirname + '/Views/HeatMapShow.html');
+  });
+
+
+  // res.sendFile(__dirname + '/Public/Data/HeatMap/HeatMap.pdf')
 });
 
 app.get('/D3RadialHeatMap', function(req, res){
