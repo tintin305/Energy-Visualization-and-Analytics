@@ -1,11 +1,20 @@
-# simple-nodejs-weather-app
-Simple Node.js Command Line Weather Application
+---
+title: Node Web Server
+---
+# Node Web Server
 
-* Check out the **[Live Demo](https://simple-nodejs-weather-app-irhhpddsku.now.sh/)**
-* Read the full tutorial on how to build this application at [codeburst.io](https://codeburst.io)
-* Run the web app locally:
-```
-node server.js
-// Now open your browser and visit: localhost:3000
-```
-![gif](https://github.com/bmorelli25/simple-nodejs-weather-app/blob/master/giphy.gif?raw=true 'website gif')
+## Run on Nodemon
+
+Nodemon is used for the development process, this is such that as soon as the program encounters an error, it will automatically attempt to restart itself.
+
+To run it using nodemon use:
+    
+    nodemon server.js
+
+Then open your browser and visit: localhost:3000
+
+## Run on Node
+
+This will be to run the node server normally, use the following command:
+
+    node server.js

@@ -35,7 +35,7 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/Views/index.html');
 })
 
-app.get('/profiles/:DataloggerName', function(req, res){
+app.get('/profiles/:DataloggerName/:startDate/:endDate', function(req, res){
   //download temp file here
   var end = Date.now();
   var start = end - 100;
@@ -51,8 +51,21 @@ client.ms(false);
 client.tsuids(false);
 client.annotations('none');
 // client.start( start );
-client.start('2013/01/01 01:00');
-client.end('2018/05/05 01:00');
+// client.start('2013/01/01 01:00');
+var startDate = (req.params.startDate);
+startDate = startDate.replace("%20", " ");
+startDate = startDate.replace("-","/");
+startDate = startDate.replace("-","/");
+console.log(startDate);
+client.start(startDate);
+// client.end('2018/05/05 01:00');
+
+var endDate = (req.params.endDate);
+endDate = endDate.replace("%20", " ");
+endDate = endDate.replace("-","/");
+endDate = endDate.replace("-","/");
+console.log(endDate);
+client.end(endDate);
 // client.arrays(false);
 // client.end( end );
 client.queries( mQuery );
@@ -78,7 +91,7 @@ client.get( function onData(error, data) {
     //  Remove unwanted brackets 
     newstring = newstring.replace(/\]/g, '');
     newstring = newstring.replace(/\}/g, '');
-    newstring = newstring.replace(/000,/g, ',');
+    // newstring = newstring.replace(/000,/g, ',');
     
 
     // NB //
