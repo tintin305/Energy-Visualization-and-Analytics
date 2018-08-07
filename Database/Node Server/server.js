@@ -6,7 +6,6 @@ const app = express();
 // OpenTSDB Package
 var opentsdb = require( 'opentsdb' );
 var client = require('opentsdb-client')();
-// var client = opentsdb.client();
 var mQuery = require('opentsdb-mquery')();
 
 // D3 Package
@@ -27,12 +26,11 @@ app.set('view engine', 'ejs');
 
 // This will link up the javascript files that are called in the HTML file
 app.get('/js/', function(req, res){
-  res.sendFile(__dirname + '/js/');
+    res.sendFile(__dirname + '/js/');
 });
 
-
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/Views/index.html');
+app.get('/', function (req, res){
+    res.sendFile(__dirname + '/Views/index.html');
 })
 
 app.get('/profiles/:DataloggerName/:startDate/:endDate', function(req, res){
@@ -112,81 +110,36 @@ fs.writeFile("./public/tmp/temp.csv", newstring, function(err) {
 }); 
 
   });
-  
-  // res.render('profiles', {passing: req.params.DataloggerName});
-
-
 
 });
 
 app.get('/index', function(req, res){
-  res.sendFile(__dirname + '/Views/DygraphsShow.html');
+    res.sendFile(__dirname + '/Views/DygraphsShow.html');
 });
 
 app.get('/HeatMaps', function(req, res){
-  PythonShell.run((__dirname +"/public/Python_Scripts/GenerateHeatMap.py"), function (err) {
+PythonShell.run((__dirname +"/public/Python_Scripts/GenerateHeatMap.py"), function(err){
     if (err) throw err;
-    console.log('finished');
-    res.sendFile(__dirname + '/Views/HeatMapShow.html');
+        console.log('finished');
+        res.sendFile(__dirname + '/Views/HeatMapShow.html');
 });
 
 });
-
-//https://www.npmjs.com/package/opentsdb
 
 // When the user enters 'localhost:3000/metrics/' then the server will query the database and return a list of metrics to the log and to the web page.
 app.get('/metrics/', function(req, res){
-client.host('localhost');
-client.port(4242);
-client.ms( false );
-// console.log('here')
-client.metrics( function onResponse( error, metrics ) {
-  if ( error ) {
-      console.error( JSON.stringify( error ) );
-      return;
-  }
-  // res.send('This is the list of metrics on the database' + JSON.stringify( metrics ) );
-  // console.log( JSON.stringify( metrics ) );
-  res.render('logger_list',{lists: metrics }) 
-});
+    client.host('localhost');
+    client.port(4242);
+    client.ms(false);
+    client.metrics(function onResponse(error, metrics){
+        if (error) {
+            console.error( JSON.stringify(error));
+            return;
+        }
+    res.render('logger_list',{lists: metrics }); 
+    });
 })
 
-app.get('/WITS_WC_Genmin_Sub_kVarh/', function(req, res){
-  var end = Date.now();
-  var start = end - 100;
-
-  mQuery.aggregator('sum');
-  mQuery.downsample('5m-avg');
-  mQuery.rate(false);
-  mQuery.metric('WITS_WC_Genmin_Sub_kVarh');
-  mQuery.tags('DataLoggerName', 'WITS_WC_Genmin_Sub_kVarh');
-client.host('localhost');
-client.port(4242);
-client.ms(false);
-client.tsuids(false);
-client.annotations('none');
-// client.start( start );
-client.start('2013/01/01 01:00');
-client.end('2018/05/05 01:00')
-// client.end( end );
-client.queries( mQuery );
-var url = client.url();
-client.get( function onData(error, data) {
-    if (error){
-      console.error( JSON.stringify(error));
-      return;
-    }
-    console.log(url);
-    console.log( JSON.stringify(data));
-  });
-  
-
-});
-
-
-
-
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(3000, function(){
+    console.log('Example app listening on port 3000!');
 });
