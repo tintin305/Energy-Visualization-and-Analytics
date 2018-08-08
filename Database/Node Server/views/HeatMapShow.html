@@ -15,20 +15,25 @@
             width:1400px;
             height:600px;
             }
+            .side {
+            display: inline-block;
+            vertical-align: top;}
+  
     </style>
     </head>
 <body>
     <h1>
         Home page
     </h1>
-
+<div class = "side">
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/metrics">Dygraphs</a></li>
         <li><a href="/HeatMaps">HeatMaps</a></li>
     </ul>
+</div>
 
-    <div id="graphdiv"></div>
-    <embed src="/Data//HeatMap/HeatMap.pdf" width="1400px" height="600px" />
+    <div  class = "side" id="graphdiv"></div>
+    <embed src="/Data//HeatMap/HeatMap.pdf" width="1400px" height="700px" />
 </body>
 </html>
