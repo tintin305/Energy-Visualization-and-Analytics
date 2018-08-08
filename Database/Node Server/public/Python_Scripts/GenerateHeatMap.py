@@ -13,6 +13,8 @@ import matplotlib as mpl
 import datetime
 import matplotlib.dates as mdates
 
+import sys 
+
 # The /1000 is to counteract the extra zero's in the CSV. Dygraphs reads the csv using the three zero's so it is easy to remove them for this specific case.
 def calculate_dates(unix):
     dateStamp = datetime.datetime.fromtimestamp(
@@ -28,7 +30,12 @@ def calculate_times(unix):
 
 
 csvPath = os.path.join(os.path.dirname(__file__), "../tmp/temp.csv")
-data_raw = pd.read_csv(csvPath)
+try:
+    data_raw = pd.read_csv(csvPath)
+except:
+    print("error loading csv")
+    sys.exit()
+# data_raw = pd.read_csv(csvPath)
 
 data_raw['dates'] = data_raw.Timestamp.apply(calculate_dates)
 data_raw['times'] = data_raw.Timestamp.apply(calculate_times)
@@ -41,8 +48,19 @@ newdata["times"] = pd.Categorical(data_raw["times"], data_raw.times.unique())
 datamatrix = data_raw.pivot("times", "dates", data_raw.columns.values[1])
 
 
+fig, ax = plt.subplots()
+fig.set_size_inches(11.7, 8.27)
 sns.heatmap(datamatrix, xticklabels=50)
 plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
+# if (os.path.isdir("../data/HeatMap")):
+# print(os.path.isdir("../data/HeatMap"))
+directory = "../data/HeatMap"
+try:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+except OSError:
+    print ('Error: Creating directory. ' +  directory)
+# print(os.path.isdir("../data/HeatMap"))
 pdfPath = os.path.join(os.path.dirname(__file__), "../data/HeatMap/HeatMap.pdf")
 plt.savefig(pdfPath)
 # plt.show()
