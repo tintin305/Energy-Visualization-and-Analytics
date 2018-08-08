@@ -11,3 +11,6 @@ Database/Node Server/public/tmp/temp.csv
 Database/Node Server/public/Data/HeatMap/HeatMap.pdf
 Database/Node Server/public/Python_Scripts/temp.csv
 node_modules
+Web Scraping/Downloading Data/Historical Data Download/Chrome_Driver/Windows/chromedriver.exe
+Web Scraping/Downloading Data/Historical Data Download/Chrome_Driver/Mac/chromedriver
+Web Scraping/Downloading Data/Historical Data Download/Chrome_Driver/Linux/chromedriver

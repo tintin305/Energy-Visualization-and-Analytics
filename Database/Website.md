@@ -21,3 +21,8 @@ Another way around this is to generate the image on the server side, then once t
 
 I believe that there is a way to get the data out of the JSON directly with the use of either parsing it, or getting out the required parameter that extracts the data. 
 This should make things faster than the way we are doing it currently. 
+
+# The Sankey Diagram
+
+The idea behind the Sankey diagram is such that one needs to map a tree diagram of the system which starts from the incomer, then flows down to each of the individual loads on that subsystem.
+In order to do this, a system should be generated such that the data drawn from the database needs to sum the values from a specific time range. The request will be made from multiple metrics at the same time. These metrics will be the dataloggers which make up the system.

@@ -86,9 +86,9 @@ app.get('/profiles/:DataloggerName/:startDate/:endDate', function(req, res){
 
 
         var dir = './public/tmp';
-        if (!fs.existsSync(dir)){
-            fs.mkdirSync(dir);
-        }
+            if (!fs.existsSync(dir)){
+                fs.mkdirSync(dir);
+            }
         fs.writeFile("./public/tmp/temp.csv", newstring, function(err) {
         if(err) {
             return console.log(err);
@@ -104,12 +104,19 @@ app.get('/index', function(req, res){
 });
 
 app.get('/HeatMaps', function(req, res){
-PythonShell.run((__dirname +"/public/Python_Scripts/GenerateHeatMap.py"), function(err){
-    if (err) throw err;
-        console.log('finished');
-        res.sendFile(__dirname + '/Views/HeatMapShow.html');
+    PythonShell.run((__dirname +"/public/Python_Scripts/GenerateHeatMap/GenerateHeatMap.py"), function(err){
+        if (err) throw err;
+            console.log('finished');
+            res.sendFile(__dirname + '/Views/HeatMapShow.html');
+    });
 });
 
+app.get('/DataOutages', function(req, res){
+    PythonShell.run((__dirname +"/public/Python_Scripts/DataOutages/DataOutages.py"), function(err){
+        if (err) throw err;
+            console.log('finished');
+            res.sendFile(__dirname + '/Views/DataOutages.html');
+    });
 });
 
 // When the user enters 'localhost:3000/metrics/' then the server will query the database and return a list of metrics to the log and to the web page.
@@ -122,9 +129,19 @@ app.get('/metrics/', function(req, res){
             console.error( JSON.stringify(error));
             return;
         }
-    res.render('logger_list',{lists: metrics }); 
+        res.render('logger_list',{lists: metrics }); 
+
+        var dir = './public/LoggerList';
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+        }
+        fs.writeFile("./public/LoggerList/loggerList.csv", metrics, function(err) {
+            if(err) {
+                return console.log(err);
+            }
+        });
     });
-})
+});
 
 app.listen(3000, function(){
     console.log('Example app listening on port 3000!');
