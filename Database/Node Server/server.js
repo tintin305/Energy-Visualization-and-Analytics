@@ -33,86 +33,70 @@ app.get('/', function (req, res){
     res.sendFile(__dirname + '/Views/index.html');
 })
 
+// 
 app.get('/profiles/:DataloggerName/:startDate/:endDate', function(req, res){
-  //download temp file here
-  var end = Date.now();
-  var start = end - 100;
+    mQuery.aggregator('sum');
+    mQuery.downsample('5ms-avg');
+    mQuery.rate(false);
+    mQuery.metric(req.params.DataloggerName);
+    mQuery.tags('DataLoggerName', req.params.DataloggerName);
+    client.host('localhost');
+    client.port(4242);
+    client.ms(false);
+    client.tsuids(false);
+    client.annotations('none');
 
-  mQuery.aggregator('sum');
-  mQuery.downsample('5ms-avg');
-  mQuery.rate(false);
-  mQuery.metric(req.params.DataloggerName);
-  mQuery.tags('DataLoggerName', req.params.DataloggerName);
-client.host('localhost');
-client.port(4242);
-client.ms(false);
-client.tsuids(false);
-client.annotations('none');
-// client.start( start );
-// client.start('2013/01/01 01:00');
-var startDate = (req.params.startDate);
-startDate = startDate.replace("%20", " ");
-startDate = startDate.replace("-","/");
-startDate = startDate.replace("-","/");
-startDate = startDate + ' 01:00';
-console.log(startDate);
-client.start(startDate);
-// client.end('2018/05/05 01:00');
+    // Defining the start date
+    var startDate = (req.params.startDate);
+    startDate = startDate.replace("%20", " ");
+    startDate = startDate.replace("-","/");
+    startDate = startDate.replace("-","/");
+    client.start(startDate);
 
-var endDate = (req.params.endDate);
-endDate = endDate.replace("%20", " ");
-endDate = endDate.replace("-","/");
-endDate = endDate.replace("-","/");
-endDate = endDate + ' 23:00';
-console.log(endDate);
-client.end(endDate);
-// client.arrays(false);
-// client.end( end );
-client.queries( mQuery );
-var url = client.url();
-client.get( function onData(error, data) {
-    if (error){
-      console.error( JSON.stringify(error));
-      return;
-    }
-    console.log(url);
-    // console.log(JSON.stringify(data))
+    // Defining the end date
+    var endDate = (req.params.endDate);
+    endDate = endDate.replace("%20", " ");
+    endDate = endDate.replace("-","/");
+    endDate = endDate.replace("-","/");
+    client.end(endDate);
 
-  OGstring = JSON.stringify(data)
-  dataString = OGstring.replace("]", " ");
-  // console.log(dataString)
-  newstring = dataString;
+    client.arrays(false);
+    client.queries(mQuery);
+    var url = client.url();
+    client.get(function onData(error, data){
+        if (error){
+            console.error( JSON.stringify(error));
+            return;
+        }
+        OGstring = JSON.stringify(data)
+        dataString = OGstring.replace("]", " ");
+        newstring = dataString;
+        newstring = newstring.replace(/\],\[/g, '\n');
+        dataIndex = newstring.indexOf('[[')
+        newstring = newstring.substring(dataIndex+2)
 
-  newstring = newstring.replace(/\],\[/g, '\n');
-  dataIndex = newstring.indexOf('[[')
-  newstring = newstring.substring(dataIndex+2)
+        //  Remove unwanted brackets 
+        newstring = newstring.replace(/\]/g, '');
+        newstring = newstring.replace(/\}/g, '');
+        // newstring = newstring.replace(/000,/g, ',');
+
+        // NB //
+        // Test if this works properly
+        newstring = "Timestamp, " + req.params.DataloggerName   + "\n" + newstring;
 
 
-    //  Remove unwanted brackets 
-    newstring = newstring.replace(/\]/g, '');
-    newstring = newstring.replace(/\}/g, '');
-    // newstring = newstring.replace(/000,/g, ',');
-    
-
-    // NB //
-    // Test if this works properly
-    newstring = "Timestamp, " + req.params.DataloggerName   + "\n" + newstring;
-
-
-  var dir = './public/tmp';
-  if (!fs.existsSync(dir)){
-      fs.mkdirSync(dir);
-  }
-fs.writeFile("./public/tmp/temp.csv", newstring, function(err) {
-  if(err) {
-      return console.log(err);
-  }
-  console.log("The file was saved!");
-  res.sendFile(__dirname + '/Views/DygraphsShow.html');
-}); 
-
-  });
-
+        var dir = './public/tmp';
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+        }
+        fs.writeFile("./public/tmp/temp.csv", newstring, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("The file was saved!");
+        res.sendFile(__dirname + '/Views/DygraphsShow.html');
+        }); 
+    });
 });
 
 app.get('/index', function(req, res){
