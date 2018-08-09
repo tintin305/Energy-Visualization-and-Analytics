@@ -26,3 +26,15 @@ This should make things faster than the way we are doing it currently.
 
 The idea behind the Sankey diagram is such that one needs to map a tree diagram of the system which starts from the incomer, then flows down to each of the individual loads on that subsystem.
 In order to do this, a system should be generated such that the data drawn from the database needs to sum the values from a specific time range. The request will be made from multiple metrics at the same time. These metrics will be the dataloggers which make up the system.
+
+There appears to be some sort of functionality for achieving this summing function. 
+The first method is to make use of downsampling, this will give an idea of the average magnitude of the energy used over a period. 
+One can select downsampling and specify the interval to downsample to be the entire date range specified. The command "all" will do this.
+
+For simplicity, I am going to start with the matrix as this has a main incomer, a generator, and many buildings which make it up.
+
+When using the Node.js quering system, it is unable to understand the 0all-sum query. 
+However, when I put the query directly into the url of a browser, it understands the query and returns the exact requested numbrs:
+    http://localhost:4242/api/query?ms=false&arrays=false&show_tsuids=false&no_annotations=true&global_annotations=false&start=2018/01/01%2000:00&end=2018/01/08%2000:00&m=avg:0all-sum:WITS_EC_Matrix_Main_Incomer_kWh{DataLoggerName=WITS_EC_Matrix_Main_Incomer_kWh}
+
+The OpenTSDB GUI also has an issue with downsampling the entire date range using the "0all-sum" term, so this can be something to raise on the OpenTSDB on GitHub.  
