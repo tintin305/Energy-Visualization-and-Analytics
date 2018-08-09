@@ -14,3 +14,5 @@ node_modules
 Web Scraping/Downloading Data/Historical Data Download/Chrome_Driver/Windows/chromedriver.exe
 Web Scraping/Downloading Data/Historical Data Download/Chrome_Driver/Mac/chromedriver
 Web Scraping/Downloading Data/Historical Data Download/Chrome_Driver/Linux/chromedriver
+Database/Node Server/public/LoggerList/loggerList.csv
+Database/Node Server/public/Data/DataOutages/DataOutages.pdf
