@@ -1,0 +1,798 @@
+Jubilee Road:
+    13 Jubilee Road:
+        13 Jubilee Road kVarh
+        13 Jubilee Road kWh
+    3 Jubilee Road:
+        3 Jubilee Road kVarh
+        3 Jubilee Road kWh
+    5 Jubilee Road:
+        5 Jubilee Road kVarh
+        5 Jubilee Road kWh
+    9 Jubilee Road:
+        9 Jubilee Road kVarh
+        9 Jubilee Road kWh
+
+Campus Lodge:
+    Campus Lodge kVarh
+    Campus Lodge kWh
+
+College House:
+    College House kVarh
+    College House kWh
+
+East Campus:
+    Bernard Price:
+        Building:
+            EC Bernard Price Building kVarh
+            EC Bernard Price Building kWh
+        Sub:
+            EC Bernard Price Sub Total kVarh
+            EC Bernard Price Sub Total kWh
+    Bidvest Stadium:
+        EC Bidvest Stadium Lighting kVarh
+        EC Bidvest Stadium Lighting kWh
+        EC Bidvest Stadium Pavillion kVarh
+        EC Bidvest Stadium Pavillion kWh
+    Biology Building:
+        EC Biology Building TRF 1 kVarh
+        EC Biology Building TRF 1 kWh
+        EC Biology Building TRF 2 kVarh
+        EC Biology Building TRF 2 kWh
+    Bozzoli:
+        EC Bozzoli B C Sports Field kVarh
+        EC Bozzoli B C Sports Field kWh
+        EC Bozzoli Cricket A kVarh
+        EC Bozzoli Cricket A kWh
+        EC Bozzoli Main Incomer kVarh
+        EC Bozzoli Main Incomer kWh
+        EC Bozzoli Rugby Stadium kVarh
+        EC Bozzoli Rugby Stadium kWh
+    Cafe Fino Origins Center:
+        EC Cafe Fino Origins Center kVarh
+        EC Cafe Fino Origins Center kWh
+    Central Block:
+        EC Central Block 1 kVarh
+        EC Central Block 1 kWh
+        EC Central Block 2 kVarh
+        EC Central Block 2 kWh
+    Compount Sub:
+    EC Compound Sub Trf 1 kVarh
+        EC Compound Sub Trf 1 kWh
+        EC Compound Sub Trf 2 kVarh
+        EC Compound Sub Trf 2 kWh
+        EC Compound Sub Trf 3 kVarh
+        EC Compound Sub Trf 3 kWh
+        EC Compound Sub Trf 4 kVarh
+        EC Compound Sub Trf 4 kWh
+    Digital Arts:
+        EC Digital Arts kVarh
+        EC Digital Arts kWh
+    Emthonjeni Building:
+        EC Emthonjeni Building kVarh
+        EC Emthonjeni Building kWh
+    Gatehouse:
+        EC Gatehouse HT Meter kVarh
+        EC Gatehouse HT Meter kWh
+        EC Gatehouse TRF 1 kVarh
+        EC Gatehouse TRF 1 kWh
+        EC Gatehouse TRF 2 kVarh
+        EC Gatehouse TRF 2 kWh
+        EC Gatehouse TRF 3 kVarh
+        EC Gatehouse TRF 3 kWh
+        EC Gatehouse kVarh
+        EC Gatehouse kWh
+    Groundsman Cottage:
+        EC Groundsman Cottage kVarh
+        EC Groundsman Cottage kWh
+    Hillman Building:
+        EC Hillman Building 1 kVarh
+        EC Hillman Building 1 kWh
+        EC Hillman Building 2 kVarh
+        EC Hillman Building 2 kWh
+    Hofmeyer House:
+        EC Hofmeyer House kVarh
+        EC Hofmeyer House kWh
+    International House:
+        EC International House Total kVarh
+        EC International House Total kWh
+        EC International House kVarh
+        EC International House kWh
+    Ithemba Labs:
+        EC Ithemba Labs GEN KVA kVarh
+        EC Ithemba Labs GEN KVA kWh
+        EC Ithemba Labs Submersible Pumps kVarh
+        EC Ithemba Labs Submersible Pumps kWh
+    Jan Smuts House:
+        EC Jan Smuts House Total kVarh
+        EC Jan Smuts House Total kWh
+        EC Jan Smuts House kVarh
+        EC Jan Smuts House kWh
+    John Moffat:
+        EC John Moffat Sub Trf 1 kVarh
+        EC John Moffat Sub Trf 1 kWh
+        EC John Moffat Sub Trf 2 kVarh
+        EC John Moffat Sub Trf 2 kWh
+        EC John Moffat Sub Trf 3 kVarh
+        EC John Moffat Sub Trf 3 kWh
+    Jubilee:
+        EC Jubilee Dining Hall 1 kVarh
+        EC Jubilee Dining Hall 1 kWh
+        EC Jubilee Dining Hall 2 kVarh
+        EC Jubilee Dining Hall 2 kWh
+        EC Jubilee Generator kVarh
+        EC Jubilee Generator kWh
+        EC Jubilee Hall Lifts kVarh
+        EC Jubilee Hall Lifts kWh
+        EC Jubilee Hall Residence kVarh
+        EC Jubilee Hall Residence kWh
+        EC Jubilee Hall kVarh
+        EC Jubilee Hall kWh
+    Main Dining Hall Matrix Gen 250 kVA:
+        EC Main Dining Hall Matrix GEN 250 kVA kVarh
+        EC Main Dining Hall Matrix GEN 250 kVA kWh
+    Matrix:
+        EC Matric PPS for Professionals kWh
+        EC Matrix ABSA Bank kVArh
+        EC Matrix ABSA Bank kWh
+        EC Matrix Basement DB kVarh
+        EC Matrix Basement DB kWh
+        EC Matrix Butchers Grill kVarh
+        EC Matrix Butchers Grill kWh
+        EC Matrix Capitec Bank kVArh
+        EC Matrix Capitec Bank kWh
+        EC Matrix Chinese Lantern Takeaways kVArh
+        EC Matrix Chinese Lantern Takeaways kWh
+        EC Matrix Chinese Lantern kVArh
+        EC Matrix Chinese Lantern kWh
+        EC Matrix Computers  kWh
+        EC Matrix Computers kVArh
+        EC Matrix Cross Roads Driving School kVArh
+        EC Matrix Cross Roads Driving School kWh
+        EC Matrix DJ Sports kVArh
+        EC Matrix DJ Sports kWh
+        EC Matrix Debonairs 1 kVArh
+        EC Matrix Debonairs 1 kWh
+        EC Matrix Debonairs 2 kVarh
+        EC Matrix Debonairs 2 kWh
+        EC Matrix Delhi Delicious kVArh
+        EC Matrix Delhi Delicious kWh
+        EC Matrix Deli Delicious kVArh
+        EC Matrix Deli Delicious kWh
+        EC Matrix FUNDI kVArh
+        EC Matrix FUNDI kWh
+        EC Matrix First National Bank kVArh
+        EC Matrix First National Bank kWh
+        EC Matrix Fresher Breath kVArh
+        EC Matrix Fresher Breath kWh
+        EC Matrix Jetline com kVArh
+        EC Matrix Jetline com kWh
+        EC Matrix Just Taste kVArh
+        EC Matrix Just Taste kWh
+        EC Matrix Kara Nichha s kVar
+        EC Matrix Kara Nichha s kWh
+        EC Matrix Main Dining Hall East kVarh
+        EC Matrix Main Dining Hall East kWh
+        EC Matrix Main Dining Hall West kVarh
+        EC Matrix Main Dining Hall West kWh
+        EC Matrix Main Incomer  kVarh
+        EC Matrix Main Incomer kWh
+        EC Matrix Nedbank kVArh
+        EC Matrix Nedbank kWh
+        EC Matrix Ninos kVarh
+        EC Matrix Ninos kWh
+        EC Matrix Optometrist kVArh
+        EC Matrix Optometrist kWh
+        EC Matrix PPS for Professionals kVArh
+        EC Matrix Panel D9 kVarh
+        EC Matrix Panel D9 kWh
+        EC Matrix Pentz Book Shop 2 kVarh
+        EC Matrix Pentz Book Shop 2 kWh
+        EC Matrix Pentz Book Shop kVArh
+        EC Matrix Pentz Book Shop kWh
+        EC Matrix SBM G Panel kVarh
+        EC Matrix SBM G Panel kWh
+        EC Matrix SMB G Ground Floor kVarh
+        EC Matrix SMB G Ground Floor kWh
+        EC Matrix Sausage Saloon kVArh
+        EC Matrix Sausage Saloon kWh
+        EC Matrix Sizzlers kVarh
+        EC Matrix Sizzlers kWh
+        EC Matrix Standard Bank kVArh
+        EC Matrix Standard Bank kWh
+        EC Matrix Stationery kVArh
+        EC Matrix Stationery kWh
+        EC Matrix ISTPassword Corner kVarh
+        EC Matrix ISTPassword Corner kWh
+        EC Matrix The Sweets Park kVArh
+        EC Matrix The Sweets Park kWh
+        EC Matrix Van Schaik Bookstore kVArh
+        EC Matrix Van Schaik Bookstore kWh
+        EC Matrix ZA Cellular kVArh
+        EC Matrix ZA Cellular kWh
+    New Commerce Building:
+        EC New Commerce Building kVarh
+        EC New Commerce Building kWh
+    New Dalrymple House:
+        EC New Dalrymple House kVarh
+        EC New Dalrymple House kWh
+    New John Moffat Building:
+        EC New John Moffat Building kVarh
+        EC New John Moffat Building kWh
+    New Sunnyside Residence:
+        EC New Sunnyside Residence kVarh
+        EC New Sunnyside Residence kWh
+    North West Engineering:
+        EC North West Engineering 1 kVarh
+        EC North West Engineering 1 kWh
+        EC North West Engineering 2 kVarh
+        EC North West Engineering 2 kWh
+        EC North West Engineering 3 kVarh
+        EC North West Engineering 3 kWh
+    OLS Building:
+        EC OLS Building GEN 65 kVA kVarh
+        EC OLS Building GEN 65 kVA kWh
+        EC OLS Building kVarh
+        EC OLS Building kWh
+    Old Dalrymple House:
+        EC Old Dalrymple House kVarh
+        EC Old Dalrymple House kWh
+    Old Dental House:
+        EC Old Dental House kVarh
+        EC Old Dental House kWh
+    Old Mutual Sports Hall:
+        EC Old Mutual Sports Hall kVarh
+        EC Old Mutual Sports Hall kWh
+    Old Sunnyside Residence:
+        EC Old Sunnyside Residence kVarh
+        EC Old Sunnyside Residence kWh
+    Origin Centre:
+        EC Origin Centre kVarh
+        EC Origin Centre kWh
+    Origins Centre GEN 220 kVA:
+        EC Origins Centre GEN 220 kVA kVarh
+        EC Origins Centre GEN 220 kVA kWh
+    PDH Mini Sub:
+        EC PDH Mini Sub kVarh
+        EC PDH Mini Sub kWh
+    PDH Zesti Lemon:
+        EC PDH Zesti Lemon kVarh
+        EC PDH Zesti Lemon kWh
+    PDH water meter kl:
+        EC PDH   water meter kl
+    PG Club:
+        EC PG Club kVArh
+        EC PG Club kWh
+    Physics Building:
+        EC Physics Building kVarh
+        EC Physics Building kWh
+    Planetarium:
+        EC Planetarium Borehole Pump  38146549  kVArh
+        EC Planetarium Borehole Pump  38146549  kWh
+        EC Planetarium Sub Total  38146548  kVArh
+        EC Planetarium Sub Total  38146548  kWh
+        EC Planetarium kVarh
+        EC Planetarium kWh
+    Solomon Mahlangu:
+        EC Solomon Mahlangu GEN 800 kVA kVarh
+        EC Solomon Mahlangu GEN 800 kVA kWh
+        EC Solomon Mahlangu House TRF 2 kVArh
+        EC Solomon Mahlangu House TRF 2 kWh
+        EC Solomon Mahlangu House TRF 3 kVArh
+        EC Solomon Mahlangu House TRF 3 kWh
+        EC Solomon Mahlangu House TRF 4 kVArh
+        EC Solomon Mahlangu House TRF 4 kWh
+    Swimming Bath:
+        EC Swimming Bath kVarh
+        EC Swimming Bath kWh
+    Swimming Pool HP:
+        EC Swimming Pool HP kVarh
+        EC Swimming Pool HP kWh
+    Theatre:
+        EC Theatre kVarh
+        EC Theatre kWh
+    Theo Senate House:
+        EC Theo Senate House kVarh
+        EC Theo Senate House kWh
+    Umthombo Building:
+        EC Umthombo Building kVarh
+        EC Umthombo Building kWh
+    Van Riet Louw Building:
+        EC Van Riet Louw Building kVarh
+        EC Van Riet Louw Building kWh
+    Wartenweiler:
+        EC Wartenweiler Library kVarh
+        EC Wartenweiler Library kWh
+    William Cullen Library:
+        EC William Cullen Library kVarh
+        EC William Cullen Library kWh
+
+Essellen:
+    Essellen Mortuary:
+        Essellen Mortuary kVarh
+        Essellen Mortuary kWh
+    Essellen Street:
+        Essellen Street TRF1 kVarh
+        Essellen Street TRF1 kWh
+        Essellen Street TRF2 kVarh
+        Essellen Street TRF2 kWh
+        Essellen Street TRF3 kVarh
+        Essellen Street TRF3 kWh
+
+Graduate Lodge:
+    Graduate Lodge Choir kVarh
+    Graduate Lodge Choir kWh
+    Graduate Lodge Indian Studies kVarh
+    Graduate Lodge Indian Studies kWh
+    Graduate Lodge Vodacom Tower kVArh
+    Graduate Lodge Vodacom Tower kWh
+    Graduate Lodge kVarh
+    Graduate Lodge kWh
+
+IBM:
+IBM Tshimologong Building Enermax Q1 kVarh
+IBM Tshimologong Building Enermax Q4 kVarh
+IBM Tshimologong Building Enermax kWh
+
+Ithemba Labs:
+    Ithemba Labs High Voltage kVarh
+    Ithemba Labs High Voltage kWh
+    Ithemba Labs Nutron Source Building kVarh
+    Ithemba Labs Nutron Source Building kWh
+    Ithemba Labs TRF A kVarh
+    Ithemba Labs TRF A kWh
+    Ithemba Labs TRF B kVarh
+    Ithemba Labs TRF B kWh
+
+Knockando:
+    Knockando Block H kVarh
+    Knockando Block H kWh
+    Knockando Boiler Room kVarh
+    Knockando Boiler Room kWh
+    Knockando Dining Hall GEN 125 kVA kVarh
+    Knockando Dining Hall GEN 125 kVA kWh
+    Knockando Dinning Hall kVarh
+    Knockando Dinning Hall kWh
+    Knockando Leighton North kVarh
+    Knockando Leighton North kWh
+    Knockando Leighton South kVArh
+    Knockando Leighton South kWh
+    Knockando Main Sub Hostel 1 kVArh
+    Knockando Main Sub Hostel 1 kWh
+    Knockando Main Sub Kiosk kVArh
+    Knockando Main Sub Kiosk kWh
+    Knockando Northwards House kVarh
+    Knockando Northwards House kWh
+    Knockando Williams Hall 1 2 kVarh
+    Knockando Williams Hall 1 2 kWh
+
+Medical School:
+    Medical School HT Meter kVarh
+    Medical School HT Meter kWh
+    Medical School Transformer 1 kVarh
+    Medical School Transformer 1 kWh
+    Medical School Transformer 2 kVarh
+    Medical School Transformer 2 kWh
+    Medical School Transformer 3 kVarh
+    Medical School Transformer 3 kWh
+
+PEC:
+    Connacher Block TRF:
+        PEC Conacher Block TRF 1 kVarh
+        PEC Conacher Block TRF 1 kWh
+        PEC Conacher Block TRF 2 kVarh
+        PEC Conacher Block TRF 2 kWh
+    Harald Holmes Library TRF:
+        PEC Harald Holmes Library TRF 1 kVArh
+        PEC Harald Holmes Library TRF 1 kWh
+        PEC Harald Holmes Library TRF 2 kVArh
+        PEC Harald Holmes Library TRF 2 kWh
+    Highfield Dining Hall:
+        PEC Highfield Dining Hall GEN 150 kVA kVarh
+        PEC Highfield Dining Hall GEN 150 kVA kWh
+        PEC Highfield Dinning Hall kVarh
+        PEC Highfield Dinning Hall kWh
+    Highfield TRF:
+        PEC Highfield TRF 1 kVarh
+        PEC Highfield TRF 1 kWh
+        PEC Highfield TRF 2 kVarh
+        PEC Highfield TRF 2 kWh
+    Lesideng Extention:
+        PEC Lesideng Extention kVarh
+        PEC Lesideng Extention kWh
+    Linder Auditorium:
+        PEC Linder Auditorium GEN 400 kVA kVarh
+        PEC Linder Auditorium GEN 400 kVA kWh
+        PEC Linder Auditorium TRF 1 kVarh
+        PEC Linder Auditorium TRF 1 kWh
+        PEC Linder Auditorium TRF 2 kVarh
+        PEC Linder Auditorium TRF 2 kWh
+    Marang Block:
+        PEC Marang Block Trf 2 kVarh
+        PEC Marang Block Trf 2 kWh
+        PEC Marang Block kVarh
+        PEC Marang Block kWh
+    Matrons Block:
+        PEC Matrons Blocks kVarh
+        PEC Matrons Blocks kWh
+    Medhurst Residence:
+        PEC Medhurst Residence GEN 650 kVA kVarh
+        PEC Medhurst Residence GEN 650 kVA kWh
+    PIMD Office Block:
+        PEC PIMD Office Block kVarh
+        PEC PIMD Office Block kWh
+    Physical Education Building:
+        PEC Physical Education Building kVarh
+        PEC Physical Education Building kWh
+    Residence Girton Hall:
+        PEC Residence Girton Hall kVarh
+        PEC Residence Girton Hall kWh
+    Residence Medhurst Hall:
+        PEC Residence Medhurst Hall kVarh
+        PEC Residence Medhurst Hall kWh
+    Residence Reith Hall:
+        PEC Residence Reith Hall kVarh
+        PEC Residence Reith Hall kWh
+    School of Public Health:
+        PEC School of Public Health kVarh
+        PEC School of Public Health kWh
+    Siyafunda Cafe:
+        PEC Siyafunda Cafe kVarh
+        PEC Siyafunda Cafe kWh
+    Stadium:
+        PEC Stadium kVarh
+        PEC Stadium kWh
+    Wozani Block:
+        PEC Wozani Block kVarh
+        PEC Wozani Block kWh
+
+Philip V Tobias:
+    Philip V Tobias Main Incomer kVarh
+    Philip V Tobias Main Incomer kWh
+
+Science Park:
+    Admin Block:
+        Science Park Admin Block 1 kVarh
+        Science Park Admin Block 1 kWh
+        Science Park Admin Block 2  38111362  kVarh
+        Science Park Admin Block 2  38111362  kWh
+        Science Park Admin Block 2 kVarh
+        Science Park Admin Block 2 kWh
+    Duro Plastics:
+        Science Park Duro Plastics kVarh
+        Science Park Duro Plastics kWh
+    Struct Crete:
+        Science Park Struct Crete kVarh
+        Science Park Struct Crete kWh
+    Science Park Total kVarh
+    Science Park Total kWh
+
+South Court:
+    South Court kVarh
+    South Court kWh
+
+Junction:
+    HT:
+        The Junction HT kVarh
+        The Junction HT kWh
+    MSS:
+        The Junction MSS 1 Kiosk Shosholoza kVarh
+        The Junction MSS 1 Kiosk Shosholoza kWh
+        The Junction MSS 2 Kiosk Kum Saan kVarh
+        The Junction MSS 2 Kiosk Kum Saan kWh
+        The Junction MSS 2 Kiosk Ntombela kVarh
+        The Junction MSS 2 Kiosk Ntombela kWh
+        The Junction MSS 2 Kiosk Parna Janda kVarh
+        The Junction MSS 2 Kiosk Parna Janda kWh
+        The Junction MSS 3 Kiosk Amagumbi kVarh
+        The Junction MSS 3 Kiosk Amagumbi kWh
+        The Junction MSS 3 Kiosk Emakhaya kVarh
+        The Junction MSS 3 Kiosk Emakhaya kWh
+        The Junction MSS 3 Kiosk Mohokare kVarh
+        The Junction MSS 3 Kiosk Mohokare kWh
+        The Junction MSS 3 Kiosk Sarie Marais kVarh
+        The Junction MSS 3 Kiosk Sarie Marais kWh
+        The Junction MSS 4 Kiosk Amawasha kVarh
+        The Junction MSS 4 Kiosk Amawasha kWh
+        The Junction MSS 4 Kiosk Great Heart kVarh
+        The Junction MSS 4 Kiosk Great Heart kWh
+        The Junction MSS 4 Kiosk Languta kVarh
+        The Junction MSS 4 Kiosk Languta kWh
+        The Junction MSS 5 Kiosk Egoli kVarh
+        The Junction MSS 5 Kiosk Egoli kWh
+        The Junction MSS 5 Kiosk LS1 kVarh
+        The Junction MSS 5 Kiosk LS1 kWh
+        The Junction MSS 5 Kiosk LS2 kVarh
+        The Junction MSS 5 Kiosk LS2 kWh
+        The Junction MSS 6 Kiosk Ingolovane kVarh
+        The Junction MSS 6 Kiosk Ingolovane kWh
+        The Junction MSS 6 Kiosk Mbube kVarh
+        The Junction MSS 6 Kiosk Mbube kWh
+        The Junction MSS 6 Kiosk Parkade kVarh
+        The Junction MSS 6 Kiosk Parkade kWh
+        The Junction MSS 6 Kiosk Stimela kVarh
+        The Junction MSS 6 Kiosk Stimela kWh
+        The Junction MSS   001 kVarh
+        The Junction MSS   001 kWh
+        The Junction MSS   002 kVarh
+        The Junction MSS   002 kWh
+        The Junction MSS   003 kVarh
+        The Junction MSS   003 kWh
+        The Junction MSS   004 kVarh
+        The Junction MSS   004 kWh
+        The Junction MSS   005 kVarh
+        The Junction MSS   005 kWh
+        The Junction MSS   006 kVarh
+        The Junction MSS   006 kWh
+    ePitstop:
+        The Junction ePitstop kVarh
+        The Junction ePitstop kWh
+
+Tshimologong Building:
+    Catering DB:
+        Tshimologong Building Catering DB kVarh
+        Tshimologong Building Catering DB kWh
+    Club DB:
+        Tshimologong Building Club DB kVarh
+        Tshimologong Building Club DB kWh
+    Founders Square:
+        Tshimologong Building Founders Square kVarh
+        Tshimologong Building Founders Square kWh
+    Generator:
+        Tshimologong Building Generator kVarh
+        Tshimologong Building Generator kWh
+    IBM DB ION:
+        Tshimologong Building IBM DB ION kVarh
+        Tshimologong Building IBM DB ION kWh
+    JCE DB:
+        Tshimologong Building JCE DB kVarh
+        Tshimologong Building JCE DB kWh
+    LV Total:
+        Tshimologong Building LV Total Q1 kVarh
+        Tshimologong Building LV Total Q4 kVarh
+        Tshimologong Building LV Total kWh
+    Main Incomer:
+        Tshimologong Building Main Incomer kVarh
+        Tshimologong Building Main Incomer kWh
+    Makers Lab:
+        Tshimologong Building Makers Lab kVarh
+        Tshimologong Building Makers Lab kWh
+    Restaurant DB:
+        Tshimologong Building Restaurant DB kVarh
+        Tshimologong Building Restaurant DB kWh
+    TP DB:
+        Tshimologong Building TP   DB kVarh
+        Tshimologong Building TP   DB kWh
+
+University Corner:
+    University Corner kVarh
+    University Corner kWh
+
+WBS Albert Wessels Building:
+    WBS Albert Wessels Building kVarh
+    WBS Albert Wessels Building kWh
+
+WBS Albert Wessels Gen 300 kVA:
+    WBS Albert Wessels GEN 300 kVA kVarh
+    WBS Albert Wessels GEN 300 kVA kWh
+
+WBS Donald Gordon:
+    GEN 350kVA:
+        WBS Donald Gordon GEN 350 kVA kVarh
+        WBS Donald Gordon GEN 350 kVA kWh
+    Sub:
+        WBS Donald Gordon Sub kVArh
+        WBS Donald Gordon Sub kWh
+
+WBS:
+    EOH:
+        WBS EOH Kitchen GEN 125 kVA kVarh
+        WBS EOH Kitchen GEN 125 kVA kWh
+        WBS EOH Kitchen kVarh
+        WBS EOH Kitchen kWh
+        WBS EOH Residence 1 kVarh
+        WBS EOH Residence 1 kWh
+        WBS EOH Residence 2 kVarh
+        WBS EOH Residence 2 kWh
+    Faculty Office M:
+        WBS Faculty Office M kVarh
+        WBS Faculty Office M kWh
+    House:
+        WBS House C kVarh
+        WBS House C kWh
+        WBS House F kVarh
+        WBS House F kWh
+        WBS House H kVarh
+        WBS House H kWh
+        WBS House J kVarh
+        WBS House J kWh
+        WBS House K kVarh
+        WBS House K kWh
+        WBS House L kVarh
+        WBS House L kWh
+        WBS House Q kVarh
+        WBS House Q kWh
+        WBS House S kVarh
+        WBS House S kWh
+        WBS House U kVarh
+        WBS House U kWh
+    Mwalimu House:
+        WBS Mwalimu House GEN 125 kVA kVArh
+        WBS Mwalimu House GEN 125 kVA kWh
+        WBS Mwalimu House kVArh
+        WBS Mwalimu House kWh
+    North Lodge:
+        WBS North Lodge kVarh
+        WBS North Lodge kWh
+    Parktown Village:
+        WBS Parktown Village kVarh
+        WBS Parktown Village kWh
+    Sarua House:
+        WBS Sarua House kVarh
+        WBS Sarua House kWh
+    Trematon:
+        WBS Trematon House 1   7 kVarh
+        WBS Trematon House 1   7 kWh
+        WBS Trematon Place 4   7 kVarh
+        WBS Trematon Place 4   7 kWh
+        WBS Trematon Place 8   11 kVarh
+        WBS Trematon Place 8   11 kWh
+        WBS Trematon Place Minisub kVarh
+        WBS Trematon Place Minisub kWh
+
+WC:
+    Barnato Sub:
+        WC Barnato Sub Residence A   D kVarh
+        WC Barnato Sub Residence A   D kWh
+        WC Barnato Sub TRF 1 kVarh
+        WC Barnato Sub TRF 1 kWh
+        WC Barnato Sub TRF 2 kVarh
+        WC Barnato Sub TRF 2 kWh
+    CLM:
+        WC CLM Building TRF 1 kVarh
+        WC CLM Building TRF 1 kWh
+        WC CLM Building TRF 2 kVarh
+        WC CLM Building TRF 2 kWh
+        WC CLM GEN 275 kVA kVarh
+        WC CLM GEN 275 kVA kWh
+    CLTD Building:
+        WC CLTD Building kVarh
+        WC CLTD Building kWh
+    Catering Mayas:
+        WC Catering Mayas kVarh
+        WC Catering Mayas kWh
+    Chamber of Mines:
+        WC Chamber of Mines TRF 1 kVarh
+        WC Chamber of Mines TRF 1 kWh
+        WC Chamber of Mines TRF 2 kVarh
+        WC Chamber of Mines TRF 2 kWh
+    Claude Vergie House:
+        WC Claude Vergie House kVarh
+        WC Claude Vergie House kWh
+    Club Minisub Total:
+        WC Club Minisub Total kVarh
+        WC Club Minisub Total kWh
+    Convocation:
+        WC Convocation Dining Hall GEN 125 kVa kVarh
+        WC Convocation Dining Hall GEN 125 kVa kWh
+        WC Convocation Kitchen kVarh
+        WC Convocation Kitchen kWh
+    DJ du Plessis Building:
+        WC DJ du Plessis Building kVarh
+        WC DJ du Plessis Building kWh
+    David Webster:
+        WC David Webster Hall kVarh
+        WC David Webster Hall kWh
+    Dig Fields:
+        WC Dig Fields Rugby kVarh
+        WC Dig Fields Rugby kWh
+        WC Dig Fields Soccer kVarh
+        WC Dig Fields Soccer kWh
+    East Avenue Mini Sub:
+        WC East Avenue Mini Sub kVarh
+        WC East Avenue Mini Sub kWh
+    Educom Building:
+        WC Educom Building Trf 2 kVarh
+        WC Educom Building Trf 2 kWh
+        WC Educom Building Trf 3 kVarh
+        WC Educom Building Trf 3 kWh
+        WC Educom Building Trf 4 kVarh
+        WC Educom Building Trf 4 kWh
+    FNB Building:
+        WC FNB Building TRF 1 kVarh
+        WC FNB Building TRF 1 kWh
+        WC FNB Building TRF 2 kVarh
+        WC FNB Building TRF 2 kWh
+    Flower Hall:
+        WC Flower Hall kVarh
+        WC Flower Hall kWh
+    Genmin:
+        WC Genmin LAB HT kVArh
+        WC Genmin LAB HT kWh
+        WC Genmin LAB kVarh
+        WC Genmin LAB kWh
+        WC Genmin Sub kVarh
+        WC Genmin Sub kWh
+    Gymnasium:
+        WC Gymnasium kVarh
+        WC Gymnasium kWh
+    Hall 29:
+        WC Hall 29A kVarh
+        WC Hall 29A kWh
+        WC Hall 29B kVarh
+        WC Hall 29B kWh
+        WC Hall 29C kVarh
+        WC Hall 29C kWh
+    Humphrey Raikes:
+        WC Humphrey Raikes kVarh
+        WC Humphrey Raikes kWh
+    Maths Science:
+        WC Maths Science Building kVarh
+        WC Maths Science Building kWh
+        WC Maths Science North kVarh
+        WC Maths Science North kWh
+        WC Maths Science South kVarh
+        WC Maths Science South kWh
+    Old Grandstand:
+        WC Old Grandstand kVarh
+        WC Old Grandstand kWh
+    Oliver Schreiner School of Law:
+        WC Oliver Schreiner School of Law kVarh
+        WC Oliver Schreiner School of Law kWh
+   PIMD:
+        WC PIMD Supply No 1 kVarh
+        WC PIMD Supply No 1 kWh
+        WC PIMD Supply No 2 kVarh
+        WC PIMD Supply No 2 kWh
+        WC PIMD Wash Bay kVarh
+        WC PIMD Wash Bay kWh
+    Raikes Road Main Incomer:
+        WC Raikes Road Main Incomer kVarh
+        WC Raikes Road Main Incomer kWh
+    Science Stadium:
+        WC Science Stadium TRF 1 kVarh
+        WC Science Stadium TRF 1 kWh
+        WC Science Stadium TRF 2 kVarh
+        WC Science Stadium TRF 2 kWh
+    Squash Courts:
+        WC Squash Courts kVarh
+        WC Squash Courts kWh
+    Stdnts Village:
+        WC Stdnts Village Unit A kVarh
+        WC Stdnts Village Unit A kWh
+        WC Stdnts Village Unit B kVarh
+        WC Stdnts Village Unit B kWh
+        WC Stdnts Village Unit C kVarh
+        WC Stdnts Village Unit C kWh
+        WC Stdnts Village Unit D kVarh
+        WC Stdnts Village Unit D kWh
+        WC Stdnts Village Unit E kVArh
+        WC Stdnts Village Unit E kWh
+        WC Stdnts Village Unit F kVArh
+        WC Stdnts Village Unit F kWh
+        WC Stdnts Village Unit G kVArh
+        WC Stdnts Village Unit G kWh
+        WC Stdnts Village Unit H kVArh
+        WC Stdnts Village Unit H kWh
+    Sturrock:
+        WC Sturrock Kitchen kVarh
+        WC Sturrock Kitchen kVarh exp
+        WC Sturrock Kitchen kWh
+        WC Sturrock Kitchen kWh exp
+        WC Sturrock Park GEN 300 kVA kVarh
+        WC Sturrock Park GEN 300 kVA kWh
+        WC Sturrock Park Main kVarh
+        WC Sturrock Park Main kWh
+    The Barns:
+        WC The Barns kVarh
+        WC The Barns kWh
+    Tower of Lights Total:
+        WC Tower of Lights Total kVarh
+        WC Tower of Lights Total kWh
+    Village:
+        WC Village Minisub Total kVarh
+        WC Village Minisub Total kWh
+        WC Village Zesti Lemonz kVarh
+        WC Village Zesti Lemonz kWh
+    CLUB GENERATOR 100 kVa:
+    WC CLUB GENERATOR 100 kVa kVarh
+    WC CLUB GENERATOR 100 kVa kWh
