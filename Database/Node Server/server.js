@@ -15,10 +15,8 @@ var jsdom = require('jsdom');
 // To export  to csv
 var fs = require('fs');
 
-
 //Running Python
 var PythonShell = require('python-shell');
-
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -128,65 +126,38 @@ app.get('/DataOutages', function(req, res){
 });
 
 app.get('/SankeyDiagram', function(req, res){
-    mQuery.aggregator('avg');
-    mQuery.downsample('5d-avg');
-    mQuery.rate(false);
-    mQuery.metric('WITS_EC_Matrix_Main_Incomer_kWh');
-    mQuery.tags('DataLoggerName', 'WITS_EC_Matrix_Main_Incomer_kWh');
-    client.host('localhost');
-    client.port(4242);
-    client.ms(false);
-    client.tsuids(false);
-    client.annotations('none');
-
-    // Defining the start date
-    client.start('2018/01/01 00:00');
-
-    // Defining the end date
-    client.end('2018/01/07 23:30');
-
-    client.arrays(false);
-    client.queries(mQuery);
-    var url = client.url();
-    console.log(url)
-    client.get(function onData(error, data){
-        if (error){
-            console.error( JSON.stringify(error));
-            return;
-        }
-        console.log(JSON.stringify(data))
-        // OGstring = JSON.stringify(data)
-        // dataString = OGstring.replace("]", " ");
-        // newstring = dataString;
-        // newstring = newstring.replace(/\],\[/g, '\n');
-        // dataIndex = newstring.indexOf('[[')
-        // newstring = newstring.substring(dataIndex+2)
-
-        // //  Remove unwanted brackets 
-        // newstring = newstring.replace(/\]/g, '');
-        // newstring = newstring.replace(/\}/g, '');
-        // // newstring = newstring.replace(/000,/g, ',');
-
-        // // NB //
-        // // Test if this works properly
-        // newstring = "Timestamp, " + req.params.DataloggerName   + "\n" + newstring;
-
-
-        // var dir = './public/tmp';
-        //     if (!fs.existsSync(dir)){
-        //         fs.mkdirSync(dir);
-        //     }
-        // fs.writeFile("./public/tmp/temp.csv", newstring, function(err) {
-        // if(err) {
-        //     return console.log(err);
-        // }
-        // console.log("The file was saved!");
-
-        }); 
-        res.sendFile(__dirname + '/Views/SankeyDiagram.html');
+    const spawn = require('child_process').spawn;
+    const scriptExecution = spawn("python.exe", [(__dirname +"/public/Python_Scripts/DatabaseQuery/DatabaseQuery.py")]);
+    
+    // Handle normal output
+    scriptExecution.stdout.on('data', (data) => {
+        console.log(String.fromCharCode.apply(null, data));
     });
+    
+    var options = {
+        aggregator: 'avg',
+        downsample: '2d-sum',
+        rate: 'false',
+        metric: 'WITS_EC_Matrix_Main_Incomer_kWh',
+        tagKey: 'DataLoggerName',
+        tagValue: 'WITS_EC_Matrix_Main_Incomer_kWh',
+        host: 'localhost',
+        port: 4242,
+        ms: 'false',
+        arrays: 'true',
+        tsuids: 'false',
+        annotations: 'none',
+        startDate: '2018/01/01-00:00',
+        endDate: '2018/01/07-23:30'
+    };
 
-// });
+    // Write data (remember to send only strings or numbers, otherwhise python wont understand)
+    var data = JSON.stringify(options);
+    scriptExecution.stdin.write(data);
+    // End data write
+    scriptExecution.stdin.end();
+    res.sendFile(__dirname + '/Views/SankeyDiagram.html');
+});
 
 // When the user enters 'localhost:3000/metrics/' then the server will query the database and return a list of metrics to the log and to the web page.
 app.get('/metrics/', function(req, res){
