@@ -111,6 +111,14 @@ app.get('/HeatMaps', function(req, res){
     });
 });
 
+app.get('/ThreeDimensionalView', function(req, res){
+    PythonShell.run((__dirname +"/public/Python_Scripts/ThreeDimensionalView/ThreeDimensionalView.py"), function(err){
+        if (err) throw err;
+            console.log('finished');
+            res.sendFile(__dirname + '/Views/ThreeDimensionalViewShow.html');
+    });
+});
+
 app.get('/DataOutages', function(req, res){
     PythonShell.run((__dirname +"/public/Python_Scripts/DataOutages/DataOutages.py"), function(err){
         if (err) throw err;
