@@ -21,14 +21,14 @@ def saveQueryDetails(queryDetails):
         json.dump(queryDetails, write_file)
     return
 
-def createQueryUrl(queryDetails, logger):
+def createQueryUrl(queryDetails, loggerList):
     # Get the details out of the object
     aggregator = queryDetails['aggregator']
     downsample = queryDetails['downsample']
     rate = queryDetails['metric']
     tagKey = queryDetails['tagKey']
-    tagValue = logger
-    metric = logger
+    # tagValue = logger
+    # metric = logger
     host = queryDetails['host']
     port = queryDetails['port']
     ms = queryDetails['ms']
@@ -38,7 +38,11 @@ def createQueryUrl(queryDetails, logger):
     startDate = queryDetails['startDate']
     endDate = queryDetails['endDate']
 
-    url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + downsample + ':' + metric + '{' + tagKey + '=' + tagValue + '}'
+    url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate
+
+    for logger in loggerList:
+        addOn = '&m=' + aggregator + ':' + downsample + ':' + logger 
+        url = url + addOn
    
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
     os.chdir(csvPath)
@@ -50,8 +54,8 @@ def createQueryUrl(queryDetails, logger):
 
 def queryDatabase(url):
     data = requests.get(url)
-    test = data.text
-    return test
+    dataText = data.text
+    return dataText
 
 def writeDataToCSV(queryData):
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
@@ -92,18 +96,19 @@ def main():
 
     dataList = {}
     # while (count < len(loggerList)):
-    for logger in loggerList:
+    # for logger in loggerList:
         # queryDetails = read_in()
-        url = createQueryUrl(queryDetails, logger)
+    url = createQueryUrl(queryDetails, loggerList)
         # url = createQueryUrl(queryDetails, logger)
-        queryData = queryDatabase(url)
+    queryData = queryDatabase(url)
+    writeDataToCSV(queryData)
         # writeDataToCSV(queryData)
-        magnitude = extractData(queryData)
+    # magnitude = extractData(queryData)
 
         # dataList.update({str(loggerList[count]): "WITS_1"}) 
-        dataList.update({str(logger): str(magnitude)})
+    # dataList.update({str(logger): str(magnitude)})
 
-    writeDataToCSV(dataList)
+    # writeDataToCSV(dataList)
 
 # Start process
 
