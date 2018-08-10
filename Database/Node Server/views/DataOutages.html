@@ -3,32 +3,29 @@
 <head>
     <meta charset="utf-8">
     <title>Heat Map</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script> 
+    $(function(){
+      $("#header").load("html_templates/header.html"); 
+    });
+    </script> 
     <style type="text/css">
         #graphdiv {
             position: absolute;
             width:1400px;
             height:600px;
             }
-            .side {
-            display: inline-block;
-            vertical-align: top;}
     </style>
 </head>
 <body>
+    
+        <div id="header"></div>
     <h1>
         Home page
     </h1>
-<div class = "side">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/metrics">Dygraphs</a></li>
-        <li><a href="/HeatMaps">HeatMaps</a></li>
-        <li><a href="/DataOutages">Data Outages</a></li>
-        <li><a href="/SankeyDiagram">Sankey Diagram</a></li>        
-    </ul>
-</div>
 
-    <div  class = "side" id="graphdiv"></div>
+
+    <div id="graphdiv"></div>
     <embed src="/Data/DataOutages/DataOutages.pdf" width="1400px" height="700px" />
 </body>
 </html>
