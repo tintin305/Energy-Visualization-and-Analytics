@@ -5,6 +5,12 @@
     <title>Test</title>
     <link rel="stylesheet" type="text/css" href="/css/test.css">
     <script type="text/javascript" src="/js/dygraph.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script> 
+    $(function(){
+      $("#header").load("html_templates/header.html"); 
+    });
+    </script> 
     <link rel="stylesheet" type="text/css" href="/css/dygraph.css">
 
 
@@ -98,18 +104,12 @@
   </head>
   <body>
 
+        <div id="header"></div>
 <h1>
   List of Dataloggers
 </h1>
-<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/metrics">Dygraphs</a></li>
-    <li><a href="/HeatMaps">HeatMaps</a></li>
-    <li><a href="/DataOutages">Data Outages</a></li>
-    <li><a href="/SankeyDiagram">Sankey Diagram</a></li>        
-</ul>
 
-  <% var selectedLogger; %>
+
 
 
 <p>Select a data logger</p>
