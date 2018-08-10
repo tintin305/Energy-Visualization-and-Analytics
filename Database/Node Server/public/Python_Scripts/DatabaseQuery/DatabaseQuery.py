@@ -15,14 +15,15 @@ def read_in():
     return json.loads(lines[0])
 
 def saveQueryDetails(queryDetails):
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
-    os.chdir(csvPath)
-    with open('queryDetails.txt','w') as write_file:
-        json.dump(queryDetails, write_file)
+    # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    # os.chdir(csvPath)
+    # with open('queryDetails.txt','w') as write_file:
+    # json.dump(queryDetails, write_file)
+    return
 
 def createQueryUrl(queryDetails):
     # Get the details out of the object
-    aggregator = str(queryDetails['aggregator'])
+    aggregator = queryDetails['aggregator']
     downsample = queryDetails['downsample']
     rate = queryDetails['metric']
     tagKey = queryDetails['tagKey']
@@ -39,11 +40,11 @@ def createQueryUrl(queryDetails):
 
     url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + downsample + ':' + metric + '{' + tagKey + '=' + tagValue + '}'
    
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
-    os.chdir(csvPath)
-    f = open('url.txt','w')
-    f.write(url)
-    f.close()
+    # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    # os.chdir(csvPath)
+    # f = open('url.txt','w')
+    # f.write(url)
+    # f.close()
 
     return url
 
@@ -53,11 +54,11 @@ def queryDatabase(url):
     return test
 
 def writeDataToCSV(queryData):
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
-    os.chdir(csvPath)
-    with open('pythonData.csv','w') as write_file:
-        json.dump(queryData, write_file)    
-
+    # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    # os.chdir(csvPath)
+    # with open('pythonData.csv','w') as write_file:
+    #     json.dump(queryData, write_file)    
+    return
 
 def extractData(queryData):
     queryData = json.loads(queryData[1:-1])
@@ -72,7 +73,7 @@ def extractData(queryData):
 
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
     os.chdir(csvPath)
-    f = open('queryData.csv','w')
+    f = open('temp.csv','w')
     f.write(header)
     f.write(data)
     f.close()

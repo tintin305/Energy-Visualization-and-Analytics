@@ -17,3 +17,7 @@ Web Scraping/Downloading Data/Historical Data Download/Chrome_Driver/Linux/chrom
 Database/Node Server/public/LoggerList/loggerList.csv
 Database/Node Server/public/Data/DataOutages/DataOutages.pdf
 Database/Node Server/public/Data/
+Database/Node Server/public/tmp/url.txt
+Database/Node Server/public/tmp/queryDetails.txt
+Database/Node Server/public/tmp/queryData.csv
+Database/Node Server/public/tmp/pythonData.csv
