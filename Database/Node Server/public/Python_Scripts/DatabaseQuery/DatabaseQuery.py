@@ -18,7 +18,7 @@ def saveQueryDetails(queryDetails):
     # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
     # os.chdir(csvPath)
     # with open('queryDetails.txt','w') as write_file:
-    # json.dump(queryDetails, write_file)
+    #     json.dump(queryDetails, write_file)
     return
 
 def createQueryUrl(queryDetails):
