@@ -130,8 +130,8 @@ app.get('/SankeyDiagram', function(req, res){
         arrays: 'true',
         tsuids: 'false',
         annotations: 'none',
-        startDate: '2018/01/01-00:00',
-        endDate: '2018/01/07-23:30'
+        startDate: '2018/04/01-00:00',
+        endDate: '2018/04/30-23:30'
     };
 
     // Write data (remember to send only strings or numbers, otherwhise python wont understand)
