@@ -15,7 +15,7 @@ def read_in():
     return json.loads(lines[0])
 
 def saveQueryDetails(queryDetails):
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
     os.chdir(csvPath)
     with open('queryDetails.txt','w') as write_file:
         json.dump(queryDetails, write_file)
@@ -44,7 +44,7 @@ def createQueryUrl(queryDetails, loggerList):
         addOn = '&m=' + aggregator + ':' + downsample + ':' + logger 
         url = url + addOn
    
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
     os.chdir(csvPath)
     f = open('url.txt','w')
     f.write(url)
@@ -56,9 +56,13 @@ def queryDatabase(url):
     data = requests.get(url)
     dataJSON = data.json()
 
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
     os.chdir(csvPath)
-    os.remove('temp.csv')
+    try:
+        os.remove('temp.csv')
+    except OSError:
+        pass
+    
     count = 0
     while count < len(dataJSON):
         loggerName = dataJSON[count]['metric']
@@ -73,7 +77,7 @@ def queryDatabase(url):
         count += 1
 
 def writeDataToCSV(queryData):
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
     os.chdir(csvPath)
     with open('pythonData.csv','w') as write_file:
         json.dump(queryData, write_file)
