@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<!-- <html>
     <head>
         <meta charset="utf-8">
         <title>Test</title>
@@ -20,7 +20,162 @@
         Sankey Visualization
     </h1>
 
-
+    <script src="https://unpkg.com/d3-array@1"></script>
+    <script src="https://unpkg.com/d3-collection@1"></script>
+    <script src="https://unpkg.com/d3-path@1"></script>
+    <script src="https://unpkg.com/d3-shape@1"></script>
+    <script src="https://unpkg.com/d3-sankey@0"></script>
+    <script>
+    
+    var sankey = d3.sankey();
+    
+    </script>
 
     </body>
+</html> -->
+<!-- <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />  
+    <title>Sankey Javascript Demo: Spread effort 2050 Pathway</title>
+    <script src="/js/Raphael/raphael.js" type="text/javascript"></script>
+    <script src="/js/Raphael/jquery.js" type="text/javascript"></script>
+    <script src="/js/Sankey/sankey.js" type="text/javascript"></script>    
+    <link rel="stylesheet" href="/css/Sankey/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/test.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.js"></script>
+    <link  href="//rawgit.com/FabricioRHS/skd3/master/build/sk.d3.min.css" rel="stylesheet" type="text/css" />
+    <style>
+      #sankeyChart {
+        height: 500px;
+        width: 960px;
+      }
+    </style>
+
+<div id="sankeyChart"/>
+<script type="text/Javascript">
+
+var datajson = {nodes: [
+    {id: 0, name: "Alice", color: "green"},
+    {id: 1, name: "Bob", color: "yellow"},
+    {id: 2, name: "Carol", color: "blue"}
+  ],
+  links: [
+    {source: 0, target: 1, value: 1},
+    {source: 1, target: 2, value: 1}
+  ]};
+
+var configSankey = {
+	margin: { top: 10, left: 10, right: 10, bottom: 10 },
+	nodes: {
+		dynamicSizeFontNode: {
+			enabled: true,
+			minSize: 14,
+			maxSize: 30
+		},
+		fontSize: 14, // if dynamicSizeFontNode not enabled
+		draggableX: false, // default [ false ]
+		draggableY: true, // default [ true ]
+		colors: d3.scaleOrdinal(d3.schemeCategory10)
+	},
+	links: {
+		formatValue: function(val) {
+			return d3.format(",.0f")(val) + ' TWh';
+		}
+		unit: 'TWh' // if not set formatValue function
+	},
+	tooltip: {
+		infoDiv: true,  // if false display default tooltip
+		labelSource: 'Input:',
+		labelTarget: 'Output:'
+	}
+} -->
+
+<!-- </script> -->
+    <!-- <script> 
+        $(function(){
+            $("#header").load("html_templates/header.html"); 
+        });
+    </script>  -->
+  <!-- </head> -->
+  <!-- <body> -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="/js/Sankey/GenerateSankey.js">
+    //   $(document).ready(function() {
+    //     var sankey = new Sankey();
+      
+    //     sankey.stack(0,["Top","Bottom"]);
+    //     sankey.stack(1,["Merge"]);
+    //     sankey.stack(2,["Good","Bad"]);
+      
+    //     sankey.setData([["Top",100,"Merge"],["Bottom",50,"Merge"],["Merge",70,"Good"],["Merge",80,"Bad"]]);
+    //     sankey.draw();
+    // });
+      
+    </script>
+    <h1 style='width:1000px; text-align: center; margin-bottom: 0'>A very simple Sankey Diagram</h1>
+    <div style='width:1000px; text-align: center; margin-top: 0'>Move your mouse over the diagram to show values</div>
+    <div id='sankey' style="width:1000px;height:1000px">
+      &nbsp;
+    </div> -->
+  <!-- </body> -->
+<!-- </html> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<title>Sankey Diagram</title>
+	<body>
+		<div id="chart"/>
+		<script src="https://unpkg.com/d3@4.10.2"></script>
+		<script src="../build/sk.d3.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../build/sk.d3.min.css" />
+		<script src="data_energyjson.js"></script>
+		<style>
+			#chart {
+				height: 500px;
+				width: 960px;
+			}
+		</style>
+		<script>
+			var configSankey = {
+				margin: { top: 10, left: 10, right: 10, bottom: 10 },
+				nodes: {
+					dynamicSizeFontNode: {
+						enabled: true,
+						minSize: 14,
+						maxSize: 30
+					},
+					draggableX: false, // default [ false ]
+					draggableY: true, // default [ true ]
+					colors: d3.scaleOrdinal(d3.schemeCategory10)
+				},
+				links: {
+					formatValue: function(val) {
+						return d3.format(",.0f")(val) + ' TWh';
+					}
+				},
+				tooltip: {
+					infoDiv: true,
+					labelSource: 'Input:',
+					labelTarget: 'Output:'
+				}
+			}
+			
+			var objSankey = sk.createSankey('#chart', configSankey, energyjson);
+		</script>
+	</body>
 </html>

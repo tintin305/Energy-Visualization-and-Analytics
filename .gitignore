@@ -21,3 +21,5 @@ Database/Node Server/public/tmp/url.txt
 Database/Node Server/public/tmp/queryDetails.txt
 Database/Node Server/public/tmp/queryData.csv
 Database/Node Server/public/tmp/pythonData.csv
+Database/Node Server/public/tmp/SankeyDiagram/temp.csv
+Database/Node Server/public/tmp/SankeyDiagram/url.txt
