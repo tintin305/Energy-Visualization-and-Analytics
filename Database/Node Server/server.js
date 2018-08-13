@@ -74,10 +74,15 @@ app.get('/profiles/:DataloggerName/:startDate/:endDate', function(req, res){
     // Write data (remember to send only strings or numbers, otherwhise python wont understand)
     var data = JSON.stringify(options);
     scriptExecution.stdin.write(data);
+    
     // End data write
     scriptExecution.stdin.end();
-
+    
+    scriptExecution.on('exit', code => {
+        console.log(`Exit code is: ${code}`);
         res.sendFile(__dirname + '/Views/DygraphsShow.html');
+      });
+        // res.sendFile(__dirname + '/Views/DygraphsShow.html');
 });
 
 app.get('/index', function(req, res){
@@ -144,7 +149,13 @@ app.get('/SankeyDiagram', function(req, res){
 
     // End data write
     scriptExecution.stdin.end();
-    res.sendFile(__dirname + '/Views/SankeyDiagram.html');
+    
+    scriptExecution.on('exit', code => {
+        console.log(`Exit code is: ${code}`);
+        // res.sendFile(__dirname + '/Views/DygraphsShow.html');
+        res.sendFile(__dirname + '/Views/SankeyDiagram.html');
+      });
+    // res.sendFile(__dirname + '/Views/SankeyDiagram.html');
 });
 
 // When the user enters 'localhost:3000/metrics/' then the server will query the database and return a list of metrics to the log and to the web page.
