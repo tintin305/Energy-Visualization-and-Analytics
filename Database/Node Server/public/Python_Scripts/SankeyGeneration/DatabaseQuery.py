@@ -6,6 +6,7 @@ import sys
 import os
 from collections import namedtuple
 import csv
+from time import sleep
 #  /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
 
 #Read data from stdin
@@ -63,6 +64,9 @@ def queryDatabase(url):
     except OSError:
         pass
     
+    header = "DataLogger,loggerMagnitude\n"
+    f = open('temp.csv', 'a+')
+    f.write(header)
     count = 0
     while count < len(dataJSON):
         loggerName = dataJSON[count]['metric']
@@ -71,9 +75,9 @@ def queryDatabase(url):
         loggerTimestampMagnitude = loggerDPSStr.strip('[').replace('], [', '\n').strip(']')
         loggerMagnitude = loggerTimestampMagnitude[15:]
 
-        header = str(loggerName) + ',' + loggerMagnitude + '\n'
+        inputLine = str(loggerName) + ',' + loggerMagnitude + '\n'
         f = open('temp.csv', 'a+')
-        f.write(header)
+        f.write(inputLine)
         count += 1
 
 def writeDataToCSV(queryData):
@@ -88,6 +92,55 @@ def specifyLoggers():
 
     return loggersMatrix
 
+def formatToJSON():
+        
+            # csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/temp.csv")
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/temp.csv")
+    try:
+        data_raw = pd.read_csv(csvPath)
+    except:
+        print("error loading csv")
+        sys.exit()
+
+    # print(data_raw.head())
+    outString = 'var energyjson = { "nodes":[{"name":"Middle"},'
+    for row_index,row in data_raw.iterrows():
+        outString = outString + '{"name":"' + data_raw.DataLogger[row_index] + '"},'
+
+    outString = outString[:-1]
+
+    outString = outString + '],"links":[{"source":1, "target":0, "value":' + str(data_raw.loggerMagnitude[0]) + '},'
+    outString = outString + '{"source":2, "target":0, "value":' + str(data_raw.loggerMagnitude[1]) + '},'
+
+    # print(list(data_raw.columns.values))
+    for row_index,row in data_raw.iterrows():
+        if (row_index >=2):
+            outString = outString + '{"source":0, "target":' + str(row_index+1) + ', "value":' + str(data_raw.loggerMagnitude[row_index]) + '},'
+
+    outString = outString[:-1]
+    outString = outString + ']};'
+
+
+    # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
+    # os.chdir(csvPath)
+    
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
+    os.chdir(csvPath)
+    try:
+        os.remove('data_energyjson.js')
+    except OSError:
+        pass
+    # # f = open('data_energyjson.js','w')
+    f = open("data_energyjson.js", "w")
+    f.write(outString)
+    # f.close()
+
+    # sys.exit()
+
+    # sleep(5)
+    return
+
+
 def main():
     #get our data as an array from read in()
     queryDetails = read_in()
@@ -96,7 +149,7 @@ def main():
     url = createQueryUrl(queryDetails, loggerList)
 
     queryDatabase(url)
-
+    formatToJSON()
 # Start process
 
 

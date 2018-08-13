@@ -135,8 +135,8 @@ app.get('/SankeyDiagram', function(req, res){
         arrays: 'true',
         tsuids: 'false',
         annotations: 'none',
-        startDate: '2018/04/01-00:00',
-        endDate: '2018/04/30-23:30'
+        startDate: '2018/03/01-00:00',
+        endDate: '2018/06/01-23:30'
     };
 
     // Write data (remember to send only strings or numbers, otherwhise python wont understand)
@@ -153,7 +153,8 @@ app.get('/SankeyDiagram', function(req, res){
     scriptExecution.on('exit', code => {
         console.log(`Exit code is: ${code}`);
         // res.sendFile(__dirname + '/Views/DygraphsShow.html');
-        res.sendFile(__dirname + '/Views/SankeyDiagram.html');
+        // if (code = 0){console.log("Python finished, code = 0")}
+            res.sendFile(__dirname + '/Views/SankeyDiagram.html');  
       });
     // res.sendFile(__dirname + '/Views/SankeyDiagram.html');
 });
