@@ -328,6 +328,32 @@ Query from command line:
 
 Place [this](http://localhost:4242/api/suggest?type=metrics&max=10000s) into your web browser.
 
+### Delete Metric from Database
+
+/usr/share/opentsdb/bin/tsdb uid delete metrics "metricName"
+
+### Floating Point Numbers
+
+The OpenTSDB database is not commonly used for storing measurements that require exact values. The database makes use of IEEE 754 floating point single format with positive and negative value support.
+If the value input into the database lacks a ".", then it will import the number as an integer, this will be exported correctly.
+When one imports a value that has decimal points, the database will return a different number.
+
+From the [website](http://opentsdb.net/docs/build/html/user_guide/writing.html):
+    Note: Because OpenTSDB only supports floating point values, it is not suitable for storing measurements that require exact values like currency. This is why, when storing a value like 15.2 the database may return 15.199999809265137.
+
+Sort of solution:
+    https://groups.google.com/forum/#!topic/opentsdb/MOcjjLr3iDw
+
+### Duplicate Data Points
+
+Overwriting old data points will not negatively affect the database, one must just make sure that compactions are disabled.
+This is very convenient, as it makes writing the import scripts simplistic. http://opentsdb.net/docs/build/html/user_guide/writing.html
+
+### The Choice of the HTTP API
+
+[Note](http://opentsdb.net/docs/build/html/user_guide/writing.html):
+    The Telnet method of writing is discouraged as it doesn't provide a way of determining which data points failed to write due to formatting or storage errors. Instead use the HTTP API.
+
 # Linux Commands Used
 
 ## Copy Files

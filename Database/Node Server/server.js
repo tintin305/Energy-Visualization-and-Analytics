@@ -89,6 +89,10 @@ app.get('/index', function(req, res){
     res.sendFile(__dirname + '/Views/DygraphsShow.html');
 });
 
+app.get('/DygraphsShow', function(req, res){
+    res.sendFile(__dirname + '/Views/DygraphsShow.html');
+});
+
 app.get('/HeatMaps', function(req, res){
     PythonShell.run((__dirname +"/public/Python_Scripts/GenerateHeatMap/GenerateHeatMap.py"), function(err){
         if (err) throw err;
