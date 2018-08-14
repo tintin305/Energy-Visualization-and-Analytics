@@ -48,6 +48,7 @@ fig.set_size_inches(11.7, 8.27)
 sns.heatmap(datamatrix, xticklabels=50)
 plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
+ax.set_title(data_raw.columns.values[1])
 directory = "../data/HeatMap"
 try:
         if not os.path.exists(directory):

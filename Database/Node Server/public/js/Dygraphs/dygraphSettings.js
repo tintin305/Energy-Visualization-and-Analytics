@@ -8,5 +8,6 @@ g = new Dygraph(
             ticker: Dygraph.dateTicker
             }
             },
+            legend: "always"
         }
 );
