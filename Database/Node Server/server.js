@@ -90,6 +90,11 @@ app.get('/index', function(req, res){
     res.sendFile(__dirname + '/Views/DygraphsShow.html');
 });
 
+app.get('/Treemap', function(req, res){
+    res.sendFile(__dirname + '/Views/Treemap.html');
+});
+
+
 app.get('/DygraphsShow', function(req, res){
     res.sendFile(__dirname + '/Views/DygraphsShow.html');
 });
