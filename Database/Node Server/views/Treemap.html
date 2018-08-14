@@ -4,17 +4,18 @@ Generic treemap, based on http://bost.ocks.org/mike/treemap/
 
 -->
 <html>
-<head>
+        <head>
 <meta charset="utf-8">
 <title>Zoomable treemap template</title>
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
 <script src="https://cmpt165.csil.sfu.ca/js/jquery-3.2.1.js"></script>
 <script> 
-$(function(){
-  $("#header").load("html_templates/header.html"); 
-});
-</script>  -->
+        $(function(){
+          $("#header").load("html_templates/header.html"); 
+        });
+        </script> 
 <style>
 
 #chart {
@@ -73,25 +74,20 @@ rect.parent {
   fill: #bbb;
 }
 
-</style>
+</style> 
 </head>
 
 <body>
-    
-        <!-- <div id="header"></div> -->
+
+<div id="header"></div>
 
 <div id="chart"></div>
 
-<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script> 
-        $(function(){
-          $("#header").load("html_templates/header.html"); 
-        });
-        </script> 
+<script src="https://d3js.org/d3.v3.min.js"></script>
+
+
+
 <script>
-
-
 window.addEventListener('message', function(e) {
     var opts = e.data.opts,
         data = e.data.data;
@@ -344,9 +340,8 @@ if (window.location.hash === "") {
         }
     });
 }
-
 </script>
 
-<div id="header"></div>
+<!-- <div id="header"></div> -->
 </body>
 </html>
