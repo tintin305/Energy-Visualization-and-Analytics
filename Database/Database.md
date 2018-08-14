@@ -398,3 +398,9 @@ To start, restart, stop, services:
     service service_name stop
     service service_name start
     service service_name restart
+
+## Install Python Packages
+
+I did not manage to get the server to install python packages using the pip command, there seemed to be an issue to do with the proxy, or internet access.
+However, it is possible to update linux packages, this can be used to install python packages using the apt-get command:
+    apt-get install python3-package_name
