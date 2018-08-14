@@ -21,13 +21,13 @@ os.chdir(rootFormattingFolder)
 
 
 allFolders = []
-allFolders = os.listdir()
+allFolders = os.listdir(rootFormattingFolder)
 
 for folders in allFolders:
     os.chdir(rootFormattingFolder + '/' + str(folders))
 
     allFiles = []
-    allFiles = os.listdir()
+    allFiles = os.listdir(rootFormattingFolder + '/' + str(folders))
     print(allFiles)
     s = pd.read_csv(allFiles[0], sep=',')
     # try:
@@ -35,7 +35,7 @@ for folders in allFolders:
     # except OSError:
     #     pass
     os.chdir(rootFormattedFolder)
-    testTextFile = open(s.columns.values[1], 'a')
+    testTextFile = open(s.columns.values[1], 'w')
 
     # Metric for this data logger
     metric = s.columns.values[1]
@@ -60,9 +60,6 @@ for folders in allFolders:
         test = s.iloc[cell,1]
         test2 = str(test)
         test3 = test2[:-2]
-        # print(test3)
-        # Magnitude Parameter
-        magnitude = s.iloc[cell,1]
 
         # Additional Tags
         # Assigning the first tag to the name of the datalogger
@@ -71,14 +68,87 @@ for folders in allFolders:
         # Assigning the second tag to the status of the datalogger on that event
         if (s.iloc[cell,1] == -1):
             tagDataOutage = 'DataOutage=True'
+            s.iloc[cell,1] = 0
         else:
             tagDataOutage = 'DataOutage=False'
         # Exporting to a file which can be imported into the database
 
+         # Magnitude Parameter (defined now that the -1 values have been managed)       
+        magnitude = s.iloc[cell,1]
 
+        tempText = str(s.columns.values[1])
+        # print(tempText)
+        # Assigning tags which relate to the campus
+        if ((tempText.find("_13_Jubilee_Road_")) is not -1):
+            tagLocation = "Campus=13_Jubilee_Road"
 
+        elif ((tempText.find("_Campus_Lodge_")) is not -1):
+            tagLocation = "Campus=Campus_Lodge"
+     
+        elif ((tempText.find("_College_House_")) is not -1):
+            tagLocation = "Campus=College_House"
+     
+        elif ((tempText.find("_EC_")) is not -1):
+            tagLocation = "Campus=East_Campus"
+     
+        elif ((tempText.find("_Essellen_")) is not -1):
+            tagLocation = "Campus=Essellen"
+   
+        elif ((tempText.find("_Graduate_Lodge_")) is not -1):
+            tagLocation = "Campus=Graduate_Lodge"
+    
+        elif ((tempText.find("_IBM_")) is not -1):
+            tagLocation = "Campus=IBM"
+    
+        elif ((tempText.find("_Ithemba_Labs_")) is not -1):
+            tagLocation = "Campus=Ithemba_Labs"
+   
+        elif  ((tempText.find("_Knockando_")) is not -1):
+            tagLocation = "Campus=Knockando"
+     
+        elif  ((tempText.find("_Medical_School_")) is not -1):
+            tagLocation = "Campus=Medical_School"
+     
+        elif  ((tempText.find("_PEC_")) is not -1):
+            tagLocation = "Campus=Parktown_Education_Campus"
+    
+        elif  ((tempText.find("_Philip_V_Tobias_")) is not -1):
+            tagLocation = "Campus=Philip_V_Tobias"
+    
+        elif  ((tempText.find("_Science_Park_")) is not -1):
+            tagLocation = "Campus=Science_Park"
+    
+        elif  ((tempText.find("South_Court_")) is not -1):
+            tagLocation = "Campus=South_Court"
+  
+        elif  ((tempText.find("_Junction_")) is not -1):
+            tagLocation = "Campus=Junction"
+    
+        elif  ((tempText.find("_Tshimologong_")) is not -1):
+            tagLocation = "Campus=Tshimologong"
+    
+        elif  ((tempText.find("_University_Corner_")) is not -1):
+            tagLocation = "Campus=University_Corner"
+     
+        elif  ((tempText.find("WBS_Albert_Wessels_Building_")) is not -1):
+            tagLocation = "Campus=WBS_Albert_Wessels_Building"
+   
+        elif  ((tempText.find("_WBS_Albert_Wessels_gen_300_kVA_")) is not -1):
+            tagLocation = "Campus=WBS_Albert_Wessels_gen_300_kVA"
 
-        testTextFile.write(newline + str(metric) + ' ' + unixTimestamp + ' ' + str(magnitude) + ' ' + tagName + ' ' + tagDataOutage)
+        elif  ((tempText.find("_WBS_Donald_Gordon_")) is not -1):
+            tagLocation = "Campus=WBS_Donald_Gordon"
+
+        elif  ((tempText.find("_WBS_")) is not -1):
+            tagLocation = "Campus=WBS"
+
+        elif  ((tempText.find("_WC_")) is not -1):
+            tagLocation = "Campus=West_Campus"
+        
+        else:
+            tagLocation = "Campus=NA"
+
+        testTextFile.write(newline + str(metric) + ' ' + unixTimestamp + ' ' + str(magnitude) + ' ' + tagName + ' ' + tagDataOutage + ' ' + tagLocation)
 
         # Redefine \n so that you do not have a newline character at the end of the file created
         newline = '\n'
