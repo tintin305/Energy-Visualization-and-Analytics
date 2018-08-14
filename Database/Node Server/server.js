@@ -80,7 +80,8 @@ app.get('/profiles/:DataloggerName/:startDate/:endDate', function(req, res){
     
     scriptExecution.on('exit', code => {
         console.log(`Exit code is: ${code}`);
-        res.sendFile(__dirname + '/Views/DygraphsShow.html');
+        // res.sendFile(__dirname + '/Views/DygraphsShow.html');
+        res.redirect('/DygraphsShow');
       });
         // res.sendFile(__dirname + '/Views/DygraphsShow.html');
 });
