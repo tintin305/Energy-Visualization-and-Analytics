@@ -33,13 +33,14 @@ except:
     sys.exit()
 
 
+title = data_raw.columns.values[1]
 data_raw['dates'] = data_raw.Timestamp.apply(calculate_dates)
 data_raw['times'] = data_raw.Timestamp.apply(calculate_times)
 data_raw['DateStrings'] = data_raw.Timestamp.apply(getDateStr)
 
 headings = pd.DataFrame(np.zeros((len(data_raw), 1)))
 headings.columns=["Dates"]
-
+# print(data_raw.head())
 HeadingSpace = np.ceil(len(data_raw)/5)
 # Create headings with spaces for the date axis
 for i in range(0, len(headings)):
@@ -69,6 +70,7 @@ ax = fig.gca(projection='3d')
 plt.xticks(data_raw["x"], headings["Dates"])
 
 plt.yticks(data_raw["y"], times)
+ax.set_title(title)
 ax.plot_trisurf(data_raw['x'], data_raw['y'], data_raw['Z'], linewidth=0.2, cmap = "BuPu")
 
 
