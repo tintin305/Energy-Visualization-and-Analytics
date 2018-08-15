@@ -2,6 +2,13 @@ from flask import Flask
 from flask import render_template
 import pandas as pd
 import json
+import sys
+
+
+# Importing Database Queries
+# sys.path.append('/static/Python_Scripts/SankeyGeneration')
+# import DatabaseQuery
+from static.Python_Scripts.SankeyGeneration.DatabaseQuery import main
 
 app = Flask(__name__, static_url_path='')
 
@@ -31,6 +38,8 @@ def dataOutages():
 
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018/03/01-00:00', 'endDate': '2018/06/01-23:30'}
+    main(queryFlask)
     return render_template("/SankeyDiagram.html")
 
 @app.route("/metrics/")

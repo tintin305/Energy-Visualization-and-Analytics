@@ -22,23 +22,33 @@ def saveQueryDetails(queryDetails):
         # json.dump(queryDetails, write_file)
     return
 
-def createQueryUrl(queryDetails, loggerList):
+def createQueryUrl(queryFlask, loggerList):
     # Get the details out of the object
-    aggregator = queryDetails['aggregator']
-    downsample = queryDetails['downsample']
-    rate = queryDetails['metric']
-    tagKey = queryDetails['tagKey']
-    # tagValue = logger
-    # metric = logger
-    host = queryDetails['host']
-    port = queryDetails['port']
-    ms = queryDetails['ms']
-    arrays = queryDetails['arrays']
-    tsuids = queryDetails['tsuids']
-    annotations = queryDetails['annotations']
-    startDate = queryDetails['startDate']
-    endDate = queryDetails['endDate']
+    aggregator = queryFlask['aggregator']
+    downsample = queryFlask['downsample']
+    rate = queryFlask['metric']
+    tagKey = queryFlask['tagKey']
+    host = queryFlask['host']
+    port = queryFlask['port']
+    ms = queryFlask['ms']
+    arrays = queryFlask['arrays']
+    tsuids = queryFlask['tsuids']
+    annotations = queryFlask['annotations']
+    startDate = queryFlask['startDate']
+    endDate = queryFlask['endDate']
 
+    # host = 'localhost'
+    # port = 4242
+    # ms = 'true'
+    # arrays = 'false'
+    # tsuids = 'false'
+    # annotations = 'false'
+    # startDate = '2018/03/01-00:00'
+    # endDate =  '2018/06/01-23:30'
+    # aggregator = 'avg'
+    # downsample = '0all-sum'
+
+    
     url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate
 
     for logger in loggerList:
@@ -128,11 +138,11 @@ def formatToJSON():
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
     os.chdir(csvPath)
     try:
-        os.remove('data_energy.json')
+        os.remove('data_energy.txt')
     except OSError:
         pass
     # # f = open('data_energyjson.js','w')
-    f = open("data_energy.json", "w")
+    f = open("data_energy.txt", "w")
     f.write(outString)
     f.close()
 
@@ -142,17 +152,12 @@ def formatToJSON():
     return
 
 
-def main():
+def main(queryFlask):
     #get our data as an array from read in()
-    queryDetails = read_in()
+    # queryDetails = read_in()
     loggerList = specifyLoggers()
 
-    url = createQueryUrl(queryDetails, loggerList)
+    url = createQueryUrl(queryFlask, loggerList)
 
     queryDatabase(url)
     formatToJSON()
-# Start process
-
-
-if __name__ == '__main__':
-    main()

@@ -1,1 +1,0 @@
-var energyjson = require('./data_energy.json');

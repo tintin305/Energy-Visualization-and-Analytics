@@ -404,3 +404,18 @@ To start, restart, stop, services:
 I did not manage to get the server to install python packages using the pip command, there seemed to be an issue to do with the proxy, or internet access.
 However, it is possible to update linux packages, this can be used to install python packages using the apt-get command:
     apt-get install python3-package_name
+
+## Run command and keep it running even when user logs out
+
+Use the [screen](https://www.ostechnix.com/4-ways-keep-command-running-log-ssh-session/) package.
+This will run the command, and the user can leave that session with it will running.
+You can launch a screen by the simply comand:
+    screen
+
+Once the screen is up and running, you can issue your normal commands.
+
+You can disconnect from the screen by using:
+    Ctrl + A followed by d
+
+To go back into your screen:
+    screen -r
