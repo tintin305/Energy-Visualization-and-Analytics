@@ -1,0 +1,1 @@
+{"aggregator": "sum", "downsample": "5ms-avg", "rate": "false", "metric": "WITS_Campus_Lodge_kVarh", "tagKey": "DataLoggerName", "tagValue": "WITS_Campus_Lodge_kVarh", "host": "localhost", "port": 4242, "ms": "false", "arrays": "true", "tsuids": "false", "annotations": "none", "startDate": "2013/01/02", "endDate": "2018/05/31"}
