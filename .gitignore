@@ -24,3 +24,6 @@ Database/Node Server/public/tmp/pythonData.csv
 Database/Node Server/public/tmp/SankeyDiagram/temp.csv
 Database/Node Server/public/tmp/SankeyDiagram/url.txt
 Database/Node Server/public/tmp/SankeyDiagram/data_energyjson.txt
+Database/Flask/static/tmp/SankeyDiagram/data_energy.txt
+Database/Flask/static/Python_Scripts/SankeyGeneration/__pycache__/DatabaseQuery.cpython-37.pyc
+Database/Flask/static/tmp/SankeyDiagram/temp.csv
