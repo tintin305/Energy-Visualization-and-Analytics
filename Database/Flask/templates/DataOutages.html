@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>3D View</title>
-    <script src="https://cmpt165.csil.sfu.ca/js/jquery-3.2.1.js"></script>
-    <script src="https://cmpt165.csil.sfu.ca/js/raphael-2.1.4.js"></script>
+    <title>Heat Map</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script> 
     $(function(){
-      $("#header").load("html_templates/header.html"); 
+      $("#header").load("/html_templates/header.html"); 
     });
     </script> 
     <style type="text/css">
-
-    #graphdiv {
+        #graphdiv {
             position: absolute;
             width:1400px;
             height:600px;
             }
-  
     </style>
-    </head>
+</head>
 <body>
     
         <div id="header"></div>
@@ -28,7 +24,8 @@
         Home page
     </h1>
 
-    <div  id="graphdiv"></div>
-    <embed src="/Data/ThreeDim/ThreeDim.pdf" width="1400px" height="700px" />
+
+    <div id="graphdiv"></div>
+    <embed src="/Data/DataOutages/DataOutages.pdf" width="1400px" height="700px" />
 </body>
 </html>
