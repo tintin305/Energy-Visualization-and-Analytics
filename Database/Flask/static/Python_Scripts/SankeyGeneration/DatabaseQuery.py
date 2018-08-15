@@ -113,8 +113,8 @@ def formatToJSON():
         sys.exit()
 
     # print(data_raw.head())
-    # outString = 'var energyjson = { "nodes":[{"name":"Middle"},'
-    outString = '{ "nodes":[{"name":"Middle"},'
+    outString = 'var energyjson = { "nodes":[{"name":"Middle"},'
+    # outString = '{ "nodes":[{"name":"Middle"},'
     for row_index,row in data_raw.iterrows():
         outString = outString + '{"name":"' + data_raw.DataLogger[row_index] + '"},'
 
@@ -129,7 +129,7 @@ def formatToJSON():
             outString = outString + '{"source":0, "target":' + str(row_index+1) + ', "value":' + str(data_raw.loggerMagnitude[row_index]) + '},'
 
     outString = outString[:-1]
-    outString = outString + ']}'
+    outString = outString + ']};'
 
 
     # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
@@ -138,11 +138,11 @@ def formatToJSON():
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
     os.chdir(csvPath)
     try:
-        os.remove('data_energy.txt')
+        os.remove('data_energyjson.txt')
     except OSError:
         pass
     # # f = open('data_energyjson.js','w')
-    f = open("data_energy.txt", "w")
+    f = open("data_energyjson.txt", "w")
     f.write(outString)
     f.close()
 
