@@ -34,3 +34,5 @@ Database/Flask/static/Data/ThreeDim/ThreeDim.pdf
 *.pyc
 Database/Flask/static/tmp/pythonData.csv
 
+*.csv
+Database/Flask/static/tmp/url.txt
