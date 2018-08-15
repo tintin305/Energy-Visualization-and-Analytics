@@ -28,35 +28,36 @@ def calculate_times(unix):
     ).strftime('%H:%M:%S')
     return dateStamp
 
-csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/temp.csv")
-try:
-    data_raw = pd.read_csv(csvPath)
-except:
-    print("error loading csv")
-    sys.exit()
+def generateHeatMap():
+    csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/temp.csv")
+    try:
+        data_raw = pd.read_csv(csvPath)
+    except:
+        print("error loading csv")
+        sys.exit()
 
-data_raw['dates'] = data_raw.Timestamp.apply(calculate_dates)
-data_raw['times'] = data_raw.Timestamp.apply(calculate_times)
-newdata = data_raw.drop('Timestamp', 1)
+    data_raw['dates'] = data_raw.Timestamp.apply(calculate_dates)
+    data_raw['times'] = data_raw.Timestamp.apply(calculate_times)
+    newdata = data_raw.drop('Timestamp', 1)
 
-newdata["times"] = pd.Categorical(data_raw["times"], data_raw.times.unique())
+    newdata["times"] = pd.Categorical(data_raw["times"], data_raw.times.unique())
 
-datamatrix = data_raw.pivot("times", "dates", data_raw.columns.values[1])
+    datamatrix = data_raw.pivot("times", "dates", data_raw.columns.values[1])
 
-fig, ax = plt.subplots()
-fig.set_size_inches(11.7, 8.27)
-sns.heatmap(datamatrix, xticklabels=50)
-plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
+    fig, ax = plt.subplots()
+    fig.set_size_inches(11.7, 8.27)
+    sns.heatmap(datamatrix, xticklabels=50)
+    plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
-ax.invert_yaxis()
-ax.set_title(data_raw.columns.values[1])
-directory = "../data/HeatMap"
-try:
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-except OSError:
-    print ('Error: Creating directory. ' +  directory)
-# print(os.path.isdir("../data/HeatMap"))
-pdfPath = os.path.join(os.path.dirname(__file__), "../../Data/HeatMap/HeatMap.pdf")
-plt.savefig(pdfPath)
-# plt.show()
+    ax.invert_yaxis()
+    ax.set_title(data_raw.columns.values[1])
+    directory = "../data/HeatMap"
+    try:
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+    except OSError:
+        print ('Error: Creating directory. ' +  directory)
+    # print(os.path.isdir("../data/HeatMap"))
+    pdfPath = os.path.join(os.path.dirname(__file__), "../../Data/HeatMap/HeatMap.pdf")
+    plt.savefig(pdfPath)
+    # plt.show()
