@@ -127,13 +127,13 @@ def formatToJSON():
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
     os.chdir(csvPath)
     try:
-        os.remove('data_energyjson.js')
+        os.remove('data_energyjson.txt')
     except OSError:
         pass
     # # f = open('data_energyjson.js','w')
-    f = open("data_energyjson.js", "w")
+    f = open("data_energyjson.txt", "w")
     f.write(outString)
-    # f.close()
+    f.close()
 
     # sys.exit()
 
