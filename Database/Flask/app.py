@@ -47,21 +47,12 @@ def sankeyDiagram():
 def metrics():
     # http://localhost:4242/api/suggest?type=metrics&max=10000s
     metricsParams = { 'host': 'localhost', 'port': 4242}
-    generateMetrics(metricsParams)
+    metricsList = generateMetrics(metricsParams)
     return render_template("/logger_list.ejs")
     # return app.send_static_file('./templates/logger_list.html')
 
 # @app.route("/profiles/<DataloggerName>/<startDate>/<endDate>")
 # def getData(DataloggerName, startDate, endDate):
-
-# @app.route("/Test")
-# def index3():
-#     df = pd.read_csv('data.csv').drop('Open', axis=1)
-#     chart_data = df.to_dict(orient='records')
-#     chart_data = json.dumps(chart_data, indent=2)
-#     data = {'chart_data': chart_data}
-#     return render_template("Test.ejs", data=data)
-
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1',port=3000,debug=True)

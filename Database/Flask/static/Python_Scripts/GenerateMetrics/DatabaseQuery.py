@@ -44,4 +44,5 @@ def generateMetrics(metricsParams):
 
     writeDataToCSV(queryData)
 
+    return queryData
     # extractData(queryData)
