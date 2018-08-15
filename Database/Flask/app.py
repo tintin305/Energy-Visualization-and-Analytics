@@ -10,6 +10,7 @@ import sys
 # import DatabaseQuery
 from static.Python_Scripts.SankeyGeneration.DatabaseQuery import generateSankeyData
 from static.Python_Scripts.GenerateMetrics.MetricsQuery import generateMetrics
+from static.Python_Scripts.DatabaseQueryDygraphs.DatabaseQueryDygraphs import generateDygraphsData
 
 app = Flask(__name__, static_url_path='')
 
@@ -49,10 +50,14 @@ def metrics():
     metricsParams = { 'host': 'localhost', 'port': 4242}
     metricsList = generateMetrics(metricsParams)
     return render_template("/loggerList.html", buttons = metricsList)
-    # return app.send_static_file('./templates/logger_list.html')
-
-# @app.route("/profiles/<DataloggerName>/<startDate>/<endDate>")
-# def getData(DataloggerName, startDate, endDate):
+ 
+@app.route("/profiles/<DataloggerName>/<startDate>/<endDate>")
+def getData(DataloggerName, startDate, endDate):
+    
+    requestedSettings = {'aggregator': 'sum', 'downsample': '5ms-avg', 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName,
+        'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    generateDygraphsData(requestedSettings)
+    return render_template("/DygraphsShow.html")
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1',port=3000,debug=True)
