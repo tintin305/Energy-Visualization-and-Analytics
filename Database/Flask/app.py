@@ -8,7 +8,8 @@ import sys
 # Importing Database Queries
 # sys.path.append('/static/Python_Scripts/SankeyGeneration')
 # import DatabaseQuery
-from static.Python_Scripts.SankeyGeneration.DatabaseQuery import main
+from static.Python_Scripts.SankeyGeneration.DatabaseQuery import generateSankeyData
+from static.Python_Scripts.GenerateMetrics.DatabaseQuery import generateMetrics
 
 app = Flask(__name__, static_url_path='')
 
@@ -39,14 +40,15 @@ def dataOutages():
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():
     queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018/03/01-00:00', 'endDate': '2018/06/01-23:30'}
-    main(queryFlask)
+    generateSankeyData(queryFlask)
     return render_template("/SankeyDiagram.html")
 
 @app.route("/metrics/")
 def metrics():
-    button_names = ['A', 'B', 'C', 'D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R']
-    return render_template("/loggerList.html", buttons= button_names)
-    # return render_template("/logger_list.ejs")
+    # http://localhost:4242/api/suggest?type=metrics&max=10000s
+    metricsParams = { 'host': 'localhost', 'port': 4242}
+    generateMetrics(metricsParams)
+    return render_template("/logger_list.ejs")
     # return app.send_static_file('./templates/logger_list.html')
 
 # @app.route("/profiles/<DataloggerName>/<startDate>/<endDate>")

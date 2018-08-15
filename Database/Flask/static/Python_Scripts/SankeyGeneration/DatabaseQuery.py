@@ -152,7 +152,7 @@ def formatToJSON():
     return
 
 
-def main(queryFlask):
+def generateSankeyData(queryFlask):
     #get our data as an array from read in()
     # queryDetails = read_in()
     loggerList = specifyLoggers()
