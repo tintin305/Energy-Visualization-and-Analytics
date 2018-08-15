@@ -3,15 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Test</title>
-    <link rel="stylesheet" type="text/css" href="/css/test.css">
-    <script type="text/javascript" src="/js/dygraph.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="/static/css/test.css"> -->
+    <script type="text/javascript" src="/js/Dygraphs/dygraph.js"></script>
+    <!-- Online version for jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    
+
+    <!-- Local version for jquery -->
+    <!-- <script type=text/javascript src="/js/jquery/jquery-3.3.3.min.js"></script> -->
+
+
+
     <script> 
     $(function(){
-      $("#header").load("html_templates/header.html"); 
+      $("#header").load("/html_templates/header.html"); 
     });
     </script> 
-    <link rel="stylesheet" type="text/css" href="/css/dygraph.css">
+    <link rel="stylesheet" type="text/css" href="/css/Dygraphs/dygraph.css">
 
 
     <style>
@@ -129,8 +138,9 @@
     
 <div class="scrollmenu">
         <form name="form">
+        
     <% for(var i=0; i < lists.length; i++) { %>
-
+    
       
         <label class="container"><%= lists[i] %>
             <input type="radio"  name="group1" onclick="myFunction(this.value)"  value='<%= lists[i] %>'>

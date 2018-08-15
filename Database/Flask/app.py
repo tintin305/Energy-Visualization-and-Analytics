@@ -17,7 +17,7 @@ def DygraphsShow():
 def treemap():
     return render_template("Treemap.html")
 
-@app.route("/DygraphsShow/")
+@app.route("/HeatMaps/")
 def heatMapShow():
     return render_template("HeatMapShow.html")
 
@@ -35,8 +35,8 @@ def sankeyDiagram():
 
 @app.route("/metrics/")
 def metrics():
-    return render_template("/logger_list.html")
-
+    return render_template("/logger_list.ejs")
+    # return app.send_static_file('./templates/logger_list.html')
 
 # @app.route("/profiles/<DataloggerName>/<startDate>/<endDate>")
 # def getData(DataloggerName, startDate, endDate):
