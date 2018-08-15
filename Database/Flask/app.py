@@ -9,7 +9,7 @@ app = Flask(__name__, static_url_path='')
 def index():
     return render_template("index.html")
 
-@app.route("/index")
+@app.route("/DygraphsShow/")
 def DygraphsShow():
     return render_template("DygraphsShow.html")
 
