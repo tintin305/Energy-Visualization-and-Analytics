@@ -10,7 +10,7 @@ from static.Python_Scripts.GenerateMetrics.MetricsQuery import generateMetrics
 from static.Python_Scripts.DatabaseQueryDygraphs.DatabaseQueryDygraphs import generateDygraphsData
 from static.Python_Scripts.GenerateHeatMap.GenerateHeatMap import generateHeatMap
 from static.Python_Scripts.DataOutages.DataOutages import generateDataOutages
-
+from static.Python_Scripts.GenerateThreeDimensionalHeatMap.GenerateThreeDimensionalHeatMap import generateThreeDimensionalHeatMap
 
 app = Flask(__name__, static_url_path='')
 
@@ -33,6 +33,7 @@ def heatMapShow():
 
 @app.route("/ThreeDimensionalView/")
 def threeDimensionalView():
+    generateThreeDimensionalHeatMap()
     return render_template("/ThreeDimensionalViewShow.html")
 
 @app.route("/DataOutages/")
