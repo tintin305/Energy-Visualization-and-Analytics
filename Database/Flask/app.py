@@ -48,7 +48,7 @@ def metrics():
     # http://localhost:4242/api/suggest?type=metrics&max=10000s
     metricsParams = { 'host': 'localhost', 'port': 4242}
     metricsList = generateMetrics(metricsParams)
-    return render_template("/logger_list.ejs")
+    return render_template("/loggerList.html", buttons = metricsList)
     # return app.send_static_file('./templates/logger_list.html')
 
 # @app.route("/profiles/<DataloggerName>/<startDate>/<endDate>")
