@@ -9,7 +9,7 @@ import sys
 # sys.path.append('/static/Python_Scripts/SankeyGeneration')
 # import DatabaseQuery
 from static.Python_Scripts.SankeyGeneration.DatabaseQuery import generateSankeyData
-from static.Python_Scripts.GenerateMetrics.DatabaseQuery import generateMetrics
+from static.Python_Scripts.GenerateMetrics.MetricsQuery import generateMetrics
 
 app = Flask(__name__, static_url_path='')
 
