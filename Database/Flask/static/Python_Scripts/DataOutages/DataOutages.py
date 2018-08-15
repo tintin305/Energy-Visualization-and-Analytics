@@ -52,6 +52,7 @@ fig.set_size_inches(11.7, 8.27)
 sns.heatmap(datamatrix, xticklabels=50, cmap=cmap,vmax=0, cbar=False)
 plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
+ax.invert_yaxis()
 directory = "../../Data/DataOutages"
 try:
         if not os.path.exists(directory):

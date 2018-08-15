@@ -44,7 +44,9 @@ def sankeyDiagram():
 
 @app.route("/metrics/")
 def metrics():
-    return render_template("/logger_list.ejs")
+    button_names = ['A', 'B', 'C', 'D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R']
+    return render_template("/loggerList.html", buttons= button_names)
+    # return render_template("/logger_list.ejs")
     # return app.send_static_file('./templates/logger_list.html')
 
 # @app.route("/profiles/<DataloggerName>/<startDate>/<endDate>")

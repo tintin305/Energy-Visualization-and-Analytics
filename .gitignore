@@ -24,6 +24,11 @@ Database/Node Server/public/tmp/pythonData.csv
 Database/Node Server/public/tmp/SankeyDiagram/temp.csv
 Database/Node Server/public/tmp/SankeyDiagram/url.txt
 Database/Node Server/public/tmp/SankeyDiagram/data_energyjson.txt
+<<<<<<< HEAD
 Database/Flask/static/tmp/SankeyDiagram/data_energy.txt
 Database/Flask/static/Python_Scripts/SankeyGeneration/__pycache__/DatabaseQuery.cpython-37.pyc
 Database/Flask/static/tmp/SankeyDiagram/temp.csv
+=======
+Database/Flask/static/Data/HeatMap/HeatMap.pdf
+Database/Flask/static/Data/ThreeDim/ThreeDim.pdf
+>>>>>>> Logger list html take in array of radio button names. Inverted y-axis of heatmap and data outages

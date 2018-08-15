@@ -48,6 +48,7 @@ fig.set_size_inches(11.7, 8.27)
 sns.heatmap(datamatrix, xticklabels=50)
 plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
+ax.invert_yaxis()
 ax.set_title(data_raw.columns.values[1])
 directory = "../data/HeatMap"
 try:
@@ -56,6 +57,6 @@ try:
 except OSError:
     print ('Error: Creating directory. ' +  directory)
 # print(os.path.isdir("../data/HeatMap"))
-pdfPath = os.path.join(os.path.dirname(__file__), "../../data/HeatMap/HeatMap.pdf")
+pdfPath = os.path.join(os.path.dirname(__file__), "../../Data/HeatMap/HeatMap.pdf")
 plt.savefig(pdfPath)
 # plt.show()
