@@ -42,10 +42,18 @@ def dataOutages():
     generateDataOutages()
     return render_template("/DataOutages.html")
 
+
+@app.route("/SankeyConfig/")
+def sankeyConfig():
+    print("tgs")
+    return render_template("/SankeyConfig.html")
+    
+
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():
     queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018/03/01-00:00', 'endDate': '2018/06/01-23:30'}
-    generateSankeyData(queryFlask)
+    loggersReq = ''
+    generateSankeyData(queryFlask, loggersReq)
     return render_template("/SankeyDiagram.html")
 
 @app.route("/metrics/")
@@ -67,6 +75,14 @@ def getData(DataloggerName, startDate, endDate):
     return render_template("/DygraphsShow.html", csvVersion=csvVersion)
 
 
+
+    
+@app.route("/sankey/<loggersReq>/<startDate>/<endDate>")
+def getSankey(loggersReq, startDate, endDate):
+    print(loggersReq)
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    generateSankeyData(queryFlask, loggersReq)
+    return render_template("/SankeyDiagram.html")
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1',port=3000,debug=True)

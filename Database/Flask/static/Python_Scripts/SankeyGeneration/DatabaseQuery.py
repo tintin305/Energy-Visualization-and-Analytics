@@ -48,20 +48,29 @@ def createQueryUrl(queryFlask, loggerList):
     # aggregator = 'avg'
     # downsample = '0all-sum'
 
-    
+    startDate = dateFormatting(startDate)
+    endDate = dateFormatting(endDate)
+
     url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate
 
     for logger in loggerList:
         addOn = '&m=' + aggregator + ':' + downsample + ':' + logger 
         url = url + addOn
    
-    # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
-    # os.chdir(csvPath)
-    # f = open('url.txt','w')
-    # f.write(url)
-    # f.close()
+
+
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
+    os.chdir(csvPath)
+    f = open('url.txt','w')
+    f.write(url)
+    f.close()
 
     return url
+
+def dateFormatting(date):
+    formattedDate = date.replace('-', '/')
+
+    return formattedDate
 
 def queryDatabase(url):
     data = requests.get(url)
@@ -97,10 +106,17 @@ def writeDataToCSV(queryData):
         json.dump(queryData, write_file)
     return
 
-def specifyLoggers():
-    loggersMatrix = ["WITS_EC_Matrix_Main_Incomer_kWh", "WITS_EC_Main_Dining_Hall_Matrix_GEN_250_kVA_kWh", "WITS_EC_Matrix_ABSA_Bank_kWh", "WITS_EC_Matrix_Basement_DB_kWh", "WITS_EC_Matrix_Butchers_Grill_kWh", "WITS_EC_Matrix_Capitec_Bank_kWh", "WITS_EC_Matrix_Chinese_Lantern_Takeaways_kWh", "WITS_EC_Matrix_Chinese_Lantern_kWh", "WITS_EC_Matrix_Computers__kWh", "WITS_EC_Matrix_Cross_Roads_Driving_School_kWh", "WITS_EC_Matrix_DJ_Sports_kWh", "WITS_EC_Matrix_Debonairs_1_kWh","WITS_EC_Matrix_Debonairs_2_kWh", "WITS_EC_Matrix_Delhi_Delicious_kWh", "WITS_EC_Matrix_Deli_Delicious_kWh", "WITS_EC_Matrix_FUNDI_kWh", "WITS_EC_Matrix_First_National_Bank_kWh", "WITS_EC_Matrix_Fresher_Breath_kWh", "WITS_EC_Matrix_Jetline_com_kWh", "WITS_EC_Matrix_Just_Taste_kWh","WITS_EC_Matrix_Kara_Nichha_s_kWh", "WITS_EC_Matrix_Main_Dining_Hall_East_kWh", "WITS_EC_Matrix_Main_Dining_Hall_West_kWh", "WITS_EC_Matrix_Nedbank_kWh", "WITS_EC_Matrix_Ninos_kWh", "WITS_EC_Matrix_Optometrist_kWh", "WITS_EC_Matric_PPS_for_Professionals_kWh", "WITS_EC_Matrix_Panel_D9_kWh", "WITS_EC_Matrix_Pentz_Book_Shop_2_kWh", "WITS_EC_Matrix_Pentz_Book_Shop_kWh", "WITS_EC_Matrix_SBM_G_Panel_kWh","WITS_EC_Matrix_Sausage_Saloon_kWh", "WITS_EC_Matrix_Sizzlers_kWh", "WITS_EC_Matrix_Standard_Bank_kWh","WITS_EC_Matrix_Stationery_kWh", "WITS_EC_Matrix_ISTPassword_Corner_kWh","WITS_EC_Matrix_The_Sweets_Park_kWh", "WITS_EC_Matrix_Van_Schaik_Bookstore_kWh", "WITS_EC_Matrix_ZA_Cellular_kWh"]
-# "WITS_EC_Matrix_SMB_G_Ground_Floor_kWh",
-    return loggersMatrix
+def specifyLoggers(loggersReq):
+
+    if loggersReq == "WestCampus":
+        loggers =["WITS_WC_CLM_GEN_275_kVA_kWh", "WITS_WC_Sturrock_Park_GEN_300_kVA_kWh", "WITS_WC_WITS_CLUB_GENERATOR_100_kVa_kWh", "WITS_WC_Raikes_Road_Main_Incomer_kWh", "WITS_WC_Convocation_Dining_Hall_GEN_125_kVa_kWh", "WITS_WC_Barnato_Sub_Residence_A___D_kWh", "WITS_WC_Barnato_Sub_TRF_1_kWh", "WITS_WC_Barnato_Sub_TRF_2_kWh", "WITS_WC_CLM_Building_TRF_1_kWh", "WITS_WC_CLM_Building_TRF_2_kWh", "WITS_WC_CLTD_Building_kWh", "WITS_WC_Catering_Mayas_kWh", "WITS_WC_Chamber_of_Mines_TRF_1_kWh", "WITS_WC_Chamber_of_Mines_TRF_2_kWh", "WITS_WC_Claude_Vergie_House_kWh", "WITS_WC_Club_Minisub_Total_kWh", "WITS_WC_Convocation_Kitchen_kWh", "WITS_WC_DJ_du_Plessis_Building_kWh", "WITS_WC_David_Webster_Hall_kWh", "WITS_WC_Dig_Fields_Rugby_kWh", "WITS_WC_Dig_Fields_Soccer_kWh", "WITS_WC_East_Avenue_Mini_Sub_kWh", "WITS_WC_Educom_Building_Trf_2_kWh", "WITS_WC_Educom_Building_Trf_3_kWh", "WITS_WC_Educom_Building_Trf_4_kWh", "WITS_WC_FNB_Building_TRF_1_kWh", "WITS_WC_FNB_Building_TRF_2_kWh", "WITS_WC_Flower_Hall_kWh", "WITS_WC_Genmin_LAB_HT_kWh", "WITS_WC_Genmin_LAB_kWh", "WITS_WC_Genmin_Sub_kWh", "WITS_WC_Gymnasium_kWh", "WITS_WC_Hall_29A_kWh", "WITS_WC_Hall_29B_kWh", "WITS_WC_Hall_29C_kWh", "WITS_WC_Humphrey_Raikes_kWh", "WITS_WC_Maths_Science_Building_kWh", "WITS_WC_Maths_Science_North_kWh", "WITS_WC_Maths_Science_South_kWh", "WITS_WC_Old_Grandstand_kWh", "WITS_WC_Oliver_Schreiner_School_of_Law_kWh", "WITS_WC_PIMD_Supply_No_1_kWh", "WITS_WC_PIMD_Supply_No_2_kWh", "WITS_WC_PIMD_Wash_Bay_kWh", "WITS_WC_Science_Stadium_TRF_1_kWh", "WITS_WC_Science_Stadium_TRF_2_kWh", "WITS_WC_Squash_Courts_kWh", "WITS_WC_Stdnts_Village_Unit_A_kWh", "WITS_WC_Stdnts_Village_Unit_B_kWh", "WITS_WC_Stdnts_Village_Unit_C_kWh", "WITS_WC_Stdnts_Village_Unit_D_kWh", "WITS_WC_Stdnts_Village_Unit_E_kWh", "WITS_WC_Stdnts_Village_Unit_F_kWh", "WITS_WC_Stdnts_Village_Unit_G_kWh", "WITS_WC_Stdnts_Village_Unit_H_kWh", "WITS_WC_Sturrock_Kitchen_kWh", "WITS_WC_Sturrock_Kitchen_kWh_exp", "WITS_WC_Sturrock_Park_Main_kWh", "WITS_WC_The_Barns_kWh", "WITS_WC_Tower_of_Lights_Total_kWh", "WITS_WC_Village_Minisub_Total_kWh", "WITS_WC_Village_Zesti_Lemonz_kWh"
+        ]
+
+    if loggersReq == "Matrix":
+        loggers = ["WITS_EC_Matrix_Main_Incomer_kWh", "WITS_EC_Main_Dining_Hall_Matrix_GEN_250_kVA_kWh", "WITS_EC_Matrix_ABSA_Bank_kWh",  "WITS_EC_Matrix_Butchers_Grill_kWh", "WITS_EC_Matrix_Capitec_Bank_kWh", "WITS_EC_Matrix_Chinese_Lantern_Takeaways_kWh", "WITS_EC_Matrix_Chinese_Lantern_kWh", "WITS_EC_Matrix_Computers__kWh", "WITS_EC_Matrix_Cross_Roads_Driving_School_kWh", "WITS_EC_Matrix_DJ_Sports_kWh", "WITS_EC_Matrix_Debonairs_1_kWh","WITS_EC_Matrix_Debonairs_2_kWh", "WITS_EC_Matrix_Delhi_Delicious_kWh", "WITS_EC_Matrix_Deli_Delicious_kWh", "WITS_EC_Matrix_FUNDI_kWh", "WITS_EC_Matrix_First_National_Bank_kWh", "WITS_EC_Matrix_Fresher_Breath_kWh", "WITS_EC_Matrix_Jetline_com_kWh", "WITS_EC_Matrix_Just_Taste_kWh","WITS_EC_Matrix_Kara_Nichha_s_kWh", "WITS_EC_Matrix_Main_Dining_Hall_East_kWh", "WITS_EC_Matrix_Main_Dining_Hall_West_kWh", "WITS_EC_Matrix_Nedbank_kWh", "WITS_EC_Matrix_Ninos_kWh", "WITS_EC_Matrix_Optometrist_kWh", "WITS_EC_Matric_PPS_for_Professionals_kWh", "WITS_EC_Matrix_Pentz_Book_Shop_2_kWh", "WITS_EC_Matrix_Pentz_Book_Shop_kWh", "WITS_EC_Matrix_Sausage_Saloon_kWh", "WITS_EC_Matrix_Sizzlers_kWh", "WITS_EC_Matrix_Standard_Bank_kWh","WITS_EC_Matrix_Stationery_kWh", "WITS_EC_Matrix_ISTPassword_Corner_kWh","WITS_EC_Matrix_The_Sweets_Park_kWh", "WITS_EC_Matrix_Van_Schaik_Bookstore_kWh", "WITS_EC_Matrix_ZA_Cellular_kWh"]
+        # "WITS_EC_Matrix_SMB_G_Ground_Floor_kWh","WITS_EC_Matrix_SBM_G_Panel_kWh","WITS_EC_Matrix_Panel_D9_kWh", "WITS_EC_Matrix_Basement_DB_kWh",
+    # return loggersMatrix
+    return loggers
 
 def formatToJSON():
         
@@ -113,7 +129,7 @@ def formatToJSON():
         sys.exit()
 
     # print(data_raw.head())
-    outString = 'var energyjson = { "nodes":[{"name":"Middle"},'
+    outString = 'var energyjson = { "nodes":[{"name":" "},'
     # outString = '{ "nodes":[{"name":"Middle"},'
     for row_index,row in data_raw.iterrows():
         outString = outString + '{"name":"' + data_raw.DataLogger[row_index] + '"},'
@@ -152,12 +168,14 @@ def formatToJSON():
     return
 
 
-def generateSankeyData(queryFlask):
+def generateSankeyData(queryFlask, loggersReq):
     #get our data as an array from read in()
     # queryDetails = read_in()
-    loggerList = specifyLoggers()
+    print(loggersReq)
+    loggerList = specifyLoggers(loggersReq)
+    # print(loggerList)
 
     url = createQueryUrl(queryFlask, loggerList)
-
+    print(url)
     queryDatabase(url)
     formatToJSON()
