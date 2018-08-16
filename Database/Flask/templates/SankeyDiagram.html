@@ -161,7 +161,7 @@ var configSankey = {
 		<style>
 			#chart {
 				height: 700px;
-				width: 960px;
+				width: 1260px;
 			}
 		</style>
 		<script>
@@ -179,7 +179,7 @@ var configSankey = {
 				},
 				links: {
 					formatValue: function(val) {
-						return d3.format(",.0f")(val) + ' TWh';
+						return d3.format(",.0f")(val) +'kWh';
 					}
 				},
 				tooltip: {
