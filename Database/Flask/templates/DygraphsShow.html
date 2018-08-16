@@ -10,6 +10,21 @@
           $("#header").load("/html_templates/header.html"); 
         });
         </script> 
+<!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" /> -->
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('img').each(function(){
+    
+          var date = new Date;
+          // add the current unix timestamp in microseconds to the the image src as a query string
+          this.src = this.src + '?' + date.getTime();
+       });
+    
+    });
+    </script>
                 <!-- <script>
         window.onload = function() {
     if (window.jQuery) {  
@@ -21,7 +36,7 @@
     }
 }
 </script> -->
-        <link rel="stylesheet" type="text/css" href="/css/Dygraphs/dygraph.css">
+        <link rel="stylesheet" type="text/css" href= "/css/Dygraphs/dygraph.css">
 
         <style type="text/css">
             #graphdiv {
@@ -42,7 +57,24 @@
 
 
     <div id="graphdiv"></div>
-    <script src="/js/Dygraphs/dygraphSettings.js"></script>
+    <!-- <script src="/js/Dygraphs/dygraphSettings.js"></script> -->
+    <!-- <script src={{dygraphsJS}}></script> -->
+<script type="text/javascript">
+g = new Dygraph(
+    document.getElementById("graphdiv"),
+        "/tmp/temp.csv?v={{csvVersion}}",
+        {
+            axes: {
+            x : {
+            valueFormatter: Dygraph.dateString_,
+            ticker: Dygraph.dateTicker
+            }
+            },
+            legend: "always"
+        }
+);
+
+</script>
 
     </body>
 </html>

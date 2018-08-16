@@ -419,3 +419,8 @@ You can disconnect from the screen by using:
 
 To go back into your screen:
     screen -r
+### Size of files in directory
+
+## Delete all files that do not contain the *** file type
+
+find . ! -name "*.file_fype" | xargs rm
