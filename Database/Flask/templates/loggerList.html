@@ -23,8 +23,8 @@
 
 <style>
     div.scrollmenu {
-        width : 450px;
-        height:450px;
+        width : 630px;
+        height:600px;
         overflow: auto;
         margin: auto;
         white-space: nowrap;
@@ -118,6 +118,11 @@ font-size: 16px;
 cursor:pointer;
 
 }
+.side{
+    display: inline-block;
+    vertical-align: top;
+
+}
 
     </style>
     </head>
@@ -129,7 +134,6 @@ cursor:pointer;
         Logger List
     </h1>
 
-    
 
     <div class="scrollmenu">
         <form name="form">
@@ -145,18 +149,30 @@ cursor:pointer;
         
 
 </div>
+<div class="side"> </div>
     <br>
-  <div>
+  <div class="side">
     Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
     <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
 </div>
-    <div>
+    <div class="side">
 Start date:
 <input type="date" id = "startTime" value="2013-01-02" >
 End date:
 <input type="date" id = "endTime" value="2018-05-31" >
 
 </div>
+
+<select>
+    <option value="min">min</option>
+    <option value="sum">sum</option>
+    <option value="max">max</option>
+    <option value="avg">avg</option>
+    <option value="dev">dev</option>
+  </select>
+
+
+
   <script>
   function myFunction(browser) {
       document.getElementById("result").value = browser;
@@ -187,6 +203,9 @@ for (var i=0; i<document.form.group1.length; i++)  {
   }
 
   </script>
+
+
+
 
     </body>
 </html>

@@ -35,7 +35,8 @@ for folders in allFolders:
     # except OSError:
     #     pass
     os.chdir(rootFormattedFolder)
-    testTextFile = open(s.columns.values[1], 'w')
+        fileName = s.columns.values[1]
+    testTextFile = open(str(fileName), 'w')
 
     # Metric for this data logger
     metric = s.columns.values[1]
@@ -154,3 +155,7 @@ for folders in allFolders:
         newline = '\n'
 
     testTextFile.close()
+    fileNameZipped = fileName + '.gz'
+    with open(fileName, 'rb') as f_in:
+        with gzip.open(fileNameZipped, 'wb') as f_out:
+            shutil.copyfileobj(f_in, f_out)

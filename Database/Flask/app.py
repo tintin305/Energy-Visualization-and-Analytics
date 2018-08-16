@@ -3,6 +3,7 @@ from flask import render_template
 import pandas as pd
 import json
 import sys
+import random
 
 
 from static.Python_Scripts.SankeyGeneration.DatabaseQuery import generateSankeyData
@@ -60,7 +61,12 @@ def getData(DataloggerName, startDate, endDate):
     requestedSettings = {'aggregator': 'sum', 'downsample': '5ms-avg', 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName,
         'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateDygraphsData(requestedSettings)
-    return render_template("/DygraphsShow.html")
+
+    # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
+    csvVersion = str(random.getrandbits(32))
+    return render_template("/DygraphsShow.html", csvVersion=csvVersion)
+
+
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1',port=3000,debug=True)
