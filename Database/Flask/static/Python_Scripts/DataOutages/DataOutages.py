@@ -63,4 +63,6 @@ def generateDataOutages():
 
     pdfPath = os.path.join(os.path.dirname(__file__), "../../Data/DataOutages/DataOutages.pdf")
     plt.savefig(pdfPath)
+    plt.close()
 
+    return
