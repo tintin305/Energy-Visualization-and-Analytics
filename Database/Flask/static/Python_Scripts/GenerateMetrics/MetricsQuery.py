@@ -4,8 +4,8 @@ import json
 import requests
 import sys
 import os
-from collections import namedtuple
-import csv
+# from collections import namedtuple
+# import csv
 #  /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
 
 def saveQueryDetails(queryDetails):

@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import sys
 import datetime
 import time
+import gzip
+import shutil
 # This is the Linux version of the formatter
 # Doesn't work unless the r is there (not sure why, it didn't need it before)
 
@@ -35,7 +37,7 @@ for folders in allFolders:
     # except OSError:
     #     pass
     os.chdir(rootFormattedFolder)
-        fileName = s.columns.values[1]
+    fileName = s.columns.values[1]
     testTextFile = open(str(fileName), 'w')
 
     # Metric for this data logger
@@ -159,3 +161,5 @@ for folders in allFolders:
     with open(fileName, 'rb') as f_in:
         with gzip.open(fileNameZipped, 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
+
+    os.remove(fileName)

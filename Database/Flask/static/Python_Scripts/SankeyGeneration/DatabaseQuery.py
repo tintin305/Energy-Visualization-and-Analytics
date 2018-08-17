@@ -4,9 +4,9 @@ import json
 import requests
 import sys
 import os
-from collections import namedtuple
-import csv
-from time import sleep
+# from collections import namedtuple
+# import csv
+# from time import sleep
 #  /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
 
 #Read data from stdin

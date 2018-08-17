@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Loggers</title>
@@ -163,21 +163,42 @@ End date:
 
 </div>
 
-<select>
-    <option value="min">min</option>
+<select id="aggregators">
     <option value="sum">sum</option>
+    <option value="min">min</option>
     <option value="max">max</option>
     <option value="avg">avg</option>
     <option value="dev">dev</option>
   </select>
 
+<input type="text" id="downsamplingMagnitude" value="5">
 
+<select id="timeDownsamplingRange">
+    <option value="s">s</option>
+    <option value="m">m</option>
+    <option value="d">d</option>
+    <option value="w">w</option>
+    <option value="m">m</option>
+    <option value="y">y</option>    
+    <option value="dc">dc</option>
+    <option value="0-all">0-all</option>
+  </select>
+
+  <select id="downsamplingType">
+    <option value="sum">sum</option>
+    <option value="min">min</option>
+    <option value="max">max</option>
+    <option value="avg">avg</option>
+    <option value="dev">dev</option>
+  </select>
 
   <script>
   function myFunction(browser) {
       document.getElementById("result").value = browser;
     //   str = "/profiles/" + browser
       document.getElementById("click").value = browser;
+
+    //   document.getElementById("aggregators").value = browser;
   }
 
   function redirectFunction(browser) {
@@ -185,7 +206,11 @@ End date:
             logger = getClicked();
     var startDate = document.getElementById("startTime").value
     var endDate = document.getElementById("endTime").value
-        location.href ="/profiles/" + logger + "/" + startDate + "/" + endDate;
+    var aggregator = document.getElementById("aggregators").value
+    var downsamplingMagnitude = document.getElementById("downsamplingMagnitude").value
+    var timeDownsamplingRange = document.getElementById("timeDownsamplingRange").value
+    var downsamplingType = document.getElementById("downsamplingType").value
+        location.href ="/profiles/" + logger + "/" + startDate + "/" + endDate + "/" + aggregator + "/" +  downsamplingMagnitude + "/" + timeDownsamplingRange + "/" + downsamplingType + "/";
         }
            
 
@@ -203,7 +228,6 @@ for (var i=0; i<document.form.group1.length; i++)  {
   }
 
   </script>
-
 
 
 

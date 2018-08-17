@@ -167,3 +167,5 @@ for folders in allFolders:
     with open(fileName, 'rb') as f_in:
         with gzip.open(fileNameZipped, 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
+
+    os.remove(fileName)

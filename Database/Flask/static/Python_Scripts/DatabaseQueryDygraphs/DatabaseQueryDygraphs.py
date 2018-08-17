@@ -4,8 +4,8 @@ import json
 import requests
 import sys
 import os
-from collections import namedtuple
-import csv
+# from collections import namedtuple
+# import csv
 #  /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
 
 
@@ -19,7 +19,10 @@ def saveQueryDetails(requestedSettings):
 def createQueryUrl(requestedSettings):
     # Get the details out of the object
     aggregator = requestedSettings['aggregator']
-    downsample = requestedSettings['downsample']
+    downsamplingMagnitude = requestedSettings['downsamplingMagnitude']
+    timeDownsamplingRange = requestedSettings['timeDownsamplingRange']
+    downsamplingType = requestedSettings['downsamplingType']
+    # downsample = requestedSettings['downsample']
     tagKey = requestedSettings['tagKey']
     tagValue = requestedSettings['tagValue']
     metric = requestedSettings['metric']
@@ -35,7 +38,7 @@ def createQueryUrl(requestedSettings):
     startDate = dateFormatting(startDate)
     endDate = dateFormatting(endDate)
 
-    url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + downsample + ':' + metric + '{' + tagKey + '=' + tagValue + '}'
+    url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + str(downsamplingMagnitude) + str(timeDownsamplingRange) + '-' + downsamplingType + ':' + metric + '{' + tagKey + '=' + tagValue + '}'
    
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
     os.chdir(csvPath)
