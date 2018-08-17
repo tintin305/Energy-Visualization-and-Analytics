@@ -1,15 +1,19 @@
 from flask import Flask
 from flask import render_template
-# import json
 import sys
+import os
 import random
 
+from static.Python_Scripts.GenerateMetrics.MetricsQuery import generateMetrics
+
+from static.Python_Scripts.DatabaseQueryDygraphs.DatabaseQueryDygraphs import generateDygraphsData
+
+from static.Python_Scripts.GenerateHeatMap.GenerateHeatMap import generateHeatMap
+
+from static.Python_Scripts.DataOutages.DataOutages import generateDataOutages
 
 from static.Python_Scripts.SankeyGeneration.DatabaseQuery import generateSankeyData
-from static.Python_Scripts.GenerateMetrics.MetricsQuery import generateMetrics
-from static.Python_Scripts.DatabaseQueryDygraphs.DatabaseQueryDygraphs import generateDygraphsData
-from static.Python_Scripts.GenerateHeatMap.GenerateHeatMap import generateHeatMap
-from static.Python_Scripts.DataOutages.DataOutages import generateDataOutages
+
 from static.Python_Scripts.GenerateThreeDimensionalHeatMap.GenerateThreeDimensionalHeatMap import generateThreeDimensionalHeatMap
 
 app = Flask(__name__, static_url_path='')
@@ -22,31 +26,32 @@ def index():
 def DygraphsShow():
     return render_template("DygraphsShow.html")
 
-@app.route("/TreemapShow/")
-def treemap():
-    return render_template("Treemap.html")
-
 @app.route("/HeatMaps/")
 def heatMapShow():
     generateHeatMap()
-    return render_template("HeatMapShow.html")
+    pdfVersion = str(random.getrandbits(32))
+    return render_template("HeatMapShow.html", pdfVersion=pdfVersion)
+
+@app.route("/DataOutages/")
+def dataOutages():
+    generateDataOutages()
+    pdfVersion = str(random.getrandbits(32))
+    return render_template("/DataOutages.html")
+
 
 @app.route("/ThreeDimensionalView/")
 def threeDimensionalView():
     generateThreeDimensionalHeatMap()
     return render_template("/ThreeDimensionalViewShow.html")
 
-@app.route("/DataOutages/")
-def dataOutages():
-    generateDataOutages()
-    return render_template("/DataOutages.html")
-
-
 @app.route("/SankeyConfig/")
 def sankeyConfig():
     # print("tgs")
     return render_template("/SankeyConfig.html")
     
+@app.route("/TreemapShow/")
+def treemap():
+    return render_template("Treemap.html")
 
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():
@@ -84,4 +89,5 @@ def getSankey(loggersReq, startDate, endDate):
     return render_template("/SankeyDiagram.html")
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1',port=3000,debug=True)
+    app.run(host='127.0.0.1',port=3000,debug=True, threaded=False)
+    # app.run(host='127.0.0.1',port=3000,debug=True, threaded=True)

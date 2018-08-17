@@ -1,8 +1,8 @@
-import numpy as np
+# import numpy as np
 import pandas as pd
 import json
 import requests
-import sys
+# import sys
 import os
 # from collections import namedtuple
 # import csv
