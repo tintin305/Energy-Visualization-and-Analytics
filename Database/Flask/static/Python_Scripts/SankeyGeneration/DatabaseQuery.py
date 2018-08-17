@@ -109,7 +109,7 @@ def writeDataToCSV(queryData):
 def specifyLoggers(loggersReq):
 
     if loggersReq == "WestCampus":
-        loggers =["WITS_WC_CLM_GEN_275_kVA_kWh", "WITS_WC_Sturrock_Park_GEN_300_kVA_kWh", "WITS_WC_WITS_CLUB_GENERATOR_100_kVa_kWh", "WITS_WC_Raikes_Road_Main_Incomer_kWh", "WITS_WC_Convocation_Dining_Hall_GEN_125_kVa_kWh", "WITS_WC_Barnato_Sub_Residence_A___D_kWh", "WITS_WC_Barnato_Sub_TRF_1_kWh", "WITS_WC_Barnato_Sub_TRF_2_kWh", "WITS_WC_CLM_Building_TRF_1_kWh", "WITS_WC_CLM_Building_TRF_2_kWh", "WITS_WC_CLTD_Building_kWh", "WITS_WC_Catering_Mayas_kWh", "WITS_WC_Chamber_of_Mines_TRF_1_kWh", "WITS_WC_Chamber_of_Mines_TRF_2_kWh", "WITS_WC_Claude_Vergie_House_kWh", "WITS_WC_Club_Minisub_Total_kWh", "WITS_WC_Convocation_Kitchen_kWh", "WITS_WC_DJ_du_Plessis_Building_kWh", "WITS_WC_David_Webster_Hall_kWh", "WITS_WC_Dig_Fields_Rugby_kWh", "WITS_WC_Dig_Fields_Soccer_kWh", "WITS_WC_East_Avenue_Mini_Sub_kWh", "WITS_WC_Educom_Building_Trf_2_kWh", "WITS_WC_Educom_Building_Trf_3_kWh", "WITS_WC_Educom_Building_Trf_4_kWh", "WITS_WC_FNB_Building_TRF_1_kWh", "WITS_WC_FNB_Building_TRF_2_kWh", "WITS_WC_Flower_Hall_kWh", "WITS_WC_Genmin_LAB_HT_kWh", "WITS_WC_Genmin_LAB_kWh", "WITS_WC_Genmin_Sub_kWh", "WITS_WC_Gymnasium_kWh", "WITS_WC_Hall_29A_kWh", "WITS_WC_Hall_29B_kWh", "WITS_WC_Hall_29C_kWh", "WITS_WC_Humphrey_Raikes_kWh", "WITS_WC_Maths_Science_Building_kWh", "WITS_WC_Maths_Science_North_kWh", "WITS_WC_Maths_Science_South_kWh", "WITS_WC_Old_Grandstand_kWh", "WITS_WC_Oliver_Schreiner_School_of_Law_kWh", "WITS_WC_PIMD_Supply_No_1_kWh", "WITS_WC_PIMD_Supply_No_2_kWh", "WITS_WC_PIMD_Wash_Bay_kWh", "WITS_WC_Science_Stadium_TRF_1_kWh", "WITS_WC_Science_Stadium_TRF_2_kWh", "WITS_WC_Squash_Courts_kWh", "WITS_WC_Stdnts_Village_Unit_A_kWh", "WITS_WC_Stdnts_Village_Unit_B_kWh", "WITS_WC_Stdnts_Village_Unit_C_kWh", "WITS_WC_Stdnts_Village_Unit_D_kWh", "WITS_WC_Stdnts_Village_Unit_E_kWh", "WITS_WC_Stdnts_Village_Unit_F_kWh", "WITS_WC_Stdnts_Village_Unit_G_kWh", "WITS_WC_Stdnts_Village_Unit_H_kWh", "WITS_WC_Sturrock_Kitchen_kWh", "WITS_WC_Sturrock_Kitchen_kWh_exp", "WITS_WC_Sturrock_Park_Main_kWh", "WITS_WC_The_Barns_kWh", "WITS_WC_Tower_of_Lights_Total_kWh", "WITS_WC_Village_Minisub_Total_kWh", "WITS_WC_Village_Zesti_Lemonz_kWh"
+        loggers = ["WITS_WC_CLM_GEN_275_kVA_kWh", "WITS_WC_Sturrock_Park_GEN_300_kVA_kWh", "WITS_WC_WITS_CLUB_GENERATOR_100_kVa_kWh", "WITS_WC_Raikes_Road_Main_Incomer_kWh", "WITS_WC_Convocation_Dining_Hall_GEN_125_kVa_kWh", "WITS_WC_Barnato_Sub_Residence_A___D_kWh", "WITS_WC_Barnato_Sub_TRF_1_kWh", "WITS_WC_Barnato_Sub_TRF_2_kWh", "WITS_WC_CLM_Building_TRF_1_kWh", "WITS_WC_CLM_Building_TRF_2_kWh", "WITS_WC_CLTD_Building_kWh", "WITS_WC_Catering_Mayas_kWh", "WITS_WC_Chamber_of_Mines_TRF_1_kWh", "WITS_WC_Chamber_of_Mines_TRF_2_kWh", "WITS_WC_Claude_Vergie_House_kWh", "WITS_WC_Club_Minisub_Total_kWh", "WITS_WC_Convocation_Kitchen_kWh", "WITS_WC_DJ_du_Plessis_Building_kWh", "WITS_WC_David_Webster_Hall_kWh", "WITS_WC_Dig_Fields_Rugby_kWh", "WITS_WC_Dig_Fields_Soccer_kWh", "WITS_WC_East_Avenue_Mini_Sub_kWh", "WITS_WC_Educom_Building_Trf_2_kWh", "WITS_WC_Educom_Building_Trf_3_kWh", "WITS_WC_Educom_Building_Trf_4_kWh", "WITS_WC_FNB_Building_TRF_1_kWh", "WITS_WC_FNB_Building_TRF_2_kWh", "WITS_WC_Flower_Hall_kWh", "WITS_WC_Genmin_LAB_HT_kWh", "WITS_WC_Genmin_LAB_kWh", "WITS_WC_Genmin_Sub_kWh", "WITS_WC_Gymnasium_kWh", "WITS_WC_Hall_29A_kWh", "WITS_WC_Hall_29B_kWh", "WITS_WC_Hall_29C_kWh", "WITS_WC_Humphrey_Raikes_kWh", "WITS_WC_Maths_Science_Building_kWh", "WITS_WC_Maths_Science_North_kWh", "WITS_WC_Maths_Science_South_kWh", "WITS_WC_Old_Grandstand_kWh", "WITS_WC_Oliver_Schreiner_School_of_Law_kWh", "WITS_WC_PIMD_Supply_No_1_kWh", "WITS_WC_PIMD_Supply_No_2_kWh", "WITS_WC_PIMD_Wash_Bay_kWh", "WITS_WC_Science_Stadium_TRF_1_kWh", "WITS_WC_Science_Stadium_TRF_2_kWh", "WITS_WC_Squash_Courts_kWh", "WITS_WC_Stdnts_Village_Unit_A_kWh", "WITS_WC_Stdnts_Village_Unit_B_kWh", "WITS_WC_Stdnts_Village_Unit_C_kWh", "WITS_WC_Stdnts_Village_Unit_D_kWh", "WITS_WC_Stdnts_Village_Unit_E_kWh", "WITS_WC_Stdnts_Village_Unit_F_kWh", "WITS_WC_Stdnts_Village_Unit_G_kWh", "WITS_WC_Stdnts_Village_Unit_H_kWh", "WITS_WC_Sturrock_Kitchen_kWh", "WITS_WC_Sturrock_Kitchen_kWh_exp", "WITS_WC_Sturrock_Park_Main_kWh", "WITS_WC_The_Barns_kWh", "WITS_WC_Tower_of_Lights_Total_kWh", "WITS_WC_Village_Minisub_Total_kWh", "WITS_WC_Village_Zesti_Lemonz_kWh"
         ]
 
     if loggersReq == "Matrix":
@@ -118,9 +118,8 @@ def specifyLoggers(loggersReq):
     # return loggersMatrix
     return loggers
 
-def formatToJSON():
-        
-            # csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/temp.csv")
+def formatToJSON(nrSuppliers):
+                    # csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/temp.csv")
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/temp.csv")
     try:
         data_raw = pd.read_csv(csvPath)
@@ -128,20 +127,26 @@ def formatToJSON():
         print("error loading csv")
         sys.exit()
 
-    # print(data_raw.head())
+    # Define the nodes for the diagram
     outString = 'var energyjson = { "nodes":[{"name":" "},'
-    # outString = '{ "nodes":[{"name":"Middle"},'
     for row_index,row in data_raw.iterrows():
         outString = outString + '{"name":"' + data_raw.DataLogger[row_index] + '"},'
 
     outString = outString[:-1]
 
-    outString = outString + '],"links":[{"source":1, "target":0, "value":' + str(data_raw.loggerMagnitude[0]) + '},'
-    outString = outString + '{"source":2, "target":0, "value":' + str(data_raw.loggerMagnitude[1]) + '},'
+    # Determine the links between the nodes:
+    # nrSuppliers = 3
+    outString = outString + '],"links":['
 
-    # print(list(data_raw.columns.values))
+    # Links for suppliers
+    for sup in range(0, nrSuppliers):
+        outString = outString+'{"source":' + str(sup+1) + ', "target":0, "value":' + str(data_raw.loggerMagnitude[sup]) + '},'
+    # outString = outString + '],"links":[{"source":1, "target":0, "value":' + str(data_raw.loggerMagnitude[0]) + '},'
+    # outString = outString + '{"source":2, "target":0, "value":' + str(data_raw.loggerMagnitude[1]) + '},'
+
+    # links for users
     for row_index,row in data_raw.iterrows():
-        if (row_index >=2):
+        if (row_index >=nrSuppliers):
             outString = outString + '{"source":0, "target":' + str(row_index+1) + ', "value":' + str(data_raw.loggerMagnitude[row_index]) + '},'
 
     outString = outString[:-1]
@@ -150,7 +155,7 @@ def formatToJSON():
 
     # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
     # os.chdir(csvPath)
-    
+
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
     os.chdir(csvPath)
     try:
@@ -161,11 +166,14 @@ def formatToJSON():
     f = open("data_energyjson.txt", "w")
     f.write(outString)
     f.close()
-
     # sys.exit()
 
     # sleep(5)
     return
+
+def getNumberOfSuppliers(loggersReq):
+    suppliers = 2
+    return suppliers
 
 
 def generateSankeyData(queryFlask, loggersReq):
@@ -174,8 +182,14 @@ def generateSankeyData(queryFlask, loggersReq):
     print(loggersReq)
     loggerList = specifyLoggers(loggersReq)
     # print(loggerList)
-
+    nrSuppliers = getNumberOfSuppliers(loggersReq)
     url = createQueryUrl(queryFlask, loggerList)
     print(url)
+
+    if loggersReq == "Matrix":
+        suppliers = 2
+    
+    if loggersReq == "WestCampus":
+        suppliers= 5
     queryDatabase(url)
-    formatToJSON()
+    formatToJSON(suppliers)
