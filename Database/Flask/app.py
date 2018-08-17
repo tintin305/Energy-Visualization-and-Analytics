@@ -44,15 +44,15 @@ def dataOutages():
 
 @app.route("/SankeyConfig/")
 def sankeyConfig():
-    print("tgs")
+    # print("tgs")
     return render_template("/SankeyConfig.html")
     
 
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():
-    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018/03/01-00:00', 'endDate': '2018/06/01-23:30'}
-    loggersReq = ''
-    generateSankeyData(queryFlask, loggersReq)
+    # queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018/03/01-00:00', 'endDate': '2018/06/01-23:30'}
+    # loggersReq = 'Matrix'
+    # generateSankeyData(queryFlask, loggersReq)
     return render_template("/SankeyDiagram.html")
 
 @app.route("/metrics/")
