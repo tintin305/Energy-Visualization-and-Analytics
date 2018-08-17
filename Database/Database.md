@@ -419,7 +419,10 @@ You can disconnect from the screen by using:
 
 To go back into your screen:
     screen -r
+
 ### Size of files in directory
+
+ls -l *
 
 ## Delete all files that do not contain the *** file type
 

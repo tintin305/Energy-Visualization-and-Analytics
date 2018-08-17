@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template
-import pandas as pd
-import json
+# import json
 import sys
 import random
 
@@ -63,10 +62,10 @@ def metrics():
     metricsList = generateMetrics(metricsParams)
     return render_template("/loggerList.html", buttons = metricsList)
  
-@app.route("/profiles/<DataloggerName>/<startDate>/<endDate>")
-def getData(DataloggerName, startDate, endDate):
+@app.route("/profiles/<DataloggerName>/<startDate>/<endDate>/<aggregator>/<downsamplingMagnitude>/<timeDownsamplingRange>/<downsamplingType>/")
+def getData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitude, timeDownsamplingRange, downsamplingType):
     
-    requestedSettings = {'aggregator': 'sum', 'downsample': '5ms-avg', 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName,
+    requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName,
         'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateDygraphsData(requestedSettings)
 
