@@ -57,12 +57,25 @@ def sankeyConfig():
     
 @app.route("/TreeMapShow/")
 def treeMap():
+    # metricsParams = { 'host': 'localhost', 'port': 4242}
+    # queryDetails = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2017/01/01', 'endDate': '2017/01/02'}
+    # generateMetrics(metricsParams)
+    # generateTreeMap(queryDetails)
+    TreeMapRand = str(random.getrandbits(32))
+    return render_template("TreeMap.html", TreeMapRand=TreeMapRand)
+
+@app.route("/TreeMapConfig/<startDate>/<endDate>")
+def treeMapQuery(startDate, endDate):
     metricsParams = { 'host': 'localhost', 'port': 4242}
-    queryDetails = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2017/01/01', 'endDate': '2017/01/02'}
+    queryDetails = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateMetrics(metricsParams)
     generateTreeMap(queryDetails)
     TreeMapRand = str(random.getrandbits(32))
     return render_template("TreeMap.html", TreeMapRand=TreeMapRand)
+
+@app.route("/TreeMapConfig/")
+def treeMapConfig():
+    return render_template("TreeMapConfig.html")
 
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():

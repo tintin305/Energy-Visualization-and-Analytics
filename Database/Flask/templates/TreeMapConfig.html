@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TreeMap Config</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script> 
+        $(function(){
+          $("#header").load("/html_templates/header.html"); 
+        });
+        </script> 
+<style>
+
+
+#click {
+ background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+cursor:pointer;
+
+}
+
+    </style>
+    </head>
+<body>
+
+    <div id="header"></div>
+    
+    <h1>
+        TreeMap Date Selector
+    </h1>
+
+
+ <div>
+    <!-- Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; > -->
+    <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
+</div>
+    <div>
+Start date:
+<input type="date" id = "startTime" value="2018-01-01" >
+End date:
+<input type="date" id = "endTime" value="2018-06-30" >
+
+</div>
+  <script>
+  function myFunction(browser) {
+      document.getElementById("result").value = browser;
+    //   str = "/profiles/" + browser
+      document.getElementById("click").value = browser;
+  }
+
+  function redirectFunction(browser) {
+
+            // logger = getClicked();
+    var startDate = document.getElementById("startTime").value
+    var endDate = document.getElementById("endTime").value
+        location.href ="/TreeMapConfig/" + startDate + "/" + endDate;
+        }
+           
+
+
+  function getClicked(){
+    var found_it
+
+for (var i=0; i<document.form.group1.length; i++)  {
+    if (document.form.group1[i].checked)  {
+        found_it = document.form.group1[i].value
+        }
+    }
+    document.getElementById("result").value = found_it;
+    return found_it;
+  }
+
+  </script>
+
+    </body>
+</html>
+
+
