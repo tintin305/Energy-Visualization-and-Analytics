@@ -332,7 +332,7 @@ function main(o, data) {
 }
 
 if (window.location.hash === "") {
-    d3.json("/TreeMap/accumulatedData.json?v={{TreeMapRand}}", function(err, res) {
+    d3.json("/TreeMap/accumulatedData.json?v={{refreshCache}}", function(err, res) {
         if (!err) {
             console.log(res);
             var data = d3.nest().key(function(d) { return d.region; }).key(function(d) { return d.subregion; }).entries(res);
@@ -342,6 +342,5 @@ if (window.location.hash === "") {
 }
 </script>
 
-<!-- <div id="header"></div> -->
 </body>
 </html>
