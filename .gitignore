@@ -44,3 +44,7 @@ Database/Flask/static/tmp/SankeyDiagram/url.txt
 Database/Flask/static/tmp/queryDetails.txt
 Database/Flask/static/tmp/TreeMap/pythonData.json
 Database/Flask/static/TreeMap/accumulatedData.json
+Database/Flask/static/Python_Scripts/GeographicRepresentation/wits.txt
+Database/Flask/static/Python_Scripts/GeographicRepresentation/wits-buildings.js
+Database/Flask/static/tmp/us-states.js
+Database/Flask/static/tmp/wits-buildings.txt
