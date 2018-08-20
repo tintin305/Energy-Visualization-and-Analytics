@@ -322,7 +322,7 @@ The following [site](https://www.erol.si/2014/06/opentsdb-the-perfect-database-f
 Linking the database with D3.js and some other tools. [This](https://gist.github.com/stuart-warren/5354116) has some useful info.
 
 Query from command line:
-    /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
+    /usr/share/opentsdb/bin/tsdb query 1y-ago  sum LoggerName
 
 ### List Number of Metrics in Database
 
@@ -353,6 +353,10 @@ This is very convenient, as it makes writing the import scripts simplistic. http
 
 [Note](http://opentsdb.net/docs/build/html/user_guide/writing.html):
     The Telnet method of writing is discouraged as it doesn't provide a way of determining which data points failed to write due to formatting or storage errors. Instead use the HTTP API.
+
+### Query Limits
+
+It appears that there is a limit to the number of metrics that can possible be queried at any point in time. A number of workarounds were made for this use case. The case of the treemaps, we had to limit the number of metrics per query, and then concatenate the data returned. 
 
 # Linux Commands Used
 
@@ -427,3 +431,7 @@ ls -l *
 ## Delete all files that do not contain the *** file type
 
 find . ! -name "*.file_fype" | xargs rm
+
+### Bulk Import into Database
+
+sudo find . -name "*.gz" -exec /usr/share/opentsdb/bin/tsdb import {} \;

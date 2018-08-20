@@ -100,8 +100,8 @@ var defaults = {
     rootname: "TOP",
     format: ",d",
     title: "",
-    width: 960,
-    height: 500
+    width: 1800,
+    height: 800
 };
 
 function main(o, data) {
@@ -332,11 +332,11 @@ function main(o, data) {
 }
 
 if (window.location.hash === "") {
-    d3.json("/treemap/countries.json", function(err, res) {
+    d3.json("/TreeMap/accumulatedData.json?v={{TreeMapRand}}", function(err, res) {
         if (!err) {
             console.log(res);
             var data = d3.nest().key(function(d) { return d.region; }).key(function(d) { return d.subregion; }).entries(res);
-            main({title: "World Population"}, {key: "World", values: data});
+            main({title: "University of the Witwatersrand Energy Usage"}, {key: "University of the Witwatersrand", values: data});
         }
     });
 }
