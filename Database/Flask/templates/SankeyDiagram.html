@@ -11,9 +11,6 @@
     $("#header").load("/html_templates/header.html"); 
   });
   </script> 
-<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-  <META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
-
 
 	<body>
     
@@ -22,7 +19,7 @@
 		<script src="https://unpkg.com/d3@4.10.2"></script>
 		<script src="/js/Sankey/sk.d3.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/css/Sankey/sk.d3.min.css" />
-		<script src="/tmp/SankeyDiagram/data_energyjson.txt"></script>
+		<script src="/tmp/SankeyDiagram/data_energyjson.txt?={{refreshCache}}"></script>
 		<style>
 			#chart {
 				height: 700px;

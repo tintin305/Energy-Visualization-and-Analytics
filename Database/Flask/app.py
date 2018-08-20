@@ -30,39 +30,36 @@ def map():
 
 @app.route("/DygraphsShow/")
 def DygraphsShow():
-    return render_template("DygraphsShow.html")
+    refreshCache = str(random.getrandbits(32))
+    return render_template("DygraphsShow.html", refreshCache=refreshCache)
 
 @app.route("/HeatMaps/")
 def heatMapShow():
     generateHeatMap()
-    pdfVersion = str(random.getrandbits(32))
-    return render_template("HeatMapShow.html", pdfVersion=pdfVersion)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("HeatMapShow.html", refreshCache=refreshCache)
 
 @app.route("/DataOutages/")
 def dataOutages():
     generateDataOutages()
-    pdfVersion = str(random.getrandbits(32))
-    return render_template("/DataOutages.html")
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/DataOutages.html", refreshCache=refreshCache)
 
 
 @app.route("/ThreeDimensionalView/")
 def threeDimensionalView():
     generateThreeDimensionalHeatMap()
-    return render_template("/ThreeDimensionalViewShow.html")
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/ThreeDimensionalViewShow.html", refreshCache=refreshCache)
 
 @app.route("/SankeyConfig/")
 def sankeyConfig():
-    # print("tgs")
     return render_template("/SankeyConfig.html")
     
 @app.route("/TreeMapShow/")
 def treeMap():
-    # metricsParams = { 'host': 'localhost', 'port': 4242}
-    # queryDetails = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2017/01/01', 'endDate': '2017/01/02'}
-    # generateMetrics(metricsParams)
-    # generateTreeMap(queryDetails)
-    TreeMapRand = str(random.getrandbits(32))
-    return render_template("TreeMap.html", TreeMapRand=TreeMapRand)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("TreeMap.html", refreshCache=refreshCache)
 
 @app.route("/TreeMapConfig/<startDate>/<endDate>")
 def treeMapQuery(startDate, endDate):
@@ -70,19 +67,21 @@ def treeMapQuery(startDate, endDate):
     queryDetails = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateMetrics(metricsParams)
     generateTreeMap(queryDetails)
-    TreeMapRand = str(random.getrandbits(32))
-    return render_template("TreeMap.html", TreeMapRand=TreeMapRand)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("TreeMap.html", refreshCache=refreshCache)
 
 @app.route("/TreeMapConfig/")
 def treeMapConfig():
-    return render_template("TreeMapConfig.html")
+    refreshCache = str(random.getrandbits(32))
+    return render_template("TreeMapConfig.html", refreshCache=refreshCache)
 
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():
     # queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018/03/01-00:00', 'endDate': '2018/06/01-23:30'}
     # loggersReq = 'Matrix'
     # generateSankeyData(queryFlask, loggersReq)
-    return render_template("/SankeyDiagram.html")
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/SankeyDiagram.html", refreshCache=refreshCache)
 
 @app.route("/metrics/")
 def metrics():
@@ -99,8 +98,8 @@ def getData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitud
     generateDygraphsData(requestedSettings)
 
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
-    csvVersion = str(random.getrandbits(32))
-    return render_template("/DygraphsShow.html", csvVersion=csvVersion)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/DygraphsShow.html", refreshCache=refreshCache)
 
 
 
@@ -110,7 +109,8 @@ def getSankey(loggersReq, startDate, endDate):
     print(loggersReq)
     queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateSankeyData(queryFlask, loggersReq)
-    return render_template("/SankeyDiagram.html")
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/SankeyDiagram.html", refreshCache=refreshCache)
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1',port=3000,debug=True, threaded=False)
