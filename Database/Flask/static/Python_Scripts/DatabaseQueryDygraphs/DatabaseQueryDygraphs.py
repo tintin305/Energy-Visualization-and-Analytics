@@ -10,10 +10,18 @@ import os
 
 
 def saveQueryDetails(requestedSettings):
-    # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
-    # os.chdir(csvPath)
-    # with open('queryDetails.txt','w') as write_file:
-    #     json.dump(queryDetails, write_file)
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    os.chdir(csvPath)
+    with open('queryDetails.txt','w') as write_file:
+        json.dump(requestedSettings, write_file)
+    return
+
+def saveURL(url):
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    os.chdir(csvPath)
+    f = open('url.txt','w')
+    f.write(url)
+    f.close()
     return
 
 def createQueryUrl(requestedSettings):
@@ -22,7 +30,6 @@ def createQueryUrl(requestedSettings):
     downsamplingMagnitude = requestedSettings['downsamplingMagnitude']
     timeDownsamplingRange = requestedSettings['timeDownsamplingRange']
     downsamplingType = requestedSettings['downsamplingType']
-    # downsample = requestedSettings['downsample']
     tagKey = requestedSettings['tagKey']
     tagValue = requestedSettings['tagValue']
     metric = requestedSettings['metric']
@@ -35,16 +42,12 @@ def createQueryUrl(requestedSettings):
     startDate = requestedSettings['startDate']
     endDate = requestedSettings['endDate']
 
+    # Format the Dates
     startDate = dateFormatting(startDate)
     endDate = dateFormatting(endDate)
 
+    # Create URL
     url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + str(downsamplingMagnitude) + str(timeDownsamplingRange) + '-' + downsamplingType + ':' + metric + '{' + tagKey + '=' + tagValue + '}'
-   
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
-    os.chdir(csvPath)
-    f = open('url.txt','w')
-    f.write(url)
-    f.close()
 
     return url
 
@@ -89,6 +92,8 @@ def generateDygraphsData(requestedSettings):
     saveQueryDetails(requestedSettings)
 
     url = createQueryUrl(requestedSettings)
+
+    # saveQueryDetails(url)
 
     queryData = queryDatabase(url)
 

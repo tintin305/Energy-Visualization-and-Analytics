@@ -31,9 +31,9 @@ def queryDatabase(url):
     return test
 
 def writeDataToCSV(queryData):
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/Metrics/")
     os.chdir(csvPath)
-    with open('pythonData.csv','w') as write_file:
+    with open('Metrics.csv','w') as write_file:
         json.dump(queryData, write_file)
     return
 

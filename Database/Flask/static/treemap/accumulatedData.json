@@ -1,0 +1,2144 @@
+[
+{
+"key": "WITS_13_Jubilee_Road_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "13_Jubilee_Road",
+"value": 133
+},
+{
+"key": "WITS_3_Jubilee_Road_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "nan",
+"value": 40
+},
+{
+"key": "WITS_5_Jubilee_Road_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "nan",
+"value": 22
+},
+{
+"key": "WITS_9_Jubilee_Road_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "nan",
+"value": 195
+},
+{
+"key": "WITS_Campus_Lodge_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Campus_Lodge",
+"value": 123
+},
+{
+"key": "WITS_College_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "College_House",
+"value": 499
+},
+{
+"key": "WITS_EC_Bernard_Price_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 569
+},
+{
+"key": "WITS_EC_Bernard_Price_Sub_Total_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 1137
+},
+{
+"key": "WITS_EC_Bidvest_Stadium_Lighting_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 0
+},
+{
+"key": "WITS_EC_Bidvest_Stadium_Pavillion_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 0
+},
+{
+"key": "WITS_EC_Biology_Building_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 1156
+},
+{
+"key": "WITS_EC_Biology_Building_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 2091
+},
+{
+"key": "WITS_EC_Bozzoli_B_C_Sports_Field_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 9
+},
+{
+"key": "WITS_EC_Bozzoli_Cricket_A_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 286
+},
+{
+"key": "WITS_EC_Bozzoli_Main_Incomer_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 427
+},
+{
+"key": "WITS_EC_Bozzoli_Rugby_Stadium_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 73
+},
+{
+"key": "WITS_EC_Cafe_Fino_Origins_Center_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 50
+},
+{
+"key": "WITS_EC_Central_Block_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 485
+},
+{
+"key": "WITS_EC_Central_Block_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 519
+},
+{
+"key": "WITS_EC_Compound_Sub_Trf_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 1183
+},
+{
+"key": "WITS_EC_Compound_Sub_Trf_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 977
+},
+{
+"key": "WITS_EC_Compound_Sub_Trf_3_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 957
+},
+{
+"key": "WITS_EC_Compound_Sub_Trf_4_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 172
+},
+{
+"key": "WITS_EC_Digital_Arts_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 137
+},
+{
+"key": "WITS_EC_Emthonjeni_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 154
+},
+{
+"key": "WITS_EC_Gatehouse_HT_Meter_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 40224
+},
+{
+"key": "WITS_EC_Gatehouse_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 2768
+},
+{
+"key": "WITS_EC_Gatehouse_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 119
+},
+{
+"key": "WITS_EC_Gatehouse_TRF_3_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 2548
+},
+{
+"key": "WITS_EC_Gatehouse_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 2070
+},
+{
+"key": "WITS_EC_Groundsman_Cottage_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Hillman_Building_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 283
+},
+{
+"key": "WITS_EC_Hillman_Building_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 0
+},
+{
+"key": "WITS_EC_Hofmeyer_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 64
+},
+{
+"key": "WITS_EC_International_House_Total_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 294
+},
+{
+"key": "WITS_EC_International_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Ithemba_Labs_GEN_KVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Ithemba_Labs_Submersible_Pumps_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Jan_Smuts_House_Total_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 674
+},
+{
+"key": "WITS_EC_Jan_Smuts_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 55
+},
+{
+"key": "WITS_EC_John_Moffat_Sub_Trf_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_John_Moffat_Sub_Trf_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_John_Moffat_Sub_Trf_3_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Jubilee_Dining_Hall_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Jubilee_Dining_Hall_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Jubilee_Generator_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Jubilee_Hall_Lifts_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Jubilee_Hall_Residence_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Jubilee_Hall_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 814
+},
+{
+"key": "WITS_EC_Main_Dining_Hall_Matrix_GEN_250_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matric_PPS_for_Professionals_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_ABSA_Bank_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_ABSA_Bank_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Basement_DB_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 309
+},
+{
+"key": "WITS_EC_Matrix_Butchers_Grill_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 24
+},
+{
+"key": "WITS_EC_Matrix_Capitec_Bank_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Capitec_Bank_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Chinese_Lantern_Takeaways_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Chinese_Lantern_Takeaways_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Chinese_Lantern_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Chinese_Lantern_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Computers__kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Computers_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Cross_Roads_Driving_School_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Cross_Roads_Driving_School_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_DJ_Sports_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_DJ_Sports_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Debonairs_1_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Debonairs_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Debonairs_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Delhi_Delicious_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Delhi_Delicious_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Deli_Delicious_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Deli_Delicious_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_FUNDI_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_FUNDI_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_First_National_Bank_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_First_National_Bank_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Fresher_Breath_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Fresher_Breath_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Jetline_com_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Jetline_com_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Just_Taste_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Just_Taste_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Kara_Nichha_s_kVar",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Kara_Nichha_s_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Main_Dining_Hall_East_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 201
+},
+{
+"key": "WITS_EC_Matrix_Main_Dining_Hall_West_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 299
+},
+{
+"key": "WITS_EC_Matrix_Main_Incomer_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 2134
+},
+{
+"key": "WITS_EC_Matrix_Nedbank_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Nedbank_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Ninos_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Optometrist_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Optometrist_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_PPS_for_Professionals_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Panel_D9_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 28
+},
+{
+"key": "WITS_EC_Matrix_Pentz_Book_Shop_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Pentz_Book_Shop_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 1
+},
+{
+"key": "WITS_EC_Matrix_Pentz_Book_Shop_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 4
+},
+{
+"key": "WITS_EC_Matrix_SBM_G_Panel_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 208
+},
+{
+"key": "WITS_EC_Matrix_SMB_G_Ground_Floor_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 716
+},
+{
+"key": "WITS_EC_Matrix_Sausage_Saloon_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Sausage_Saloon_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Sizzlers_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Standard_Bank_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Standard_Bank_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Stationery_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Stationery_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_ISTPassword_Corner_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 233
+},
+{
+"key": "WITS_EC_Matrix_The_Sweets_Park_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_The_Sweets_Park_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Van_Schaik_Bookstore_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_Van_Schaik_Bookstore_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_ZA_Cellular_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Matrix_ZA_Cellular_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_New_Commerce_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 833
+},
+{
+"key": "WITS_EC_New_Dalrymple_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 190
+},
+{
+"key": "WITS_EC_New_John_Moffat_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 138
+},
+{
+"key": "WITS_EC_New_Sunnyside_Residence_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 157
+},
+{
+"key": "WITS_EC_North_West_Engineering_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 150
+},
+{
+"key": "WITS_EC_North_West_Engineering_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 20
+},
+{
+"key": "WITS_EC_North_West_Engineering_3_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 47
+},
+{
+"key": "WITS_EC_OLS_Building_GEN_65_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_OLS_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 2308
+},
+{
+"key": "WITS_EC_Old_Dalrymple_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 133
+},
+{
+"key": "WITS_EC_Old_Dental_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 76
+},
+{
+"key": "WITS_EC_Old_Mutual_Sports_Hall_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 7
+},
+{
+"key": "WITS_EC_Old_Sunnyside_Residence_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 421
+},
+{
+"key": "WITS_EC_Origin_Centre_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 1318
+},
+{
+"key": "WITS_EC_Origins_Centre_GEN_220_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_PDH_Mini_Sub_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 1054
+},
+{
+"key": "WITS_EC_PDH_Zesti_Lemon_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 86
+},
+{
+"key": "WITS_EC_PDH___water_meter_kl",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_PG_Club_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 3
+},
+{
+"key": "WITS_EC_PG_Club_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 4
+},
+{
+"key": "WITS_EC_Physics_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 1282
+},
+{
+"key": "WITS_EC_Planetarium_Borehole_Pump__38146549__kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Planetarium_Borehole_Pump__38146549__kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Planetarium_Sub_Total__38146548__kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Planetarium_Sub_Total__38146548__kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Planetarium_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 293
+},
+{
+"key": "WITS_EC_Solomon_Mahlangu_GEN_800_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": -24
+},
+{
+"key": "WITS_EC_Solomon_Mahlangu_House_TRF_2_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 220
+},
+{
+"key": "WITS_EC_Solomon_Mahlangu_House_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 957
+},
+{
+"key": "WITS_EC_Solomon_Mahlangu_House_TRF_3_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 332
+},
+{
+"key": "WITS_EC_Solomon_Mahlangu_House_TRF_3_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 1995
+},
+{
+"key": "WITS_EC_Solomon_Mahlangu_House_TRF_4_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 3118
+},
+{
+"key": "WITS_EC_Solomon_Mahlangu_House_TRF_4_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 6659
+},
+{
+"key": "WITS_EC_Swimming_Bath_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 207
+},
+{
+"key": "WITS_EC_Swimming_Pool_HP_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 0
+},
+{
+"key": "WITS_EC_Theatre_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 281
+},
+{
+"key": "WITS_EC_Theo_Senate_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 60
+},
+{
+"key": "WITS_EC_Umthombo_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 23
+},
+{
+"key": "WITS_EC_Van_Riet_Louw_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 583
+},
+{
+"key": "WITS_EC_Wartenweiler_Library_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 1004
+},
+{
+"key": "WITS_EC_William_Cullen_Library_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "East_Campus",
+"value": 87
+},
+{
+"key": "WITS_Essellen_Mortuary_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Essellen",
+"value": 166
+},
+{
+"key": "WITS_Essellen_Street_TRF1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Essellen",
+"value": 0
+},
+{
+"key": "WITS_Essellen_Street_TRF2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Essellen",
+"value": 697
+},
+{
+"key": "WITS_Essellen_Street_TRF3_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Essellen",
+"value": 837
+},
+{
+"key": "WITS_Graduate_Lodge_Choir_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Graduate_Lodge",
+"value": -24
+},
+{
+"key": "WITS_Graduate_Lodge_Indian_Studies_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Graduate_Lodge",
+"value": -24
+},
+{
+"key": "WITS_Graduate_Lodge_Vodacom_Tower_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "Graduate_Lodge",
+"value": -24
+},
+{
+"key": "WITS_Graduate_Lodge_Vodacom_Tower_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Graduate_Lodge",
+"value": -24
+},
+{
+"key": "WITS_Graduate_Lodge_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Graduate_Lodge",
+"value": 25
+},
+{
+"key": "WITS_IBM_Tshimologong_Building_Enermax_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "IBM",
+"value": 578
+},
+{
+"key": "WITS_Ithemba_Labs_High_Voltage_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Ithemba_Labs",
+"value": 788
+},
+{
+"key": "WITS_Ithemba_Labs_Nutron_Source_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Ithemba_Labs",
+"value": 24
+},
+{
+"key": "WITS_Ithemba_Labs_TRF_A_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Ithemba_Labs",
+"value": 419
+},
+{
+"key": "WITS_Ithemba_Labs_TRF_B_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Ithemba_Labs",
+"value": 217
+},
+{
+"key": "WITS_Knockando_Block_H_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Boiler_Room_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Dining_Hall_GEN_125_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Dinning_Hall_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Leighton_North_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Leighton_South_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Leighton_South_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Main_Sub_Hostel_1_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Main_Sub_Hostel_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Main_Sub_Kiosk_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Main_Sub_Kiosk_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Northwards_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": -24
+},
+{
+"key": "WITS_Knockando_Williams_Hall_1_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Knockando",
+"value": 188
+},
+{
+"key": "WITS_Medical_School_HT_Meter_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Medical_School",
+"value": -24
+},
+{
+"key": "WITS_Medical_School_Transformer_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Medical_School",
+"value": 5228
+},
+{
+"key": "WITS_Medical_School_Transformer_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Medical_School",
+"value": 5749
+},
+{
+"key": "WITS_Medical_School_Transformer_3_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Medical_School",
+"value": 6844
+},
+{
+"key": "WITS_PEC_Conacher_Block_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 110
+},
+{
+"key": "WITS_PEC_Conacher_Block_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 0
+},
+{
+"key": "WITS_PEC_Harald_Holmes_Library_TRF_1_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 14
+},
+{
+"key": "WITS_PEC_Harald_Holmes_Library_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 50
+},
+{
+"key": "WITS_PEC_Harald_Holmes_Library_TRF_2_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 0
+},
+{
+"key": "WITS_PEC_Harald_Holmes_Library_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 20
+},
+{
+"key": "WITS_PEC_Highfield_Dining_Hall_GEN_150_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_Highfield_Dinning_Hall_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_Highfield_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_Highfield_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_Lesideng_Extention_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_Linder_Auditorium_GEN_400_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_Linder_Auditorium_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_Linder_Auditorium_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 573
+},
+{
+"key": "WITS_PEC_Marang_Block_Trf_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_Marang_Block_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 685
+},
+{
+"key": "WITS_PEC_Matrons_Blocks_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_Medhurst_Residence_GEN_650_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": -24
+},
+{
+"key": "WITS_PEC_PIMD_Office_Block_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 245
+},
+{
+"key": "WITS_PEC_Physical_Education_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 704
+},
+{
+"key": "WITS_PEC_Residence_Girton_Hall_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 129
+},
+{
+"key": "WITS_PEC_Residence_Medhurst_Hall_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 82
+},
+{
+"key": "WITS_PEC_Residence_Reith_Hall_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 167
+},
+{
+"key": "WITS_PEC_School_of_Public_Health_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 826
+},
+{
+"key": "WITS_PEC_Siyafunda_Cafe_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 137
+},
+{
+"key": "WITS_PEC_Stadium_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 161
+},
+{
+"key": "WITS_PEC_Wozani_Block_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Parktown_Education_Campus",
+"value": 135
+},
+{
+"key": "WITS_Philip_V_Tobias_Main_Incomer_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Philip_V_Tobias",
+"value": 1240
+},
+{
+"key": "WITS_Science_Park_Admin_Block_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Science_Park",
+"value": 53
+},
+{
+"key": "WITS_Science_Park_Admin_Block_2__38111362__kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Science_Park",
+"value": -24
+},
+{
+"key": "WITS_Science_Park_Admin_Block_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Science_Park",
+"value": -24
+},
+{
+"key": "WITS_Science_Park_Duro_Plastics_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Science_Park",
+"value": 106
+},
+{
+"key": "WITS_Science_Park_Struct_Crete_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Science_Park",
+"value": 21
+},
+{
+"key": "WITS_Science_Park_Total_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Science_Park",
+"value": -24
+},
+{
+"key": "WITS_South_Court_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "South_Court",
+"value": 126
+},
+{
+"key": "WITS_The_Junction_HT_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_1_Kiosk_Shosholoza_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_2_Kiosk_Kum_Saan_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_2_Kiosk_Ntombela_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_2_Kiosk_Parna_Janda_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_3_Kiosk_Amagumbi_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_3_Kiosk_Emakhaya_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_3_Kiosk_Mohokare_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_3_Kiosk_Sarie_Marais_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_4_Kiosk_Amawasha_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_4_Kiosk_Great_Heart_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_4_Kiosk_Languta_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_5_Kiosk_Egoli_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_5_Kiosk_LS1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_5_Kiosk_LS2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_6_Kiosk_Ingolovane_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_6_Kiosk_Mbube_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_6_Kiosk_Parkade_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS_6_Kiosk_Stimela_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": -24
+},
+{
+"key": "WITS_The_Junction_MSS___001_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": 826
+},
+{
+"key": "WITS_The_Junction_MSS___002_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": 192
+},
+{
+"key": "WITS_The_Junction_MSS___003_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": 343
+},
+{
+"key": "WITS_The_Junction_MSS___004_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": 529
+},
+{
+"key": "WITS_The_Junction_MSS___005_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": 178
+},
+{
+"key": "WITS_The_Junction_MSS___006_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": 694
+},
+{
+"key": "WITS_The_Junction_ePitstop_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Junction",
+"value": 150
+},
+{
+"key": "WITS_Tshimologong_Building_Catering_DB_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": 7
+},
+{
+"key": "WITS_Tshimologong_Building_Club_DB_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": 0
+},
+{
+"key": "WITS_Tshimologong_Building_Founders_Square_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": 57
+},
+{
+"key": "WITS_Tshimologong_Building_Generator_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": 0
+},
+{
+"key": "WITS_Tshimologong_Building_IBM_DB_ION_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "IBM",
+"value": 498
+},
+{
+"key": "WITS_Tshimologong_Building_JCE_DB_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": 19
+},
+{
+"key": "WITS_Tshimologong_Building_LV_Total_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": -24
+},
+{
+"key": "WITS_Tshimologong_Building_Main_Incomer_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": 764
+},
+{
+"key": "WITS_Tshimologong_Building_Makers_Lab_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": 4
+},
+{
+"key": "WITS_Tshimologong_Building_Restaurant_DB_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": 0
+},
+{
+"key": "WITS_Tshimologong_Building_TP___DB_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "Tshimologong",
+"value": 88
+},
+{
+"key": "WITS_University_Corner_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "University_Corner",
+"value": 1914
+},
+{
+"key": "WITS_WBS_Albert_Wessels_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS_Albert_Wessels_Building",
+"value": 1215
+},
+{
+"key": "WITS_WBS_Albert_Wessels_GEN_300_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_Donald_Gordon_GEN_350_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS_Donald_Gordon",
+"value": -24
+},
+{
+"key": "WITS_WBS_Donald_Gordon_Sub_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS_Donald_Gordon",
+"value": 443
+},
+{
+"key": "WITS_WBS_Donald_Gordon_Sub_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS_Donald_Gordon",
+"value": 1364
+},
+{
+"key": "WITS_WBS_EOH_Kitchen_GEN_125_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_EOH_Kitchen_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_EOH_Residence_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": 434
+},
+{
+"key": "WITS_WBS_EOH_Residence_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": 806
+},
+{
+"key": "WITS_WBS_Faculty_Office_M_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_House_C_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_House_F_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_House_H_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_House_J_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_House_K_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_House_L_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_House_Q_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_House_S_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_House_U_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_Mwalimu_House_GEN_125_kVA_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_Mwalimu_House_GEN_125_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_Mwalimu_House_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": 5
+},
+{
+"key": "WITS_WBS_Mwalimu_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": 217
+},
+{
+"key": "WITS_WBS_North_Lodge_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_Parktown_Village_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": 134
+},
+{
+"key": "WITS_WBS_Sarua_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": 23
+},
+{
+"key": "WITS_WBS_Trematon_House_1___7_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": 46
+},
+{
+"key": "WITS_WBS_Trematon_Place_4___7_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": -24
+},
+{
+"key": "WITS_WBS_Trematon_Place_8___11_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": 62
+},
+{
+"key": "WITS_WBS_Trematon_Place_Minisub_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "WBS",
+"value": 456
+},
+{
+"key": "WITS_WC_Barnato_Sub_Residence_A___D_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 395
+},
+{
+"key": "WITS_WC_Barnato_Sub_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 799
+},
+{
+"key": "WITS_WC_Barnato_Sub_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 275
+},
+{
+"key": "WITS_WC_CLM_Building_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 2336
+},
+{
+"key": "WITS_WC_CLM_Building_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 284
+},
+{
+"key": "WITS_WC_CLM_GEN_275_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_CLTD_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 184
+},
+{
+"key": "WITS_WC_Catering_Mayas_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 21
+},
+{
+"key": "WITS_WC_Chamber_of_Mines_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 0
+},
+{
+"key": "WITS_WC_Chamber_of_Mines_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 3496
+},
+{
+"key": "WITS_WC_Claude_Vergie_House_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Club_Minisub_Total_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Convocation_Dining_Hall_GEN_125_kVa_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Convocation_Kitchen_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 347
+},
+{
+"key": "WITS_WC_DJ_du_Plessis_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 377
+},
+{
+"key": "WITS_WC_David_Webster_Hall_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 688
+},
+{
+"key": "WITS_WC_Dig_Fields_Rugby_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 0
+},
+{
+"key": "WITS_WC_Dig_Fields_Soccer_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 0
+},
+{
+"key": "WITS_WC_East_Avenue_Mini_Sub_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Educom_Building_Trf_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Educom_Building_Trf_3_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Educom_Building_Trf_4_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_FNB_Building_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 1130
+},
+{
+"key": "WITS_WC_FNB_Building_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 556
+},
+{
+"key": "WITS_WC_Flower_Hall_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 57
+},
+{
+"key": "WITS_WC_Genmin_LAB_HT_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Genmin_LAB_HT_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Genmin_LAB_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Genmin_Sub_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 474
+},
+{
+"key": "WITS_WC_Gymnasium_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Hall_29A_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 0
+},
+{
+"key": "WITS_WC_Hall_29B_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 0
+},
+{
+"key": "WITS_WC_Hall_29C_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 229
+},
+{
+"key": "WITS_WC_Humphrey_Raikes_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 2233
+},
+{
+"key": "WITS_WC_Maths_Science_Building_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 3470
+},
+{
+"key": "WITS_WC_Maths_Science_North_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 875
+},
+{
+"key": "WITS_WC_Maths_Science_South_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 2372
+},
+{
+"key": "WITS_WC_Old_Grandstand_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 76
+},
+{
+"key": "WITS_WC_Oliver_Schreiner_School_of_Law_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 2191
+},
+{
+"key": "WITS_WC_PIMD_Supply_No_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_PIMD_Supply_No_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_PIMD_Wash_Bay_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 0
+},
+{
+"key": "WITS_WC_Raikes_Road_Main_Incomer_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 21280
+},
+{
+"key": "WITS_WC_Science_Stadium_TRF_1_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 685
+},
+{
+"key": "WITS_WC_Science_Stadium_TRF_2_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 348
+},
+{
+"key": "WITS_WC_Squash_Courts_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 220
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_A_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 96
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_B_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 101
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_C_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 74
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_D_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 129
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_E_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 27
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_E_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 58
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_F_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 41
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_F_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 124
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_G_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 43
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_G_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 91
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_H_kVArh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 28
+},
+{
+"key": "WITS_WC_Stdnts_Village_Unit_H_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 53
+},
+{
+"key": "WITS_WC_Sturrock_Kitchen_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 91
+},
+{
+"key": "WITS_WC_Sturrock_Kitchen_kWh_exp",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 0
+},
+{
+"key": "WITS_WC_Sturrock_Park_GEN_300_kVA_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Sturrock_Park_Main_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 305
+},
+{
+"key": "WITS_WC_The_Barns_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Tower_of_Lights_Total_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+},
+{
+"key": "WITS_WC_Village_Minisub_Total_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 362
+},
+{
+"key": "WITS_WC_Village_Zesti_Lemonz_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": 12
+},
+{
+"key": "WITS_WC_WITS_CLUB_GENERATOR_100_kVa_kWh",
+"region": "University of the Witwatersrand",
+"subregion": "West_Campus",
+"value": -24
+}
+]
