@@ -161,7 +161,12 @@ def generateTreeMap(metricsParams):
     metrics = loadMetrics()
 
     # Remove the loggers that are for kVarh as this can distort the visual
+    # Other loggers that are removed as this should just show loads
     metrics[:] = [x for x in metrics if 'kVarh' not in x]
+    metrics[:] = [x for x in metrics if 'Incomer' not in x]
+    metrics[:] = [x for x in metrics if 'GEN' not in x]
+    metrics[:] = [x for x in metrics if 'Gen' not in x]
+    metrics[:] = [x for x in metrics if 'HT' not in x]
 
     writeDataToCSV(metrics)
 

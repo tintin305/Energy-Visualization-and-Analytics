@@ -41,3 +41,6 @@ Database/Node Server/public/tmp/SankeyDiagram/data_energy.txt
 Database/Flask/static/tmp/SankeyDiagram/data_energyjson.txt
 Database/Flask/static/Data/DataOutages/DataOutages.pdf
 Database/Flask/static/tmp/SankeyDiagram/url.txt
+Database/Flask/static/tmp/queryDetails.txt
+Database/Flask/static/tmp/TreeMap/pythonData.json
+Database/Flask/static/TreeMap/accumulatedData.json
