@@ -132,9 +132,9 @@ def upDateGeoJSON():
     for z in range(0, len(data['features'])):
         data['features'][z]['properties']['density'] = 0
 
-    # Make all per unit
-    maxValue = data_raw['loggerMagnitude'].max()
-    data_raw.loggerMagnitude = data_raw.loggerMagnitude/maxValue
+    # # Make all per unit
+    # maxValue = data_raw['loggerMagnitude'].max()
+    # data_raw.loggerMagnitude = data_raw.loggerMagnitude/maxValue
     
     # Loop through each logger
     for row_index,row in data_raw.iterrows():
@@ -146,7 +146,12 @@ def upDateGeoJSON():
                 data['features'][z]['properties']['density'] = data['features'][z]['properties']['density'] + data_raw.loggerMagnitude[row_index]
 
 
-
+    
+    # # Make all per unit
+    maxValue = data_raw['loggerMagnitude'].max()
+    
+    for z in range(0, len(data['features'])):
+        data['features'][z]['properties']['per_unit'] = data['features'][z]['properties']['density']/maxValue
 
     # Create a string to output the updated geoJSON data
     stringVar = "var statesData = " + json.dumps(data)
