@@ -14,16 +14,23 @@ import json
 f = open("wits.txt","r")
 stringVar = f.read()
 f.close()
-stringVar = stringVar.replace("var gara = {", "{")
-# print(stringVar)
+stringVar = stringVar.replace("var statesData = {", "{")
+print(stringVar)
 
 data = json.loads(stringVar)
 # print(data['features'][0]["id"] )
 data['features'][0]["id"] = "05"
 
+print(len(data['features']))
+
+for z in range(0, len(data['features'])):
+    newID = "0"+ str(z+2)
+    data['features'][z]["id"] = newID
+
+
 # print(data['features'][0]["id"] )
 
-stringVar = "var gara = " + json.dumps(data)
+stringVar = "var statesData = " + json.dumps(data)
 print(stringVar)
 
 
