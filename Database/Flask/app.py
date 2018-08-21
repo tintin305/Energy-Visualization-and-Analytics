@@ -18,6 +18,8 @@ from static.Python_Scripts.GenerateThreeDimensionalHeatMap.GenerateThreeDimensio
 
 from static.Python_Scripts.GenerateTreemap.GenerateTreemap import generateTreeMap
 
+from static.Python_Scripts.GeographicRepresentation.generateMaps import generateMapData
+
 app = Flask(__name__, static_url_path='')
 
 @app.route("/")
@@ -26,7 +28,14 @@ def index():
 
 @app.route("/Maps/")
 def map():
-    return render_template("MapShow.html")
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018-01-01', 'endDate': "2018-06-30"}
+    generateMapData(queryFlask)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/MapShow.html", refreshCache=refreshCache)
+
+
+    # generateMapData()
+    # return render_template("MapShow.html")
 
 @app.route("/DygraphsShow/")
 def DygraphsShow():

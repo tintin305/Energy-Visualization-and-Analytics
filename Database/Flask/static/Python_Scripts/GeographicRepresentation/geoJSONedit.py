@@ -1,49 +1,44 @@
 import json
-# from pprint import pprint
-# import pygeoj
+import os
+import pandas as pd
+import sys
 
-
-# with open('wits-buildings.json') as f:
-#     data = json.loads(f)
-
-
-# with open('wits-buildings.js') as f:
-#     data = json.loads(f.read())
-#     print(data['features'][0]["id"])
-
-f = open("wits.txt","r")
+# Read in geoJSON data as a string
+f = open("../../tmp/Map/wits-buildings.txt","r")
 stringVar = f.read()
 f.close()
 stringVar = stringVar.replace("var statesData = {", "{")
-print(stringVar)
+
+#  Read in data file containing dataloggers and their respective summed total
+csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/Map/temp.csv")
+try:
+    data_raw = pd.read_csv(csvPath)
+except:
+    print("error loading csv")
+    sys.exit()
 
 data = json.loads(stringVar)
-# print(data['features'][0]["id"] )
-data['features'][0]["id"] = "05"
 
-print(len(data['features']))
-
+#  Set all density's to 0
 for z in range(0, len(data['features'])):
-    newID = "0"+ str(z+2)
-    data['features'][z]["id"] = newID
+    data['features'][z]['properties']['density'] = 0
+
+# Loop through each logger
+for row_index,row in data_raw.iterrows():
+    # Loop through each building
+    for z in range(0, len(data['features'])):
+        # Check if the logger matches a logger for the building
+        if data_raw.DataLogger[row_index] in data['features'][z]['properties']['loggers']:
+            # Add the logger's sum to the building's density
+            data['features'][z]['properties']['density'] = data['features'][z]['properties']['density'] + data_raw.loggerMagnitude[row_index]
 
 
-# print(data['features'][0]["id"] )
 
+
+# Create a string to output the updated geoJSON data
 stringVar = "var statesData = " + json.dumps(data)
-print(stringVar)
 
-
-f = open("wits.txt","w")
+# Output to a file
+f = open("../../tmp/Map/wits-buildings.txt","w")
 f.write(stringVar)
 f.close()
-
-# pprint(data)
-
-# with open('wits.txt', 'w') as outfile:  
-#     json.dump(data, outfile)
-
-# testfile = pygeoj.load(filepath="wits-buildings.json")
-# testfile = pygeoj.load(data)
-
-# print(len(testfile))
