@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Loggers</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script> 
+        $(function(){
+          $("#header").load("/html_templates/header.html"); 
+        });
+        </script> 
+<style>
+    div.scrollmenu {
+        width : 630px;
+        height:600px;
+        overflow: auto;
+        margin: auto;
+        white-space: nowrap;
+    }
+    
+    div.scrollmenu a {
+        display: inline-block;
+        color: white;
+        display: block;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+    }
+    
+    div.scrollmenu a:hover {
+        background-color: #777;
+    }
+    /* The container */
+.container {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 25px;
+width: 25px;
+background-color: #eee;
+border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ top: 9px;
+left: 9px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: white;
+}
+
+#click {
+ background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+cursor:pointer;
+
+}
+.side{
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+    </style>
+    </head>
+<body>
+
+    <div id="header"></div>
+    
+    <h1>
+        Logger List
+    </h1>
+
+
+    <div class="scrollmenu">
+        <form name="form">
+
+            
+        {% for button in buttons %}
+                <!-- <button type="button" class="btn" name="choice1" value="{{ button }}">{{ button }}</button> -->
+                <label class="container">{{ button }}
+                    <input type="radio"  name="group1" onclick="myFunction(this.value)"  value='{{ button }}'>
+                    <span class="checkmark"></span>
+                  </label>
+        {% endfor %}
+        
+
+</div>
+<div class="side"> </div>
+    <br>
+  <div class="side">
+    Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
+    <a style="color:blue;" type="button" id = "click" value = "" onclick="generateHeatMap(this.value)">Generate HeatMap</a>
+
+    <div class="side">
+        Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
+        <a style="color:blue;" type="button" id = "click" value = "" onclick="generateDataOutage(this.value)">Generate Data Outage</a>
+
+</div>
+    <div class="side">
+Start date:
+<input type="date" id = "startTime" value="2013-01-02" >
+End date:
+<input type="date" id = "endTime" value="2018-05-31" >
+
+</div>
+
+<select id="aggregators">
+    <option value="sum">sum</option>
+    <option value="min">min</option>
+    <option value="max">max</option>
+    <option value="avg">avg</option>
+    <option value="dev">dev</option>
+  </select>
+
+<input type="text" id="downsamplingMagnitude" value="5">
+
+<select id="timeDownsamplingRange">
+    <option value="s">s</option>
+    <option value="m">m</option>
+    <option value="d">d</option>
+    <option value="w">w</option>
+    <option value="m">m</option>
+    <option value="y">y</option>    
+    <option value="dc">dc</option>
+    <option value="0-all">0-all</option>
+  </select>
+
+  <select id="downsamplingType">
+    <option value="sum">sum</option>
+    <option value="min">min</option>
+    <option value="max">max</option>
+    <option value="avg">avg</option>
+    <option value="dev">dev</option>
+  </select>
+
+  <script>
+  function myFunction(browser) {
+      document.getElementById("result").value = browser;
+    //   str = "/profiles/" + browser
+      document.getElementById("click").value = browser;
+
+    //   document.getElementById("aggregators").value = browser;
+  }
+
+  function generateHeatMap(browser) {
+
+            logger = getClicked();
+    var startDate = document.getElementById("startTime").value
+    var endDate = document.getElementById("endTime").value
+    var aggregator = document.getElementById("aggregators").value
+    var downsamplingMagnitude = document.getElementById("downsamplingMagnitude").value
+    var timeDownsamplingRange = document.getElementById("timeDownsamplingRange").value
+    var downsamplingType = document.getElementById("downsamplingType").value
+        location.href ="/HeatMapConfig/" + logger + "/" + startDate + "/" + endDate + "/" + aggregator + "/" +  downsamplingMagnitude + "/" + timeDownsamplingRange + "/" + downsamplingType + "/";
+        }
+
+  function generateDataOutage(browser) {
+
+logger = getClicked();
+var startDate = document.getElementById("startTime").value
+var endDate = document.getElementById("endTime").value
+var aggregator = document.getElementById("aggregators").value
+var downsamplingMagnitude = document.getElementById("downsamplingMagnitude").value
+var timeDownsamplingRange = document.getElementById("timeDownsamplingRange").value
+var downsamplingType = document.getElementById("downsamplingType").value
+location.href ="/DataOutageConfig/" + logger + "/" + startDate + "/" + endDate + "/" + aggregator + "/" +  downsamplingMagnitude + "/" + timeDownsamplingRange + "/" + downsamplingType + "/";
+}  
+
+
+  function getClicked(){
+    var found_it
+
+for (var i=0; i<document.form.group1.length; i++)  {
+    if (document.form.group1[i].checked)  {
+        found_it = document.form.group1[i].value
+        }
+    }
+    document.getElementById("result").value = found_it;
+    return found_it;
+  }
+
+  </script>
+
+
+
+    </body>
+</html>
+
+
