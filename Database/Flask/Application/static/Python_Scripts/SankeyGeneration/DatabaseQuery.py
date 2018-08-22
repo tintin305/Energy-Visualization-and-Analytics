@@ -73,7 +73,9 @@ def dateFormatting(date):
     return formattedDate
 
 def queryDatabase(url):
-    data = requests.get(url)
+    data = requests.get(url, 
+                    proxies=dict(http='socks5://localhost:4242',
+                                 https='socks5://localhost:4242'))
     dataJSON = data.json()
 
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")

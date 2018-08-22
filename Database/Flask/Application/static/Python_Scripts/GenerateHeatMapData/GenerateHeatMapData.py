@@ -2,6 +2,7 @@ import pandas as pd
 import json
 import requests
 import os
+import socket
 
 def saveQueryDetails(requestedSettings):
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/HeatMaps/")
@@ -51,7 +52,9 @@ def dateFormatting(date):
     return formattedDate
 
 def queryDatabase(url):
-    data = requests.get(url)
+    data = requests.get(url, 
+                    proxies=dict(http='socks5://localhost:4242',
+                                 https='socks5://localhost:4242'))
     test = data.text
     return test
 

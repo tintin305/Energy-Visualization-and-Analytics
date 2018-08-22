@@ -3,7 +3,15 @@ from flask import render_template
 import sys
 import os
 import random
+import subprocess
+# from threading import Thread
+# from static.Python_Scripts.SSHTunnel.SSHTunnel import createTunnel
 
+# def openTunnel():
+#     createTunnel()
+    # return
+
+# def flaskServer():
 from static.Python_Scripts.GenerateMetrics.MetricsQuery import generateMetrics
 
 from static.Python_Scripts.DatabaseQueryDygraphs.DatabaseQueryDygraphs import generateDygraphsData
@@ -26,8 +34,10 @@ from static.Python_Scripts.GenerateHeatMapData.GenerateHeatMapData import genera
 
 from static.Python_Scripts.GenerateDataOutageData.GenerateDataOutageData import generateDataOutageData
 
-app = Flask(__name__, static_url_path='')
+# from static.Python_Scripts.SSHTunnel.SSHTunnel import createTunnel
 
+app = Flask(__name__, static_url_path='')
+# process = subprocess.Popen(createTunnel())
 
 @app.route("/")
 def index():
@@ -36,7 +46,7 @@ def index():
 
 @app.route("/Maps/")
 def map():
-    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018-01-01', 'endDate': "2018-06-30"}
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018-01-01', 'endDate': "2018-06-30"}
     generateMapData(queryFlask)
     refreshCache = str(random.getrandbits(32))
     return render_template("/MapShow.html", refreshCache=refreshCache)
@@ -52,7 +62,7 @@ def DygraphsShow():
 
 @app.route("/HeatMapConfig/")
 def heatMapConfig():
-    metricsParams = { 'host': 'localhost', 'port': 4242}
+    metricsParams = { 'host': 'tsdb.eie.wits.ac.za', 'port': 4242}
     metricsList = generateMetrics(metricsParams)
     refreshCache = str(random.getrandbits(32))
     return render_template("HeatMapConfig.html", refreshCache=refreshCache, buttons=metricsList)
@@ -61,7 +71,7 @@ def heatMapConfig():
 def getHeatMapData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitude, timeDownsamplingRange, downsamplingType):
     
     requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName,
-        'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+        'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateHeatMapData(requestedSettings)
 
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
@@ -72,7 +82,7 @@ def getHeatMapData(DataloggerName, startDate, endDate, aggregator, downsamplingM
 def getDataOutageData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitude, timeDownsamplingRange, downsamplingType):
     
     requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataOutage', 'tagValue': False,
-        'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+        'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateDataOutageData(requestedSettings)
 
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
@@ -109,8 +119,8 @@ def treeMap():
 
 @app.route("/TreeMapConfig/<startDate>/<endDate>")
 def treeMapQuery(startDate, endDate):
-    metricsParams = { 'host': 'localhost', 'port': 4242}
-    queryDetails = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    metricsParams = { 'host': 'tsdb.eie.wits.ac.za', 'port': 4242}
+    queryDetails = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateMetrics(metricsParams)
     generateTreeMap(queryDetails)
     refreshCache = str(random.getrandbits(32))
@@ -123,7 +133,7 @@ def treeMapConfig():
 
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():
-    # queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018/03/01-00:00', 'endDate': '2018/06/01-23:30'}
+    # queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018/03/01-00:00', 'endDate': '2018/06/01-23:30'}
     # loggersReq = 'Matrix'
     # generateSankeyData(queryFlask, loggersReq)
     refreshCache = str(random.getrandbits(32))
@@ -132,15 +142,15 @@ def sankeyDiagram():
 @app.route("/metrics/")
 def metrics():
     # http://localhost:4242/api/suggest?type=metrics&max=10000s
-    metricsParams = { 'host': 'localhost', 'port': 4242}
+    metricsParams = { 'host': 'tsdb.eie.wits.ac.za', 'port': 4242}
     metricsList = generateMetrics(metricsParams)
     return render_template("/loggerList.html", buttons = metricsList)
- 
+
 @app.route("/profiles/<DataloggerName>/<startDate>/<endDate>/<aggregator>/<downsamplingMagnitude>/<timeDownsamplingRange>/<downsamplingType>/")
 def getData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitude, timeDownsamplingRange, downsamplingType):
     
     requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName,
-        'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+        'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateDygraphsData(requestedSettings)
 
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
@@ -150,7 +160,7 @@ def getData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitud
 @app.route("/sankey/<loggersReq>/<startDate>/<endDate>")
 def getSankey(loggersReq, startDate, endDate):
     print(loggersReq)
-    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateSankeyData(queryFlask, loggersReq)
     refreshCache = str(random.getrandbits(32))
     return render_template("/SankeyDiagram.html", refreshCache=refreshCache)
@@ -163,3 +173,7 @@ def shutdown():
 if __name__ == "__main__":
     app.run(host='127.0.0.1',port=3000,debug=True, threaded=False)
     # app.run(host='127.0.0.1',port=3000,debug=True, threaded=True)
+# return
+
+# Thread(target = flaskServer).start() 
+# Thread(target = openTunnel).start()

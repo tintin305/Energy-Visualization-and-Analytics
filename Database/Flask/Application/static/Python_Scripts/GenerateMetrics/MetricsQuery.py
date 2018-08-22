@@ -4,6 +4,7 @@ import json
 import requests
 # import sys
 import os
+import socket
 # from collections import namedtuple
 # import csv
 #  /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
@@ -26,7 +27,9 @@ def createQueryUrl(metricsParams):
     return url
 
 def queryDatabase(url):
-    data = requests.get(url)
+    data = requests.get(url, 
+                    proxies=dict(http='socks5://localhost:4242',
+                                 https='socks5://localhost:4242'))
     test = data.json()
     return test
 

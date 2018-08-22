@@ -374,6 +374,19 @@ Once this has happened, the file needs to be given execution permission:
 
 Now the script can be executed on the server, this will delete all of the metrics. 
 
+### Create SSH Tunnel
+
+The first step is to use putty to open the tunnel. This is done using the settings:
+
+One can do the command using: putty.exe -load "Tunnel" -D 4242 -l username -pw password
+
+putty -ssh username@tsdb.eie.wits.ac.za -pw password -D 4242
+
+ ssh username@tsdb.eie.wits.ac.za -p 22 -p password -D 4242
+
+ ssh username@tsdb.eie.wits.ac.za -p 22 -p password -D 4242
+
+
 # Linux Commands Used
 
 ## Copy Files
