@@ -51,3 +51,6 @@ Database/Flask/static/tmp/wits-buildings.txt
 Database/Flask/static/tmp/HeatMaps/queryDetails.txt
 Database/Flask/static/tmp/DataOutage/queryDetails.txt
 Database/OpenTSDB Data Formatting/Purge Database/Metrics.txt
+*.json
+*.txt
+*.pdf
