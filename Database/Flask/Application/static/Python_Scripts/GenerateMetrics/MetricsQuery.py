@@ -5,6 +5,7 @@ import requests
 # import sys
 import os
 import socket
+import errno
 # from collections import namedtuple
 # import csv
 #  /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
@@ -34,6 +35,14 @@ def queryDatabase(url):
     return test
 
 def writeDataToCSV(queryData):
+    tmpPath = os.path.join(os.path.dirname(__file__), "../../tmp")
+    os.chdir(tmpPath)
+    directory = 'Metrics'
+    try:
+        os.makedirs(directory)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/Metrics/")
     os.chdir(csvPath)
     with open('Metrics.csv','w') as write_file:
@@ -48,4 +57,3 @@ def generateMetrics(metricsParams):
     writeDataToCSV(queryData)
 
     return queryData
-    # extractData(queryData)

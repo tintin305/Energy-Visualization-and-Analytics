@@ -386,6 +386,20 @@ putty -ssh username@tsdb.eie.wits.ac.za -pw password -D 4242
 
  ssh username@tsdb.eie.wits.ac.za -p 22 -p password -D 4242
 
+Once this was setup, the local PC cannot access the opentsdb GUI directly. One has to set up Firefox with a SOCKS5 proxy. Do this by:
+
+    * Proxy settings in firefox
+    * Manual proxy configuration
+    * SOCKS Host: localhost:4242
+    * Select SOCKS v5
+
+With these settings, one can then access the GUI, and it can be accessed with:
+    tsdb.eie.wits.ac.za:4242
+
+In the flask application, the 'localhost' parts need to be changed to 'tsdb.eie.wits.ac.za'. On top of this, the socks package is installed so that the socks proxy can be set up.
+In the requests command, extra parameters are introduced so that it can make use of the proxy. This forms the second argument of the requests' get command.
+In order to install the socket package use:
+    python -m pip install requests[socks]
 
 # Linux Commands Used
 

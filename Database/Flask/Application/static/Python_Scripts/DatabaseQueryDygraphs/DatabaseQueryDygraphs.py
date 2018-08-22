@@ -1,25 +1,28 @@
-# import numpy as np
 import pandas as pd
 import json
 import requests
-# import sys
 import os
 import socket
-# from collections import namedtuple
-# import csv
-#  /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
-
+import errno
 
 def saveQueryDetails(requestedSettings):
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
-    os.chdir(csvPath)
+    tmpPath = os.path.join(os.path.dirname(__file__), "../../tmp")
+    os.chdir(tmpPath)
+    directory = 'Dygraphs'
+    try:
+        os.makedirs(directory)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+    txtPath = os.path.join(os.path.dirname(__file__), "../../tmp/Dygraphs")
+    os.chdir(txtPath)
     with open('queryDetails.txt','w') as write_file:
         json.dump(requestedSettings, write_file)
     return
 
 def saveURL(url):
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
-    os.chdir(csvPath)
+    txtPath = os.path.join(os.path.dirname(__file__), "../../tmp/Dygraphs")
+    os.chdir(txtPath)
     f = open('url.txt','w')
     f.write(url)
     f.close()
@@ -54,7 +57,6 @@ def createQueryUrl(requestedSettings):
 
 def dateFormatting(date):
     formattedDate = date.replace('-', '/')
-
     return formattedDate
 
 def queryDatabase(url):
@@ -66,7 +68,7 @@ def queryDatabase(url):
 
 
 def writeDataToCSV(queryData):
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/Dygraphs")
     os.chdir(csvPath)
     with open('pythonData.csv','w') as write_file:
         json.dump(queryData, write_file)    
@@ -83,25 +85,20 @@ def extractData(queryData):
     data = data.replace('], [', '\n')
     data = data.strip(']')
 
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/")
+    csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/Dygraphs")
     os.chdir(csvPath)
     f = open('temp.csv','w')
     f.write(header)
     f.write(data)
     f.close()
+    return
 
 def generateDygraphsData(requestedSettings):
-    # Save query details to a text file (used for testing)
     saveQueryDetails(requestedSettings)
 
     url = createQueryUrl(requestedSettings)
 
-    # saveQueryDetails(url)
-
     queryData = queryDatabase(url)
 
-    # writeDataToCSV(queryData)
-
     extractData(queryData)
-
-
+    return
