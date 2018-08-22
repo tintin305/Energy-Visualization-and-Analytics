@@ -8,7 +8,7 @@
     <title>Leaflet sample</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <script src="/tmp/Map/wits-buildings.txt"></script>
+    <script src="/tmp/Map/wits-buildings.txt?v={{refreshCache}}"></script>
     <script>
         $(function () {
             $("#header").load("/html_templates/header.html");
@@ -62,6 +62,20 @@
         }
 
         .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+        
+        .dateInfo {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .dateInfo h4 {
             margin: 0 0 5px;
             color: #777;
         }
@@ -152,6 +166,26 @@
         info.addTo(map);
 
 
+
+        
+        var dateInfo = L.control({position: 'bottomleft'});
+        var startDate = statesData.dates.start;
+        var endDate = statesData.dates.end;
+
+
+        dateInfo.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'dateInfo'); // create a div with a class "dateInfo"
+            this._div.innerHTML = '<h4>Selected Date Range </h4> <p> Start Date: ' + startDate + '</p> <p> End Date: ' + endDate + '</p>'  ;
+            return this._div;
+        };
+
+        // method that we will use to update the control based on feature properties passed
+        // dateInfo.update = function (props) {
+        //     this._div.innerHTML = '<h4>Selected Date Range </h4>' + 
+        //         '<b>' + "Start Date: " + "{{startDate}}" + '</b></br><b>' + "End Date: " + "{{endDate}}" +'</b>';
+        // };
+
+        dateInfo.addTo(map);
         // info.addTo(map);
         //     // L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
         //     // 	layers: 'nexrad-n0r-900913',

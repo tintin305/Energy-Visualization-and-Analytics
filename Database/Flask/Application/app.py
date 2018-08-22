@@ -46,14 +46,19 @@ def index():
 
 @app.route("/Maps/")
 def map():
-    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018-01-01', 'endDate': "2018-06-30"}
-    generateMapData(queryFlask)
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018-01-01', 'endDate': "2018-06-30"}
+    # generateMapData(queryFlask)
     refreshCache = str(random.getrandbits(32))
     return render_template("/MapShow.html", refreshCache=refreshCache)
 
 
-    # generateMapData()
-    # return render_template("MapShow.html")
+
+@app.route("/MapConfig/<startDate>/<endDate>")
+def MapQuery(startDate, endDate):
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'localhost', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    generateMapData(queryFlask, startDate, endDate)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/MapShow.html", refreshCache=refreshCache)
 
 @app.route("/DygraphsShow/")
 def DygraphsShow():
@@ -111,6 +116,11 @@ def threeDimensionalView():
 @app.route("/SankeyConfig/")
 def sankeyConfig():
     return render_template("/SankeyConfig.html")
+
+    
+@app.route("/MapConfig/")
+def mapConfig():
+    return render_template("/MapConfig.html")
     
 @app.route("/TreeMapShow/")
 def treeMap():

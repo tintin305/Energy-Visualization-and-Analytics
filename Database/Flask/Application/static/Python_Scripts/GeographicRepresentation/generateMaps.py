@@ -111,7 +111,7 @@ def specifyLoggers():
     loggers = ["WITS_WC_Sturrock_Park_Main_kWh","WITS_WC_Barnato_Sub_Residence_A___D_kWh","WITS_WC_CLM_Building_TRF_1_kWh","WITS_WC_CLM_Building_TRF_2_kWh","WITS_WC_CLTD_Building_kWh","WITS_WC_Catering_Mayas_kWh","WITS_WC_Chamber_of_Mines_TRF_1_kWh","WITS_WC_Chamber_of_Mines_TRF_2_kWh","WITS_WC_Claude_Vergie_House_kWh","WITS_WC_Club_Minisub_Total_kWh","WITS_WC_Convocation_Kitchen_kWh","WITS_WC_DJ_du_Plessis_Building_kWh","WITS_WC_David_Webster_Hall_kWh","WITS_WC_Dig_Fields_Rugby_kWh","WITS_WC_Dig_Fields_Soccer_kWh","WITS_WC_Educom_Building_Trf_2_kWh","WITS_WC_Educom_Building_Trf_3_kWh","WITS_WC_Educom_Building_Trf_4_kWh","WITS_WC_FNB_Building_TRF_1_kWh","WITS_WC_FNB_Building_TRF_2_kWh","WITS_WC_Flower_Hall_kWh","WITS_WC_Genmin_LAB_kWh","WITS_WC_Gymnasium_kWh","WITS_WC_Hall_29A_kWh","WITS_WC_Hall_29B_kWh","WITS_WC_Hall_29C_kWh","WITS_WC_Humphrey_Raikes_kWh","WITS_WC_Maths_Science_Building_kWh","WITS_WC_Old_Grandstand_kWh","WITS_WC_Oliver_Schreiner_School_of_Law_kWh","WITS_WC_PIMD_Supply_No_1_kWh","WITS_WC_PIMD_Supply_No_2_kWh","WITS_WC_PIMD_Wash_Bay_kWh","WITS_WC_Science_Stadium_TRF_1_kWh","WITS_WC_Science_Stadium_TRF_2_kWh","WITS_WC_Squash_Courts_kWh","WITS_WC_Stdnts_Village_Unit_A_kWh","WITS_WC_Stdnts_Village_Unit_B_kWh","WITS_WC_Stdnts_Village_Unit_C_kWh","WITS_WC_Stdnts_Village_Unit_D_kWh","WITS_WC_Stdnts_Village_Unit_E_kWh","WITS_WC_Stdnts_Village_Unit_F_kWh","WITS_WC_Stdnts_Village_Unit_G_kWh","WITS_WC_Stdnts_Village_Unit_H_kWh","WITS_WC_The_Barns_kWh","WITS_WC_Tower_of_Lights_Total_kWh","WITS_WC_Village_Zesti_Lemonz_kWh","WITS_EC_New_Commerce_Building_kWh"]
     return loggers
 
-def upDateGeoJSON():
+def upDateGeoJSON(startDate, endDate):
      # Read in geoJSON data as a string
     f = open("../../tmp/Map/wits-buildings.txt","r")
     stringVar = f.read()
@@ -127,6 +127,11 @@ def upDateGeoJSON():
         sys.exit()
 
     data = json.loads(stringVar)
+
+
+    #  Set the dates
+    data['dates']['start'] = startDate
+    data['dates']['end'] = endDate
 
     #  Set all density's to 0
     for z in range(0, len(data['features'])):
@@ -170,11 +175,11 @@ def upDateGeoJSON():
 
 
 
-def generateMapData(queryFlask):
+def generateMapData(queryFlask, startDate, endDate):
     loggerList = specifyLoggers()
     print(loggerList)
     url = createQueryUrl(queryFlask, loggerList)
     print(url)
 
     queryDatabase(url)
-    upDateGeoJSON()
+    upDateGeoJSON(startDate, endDate)
