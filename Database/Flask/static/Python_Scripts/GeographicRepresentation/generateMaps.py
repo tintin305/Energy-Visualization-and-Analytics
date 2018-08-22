@@ -153,6 +153,13 @@ def upDateGeoJSON():
     for z in range(0, len(data['features'])):
         data['features'][z]['properties']['per_unit'] = data['features'][z]['properties']['density']/maxValue
 
+
+    # Round off values
+    for z in range(0, len(data['features'])):
+        data['features'][z]['properties']['density'] =np.floor(data['features'][z]['properties']['density'])
+
+
+
     # Create a string to output the updated geoJSON data
     stringVar = "var statesData = " + json.dumps(data)
 
