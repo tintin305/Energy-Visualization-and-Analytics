@@ -28,7 +28,7 @@ def calculate_times(unix):
     return dateStamp
 
 def generateHeatMap():
-    csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/temp.csv")
+    csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/HeatMap/temp.csv")
     try:
         data_raw = pd.read_csv(csvPath)
     except:
@@ -49,14 +49,8 @@ def generateHeatMap():
     plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
     ax.set_title(data_raw.columns.values[1])
-    directory = "../data/HeatMap"
-    try:
-            if not os.path.exists(directory):
-                os.makedirs(directory)
-    except OSError:
-        print ('Error: Creating directory. ' +  directory)
 
-    pdfPath = os.path.join(os.path.dirname(__file__), "../../data/HeatMap/HeatMap.pdf")
+    pdfPath = os.path.join(os.path.dirname(__file__), "../../tmp/HeatMap/HeatMap.pdf")
     plt.savefig(pdfPath)
     plt.close()
 

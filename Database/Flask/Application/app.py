@@ -3,15 +3,7 @@ from flask import render_template
 import sys
 import os
 import random
-import subprocess
-# from threading import Thread
-# from static.Python_Scripts.SSHTunnel.SSHTunnel import createTunnel
 
-# def openTunnel():
-#     createTunnel()
-    # return
-
-# def flaskServer():
 from static.Python_Scripts.GenerateMetrics.MetricsQuery import generateMetrics
 
 from static.Python_Scripts.DatabaseQueryDygraphs.DatabaseQueryDygraphs import generateDygraphsData
@@ -34,10 +26,7 @@ from static.Python_Scripts.GenerateHeatMapData.GenerateHeatMapData import genera
 
 from static.Python_Scripts.GenerateDataOutageData.GenerateDataOutageData import generateDataOutageData
 
-# from static.Python_Scripts.SSHTunnel.SSHTunnel import createTunnel
-
 app = Flask(__name__, static_url_path='')
-# process = subprocess.Popen(createTunnel())
 
 @app.route("/")
 def index():
@@ -50,8 +39,6 @@ def map():
     # generateMapData(queryFlask)
     refreshCache = str(random.getrandbits(32))
     return render_template("/MapShow.html", refreshCache=refreshCache)
-
-
 
 @app.route("/MapConfig/<startDate>/<endDate>")
 def MapQuery(startDate, endDate):
@@ -78,7 +65,7 @@ def getHeatMapData(DataloggerName, startDate, endDate, aggregator, downsamplingM
     requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName,
         'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateHeatMapData(requestedSettings)
-
+    generateHeatMap()
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
     refreshCache = str(random.getrandbits(32))
     return render_template("/HeatMapShow.html", refreshCache=refreshCache)
@@ -94,7 +81,7 @@ def getDataOutageData(DataloggerName, startDate, endDate, aggregator, downsampli
     refreshCache = str(random.getrandbits(32))
     return render_template("/DataOutages.html", refreshCache=refreshCache)
 
-@app.route("/HeatMaps/")
+@app.route("/HeatMap/")
 def heatMapShow():
     # generateHeatMap()
     refreshCache = str(random.getrandbits(32))
@@ -143,15 +130,11 @@ def treeMapConfig():
 
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():
-    # queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018/03/01-00:00', 'endDate': '2018/06/01-23:30'}
-    # loggersReq = 'Matrix'
-    # generateSankeyData(queryFlask, loggersReq)
     refreshCache = str(random.getrandbits(32))
     return render_template("/SankeyDiagram.html", refreshCache=refreshCache)
 
 @app.route("/metrics/")
 def metrics():
-    # http://localhost:4242/api/suggest?type=metrics&max=10000s
     metricsParams = { 'host': 'tsdb.eie.wits.ac.za', 'port': 4242}
     metricsList = generateMetrics(metricsParams)
     return render_template("/loggerList.html", buttons = metricsList)
@@ -182,8 +165,3 @@ def shutdown():
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1',port=3000,debug=True, threaded=False)
-    # app.run(host='127.0.0.1',port=3000,debug=True, threaded=True)
-# return
-
-# Thread(target = flaskServer).start() 
-# Thread(target = openTunnel).start()
