@@ -19,7 +19,7 @@ def saveURL(url):
     f.close()
     return
 
-def createQueryUrl(requestedSettings):
+def createQueryUrl(requestedSettings, isDataOutage):
     # Get the details out of the object
     aggregator = requestedSettings['aggregator']
     downsamplingMagnitude = requestedSettings['downsamplingMagnitude']
@@ -42,7 +42,7 @@ def createQueryUrl(requestedSettings):
     endDate = dateFormatting(endDate)
 
     # Create URL
-    url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + str(downsamplingMagnitude) + str(timeDownsamplingRange) + '-' + downsamplingType + ':' + metric + '{' + tagKey + '=' + tagValue + '}'
+    url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + str(downsamplingMagnitude) + str(timeDownsamplingRange) + '-' + downsamplingType + ':' + metric + '{' + tagKey + '=' + str(isDataOutage) + '}'
 
     return url
 
@@ -81,23 +81,61 @@ def extractData(queryData):
 
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/DataOutage/")
     os.chdir(csvPath)
-    f = open('temp.csv','w')
+    f = open('tempData.csv','w')
     f.write(header)
     f.write(data)
     f.close()
+
+def extractDataOutage(queryData):
+    queryData = json.loads(queryData[1:-1])
+    dataArray = queryData['dps']
+
+    header = 'Timestamp,' +  str(queryData['metric'] + '\n')
+
+    data = str(dataArray)[1:-1]
+    data = data.strip('[')
+    data = data.replace('], [', '\n')
+    data = data.strip(']')
+    data = data.replace('0.0', '-1')
+
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/DataOutage/")
+    os.chdir(csvPath)
+    f = open('tempDataOutage.csv','w')
+    f.write(header)
+    f.write(data)
+    f.close()
+
+def concatCSV():
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/DataOutage/")
+    os.chdir(csvPath)
+
+    dataOutage = pd.read_csv('tempDataOutage.csv', sep=',')
+    data = pd.read_csv('tempData.csv', sep=',')
+
+    concatList = [dataOutage, data]
+    
+    completeData = pd.concat(concatList)
+    sortedData = completeData.sort_values(by=['Timestamp'])
+    sortedData.to_csv('completeData.csv', sep=',', index=False)
+    return
 
 def generateDataOutageData(requestedSettings):
     # Save query details to a text file (used for testing)
     saveQueryDetails(requestedSettings)
 
-    url = createQueryUrl(requestedSettings)
-
+    urlDataOutage = createQueryUrl(requestedSettings, True)
+    urlData = createQueryUrl(requestedSettings, False)
     # saveQueryDetails(url)
 
-    queryData = queryDatabase(url)
+    queryDataOutage = queryDatabase(urlDataOutage)
+    queryData = queryDatabase(urlData)
 
+    writeDataToCSV(queryDataOutage)
     writeDataToCSV(queryData)
 
+    # Write to two separate csv files
     extractData(queryData)
+    extractDataOutage(queryDataOutage)
 
-
+    # Concatenate the two csv files
+    concatCSV()

@@ -22,8 +22,8 @@ def calculate_times(unix):
     ).strftime('%H:%M:%S')
     return dateStamp
 
-def generateDataOutages():
-    csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/temp.csv")
+def generateDataOutage():
+    csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/DataOutage/completeData.csv")
     try:
         data_raw = pd.read_csv(csvPath)
     except:
@@ -48,14 +48,16 @@ def generateDataOutages():
     plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
     ax.invert_yaxis()
-    directory = "../Data/DataOutages"
-    try:
-            if not os.path.exists(directory):
-                os.makedirs(directory)
-    except OSError:
-        print ('Error: Creating directory. ' +  directory)
+    # directory = "../Data/DataOutage"
+    # try:
+    #         if not os.path.exists(directory):
+    #             os.makedirs(directory)
+    # except OSError:
+    #     print ('Error: Creating directory. ' +  directory)
+    # txtPath = os.path.join(os.path.dirname(__file__), "../../tmp/DataOutage")
+    # os.chdir(txtPath)
 
-    pdfPath = os.path.join(os.path.dirname(__file__), "../../Data/DataOutages/DataOutages.pdf")
+    pdfPath = os.path.join(os.path.dirname(__file__), "../../tmp/DataOutage/DataOutage.pdf")
     plt.savefig(pdfPath)
     plt.close()
 

@@ -10,7 +10,7 @@ from static.Python_Scripts.DatabaseQueryDygraphs.DatabaseQueryDygraphs import ge
 
 from static.Python_Scripts.GenerateHeatMap.GenerateHeatMap import generateHeatMap
 
-from static.Python_Scripts.DataOutages.DataOutages import generateDataOutages
+from static.Python_Scripts.DataOutage.DataOutage import generateDataOutage
 
 from static.Python_Scripts.SankeyGeneration.DatabaseQuery import generateSankeyData
 
@@ -73,13 +73,14 @@ def getHeatMapData(DataloggerName, startDate, endDate, aggregator, downsamplingM
 @app.route("/DataOutageConfig/<DataloggerName>/<startDate>/<endDate>/<aggregator>/<downsamplingMagnitude>/<timeDownsamplingRange>/<downsamplingType>/")
 def getDataOutageData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitude, timeDownsamplingRange, downsamplingType):
     
-    requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataOutage', 'tagValue': False,
+    requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataOutage', 'tagValue': True,
         'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateDataOutageData(requestedSettings)
+    generateDataOutage()
 
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
     refreshCache = str(random.getrandbits(32))
-    return render_template("/DataOutages.html", refreshCache=refreshCache)
+    return render_template("/DataOutage.html", refreshCache=refreshCache)
 
 @app.route("/HeatMap/")
 def heatMapShow():
@@ -87,11 +88,11 @@ def heatMapShow():
     refreshCache = str(random.getrandbits(32))
     return render_template("HeatMapShow.html", refreshCache=refreshCache)
 
-@app.route("/DataOutages/")
-def dataOutages():
-    # generateDataOutages()
+@app.route("/DataOutage/")
+def dataOutage():
+    # generateDataOutage()
     refreshCache = str(random.getrandbits(32))
-    return render_template("/DataOutages.html", refreshCache=refreshCache)
+    return render_template("/DataOutage.html", refreshCache=refreshCache)
 
 
 @app.route("/ThreeDimensionalView/")
