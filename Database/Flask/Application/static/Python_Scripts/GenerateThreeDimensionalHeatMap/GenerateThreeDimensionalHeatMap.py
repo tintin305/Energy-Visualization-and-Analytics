@@ -24,7 +24,7 @@ def calculate_times(unix):
    return dateStamp
 
 def generateThreeDimensionalHeatMap():
-   csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/Dygraphs/temp.csv")
+   csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/ThreeDimensionalHeatMap/temp.csv")
    try:
        data_raw = pd.read_csv(csvPath)
    except:
