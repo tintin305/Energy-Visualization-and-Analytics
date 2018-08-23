@@ -18,13 +18,15 @@ from static.Python_Scripts.GenerateThreeDimensionalHeatMap.GenerateThreeDimensio
 
 from static.Python_Scripts.GenerateTreemap.GenerateTreemap import generateTreeMap
 
-from static.Python_Scripts.GeographicRepresentation.generateMaps import generateMapData
+from static.Python_Scripts.GenerateMapData.GenerateMapData import generateMapData
 
 from static.Python_Scripts.ShutdownServer.ShutdownServer import shutdown_server
 
 from static.Python_Scripts.GenerateHeatMapData.GenerateHeatMapData import generateHeatMapData
 
 from static.Python_Scripts.GenerateDataOutageData.GenerateDataOutageData import generateDataOutageData
+
+from static.Python_Scripts.GenerateThreeDimensionalHeatMapData.GenerateThreeDimensionalHeatMapData import generateThreeDimensionHeatMapData
 
 app = Flask(__name__, static_url_path='')
 
@@ -33,48 +35,27 @@ def index():
 
     return render_template("index.html")
 
-@app.route("/Maps/")
-def map():
-    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018-01-01', 'endDate': "2018-06-30"}
-    # generateMapData(queryFlask)
-    refreshCache = str(random.getrandbits(32))
-    return render_template("/MapShow.html", refreshCache=refreshCache)
-
-@app.route("/MapConfig/<startDate>/<endDate>")
-def MapQuery(startDate, endDate):
-    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
-    generateMapData(queryFlask, startDate, endDate)
-    refreshCache = str(random.getrandbits(32))
-    return render_template("/MapShow.html", refreshCache=refreshCache)
-
 @app.route("/DygraphsShow/")
 def DygraphsShow():
     refreshCache = str(random.getrandbits(32))
     return render_template("DygraphsShow.html", refreshCache=refreshCache)
 
-@app.route("/HeatMapConfig/")
-def heatMapConfig():
-    metricsParams = { 'host': 'tsdb.eie.wits.ac.za', 'port': 4242}
-    metricsList = generateMetrics(metricsParams)
-    refreshCache = str(random.getrandbits(32))
-    return render_template("HeatMapConfig.html", refreshCache=refreshCache, buttons=metricsList)
 
-@app.route("/HeatMapConfig/<DataloggerName>/<startDate>/<endDate>/<aggregator>/<downsamplingMagnitude>/<timeDownsamplingRange>/<downsamplingType>/")
-def getHeatMapData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitude, timeDownsamplingRange, downsamplingType):
+
+@app.route("/HeatMapConfig/<DataloggerName>/<startDate>/<endDate>/")
+def getHeatMapData(DataloggerName, startDate, endDate):
     
-    requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName,
-        'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    requestedSettings = {'aggregator': 'sum', 'downsamplingMagnitude': '5', 'timeDownsamplingRange': 'm', 'downsamplingType': 'avg', 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName, 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateHeatMapData(requestedSettings)
     generateHeatMap()
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
     refreshCache = str(random.getrandbits(32))
     return render_template("/HeatMapShow.html", refreshCache=refreshCache)
 
-@app.route("/DataOutageConfig/<DataloggerName>/<startDate>/<endDate>/<aggregator>/<downsamplingMagnitude>/<timeDownsamplingRange>/<downsamplingType>/")
-def getDataOutageData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitude, timeDownsamplingRange, downsamplingType):
+@app.route("/DataOutageConfig/<DataloggerName>/<startDate>/<endDate>/")
+def getDataOutageData(DataloggerName, startDate, endDate):
     
-    requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataOutage', 'tagValue': True,
-        'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    requestedSettings = {'aggregator': 'sum', 'downsamplingMagnitude': '5', 'timeDownsamplingRange': 'm', 'downsamplingType': 'avg', 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName, 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateDataOutageData(requestedSettings)
     generateDataOutage()
 
@@ -94,10 +75,25 @@ def dataOutage():
     refreshCache = str(random.getrandbits(32))
     return render_template("/DataOutage.html", refreshCache=refreshCache)
 
+@app.route("/ThreeDimensionalHeatMapConfig/")
+def threeDimensionalHeatMapConfig():
+    metricsParams = { 'host': 'tsdb.eie.wits.ac.za', 'port': 4242}
+    metricsList = generateMetrics(metricsParams)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("ThreeDimensionalHeatMapConfig.html", refreshCache=refreshCache, buttons=metricsList)
+
+@app.route("/ThreeDimensionalHeatMapConfig/<DataloggerName>/<startDate>/<endDate>/")
+def threeDimensionalHeatMapQuery(DataloggerName, startDate, endDate):
+    
+    requestedSettings = {'aggregator': 'sum', 'downsamplingMagnitude': '5', 'timeDownsamplingRange': 'm', 'downsamplingType': 'avg', 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName, 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    generateThreeDimensionHeatMapData(requestedSettings)
+    generateThreeDimensionalHeatMap()
+     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/ThreeDimensionalHeatMap.html", refreshCache=refreshCache)
 
 @app.route("/ThreeDimensionalHeatMap/")
 def threeDimensionalView():
-    generateThreeDimensionalHeatMap()
     refreshCache = str(random.getrandbits(32))
     return render_template("/ThreeDimensionalHeatMap.html", refreshCache=refreshCache)
 
@@ -158,6 +154,27 @@ def getSankey(loggersReq, startDate, endDate):
     generateSankeyData(queryFlask, loggersReq)
     refreshCache = str(random.getrandbits(32))
     return render_template("/SankeyDiagram.html", refreshCache=refreshCache)
+
+@app.route("/Map/")
+def map():
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': '2018-01-01', 'endDate': "2018-06-30"}
+    # generateMapData(queryFlask)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/MapShow.html", refreshCache=refreshCache)
+
+@app.route("/HeatMapConfig/")
+def heatMapConfig():
+    metricsParams = { 'host': 'tsdb.eie.wits.ac.za', 'port': 4242}
+    metricsList = generateMetrics(metricsParams)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("HeatMapConfig.html", refreshCache=refreshCache, buttons=metricsList)
+
+@app.route("/MapConfig/<startDate>/<endDate>")
+def MapQuery(startDate, endDate):
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    generateMapData(queryFlask, startDate, endDate)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/MapShow.html", refreshCache=refreshCache)
 
 @app.route('/shutdown', methods=['POST'])
 def shutdown():

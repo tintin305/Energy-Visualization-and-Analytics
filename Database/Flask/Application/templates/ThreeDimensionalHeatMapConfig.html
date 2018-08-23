@@ -141,21 +141,15 @@ cursor:pointer;
     <br>
   <div class="side">
     Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
-    <a style="color:blue;" type="button" id = "click" value = "" onclick="generateHeatMap(this.value)">Generate HeatMap</a>
-
-    <div class="side">
-        Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
-        <a style="color:blue;" type="button" id = "click" value = "" onclick="generateDataOutage(this.value)">Generate Data Outage</a>
-
+    <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
 </div>
     <div class="side">
 Start date:
-<input type="date" id = "startTime" value="2013-01-02" >
+<input type="date" id = "startTime" value="2018-01-01" >
 End date:
-<input type="date" id = "endTime" value="2018-05-31" >
+<input type="date" id = "endTime" value="2018-01-15" >
 
 </div>
-
 
   <script>
   function myFunction(browser) {
@@ -166,24 +160,14 @@ End date:
     //   document.getElementById("aggregators").value = browser;
   }
 
-  function generateHeatMap(browser) {
+  function redirectFunction(browser) {
 
             logger = getClicked();
     var startDate = document.getElementById("startTime").value
     var endDate = document.getElementById("endTime").value
- 
-        location.href ="/HeatMapConfig/" + logger + "/" + startDate + "/" + endDate + "/" ;
+        location.href ="/ThreeDimensionalHeatMapConfig/" + logger + "/" + startDate + "/" + endDate + "/";
         }
-
-  function generateDataOutage(browser) {
-
-logger = getClicked();
-var startDate = document.getElementById("startTime").value
-var endDate = document.getElementById("endTime").value
-
-
-location.href ="/DataOutageConfig/" + logger + "/" + startDate + "/" + endDate + "/" ;
-}  
+           
 
 
   function getClicked(){
