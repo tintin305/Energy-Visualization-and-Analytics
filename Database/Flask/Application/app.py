@@ -4,7 +4,7 @@ import sys
 import os
 import random
 
-from static.Python_Scripts.GenerateMetrics.MetricsQuery import generateMetrics
+from static.Python_Scripts.GenerateMetrics.GenerateMetrics import generateMetrics
 
 from static.Python_Scripts.DatabaseQueryDygraphs.DatabaseQueryDygraphs import generateDygraphsData
 
@@ -12,7 +12,7 @@ from static.Python_Scripts.GenerateHeatMap.GenerateHeatMap import generateHeatMa
 
 from static.Python_Scripts.DataOutage.DataOutage import generateDataOutage
 
-from static.Python_Scripts.SankeyGeneration.DatabaseQuery import generateSankeyData
+from static.Python_Scripts.GenerateSankeyData.GenerateSankeyData import generateSankeyData
 
 from static.Python_Scripts.GenerateThreeDimensionalHeatMap.GenerateThreeDimensionalHeatMap import generateThreeDimensionalHeatMap
 
@@ -96,11 +96,6 @@ def threeDimensionalHeatMapQuery(DataloggerName, startDate, endDate):
 def threeDimensionalView():
     refreshCache = str(random.getrandbits(32))
     return render_template("/ThreeDimensionalHeatMap.html", refreshCache=refreshCache)
-
-@app.route("/SankeyConfig/")
-def sankeyConfig():
-    return render_template("/SankeyConfig.html")
-
     
 @app.route("/MapConfig/")
 def mapConfig():
@@ -125,10 +120,22 @@ def treeMapConfig():
     refreshCache = str(random.getrandbits(32))
     return render_template("TreeMapConfig.html", refreshCache=refreshCache)
 
+@app.route("/SankeyConfig/")
+def sankeyConfig():
+    return render_template("/SankeyConfig.html")
+
 @app.route("/SankeyDiagram/")
 def sankeyDiagram():
     refreshCache = str(random.getrandbits(32))
     return render_template("/SankeyDiagram.html", refreshCache=refreshCache)
+
+@app.route("/Sankey/<loggersReq>/<startDate>/<endDate>")
+def getSankey(loggersReq, startDate, endDate):
+    print(loggersReq)
+    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
+    generateSankeyData(queryFlask, loggersReq)
+    refreshCache = str(random.getrandbits(32))
+    return render_template("/SankeyDiagram.html", refreshCache=refreshCache)    
 
 @app.route("/metrics/")
 def metrics():
@@ -146,14 +153,6 @@ def getData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitud
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
     refreshCache = str(random.getrandbits(32))
     return render_template("/DygraphsShow.html", refreshCache=refreshCache)
-
-@app.route("/sankey/<loggersReq>/<startDate>/<endDate>")
-def getSankey(loggersReq, startDate, endDate):
-    print(loggersReq)
-    queryFlask = {'aggregator' : 'avg', 'downsample' : '0all-sum', 'rate': 'false', 'metric': 'WITS_EC_Matrix_Main_Incomer_kWh', 'tagKey': 'DataLoggerName', 'tagValue': 'WITS_EC_Matrix_Main_Incomer_kWh', 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
-    generateSankeyData(queryFlask, loggersReq)
-    refreshCache = str(random.getrandbits(32))
-    return render_template("/SankeyDiagram.html", refreshCache=refreshCache)
 
 @app.route("/Map/")
 def map():

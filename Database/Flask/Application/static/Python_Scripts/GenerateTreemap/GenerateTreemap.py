@@ -4,10 +4,6 @@ import json
 import requests
 import sys
 import os
-# from collections import namedtuple
-# import csv
-# from time import sleep
-#  /usr/share/opentsdb/bin/tsdb query 1y-go  sum LoggerName
 
 #Read data from stdin
 def loadMetrics():
@@ -18,17 +14,16 @@ def loadMetrics():
     try:
         with open(csvPath) as f:
             metrics = json.load(f)
-        # metrics = pd.read_csv(csvPath)
     except:
         print("error loading data")
         sys.exit()
     return metrics
 
 def saveQueryDetails(queryDetails):
-    # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
-    # os.chdir(csvPath)
-    # with open('queryDetails.txt','w') as write_file:
-        # json.dump(queryDetails, write_file)
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
+    os.chdir(csvPath)
+    with open('queryDetails.txt','w') as write_file:
+        json.dump(queryDetails, write_file)
     return
 
 def createQueryUrl(metricsParams, metrics):
