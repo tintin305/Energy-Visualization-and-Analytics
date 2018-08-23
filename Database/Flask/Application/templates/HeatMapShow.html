@@ -21,6 +21,12 @@
             .side {
             display: inline-block;
             vertical-align: top;}
+            
+            #pdfImg{
+                /* position: absolute; */
+                width:95%;
+                height:110vh;
+            }
   
     </style>
     </head>
@@ -33,6 +39,6 @@
 
 
     <div  class = "side" id="graphdiv"></div>
-    <embed src="/tmp/HeatMap/HeatMap.pdf?v={{refreshCache}}" width="1400px" height="700px" />
+    <embed src="/tmp/HeatMap/HeatMap.pdf?v={{refreshCache}}"  id="pdfImg"/>
 </body>
 </html>
