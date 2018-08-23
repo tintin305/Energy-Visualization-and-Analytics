@@ -12,11 +12,16 @@
     <style type="text/css">
         #graphdiv {
             position: absolute;
-            width:1400px;
-            height:600px;
+            width:90%;
+            /* height:600px; */
             }
             #graphdiv{
                 height: 90vh;                
+            }
+            #pdfImg{
+                /* position: absolute; */
+                width:95%;
+                height:110vh;
             }
     </style>
 </head>
@@ -29,6 +34,6 @@
 
 
     <div id="graphdiv"></div>
-    <embed src="/tmp/DataOutage/DataOutage.pdf?v={{refreshCache}}" width="1400px" height="700px" />
+    <embed src="/tmp/DataOutage/DataOutage.pdf?v={{refreshCache}}" id="pdfImg" />
 </body>
 </html>
