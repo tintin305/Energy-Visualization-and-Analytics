@@ -42,7 +42,7 @@ def createQueryUrl(requestedSettings, isDataOutage):
     endDate = dateFormatting(endDate)
 
     # Create URL
-    url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + str(downsamplingMagnitude) + str(timeDownsamplingRange) + '-' + downsamplingType + ':' + metric + '{' + tagKey + '=' + str(isDataOutage) + '}'
+    url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + str(downsamplingMagnitude) + str(timeDownsamplingRange) + '-' + downsamplingType + ':' + metric + '{' + 'DataOutage' + '=' + str(isDataOutage) + '}'
 
     return url
 
@@ -52,9 +52,7 @@ def dateFormatting(date):
     return formattedDate
 
 def queryDatabase(url):
-    data = requests.get(url, 
-                    proxies=dict(http='socks5://localhost:4242',
-                                 https='socks5://localhost:4242'))
+    data = requests.get(url, proxies=dict(http='socks5://localhost:4242', https='socks5://localhost:4242'))
     test = data.text
     return test
 
@@ -125,13 +123,14 @@ def generateDataOutageData(requestedSettings):
 
     urlDataOutage = createQueryUrl(requestedSettings, True)
     urlData = createQueryUrl(requestedSettings, False)
-    # saveQueryDetails(url)
+
+    saveURL(urlDataOutage)
 
     queryDataOutage = queryDatabase(urlDataOutage)
     queryData = queryDatabase(urlData)
 
-    writeDataToCSV(queryDataOutage)
-    writeDataToCSV(queryData)
+    # writeDataToCSV(queryDataOutage)
+    # writeDataToCSV(queryData)
 
     # Write to two separate csv files
     extractData(queryData)
