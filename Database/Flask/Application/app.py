@@ -95,11 +95,11 @@ def dataOutage():
     return render_template("/DataOutage.html", refreshCache=refreshCache)
 
 
-@app.route("/ThreeDimensionalView/")
+@app.route("/ThreeDimensionalHeatMap/")
 def threeDimensionalView():
     generateThreeDimensionalHeatMap()
     refreshCache = str(random.getrandbits(32))
-    return render_template("/ThreeDimensionalViewShow.html", refreshCache=refreshCache)
+    return render_template("/ThreeDimensionalHeatMap.html", refreshCache=refreshCache)
 
 @app.route("/SankeyConfig/")
 def sankeyConfig():
