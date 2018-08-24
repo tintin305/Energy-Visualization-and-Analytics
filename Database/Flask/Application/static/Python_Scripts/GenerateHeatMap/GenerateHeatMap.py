@@ -49,6 +49,7 @@ def generateHeatMap():
     plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
     ax.set_title(data_raw.columns.values[1])
+    ax.invert_yaxis()
 
     pdfPath = os.path.join(os.path.dirname(__file__), "../../tmp/HeatMap/HeatMap.pdf")
     plt.savefig(pdfPath)
