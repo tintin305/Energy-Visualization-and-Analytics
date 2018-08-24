@@ -30,6 +30,8 @@ from static.Python_Scripts.GenerateThreeDimensionalHeatMapData.GenerateThreeDime
 
 app = Flask(__name__, static_url_path='')
 
+global loggerName
+
 @app.route("/")
 def index():
 
@@ -38,7 +40,7 @@ def index():
 @app.route("/DygraphsShow/")
 def DygraphsShow():
     refreshCache = str(random.getrandbits(32))
-    return render_template("DygraphsShow.html", refreshCache=refreshCache)
+    return render_template("DygraphsShow.html", refreshCache=refreshCache, loggerName=loggerName)
 
 
 
@@ -88,7 +90,7 @@ def threeDimensionalHeatMapQuery(DataloggerName, startDate, endDate):
     requestedSettings = {'aggregator': 'sum', 'downsamplingMagnitude': '5', 'timeDownsamplingRange': 'm', 'downsamplingType': 'avg', 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName, 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateThreeDimensionHeatMapData(requestedSettings)
     generateThreeDimensionalHeatMap()
-     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
+
     refreshCache = str(random.getrandbits(32))
     return render_template("/ThreeDimensionalHeatMap.html", refreshCache=refreshCache)
 
@@ -149,10 +151,10 @@ def getData(DataloggerName, startDate, endDate, aggregator, downsamplingMagnitud
     requestedSettings = {'aggregator': aggregator, 'downsamplingMagnitude': downsamplingMagnitude, 'timeDownsamplingRange': timeDownsamplingRange, 'downsamplingType': downsamplingType, 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName,
         'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateDygraphsData(requestedSettings)
-
+    loggerName = DataloggerName 
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
     refreshCache = str(random.getrandbits(32))
-    return render_template("/DygraphsShow.html", refreshCache=refreshCache)
+    return render_template("/DygraphsShow.html", refreshCache=refreshCache, loggerName=loggerName)
 
 @app.route("/Map/")
 def map():
