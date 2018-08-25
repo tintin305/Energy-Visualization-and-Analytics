@@ -156,6 +156,14 @@ End date:
 
 </div>
 
+Colour Palette:
+<select id="colourPaletteSelector">
+    <option value="default">Default</option>
+    <option value="YlGnBu">YlGnBu</option>
+    <option value="Blues">Blues</option>
+    <option value="BuPu">BuPu</option>
+    <option value="Greens">Greens</option>
+  </select>
 
   <script>
   function myFunction(browser) {
@@ -171,8 +179,9 @@ End date:
             logger = getClicked();
     var startDate = document.getElementById("startTime").value
     var endDate = document.getElementById("endTime").value
+    var cmapChoice = document.getElementById("colourPaletteSelector").value
  
-        location.href ="/HeatMapConfig/" + logger + "/" + startDate + "/" + endDate + "/" ;
+        location.href ="/HeatMapConfig/" + logger + "/" + startDate + "/" + endDate + "/" + cmapChoice + "/" ;
         }
 
   function generateDataOutage(browser) {
