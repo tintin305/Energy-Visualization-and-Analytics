@@ -45,7 +45,8 @@ def generateHeatMap():
 
     fig, ax = plt.subplots()
     fig.set_size_inches(11.7, 8.27)
-    sns.heatmap(datamatrix, xticklabels=50)
+    sns.heatmap(datamatrix, xticklabels=50, linewidths=0, linecolor='black')
+
     plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
     ax.set_title(data_raw.columns.values[1])
