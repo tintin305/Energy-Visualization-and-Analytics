@@ -4,6 +4,18 @@ import json
 import requests
 import sys
 import os
+import errno
+
+def createFolder():
+    tmpPath = os.path.join(os.path.dirname(__file__), '../../tmp/')
+    os.chdir(tmpPath)
+    directory = 'TreeMap'
+    try:
+        os.makedirs(directory)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+    return
 
 #Read data from stdin
 def loadMetrics():
@@ -20,7 +32,7 @@ def loadMetrics():
     return metrics
 
 def saveQueryDetails(queryDetails):
-    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/TreeMap/")
     os.chdir(csvPath)
     with open('queryDetails.txt','w') as write_file:
         json.dump(queryDetails, write_file)
@@ -155,6 +167,8 @@ def formatToJSON():
     return
 
 def generateTreeMap(metricsParams):
+    createFolder()
+
     metrics = loadMetrics()
 
     # Remove the loggers that are for kVarh as this can distort the visual

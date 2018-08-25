@@ -29,23 +29,16 @@ from static.Python_Scripts.GenerateDataOutageData.GenerateDataOutageData import 
 
 from static.Python_Scripts.GenerateThreeDimensionalHeatMapData.GenerateThreeDimensionalHeatMapData import generateThreeDimensionHeatMapData
 
+from static.Python_Scripts.CreateTemporaryFolder.CreateTemporaryFolder import createFolder
 app = Flask(__name__, static_url_path='')
 
 global loggerName
-
-tmpPath = os.path.join(os.path.dirname(__file__), "/static")
-os.chdir(tmpPath)
-directory = 'tmp'
-try:
-    os.makedirs(directory)
-except OSError as e:
-    if e.errno != errno.EEXIST:
-        raise
+loggerName = ''
 
 
 @app.route("/")
 def index():
-
+    createFolder()
     return render_template("index.html")
 
 @app.route("/DygraphsShow/")
