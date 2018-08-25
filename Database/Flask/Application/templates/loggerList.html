@@ -9,17 +9,7 @@
           $("#header").load("/html_templates/header.html"); 
         });
         </script> 
-        <!-- <script>
-        window.onload = function() {
-    if (window.jQuery) {  
-        // jQuery is loaded  
-        alert("Yeah!");
-    } else {
-        // jQuery is not loaded
-        alert("Doesn't Work");
-    }
-}
-</script> -->
+
 
 <style>
     div.scrollmenu {
@@ -163,33 +153,63 @@ End date:
 
 </div>
 
+Aggregators:
 <select id="aggregators">
     <option value="sum">sum</option>
+    <option value="avg">avg</option>
+    <option value="count">count</option>
+    <option value="dev">dev</option>
+    <option value="ep50r3">ep50r3</option>
+    <option value="ep50r7">ep50r7</option>
+    <option value="ep75r3">ep75r3</option>    
+    <option value="ep75r7">ep75r7</option>
+    <option value="ep90r3">ep90r3</option>
+    <option value="ep90r7">ep90r7</option>
+    <option value="ep95r3">ep95r3</option>
+    <option value="ep95r7">ep95r7</option>
+    <option value="ep99r3">ep99r3</option>
+    <option value="ep99r7">ep99r7</option>
+    <option value="ep999r3">ep999r3</option>
+    <option value="ep999r7">ep999r7</option>
+    <option value="first">first</option>
+    <option value="last">last</option>
+    <option value="mimmin">mimmin</option>
+    <option value="mimmax">mimmax</option>
     <option value="min">min</option>
     <option value="max">max</option>
-    <option value="avg">avg</option>
-    <option value="dev">dev</option>
-  </select>
+    <option value="none">none</option>
+    <option value="p50">p50</option>
+    <option value="p75">p75</option>
+    <option value="p90">p90</option>
+    <option value="p95">p95</option>
+    <option value="p99">p99</option>
+    <option value="p999">p999</option>
+    <option value="zimsum">zimsum</option>
 
+
+  </select>
+Down Sampling Magnitude:
 <input type="text" id="downsamplingMagnitude" value="5">
-
+<!-- http://opentsdb.net/docs/build/html/user_guide/query/dates.html -->
 <select id="timeDownsamplingRange">
-    <option value="s">s</option>
-    <option value="m">m</option>
-    <option value="d">d</option>
-    <option value="w">w</option>
-    <option value="m">m</option>
-    <option value="y">y</option>    
-    <option value="dc">dc</option>
-    <option value="0-all">0-all</option>
+    <option value="ms">Milliseconds</option>
+    <option value="s">Seconds</option>
+    <option value="m">Minutes</option>
+    <option value="h">Hours</option>
+    <option value="d">Days (24 Hours)</option>
+    <option value="w">Weeks (7 Days)</option>
+    <option value="n">Months (30 Days)</option>
+    <option value="y">Years</option>    
+    <option value="0-all">Over Entire Date Range</option>
   </select>
 
+  Down Sampling Type:
   <select id="downsamplingType">
-    <option value="sum">sum</option>
-    <option value="min">min</option>
-    <option value="max">max</option>
-    <option value="avg">avg</option>
-    <option value="dev">dev</option>
+    <option value="sum">Summation</option>
+    <option value="min">Minimum</option>
+    <option value="max">Maximum</option>
+    <option value="avg">Average</option>
+    <option value="dev">Standard Deviation</option>
   </select>
 
   <script>
