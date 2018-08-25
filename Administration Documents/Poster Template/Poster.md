@@ -7,7 +7,7 @@ title: Poster
 ## OpenTSDB
 
 Time series database (TSDB) is inherently useful for this type of data as it makes use of key-value pairs. These key value pairs are made up of a timestamp and a corresponding, associated value, which in this case represents energy usage for a specific time period.
-The database has a convenient set of utilities that allow for importing, managing, and querying any data required. OpenTSDB is made up of a Time Series Daemon (TSD) which allow for users to interact with the underlying data. The underlying data is stored using Apache HBase or Google Bigtable. 
+The database has a convenient set of utilities that allow for importing, managing, and querying any data required. OpenTSDB is made up of a Time Series Daemon (TSD) which allow for users to interact with the underlying data. The underlying data is stored using Apache HBase or Google Bigtable.
 The current installation uses Apache HBase as the underlying Hadoop database; it provides a distributed and  highly scalable data storage solution.
 Interaction with the data is done using number of supported methods: a telnet-style protocol, an HTTP API, or the built in user interface.
 
@@ -16,7 +16,7 @@ Interaction with the data is done using number of supported methods: a telnet-st
 This web framework is used in order to provide processing for the visuals, as well as provide a front end for the system.
 The flask framework, in conjunction with the Python requests package allows for easily querying the OpenTSDB database.
 Flask makes use of the Jinja templating engine (within Python), this allows for the use of static web pages to be reused while creating dynamic content.
-This web server allows for short feedback cycles (testing) on the developers local machine. The web server can easily be ported to a more permanent solution on a dedicated server. 
+This web server allows for short feedback cycles (testing) on the developers local machine. The web server can easily be ported to a more permanent solution on a dedicated server.
 
 ## Writing Data to Database
 
