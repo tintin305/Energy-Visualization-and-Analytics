@@ -3,6 +3,7 @@ from flask import render_template
 import sys
 import os
 import random
+import errno
 
 from static.Python_Scripts.GenerateMetrics.GenerateMetrics import generateMetrics
 
@@ -32,6 +33,16 @@ app = Flask(__name__, static_url_path='')
 
 global loggerName
 
+tmpPath = os.path.join(os.path.dirname(__file__), "/static")
+os.chdir(tmpPath)
+directory = 'tmp'
+try:
+    os.makedirs(directory)
+except OSError as e:
+    if e.errno != errno.EEXIST:
+        raise
+
+
 @app.route("/")
 def index():
 
@@ -44,12 +55,12 @@ def DygraphsShow():
 
 
 
-@app.route("/HeatMapConfig/<DataloggerName>/<startDate>/<endDate>/")
-def getHeatMapData(DataloggerName, startDate, endDate):
+@app.route("/HeatMapConfig/<DataloggerName>/<startDate>/<endDate>/<cmapChoice>/")
+def getHeatMapData(DataloggerName, startDate, endDate, cmapChoice):
     
     requestedSettings = {'aggregator': 'sum', 'downsamplingMagnitude': '5', 'timeDownsamplingRange': 'm', 'downsamplingType': 'avg', 'rate': 'false', 'metric': DataloggerName, 'tagKey': 'DataLoggerName', 'tagValue': DataloggerName, 'host': 'tsdb.eie.wits.ac.za', 'port': 4242, 'ms': 'false', 'arrays': 'true', 'tsuids': 'false', 'annotations': 'none', 'startDate': startDate, 'endDate': endDate}
     generateHeatMapData(requestedSettings)
-    generateHeatMap()
+    generateHeatMap(cmapChoice)
     # In order to get the Dygraphs data to get refreshed (force the browser to refresh it's cache)
     refreshCache = str(random.getrandbits(32))
     return render_template("/HeatMapShow.html", refreshCache=refreshCache)

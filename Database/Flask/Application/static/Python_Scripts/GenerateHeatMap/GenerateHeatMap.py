@@ -27,7 +27,7 @@ def calculate_times(unix):
     ).strftime('%H:%M:%S')
     return dateStamp
 
-def generateHeatMap():
+def generateHeatMap(cmapChoice):
     csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/HeatMap/temp.csv")
     try:
         data_raw = pd.read_csv(csvPath)
@@ -45,7 +45,9 @@ def generateHeatMap():
 
     fig, ax = plt.subplots()
     fig.set_size_inches(11.7, 8.27)
-    sns.heatmap(datamatrix, xticklabels=50, linewidths=0, linecolor='black')
+    if cmapChoice == "default":
+        cmapChoice = ""
+    sns.heatmap(datamatrix, xticklabels=50, linewidths=0, linecolor='black', cmap=cmapChoice)
 
     plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
