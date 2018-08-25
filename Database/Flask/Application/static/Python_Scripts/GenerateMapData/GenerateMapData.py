@@ -5,6 +5,18 @@ import requests
 import sys
 import os
 import socket
+import errno
+
+def createFolder():
+    tmpPath = os.path.join(os.path.dirname(__file__), '../../tmp/')
+    os.chdir(tmpPath)
+    directory = 'Map'
+    try:
+        os.makedirs(directory)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+    return
 
 def saveQueryDetails(queryDetails):
     # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
@@ -156,6 +168,8 @@ def upDateGeoJSON(startDate, endDate):
     return
 
 def generateMapData(queryFlask, startDate, endDate):
+    createFolder()
+
     loggerList = specifyLoggers()
 
     url = createQueryUrl(queryFlask, loggerList)

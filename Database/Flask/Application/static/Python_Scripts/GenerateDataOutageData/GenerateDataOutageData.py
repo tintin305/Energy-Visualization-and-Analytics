@@ -4,6 +4,17 @@ import requests
 import os
 import socket
 
+def createFolder():
+    tmpPath = os.path.join(os.path.dirname(__file__), '../../tmp/')
+    os.chdir(tmpPath)
+    directory = 'DataOutage'
+    try:
+        os.makedirs(directory)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+    return
+    
 def saveQueryDetails(requestedSettings):
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/DataOutage/")
     os.chdir(csvPath)
@@ -118,6 +129,8 @@ def concatCSV():
     return
 
 def generateDataOutageData(requestedSettings):
+
+    createFolder()
     # Save query details to a text file (used for testing)
     saveQueryDetails(requestedSettings)
 

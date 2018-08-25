@@ -4,6 +4,18 @@ import json
 import requests
 import sys
 import os
+import errno
+
+def createFolder():
+    tmpPath = os.path.join(os.path.dirname(__file__), '../../tmp/')
+    os.chdir(tmpPath)
+    directory = 'SankeyDiagram'
+    try:
+        os.makedirs(directory)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+    return
 
 def saveQueryDetails(queryDetails):
     # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
@@ -141,6 +153,7 @@ def specifyLoggers(loggersReq):
     return loggers
 
 def generateSankeyData(queryFlask, loggersReq):
+    createFolder()
     #get our data as an array from read in()
     loggerList = specifyLoggers(loggersReq)
     url = createQueryUrl(queryFlask, loggerList)
