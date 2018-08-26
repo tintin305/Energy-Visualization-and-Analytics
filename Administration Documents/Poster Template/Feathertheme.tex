@@ -1,7 +1,7 @@
-\documentclass[10pt,xcolor={dvipsnames}]{beamer}
-%\definecolor{MyBackground}{rgb}{1.0000,0.9451,0.6549}
+\documentclass[8pt,xcolor={dvipsnames}]{beamer}
+\definecolor{MyBackground}{rgb}{1,1,1}
 %\definecolor{MyBackground}{RGB}{190,190,190}
-%\setbeamercolor{background canvas}{bg=MyBackground}
+\setbeamercolor{background canvas}{bg=MyBackground}
 \usetheme[
 %%% option passed to the outer theme
 %    progressstyle=fixedCircCnt,   % fixedCircCnt, movingCircCnt (moving is deault)
@@ -41,6 +41,8 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{wrapfig}
+\graphicspath{{Feathergraphics/}}
 \let\latinencoding\relax
 %\usepackage{fontspec}
 \usepackage[T1]{fontenc}
@@ -105,167 +107,302 @@
 %-------------------------------------------------------
 
 {% % this is the name of the PDF file for the background
-\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page, noframenumbering removes the numbering of this frame only
-  \titlepage % call the title page information from above
-\end{frame}}
+%\begin{frame}[plain,noframenumbering] % the plain option removes the header from the title page, noframenumbering removes the numbering of this frame only
+ % \titlepage % call the title page information from above
+%\end{frame}}
 
+\begin{frame}{Project Overview}
+What is our project? etc.
 
-\begin{frame}{Content}{}
-\tableofcontents
+\begin{center}
+	
+	\begin{center}
+		\includegraphics[width=0.8\textwidth, trim=135 200 135 80, clip]{SystemOverviewGreen}
+	\end{center}
+\end{center}
 \end{frame}
 
-%-------------------------------------------------------
-\section{Introduction}
-%-------------------------------------------------------
-\subsection{License}
-\begin{frame}{Introduction}{License}
-%-------------------------------------------------------
 
-  \begin{itemize}
-    \item<1-> The Feather image is not covered by copyright rules. I have used the image from \chref{http://www.vectors-free.com/}{http://www.vectors-free.com/}. You are allowed to use the Feather image for any purposes.
-    \item<2-> The rest of the theme is provided under the GNU General Public License v. 3 (GPLv3) \chref{http://www.gnu.org/licenses/}{http://www.gnu.org/licenses/}. This means that you can redistribute it and/or modify it under the same license. 
-  \end{itemize}
-\end{frame}
+\begin{frame}{Database}
+\begin{block}{OpenTSDB}
 
-%-------------------------------------------------------
-\section{Installation}
-%-------------------------------------------------------
-\subsection{Source files}
-\begin{frame}{Installation}{Source files}
-%-------------------------------------------------------
-
-\begin{block}{}
-The theme contains 4 source files:
-  \begin{itemize}
-    \item {\tt beamercolorthemeFeather.sty}
-    \item {\tt beamerouterthemeFeather.sty}
-    \item {\tt beamerinnerthemeFeather.sty}
-    \item {\tt beamerthemeFeather.sty}
-  \end{itemize}
+\begin{wrapfigure}{l}{0.39\textwidth}
+	\begin{center}
+		\includegraphics[width=0.38\textwidth, trim=65 80 450 60, clip]{OpenTSDBNo}
+	\end{center}
+\end{wrapfigure}
+	Time series database (TSDB) is inherently useful for this type of data as it makes use of key-value pairs. These key value pairs are made up of a timestamp and a corresponding, associated value, which in this case represents energy usage for a specific time period.
+	The database has a convenient set of utilities that allow for importing, managing, and querying any data required. OpenTSDB is made up of a Time Series Daemon (TSD) which allow for users to interact with the underlying data. The underlying data is stored using Apache HBase or Google Bigtable. 
+	The current installation uses Apache HBase as the underlying Hadoop database; it provides a distributed and  highly scalable data storage solution.
+	Interaction with the data is done using number of supported methods: a telnet-style protocol, an HTTP API, or the built in user interface.
+	
+	
 \end{block}
+
 \end{frame}
 
-%-------------------------------------------------------
-\subsection{Local and Global installation}
-\begin{frame}{Installation}{Local and Global installation}
-%-------------------------------------------------------
-  The theme can be installed for \textbf{local} or \textbf{global} use.
-  \pause
-  \begin{block}{Local Installation}
-  \begin{itemize}    
-    \item Local installation is the simplest way of installing the theme. 
-    \item You need to placing the 4 source files in the same folder as your presentation. When you download the theme, the 4 theme files are located in the {\tt local} folder.
-  \end{itemize}
-  \end{block}
+\begin{frame}{Database}
 
-  \begin{block}{Global Installation}
-  \begin{itemize}
-     \item If you wish to make the theme globally available, you must put the files in your local latex directory tree. The location of the root of the local directory tree depends on your operating system and the latex distribution. 
-     \item Detailed steps on how to proceed installation under various operating systems can be found at Beamer documentation.
-  \end{itemize}
-  \end{block}
-\end{frame}
-     
-
-%-------------------------------------------------------
-\subsection{Required Packages}
-\begin{frame}{Installation}{Required Packages}
-%-------------------------------------------------------
-
-  For using the Feather Theme you will need the Bemaer class installed and the following 2 packages
-  \begin{itemize}
-    \item TikZ\footnote{TikZ is a package for creating beautiful graphics. Have a look at these \chref{http://www.texample.net/tikz/examples/}{online examples} or the \chref{http://tug.ctan.org/tex-archive/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf}{pgf user manual}.}
-    \item calc
-  \end{itemize}
-  Due to the fact that the packages are very common they should be included in your latex distribution in the first place.
-\end{frame}
-
-%-------------------------------------------------------
-\section{User Interface}
-\subsection{Loading the Theme and Theme Options}
-\begin{frame}{User Interface}{Loading the Theme and Theme Options}
-%-------------------------------------------------------
-
-  \begin{block}{The Presentation Theme}
-    The Feather Theme can be loaded in a familiar way. In the reamble of your {\tt tex} file you must type\\ \vspace{5pt} 
-    {\tt \textbackslash usetheme[<options>]\{Feather\}}\\ \vspace{5pt} 
-    The presentation theme loads the inner, outer and color Feather theme files and passes the {\tt <options>} on to these files.
-  \end{block}
-  \begin{block}{The Inner and Outher Themes}
-    If you wish you can load only the inner, or the outher theme directly by\\ \vspace{5pt} 
-    {\tt \textbackslash useinnertheme\{Feather\}} (and it has no options)\\ \vspace{5pt} 
-    {\tt \textbackslash useoutertheme[<options>]\{Feather\}} (it has one option)\\
-    \hspace{20pt}{\tt progressstyle=\{fixedCircCnt or movingCircCnt\}} \\
-    \begin{itemize}
-    \item which set how the progress is illustrated;
-    \item the value {\tt movingCircCnt} is the default.
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}{User Interface}{Loading the Theme and Theme Options}
-
-  \begin{block}{The Color Theme}
-    Also you can load only the color theme by writing in the preamble of the {\tt tex} file 
-    
-    \vspace{5pt} 
-    
-    \begin{itemize}
-    \item {\tt \textbackslash usecolortheme\{Feather\}}
-    \end{itemize}
-    
-    \vspace{5pt}
-    
-    ...or to change the colors of the various elements in the theme
-    
-    \vspace{5pt} 
-    \begin{itemize}
-    \item Change the bar colors: \\    
-    {\tt \textbackslash setbeamercolor \{Feather\}\{fg=<color>, bg=<color>\}}
-    
-    \vspace{2pt} 
-    
-    \item Change the color of the structural elements: \\    
-    {\tt \textbackslash setbeamercolor\{structure\}\{fg=<color>\}}
-    
-    \vspace{2pt} 
-    
-    \item Change the frame title text color:\\
-    {\tt \textbackslash setbeamercolor\{frametitle\}\{fg=<color>\}}
-    
-    \vspace{2pt} 
-    
-    \item Change the normal text color background:    
-    {\tt \textbackslash setbeamercolor\{normal text\}\{fg=<color>, bg=<color>\}}
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-
-%-------------------------------------------------------
-\subsection{Feather image}
-\begin{frame}{User Interface}{The Feather Background Image}
-%-------------------------------------------------------
-
-\begin{block}{The Feather Background Image}
-    \begin{itemize}
-    \item In Feather theme, the title page frame and the last frame have the Feather image as the background image. 
-    \item The Feather background image can be produced to any frame by wrating on the begining at the choosen frame the following
-    \end{itemize} 
-    
-    \vspace{5pt} 
-    
-  {\tt \{\textbackslash 1bg\\
-    \textbackslash begin\{frame\}[<options>]\{Frame Title\}\{Frame Subtitle\}\\
-    \ldots\\
-    \textbackslash end\{frame\}\}}
+\begin{block}{Writing to Database}
+	Writing data to the database can be done using three methods: Telnet, an HTTP API, or internel OpenTSDB importing tools.
+	Each time series point is imported into the database and each component of the data specification is important for querying ability further down the line. Metrics have been used as the major identifiers of the different data loggers and their readings, tags are important to identify cases where data outages occurred. The use of tags is highly relevant when extra information can be affixed to specific data points in time. This can be in cases where a unique data outage occurred or an abnormal reading was taken and an explanation is required.
+%	
+	\begin{center}
+		\includegraphics[width=0.98\textwidth, trim=13 210 15 180, clip]{WritingToTheDatabaseNotBold}
+	\end{center}
 \end{block}
+
 \end{frame}
 
 
-{
-\begin{frame}[plain,noframenumbering]
-  \finalpage{Thank you for using Feather Beamer Theme!}
-\end{frame}}
+\begin{frame}{Flask Server}
+This web framework is used in order to provide processing for the visuals, as well as provide a front end for the system.
+The flask framework, in conjunction with the Python requests package allows for easily querying the OpenTSDB database.
+Flask makes use of the Jinja templating engine (within Python), this allows for the use of static web pages to be reused while creating dynamic content.
+This web server allows for short feedback cycles (testing) on the developers local machine. The web server can easily be ported to a more permanent solution on a dedicated server. 
+\end{frame}
+
+\begin{frame}{Dataloggers and IST}
+IST's product, ecWIN, is employed on the universities campuses such that there is a central point where the energy readings can be accumulated and managed. This system allows for the monitoring of energy usage from the data loggers installed throughout the campuses.
+This web portal has been used to draw the historical data from the data loggers, some of which go back to 2013.
+\end{frame}
+
+\begin{frame}{Dygraphs}
+	Advantages from Tristan
+	
+	% Zoomed out Jubilee Hall
+	\begin{center}
+		\includegraphics[width=\textwidth, trim=0 0 0 0, clip]{DygraphsJubilee2014_2018}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Heatmap}
+
+Advantages from Tristan
+
+% Zoomed out Jubilee Hall
+\begin{center}
+	\includegraphics[width=\textwidth, trim=30 30 70 50, clip]{HeatMapCollegeHouse}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Data Outage Visualisation}
+
+Advantages from Tristan
+
+% Zoomed out Jubilee Hall
+\begin{center}
+%	\includegraphics[width=\textwidth, trim=30 30 70 50, clip]{HeatMapCollegeHouse}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Sankey Diagram}
+
+Advantages from Tristan
+
+% Zoomed out Jubilee Hall
+\begin{center}
+	\includegraphics[width=\textwidth, trim=20 10 130 0, clip]{SankeyMatrix}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Treemap}
+
+Advantages from Tristan
+
+% Zoomed out Jubilee Hall
+\begin{center}
+	\includegraphics[width=\textwidth, trim=0 0 0 10, clip]{Treemap}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Choropleth Map}
+
+\begin{wrapfigure}{l}{0.7\textwidth}
+	\begin{center}
+		\includegraphics[width=0.68\textwidth, trim=0 0 0 0, clip]{ChoroplethMap}
+	\end{center}
+\end{wrapfigure}
+
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+Advantages from Tristan. Words and things
+
+% Zoomed out Jubilee Hall
+%\begin{center}
+%	\includegraphics[width=0.7\textwidth, trim=0 2 0 0, clip]{ChoroplethMap}
+%\end{center}
+\end{frame}
+%
+%\begin{frame}{Content}{}
+%\tableofcontents
+%\end{frame}
+%
+%%-------------------------------------------------------
+%\section{Introduction}
+%%-------------------------------------------------------
+%\subsection{License}
+%\begin{frame}{Introduction}{License}
+%%-------------------------------------------------------
+%
+%  \begin{itemize}
+%    \item<1-> The Feather image is not covered by copyright rules. I have used the image from \chref{http://www.vectors-free.com/}{http://www.vectors-free.com/}. You are allowed to use the Feather image for any purposes.
+%    \item<2-> The rest of the theme is provided under the GNU General Public License v. 3 (GPLv3) \chref{http://www.gnu.org/licenses/}{http://www.gnu.org/licenses/}. This means that you can redistribute it and/or modify it under the same license. 
+%  \end{itemize}
+%\end{frame}
+%
+%%-------------------------------------------------------
+%\section{Installation}
+%%-------------------------------------------------------
+%\subsection{Source files}
+%\begin{frame}{Installation}{Source files}
+%%-------------------------------------------------------
+%
+%\begin{block}{}
+%The theme contains 4 source files:
+%  \begin{itemize}
+%    \item {\tt beamercolorthemeFeather.sty}
+%    \item {\tt beamerouterthemeFeather.sty}
+%    \item {\tt beamerinnerthemeFeather.sty}
+%    \item {\tt beamerthemeFeather.sty}
+%  \end{itemize}
+%\end{block}
+%\end{frame}
+%
+%%-------------------------------------------------------
+%\subsection{Local and Global installation}
+%\begin{frame}{Installation}{Local and Global installation}
+%%-------------------------------------------------------
+%  The theme can be installed for \textbf{local} or \textbf{global} use.
+%  \pause
+%  \begin{block}{Local Installation}
+%  \begin{itemize}    
+%    \item Local installation is the simplest way of installing the theme. 
+%    \item You need to placing the 4 source files in the same folder as your presentation. When you download the theme, the 4 theme files are located in the {\tt local} folder.
+%  \end{itemize}
+%  \end{block}
+%
+%  \begin{block}{Global Installation}
+%  \begin{itemize}
+%     \item If you wish to make the theme globally available, you must put the files in your local latex directory tree. The location of the root of the local directory tree depends on your operating system and the latex distribution. 
+%     \item Detailed steps on how to proceed installation under various operating systems can be found at Beamer documentation.
+%  \end{itemize}
+%  \end{block}
+%\end{frame}
+%     
+%
+%%-------------------------------------------------------
+%\subsection{Required Packages}
+%\begin{frame}{Installation}{Required Packages}
+%%-------------------------------------------------------
+%
+%  For using the Feather Theme you will need the Bemaer class installed and the following 2 packages
+%  \begin{itemize}
+%    \item TikZ\footnote{TikZ is a package for creating beautiful graphics. Have a look at these \chref{http://www.texample.net/tikz/examples/}{online examples} or the \chref{http://tug.ctan.org/tex-archive/graphics/pgf/base/doc/generic/pgf/pgfmanual.pdf}{pgf user manual}.}
+%    \item calc
+%  \end{itemize}
+%  Due to the fact that the packages are very common they should be included in your latex distribution in the first place.
+%\end{frame}
+%
+%%-------------------------------------------------------
+%\section{User Interface}
+%\subsection{Loading the Theme and Theme Options}
+%\begin{frame}{User Interface}{Loading the Theme and Theme Options}
+%%-------------------------------------------------------
+%
+%  \begin{block}{The Presentation Theme}
+%    The Feather Theme can be loaded in a familiar way. In the reamble of your {\tt tex} file you must type\\ \vspace{5pt} 
+%    {\tt \textbackslash usetheme[<options>]\{Feather\}}\\ \vspace{5pt} 
+%    The presentation theme loads the inner, outer and color Feather theme files and passes the {\tt <options>} on to these files.
+%  \end{block}
+%  \begin{block}{The Inner and Outher Themes}
+%    If you wish you can load only the inner, or the outher theme directly by\\ \vspace{5pt} 
+%    {\tt \textbackslash useinnertheme\{Feather\}} (and it has no options)\\ \vspace{5pt} 
+%    {\tt \textbackslash useoutertheme[<options>]\{Feather\}} (it has one option)\\
+%    \hspace{20pt}{\tt progressstyle=\{fixedCircCnt or movingCircCnt\}} \\
+%    \begin{itemize}
+%    \item which set how the progress is illustrated;
+%    \item the value {\tt movingCircCnt} is the default.
+%    \end{itemize}
+%  \end{block}
+%\end{frame}
+%
+%\begin{frame}{User Interface}{Loading the Theme and Theme Options}
+%
+%  \begin{block}{The Color Theme}
+%    Also you can load only the color theme by writing in the preamble of the {\tt tex} file 
+%    
+%    \vspace{5pt} 
+%    
+%    \begin{itemize}
+%    \item {\tt \textbackslash usecolortheme\{Feather\}}
+%    \end{itemize}
+%    
+%    \vspace{5pt}
+%    
+%    ...or to change the colors of the various elements in the theme
+%    
+%    \vspace{5pt} 
+%    \begin{itemize}
+%    \item Change the bar colors: \\    
+%    {\tt \textbackslash setbeamercolor \{Feather\}\{fg=<color>, bg=<color>\}}
+%    
+%    \vspace{2pt} 
+%    
+%    \item Change the color of the structural elements: \\    
+%    {\tt \textbackslash setbeamercolor\{structure\}\{fg=<color>\}}
+%    
+%    \vspace{2pt} 
+%    
+%    \item Change the frame title text color:\\
+%    {\tt \textbackslash setbeamercolor\{frametitle\}\{fg=<color>\}}
+%    
+%    \vspace{2pt} 
+%    
+%    \item Change the normal text color background:    
+%    {\tt \textbackslash setbeamercolor\{normal text\}\{fg=<color>, bg=<color>\}}
+%    \end{itemize}
+%  \end{block}
+%\end{frame}
+%
+%
+%%-------------------------------------------------------
+%\subsection{Feather image}
+%\begin{frame}{User Interface}{The Feather Background Image}
+%%-------------------------------------------------------
+%
+%\begin{block}{The Feather Background Image}
+%    \begin{itemize}
+%    \item In Feather theme, the title page frame and the last frame have the Feather image as the background image. 
+%    \item The Feather background image can be produced to any frame by wrating on the begining at the choosen frame the following
+%    \end{itemize} 
+%    
+%    \vspace{5pt} 
+%    
+%  {\tt \{\textbackslash 1bg\\
+%    \textbackslash begin\{frame\}[<options>]\{Frame Title\}\{Frame Subtitle\}\\
+%    \ldots\\
+%    \textbackslash end\{frame\}\}}
+%\end{block}
+%\end{frame}
+%
+%
+%{
+%\begin{frame}[plain,noframenumbering]
+%  \finalpage{Thank you for using Feather Beamer Theme!}
+%\end{frame}}
 
 \end{document}
