@@ -53,4 +53,9 @@ Database/Flask/static/tmp/DataOutage/queryDetails.txt
 Database/OpenTSDB Data Formatting/Purge Database/Metrics.txt
 *.json
 *.txt
-*.pdf
+Administration Documents/Poster Template/Feathertheme.nav
+Administration Documents/Poster Template/Feathertheme.out
+Administration Documents/Poster Template/Feathertheme.toc
+Administration Documents/Poster Template/Feathertheme.pdf
+Database/Flask/Application/static/tmp/DataOutage/DataOutage.pdf
+Database/Flask/Application/static/tmp/HeatMap/HeatMap.pdf
