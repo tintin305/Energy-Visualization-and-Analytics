@@ -121,7 +121,7 @@ cursor:pointer;
     <div id="header"></div>
     
     <h1>
-        Logger List
+        Logger List for Dygraphs Creation
     </h1>
 
 
@@ -130,7 +130,6 @@ cursor:pointer;
 
             
         {% for button in buttons %}
-                <!-- <button type="button" class="btn" name="choice1" value="{{ button }}">{{ button }}</button> -->
                 <label class="container">{{ button }}
                     <input type="radio"  name="group1" onclick="myFunction(this.value)"  value='{{ button }}'>
                     <span class="checkmark"></span>
@@ -139,20 +138,17 @@ cursor:pointer;
         
 
 </div>
-<div class="side"> </div>
-    <br>
-  <div class="side">
-    Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
-    <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
-</div>
-    <div class="side">
+
+    <div style="padding:5px;">
 Start date:
 <input type="date" id = "startTime" value="2013-01-02" >
+</div>
+<div style="padding:5px">
 End date:
 <input type="date" id = "endTime" value="2018-05-31" >
-
 </div>
 
+<div style="padding:5px;">
 Aggregators:
 <select id="aggregators">
     <option value="sum">sum</option>
@@ -186,10 +182,15 @@ Aggregators:
     <option value="p999">p999</option>
     <option value="zimsum">zimsum</option>
   </select>
+</div>
 
+<div style="padding:5px;">
   Down Sampling Magnitude:
 <input type="text" id="downsamplingMagnitude" value="5">
-<!-- http://opentsdb.net/docs/build/html/user_guide/query/dates.html -->
+</div>
+
+<div style="padding:5px;">
+Downsampling Time Range:
 <select id="timeDownsamplingRange">
     <option value="ms">Milliseconds</option>
     <option value="s">Seconds</option>
@@ -201,8 +202,10 @@ Aggregators:
     <option value="y">Years</option>    
     <option value="0-all">Over Entire Date Range</option>
   </select>
+</div>
 
-  Down Sampling Type:
+<div style="padding:5px;">
+Down Sampling Type:
   <select id="downsamplingType">
     <option value="sum">Summation</option>
     <option value="min">Minimum</option>
@@ -210,46 +213,49 @@ Aggregators:
     <option value="avg">Average</option>
     <option value="dev">Standard Deviation</option>
   </select>
+</div>
+
+  <div style="padding:5px;">
+    Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
+</div>
+
+<div style="padding:5px;">
+    <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
+</div>
 
   <script>
   function myFunction(browser) {
       document.getElementById("result").value = browser;
-    //   str = "/profiles/" + browser
       document.getElementById("click").value = browser;
 
     //   document.getElementById("aggregators").value = browser;
   }
 
-  function redirectFunction(browser) {
 
-            logger = getClicked();
+
+  function redirectFunction(browser) {
+    logger = getClicked();
     var startDate = document.getElementById("startTime").value
     var endDate = document.getElementById("endTime").value
     var aggregator = document.getElementById("aggregators").value
     var downsamplingMagnitude = document.getElementById("downsamplingMagnitude").value
     var timeDownsamplingRange = document.getElementById("timeDownsamplingRange").value
     var downsamplingType = document.getElementById("downsamplingType").value
-        location.href ="/profiles/" + logger + "/" + startDate + "/" + endDate + "/" + aggregator + "/" +  downsamplingMagnitude + "/" + timeDownsamplingRange + "/" + downsamplingType + "/";
-        }
-           
-
+    location.href ="/profiles/" + logger + "/" + startDate + "/" + endDate + "/" + aggregator + "/" +  downsamplingMagnitude + "/" + timeDownsamplingRange + "/" + downsamplingType + "/";
+    }
 
   function getClicked(){
-    var found_it
+    var selectedElement
 
-for (var i=0; i<document.form.group1.length; i++)  {
-    if (document.form.group1[i].checked)  {
-        found_it = document.form.group1[i].value
+    for (var i=0; i<document.form.group1.length; i++)  {
+        if (document.form.group1[i].checked)  {
+            selectedElement = document.form.group1[i].value
         }
     }
-    document.getElementById("result").value = found_it;
-    return found_it;
-  }
-
+    document.getElementById("result").value = selectedElement;
+    return selectedElement;
+    }
   </script>
-
-
-
     </body>
 </html>
 

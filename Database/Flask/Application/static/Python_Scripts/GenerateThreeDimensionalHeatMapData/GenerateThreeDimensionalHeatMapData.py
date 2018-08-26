@@ -60,12 +60,9 @@ def dateFormatting(date):
     return formattedDate
 
 def queryDatabase(url):
-    data = requests.get(url, 
-                    proxies=dict(http='socks5://localhost:4242',
-                                 https='socks5://localhost:4242'))
+    data = requests.get(url, proxies=dict(http='socks5://localhost:4242', https='socks5://localhost:4242'))
     test = data.text
     return test
-
 
 def writeDataToCSV(queryData):
     csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/ThreeDimensionalHeatMap")
@@ -84,7 +81,7 @@ def extractData(queryData):
     data = data.strip('[')
     data = data.replace('], [', '\n')
     data = data.strip(']')
-
+ 
     csvPath = os.path.join(os.path.dirname(__file__), "../../tmp/ThreeDimensionalHeatMap")
     os.chdir(csvPath)
     f = open('temp.csv','w')

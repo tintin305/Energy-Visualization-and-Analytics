@@ -58,14 +58,11 @@ def createQueryUrl(metricsParams, metrics):
 
     url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate
 
-
-
     for metric in metrics:
         addOn = '&m=' + aggregator + ':' + downsample + ':' + metric 
         url = url + addOn
 
     inputLine = queryDatabase(url)
-
     return inputLine
 
 def saveURL(url):
@@ -78,13 +75,10 @@ def saveURL(url):
 
 def dateFormatting(date):
     formattedDate = date.replace('-', '/')
-
     return formattedDate
 
 def queryDatabase(url):
-    data = requests.get(url, 
-                    proxies=dict(http='socks5://localhost:4242',
-                                 https='socks5://localhost:4242'))
+    data = requests.get(url, proxies=dict(http='socks5://localhost:4242', https='socks5://localhost:4242'))
     dataJSON = data.json()
 
     count = 0
@@ -131,7 +125,6 @@ def createAccumulatedCSV(metricsParams, metrics):
     inputLine = createQueryUrl(metricsParams, metrics[rangeStart: rangeEnd+1])
     f.write(inputLine)
     f.close()
-
     return
 
 def writeDataToCSV(queryData):
@@ -162,13 +155,10 @@ def formatToJSON():
     f = open('accumulatedData.json', 'w')
     f.write(outString)
     f.close()
-
-
     return
 
 def generateTreeMap(metricsParams):
     createFolder()
-
     metrics = loadMetrics()
 
     # Remove the loggers that are for kVarh as this can distort the visual
@@ -184,5 +174,4 @@ def generateTreeMap(metricsParams):
     createAccumulatedCSV(metricsParams, metrics)
 
     formatToJSON()
-    
     return 
