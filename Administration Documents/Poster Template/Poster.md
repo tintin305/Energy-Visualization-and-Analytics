@@ -60,9 +60,12 @@ This can effectively highlight unnaccounted for energy within the system, which 
 
 ## Tree Map
 
+A display of the hierarchical nature of the data. The sizes of the geometrical shapes indicate the relative energy of the chosen meters.
 
-## Map
+## Choropleth Map
 
+This visualization provides user with the geographical representation of the energy use of specific areas. 
 
 ## Three Dimensional Heat Map
 
+This is similar to the standard heat map, however, in this case, the magnitude is also represented by the colours.
