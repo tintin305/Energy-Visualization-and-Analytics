@@ -16,7 +16,7 @@
         width : 630px;
         height:600px;
         overflow: auto;
-        margin: auto;
+        margin-left: 5px;
         white-space: nowrap;
     }
     
@@ -39,7 +39,7 @@ position: relative;
 padding-left: 35px;
 margin-bottom: 12px;
 cursor: pointer;
-font-size: 22px;
+font-size: 16px;
 -webkit-user-select: none;
 -moz-user-select: none;
 -ms-user-select: none;
@@ -140,12 +140,11 @@ cursor:pointer;
 </div>
 
     <div style="padding:5px;">
-Start date:
-<input type="date" id = "startTime" value="2013-01-02" >
+Start date:<input type="date" id = "startTime" value="2013-01-02" >
 </div>
+
 <div style="padding:5px">
-End date:
-<input type="date" id = "endTime" value="2018-05-31" >
+End date:<input type="date" id = "endTime" value="2018-05-31" >
 </div>
 
 <div style="padding:5px;">
@@ -182,6 +181,7 @@ Aggregators:
     <option value="p999">p999</option>
     <option value="zimsum">zimsum</option>
   </select>
+  (<a href="http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html" target="_blank">Aggregator selection</a>)
 </div>
 
 <div style="padding:5px;">
@@ -202,6 +202,7 @@ Downsampling Time Range:
     <option value="y">Years</option>    
     <option value="0-all">Over Entire Date Range</option>
   </select>
+  (<a href="http://opentsdb.net/docs/build/html/user_guide/query/dates.html" target="_blank">Time Ranges</a>)
 </div>
 
 <div style="padding:5px;">
@@ -213,6 +214,7 @@ Down Sampling Type:
     <option value="avg">Average</option>
     <option value="dev">Standard Deviation</option>
   </select>
+  (<a href="http://opentsdb.net/docs/build/html/api_http/aggregators.html" target="_blank">API Aggregators</a>)
 </div>
 
   <div style="padding:5px;">
