@@ -32,9 +32,6 @@ def generateDataOutage():
 
     data_raw['Date'] = data_raw.Timestamp.apply(calculate_dates)
     data_raw['Time of Day'] = data_raw.Timestamp.apply(calculate_times)
-    # newdata = data_raw.drop('Timestamp', 1)
-
-    # newdata["times"] = pd.Categorical(data_raw["times"], data_raw.times.unique())
 
     datamatrix = data_raw.pivot("Time of Day", "Date", data_raw.columns.values[1])
 
@@ -49,17 +46,8 @@ def generateDataOutage():
 
     ax.set_title(data_raw.columns.values[1])
     ax.invert_yaxis()
-    # directory = "../Data/DataOutage"
-    # try:
-    #         if not os.path.exists(directory):
-    #             os.makedirs(directory)
-    # except OSError:
-    #     print ('Error: Creating directory. ' +  directory)
-    # txtPath = os.path.join(os.path.dirname(__file__), "../../tmp/DataOutage")
-    # os.chdir(txtPath)
 
     pdfPath = os.path.join(os.path.dirname(__file__), "../../tmp/DataOutage/DataOutage.pdf")
     plt.savefig(pdfPath)
     plt.close()
-
     return

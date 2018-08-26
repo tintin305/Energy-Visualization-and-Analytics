@@ -1,4 +1,3 @@
-# # from IPython.core.display import HTML
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -37,17 +36,15 @@ def generateHeatMap(cmapChoice):
 
     data_raw['Date'] = data_raw.Timestamp.apply(calculate_dates)
     data_raw['Time of Day'] = data_raw.Timestamp.apply(calculate_times)
-    # newdata = data_raw.drop('Timestamp', 1)
-
-    # newdata["times"] = pd.Categorical(data_raw["times"], data_raw.times.unique())
 
     datamatrix = data_raw.pivot("Time of Day", "Date", data_raw.columns.values[1])
 
     fig, ax = plt.subplots()
-    fig.set_size_inches(11.7, 8.27)
+    fig.set_size_inches(20, 8.27)
     if cmapChoice == "default":
-        cmapChoice = ""
-    sns.heatmap(datamatrix, xticklabels=50, linewidths=0, linecolor='black', cmap=cmapChoice)
+        sns.heatmap(datamatrix, xticklabels=50, linewidths=0, linecolor='black')
+    else:
+        sns.heatmap(datamatrix, xticklabels=50, linewidths=0, linecolor='black', cmap=cmapChoice)
 
     plt.subplots_adjust(bottom=0.23, right=1, top=0.88)
 
@@ -57,6 +54,4 @@ def generateHeatMap(cmapChoice):
     pdfPath = os.path.join(os.path.dirname(__file__), "../../tmp/HeatMap/HeatMap.pdf")
     plt.savefig(pdfPath)
     plt.close()
-
-    # plt.show()
     return

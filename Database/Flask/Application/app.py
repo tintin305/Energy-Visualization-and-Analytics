@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask import send_file
 import sys
 import os
 import random
@@ -35,7 +36,6 @@ app = Flask(__name__, static_url_path='')
 global loggerName
 loggerName = ''
 
-
 @app.route("/")
 def index():
     createFolder()
@@ -45,8 +45,6 @@ def index():
 def DygraphsShow():
     refreshCache = str(random.getrandbits(32))
     return render_template("DygraphsShow.html", refreshCache=refreshCache, loggerName=loggerName)
-
-
 
 @app.route("/HeatMapConfig/<DataloggerName>/<startDate>/<endDate>/<cmapChoice>/")
 def getHeatMapData(DataloggerName, startDate, endDate, cmapChoice):

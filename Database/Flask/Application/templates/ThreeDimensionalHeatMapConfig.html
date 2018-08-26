@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Loggers</title>
+        <title>Three Dimensional Heat Map Config</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script> 
         $(function(){
@@ -119,7 +119,7 @@ cursor:pointer;
     <div id="header"></div>
     
     <h1>
-        Logger List
+        Three Dimensional Heat Map Config
     </h1>
 
 
@@ -134,30 +134,28 @@ cursor:pointer;
                     <span class="checkmark"></span>
                   </label>
         {% endfor %}
-        
-
 </div>
-<div class="side"> </div>
-    <br>
-  <div class="side">
+
+  <div style="padding:5px;">
     Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
-    <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
 </div>
-    <div class="side">
-Start date:
-<input type="date" id = "startTime" value="2018-01-01" >
-End date:
-<input type="date" id = "endTime" value="2018-01-15" >
 
+<div style="padding:5px;">
+Start date: <input type="date" id = "startTime" value="2018-01-01" >
+</div>
+
+<div style="padding:5px;">
+End date: <input type="date" id = "endTime" value="2018-01-15" >
+</div>
+
+<div style="padding:5px;">
+    <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
 </div>
 
   <script>
   function myFunction(browser) {
       document.getElementById("result").value = browser;
-    //   str = "/profiles/" + browser
       document.getElementById("click").value = browser;
-
-    //   document.getElementById("aggregators").value = browser;
   }
 
   function redirectFunction(browser) {
@@ -168,18 +166,16 @@ End date:
         location.href ="/ThreeDimensionalHeatMapConfig/" + logger + "/" + startDate + "/" + endDate + "/";
         }
            
-
-
   function getClicked(){
-    var found_it
+    var selectedElement
 
 for (var i=0; i<document.form.group1.length; i++)  {
     if (document.form.group1[i].checked)  {
-        found_it = document.form.group1[i].value
+        selectedElement = document.form.group1[i].value
         }
     }
-    document.getElementById("result").value = found_it;
-    return found_it;
+    document.getElementById("result").value = selectedElement;
+    return selectedElement;
   }
 
   </script>

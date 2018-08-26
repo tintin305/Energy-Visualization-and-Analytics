@@ -50,23 +50,29 @@ cursor:pointer;
                     <input type="radio"  name="group1" onclick="myFunction(this.value)"  value='WestCampus'>
                     <span class="checkmark"></span>
                   </label>
-
-
-
 </div>
     <br>
-  <div>
+
+<div style="padding:5px;">
     Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
-    <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
 </div>
-    <div>
+
+<div style="padding:5px;">
 Start date:
 <input type="date" id = "startTime" value="2018-01-01" >
+</div>
+
+<div style="padding:5px;">
 End date:
 <input type="date" id = "endTime" value="2018-06-30" >
-
 </div>
-  <script>
+
+<div style="padding:5px;">
+    <a style="color:blue;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
+    </div>
+    
+
+<script>
   function myFunction(browser) {
       document.getElementById("result").value = browser;
     //   str = "/profiles/" + browser

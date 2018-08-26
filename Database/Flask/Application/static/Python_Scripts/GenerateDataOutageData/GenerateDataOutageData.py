@@ -55,19 +55,16 @@ def createQueryUrl(requestedSettings, isDataOutage):
 
     # Create URL
     url = 'http://' + str(host) + ':' + str(port) + '/api/query?' + 'ms=' + ms + '&arrays=' + arrays + '&show_tsuids=' + tsuids + '&global_annotations=' + annotations + '&start=' + startDate + '&end=' + endDate + '&m=' + aggregator + ':' + str(downsamplingMagnitude) + str(timeDownsamplingRange) + '-' + downsamplingType + ':' + metric + '{' + 'DataOutage' + '=' + str(isDataOutage) + '}'
-
     return url
 
 def dateFormatting(date):
     formattedDate = date.replace('-', '/')
-
     return formattedDate
 
 def queryDatabase(url):
     data = requests.get(url, proxies=dict(http='socks5://localhost:4242', https='socks5://localhost:4242'))
     test = data.text
     return test
-
 
 def writeDataToCSV(queryData):
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/DataOutage/")
@@ -79,8 +76,6 @@ def writeDataToCSV(queryData):
 def extractData(queryData):
     queryData = json.loads(queryData[1:-1])
     dataArray = queryData['dps']
-    # if queryData['DataOutage'] is False:
-
 
     header = 'Timestamp,' +  str(queryData['metric'] + '\n')
 
@@ -95,6 +90,7 @@ def extractData(queryData):
     f.write(header)
     f.write(data)
     f.close()
+    return
 
 def extractDataOutage(queryData):
     queryData = json.loads(queryData[1:-1])
@@ -114,8 +110,9 @@ def extractDataOutage(queryData):
     f.write(header)
     f.write(data)
     f.close()
+    return
 
-def concatCSV():
+def concatCSV(queryData):
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/DataOutage/")
     os.chdir(csvPath)
 
@@ -124,13 +121,15 @@ def concatCSV():
 
     concatList = [dataOutage, data]
     
-    completeData = pd.concat(concatList)
+    completeData = pd.concat(concatList)    
     sortedData = completeData.sort_values(by=['Timestamp'])
+    queryData = json.loads(queryData[1:-1])
+    values = str(queryData['metric']) 
+    sortedData[values] = sortedData[values].round(4)
     sortedData.to_csv('completeData.csv', sep=',', index=False)
     return
 
 def generateDataOutageData(requestedSettings):
-
     createFolder()
     # Save query details to a text file (used for testing)
     saveQueryDetails(requestedSettings)
@@ -143,12 +142,10 @@ def generateDataOutageData(requestedSettings):
     queryDataOutage = queryDatabase(urlDataOutage)
     queryData = queryDatabase(urlData)
 
-    # writeDataToCSV(queryDataOutage)
-    # writeDataToCSV(queryData)
-
     # Write to two separate csv files
     extractData(queryData)
     extractDataOutage(queryDataOutage)
 
     # Concatenate the two csv files
-    concatCSV()
+    concatCSV(queryData)
+    return

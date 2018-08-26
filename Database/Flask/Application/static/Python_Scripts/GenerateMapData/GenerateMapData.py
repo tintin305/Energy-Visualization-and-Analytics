@@ -19,10 +19,10 @@ def createFolder():
     return
 
 def saveQueryDetails(queryDetails):
-    # csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/SankeyDiagram/")
-    # os.chdir(csvPath)
-    # with open('queryDetails.txt','w') as write_file:
-        # json.dump(queryDetails, write_file)
+    csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/Map/")
+    os.chdir(csvPath)
+    with open('queryDetails.txt','w') as write_file:
+        json.dump(queryDetails, write_file)
     return
 
 def createQueryUrl(queryFlask, loggerList):
@@ -54,18 +54,14 @@ def createQueryUrl(queryFlask, loggerList):
     f = open('url.txt','w')
     f.write(url)
     f.close()
-
     return url
 
 def dateFormatting(date):
     formattedDate = date.replace('-', '/')
-
     return formattedDate
 
 def queryDatabase(url):
-    data = requests.get(url, 
-                    proxies=dict(http='socks5://localhost:4242',
-                                 https='socks5://localhost:4242'))
+    data = requests.get(url, proxies=dict(http='socks5://localhost:4242', https='socks5://localhost:4242'))
     dataJSON = data.json()
 
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/Map/")
@@ -73,8 +69,7 @@ def queryDatabase(url):
     try:
         os.remove('temp.csv')
     except OSError:
-        pass
-    
+        pass    
     header = "DataLogger,loggerMagnitude\n"
     f = open('temp.csv', 'a+')
     f.write(header)
@@ -90,6 +85,7 @@ def queryDatabase(url):
         f = open('temp.csv', 'a+')
         f.write(inputLine)
         count += 1
+    return
 
 def writeDataToCSV(queryData):
     csvPath = os.path.join(os.path.dirname(__file__),"../../tmp/Map/")
@@ -99,7 +95,6 @@ def writeDataToCSV(queryData):
     return
 
 def specifyLoggers():
-
     loggers = ["WITS_WC_Sturrock_Park_Main_kWh","WITS_WC_Barnato_Sub_Residence_A___D_kWh","WITS_WC_CLM_Building_TRF_1_kWh","WITS_WC_CLM_Building_TRF_2_kWh","WITS_WC_CLTD_Building_kWh","WITS_WC_Catering_Mayas_kWh","WITS_WC_Chamber_of_Mines_TRF_1_kWh","WITS_WC_Chamber_of_Mines_TRF_2_kWh","WITS_WC_Claude_Vergie_House_kWh","WITS_WC_Club_Minisub_Total_kWh","WITS_WC_Convocation_Kitchen_kWh","WITS_WC_DJ_du_Plessis_Building_kWh","WITS_WC_David_Webster_Hall_kWh","WITS_WC_Dig_Fields_Rugby_kWh","WITS_WC_Dig_Fields_Soccer_kWh","WITS_WC_Educom_Building_Trf_2_kWh","WITS_WC_Educom_Building_Trf_3_kWh","WITS_WC_Educom_Building_Trf_4_kWh","WITS_WC_FNB_Building_TRF_1_kWh","WITS_WC_FNB_Building_TRF_2_kWh","WITS_WC_Flower_Hall_kWh","WITS_WC_Genmin_LAB_kWh","WITS_WC_Gymnasium_kWh","WITS_WC_Hall_29A_kWh","WITS_WC_Hall_29B_kWh","WITS_WC_Hall_29C_kWh","WITS_WC_Humphrey_Raikes_kWh","WITS_WC_Maths_Science_Building_kWh","WITS_WC_Old_Grandstand_kWh","WITS_WC_Oliver_Schreiner_School_of_Law_kWh","WITS_WC_PIMD_Supply_No_1_kWh","WITS_WC_PIMD_Supply_No_2_kWh","WITS_WC_PIMD_Wash_Bay_kWh","WITS_WC_Science_Stadium_TRF_1_kWh","WITS_WC_Science_Stadium_TRF_2_kWh","WITS_WC_Squash_Courts_kWh","WITS_WC_Stdnts_Village_Unit_A_kWh","WITS_WC_Stdnts_Village_Unit_B_kWh","WITS_WC_Stdnts_Village_Unit_C_kWh","WITS_WC_Stdnts_Village_Unit_D_kWh","WITS_WC_Stdnts_Village_Unit_E_kWh","WITS_WC_Stdnts_Village_Unit_F_kWh","WITS_WC_Stdnts_Village_Unit_G_kWh","WITS_WC_Stdnts_Village_Unit_H_kWh","WITS_WC_The_Barns_kWh","WITS_WC_Tower_of_Lights_Total_kWh","WITS_WC_Village_Zesti_Lemonz_kWh","WITS_EC_New_Commerce_Building_kWh"]
     return loggers
 
@@ -132,10 +127,6 @@ def upDateGeoJSON(startDate, endDate):
     for z in range(0, len(data['features'])):
         data['features'][z]['properties']['density'] = 0
 
-    # # Make all per unit
-    # maxValue = data_raw['loggerMagnitude'].max()
-    # data_raw.loggerMagnitude = data_raw.loggerMagnitude/maxValue
-
     # Loop through each logger
     for row_index,row in data_raw.iterrows():
         # Loop through each building
@@ -145,7 +136,7 @@ def upDateGeoJSON(startDate, endDate):
                 # Add the logger's sum to the building's density
                 data['features'][z]['properties']['density'] = data['features'][z]['properties']['density'] + data_raw.loggerMagnitude[row_index]
 
-    # # Make all per unit
+    # Make all per unit
     maxValue = data_raw['loggerMagnitude'].max()
 
     for z in range(0, len(data['features'])):
