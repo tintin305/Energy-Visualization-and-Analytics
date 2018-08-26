@@ -3,6 +3,7 @@ import json
 import requests
 import os
 import socket
+import errno
 
 def createFolder():
     tmpPath = os.path.join(os.path.dirname(__file__), '../../tmp/')
