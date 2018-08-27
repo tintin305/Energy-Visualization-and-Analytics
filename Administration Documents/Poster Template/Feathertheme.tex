@@ -112,38 +112,75 @@
 %\end{frame}}
 
 \begin{frame}{Project Overview}
-The project involves the use of multiple energy data loggers placed on the university campuses which record periodical energy use of buildings, transformers, residences, stadiums \& sports fields, main incomers, generators, and other general loads. These data loggers provide historical usage for the university going back as far as 2013. The data is transferred from the ecWIN system, manipulated and then imported into a time series database (TSD). A web framework is developed with the use of Flask.
+
+%\begin{center}
+%	
+%	\begin{center}
+%		\includegraphics[width=0.8\textwidth, trim=135 200 135 80, clip]{SystemOverviewGreen}
+%	\end{center}
+%\end{center}
+%
+%\small The project involves the use of multiple energy data loggers placed on the university campuses which record periodical energy use. Some of the dataloggers provide energy usage data as far back as 2013. The data obtained from the IST (ecWIN) system is manipulated and then imported into a time series database (OpenTSDB). A web framework is developed with the use of Flask.
+%The web framework allows for the visualization of the data in a number of methods.
+%The visualizations include:
+%
+%
+%\begin{columns}
+%	\begin{column}{0.5\textwidth}
+%		\begin{itemize}
+%			\item Time Series Line Charts (Dygraphs)
+%			\item Heat Maps
+%			\begin{itemize}
+%				\item Colour Heat Map
+%				\item Data Outage
+%				\item Three Dimensional Heat Map
+%			\end{itemize}
+%			\item Sankey Diagram
+%			\item Tree Map
+%			\item Map
+%			
+%		\end{itemize}
+%	\end{column}
+%	\begin{column}{0.5\textwidth}  
+%		\begin{center}
+%			%%%%% this is a minipage, so \textwidth is already adjusted to the size of the column
+%			
+%			These visualizations allow for the unique interpretation of the day in multiple ways. Different visualization methods highlight different characteristics of the energy usage.
+%		\end{center}
+%	\end{column}
+%\end{columns}
+
+
+ The project involves the use of multiple energy data loggers placed on the university campuses which record periodical energy use. Some of the dataloggers provide energy usage data as far back as 2013. The data obtained from the IST (ecWIN) system is manipulated and then imported into a time series database (OpenTSDB). A web framework is developed with the use of Flask.
+ 
+ \begin{wrapfigure}{l}{0.45\textwidth}
+ 	\begin{center}
+ 		\includegraphics[width=0.45\textwidth, trim=30 170 530 10, clip]{SystemOverviewGreenVertical}
+ 	\end{center}
+ \end{wrapfigure}
 The web framework allows for the visualization of the data in a number of methods.
 The visualizations include:
 
 \begin{itemize}
-	\item Time Series Line Charts (Dygraphs)
-	\item Heat Maps
-	\begin{itemize}
-		\item Colour Heat Map
-		\item Data Outage
-		\item Three Dimensional Heat Map
-	\end{itemize}
-	\item Sankey Diagram
-	\item Tree Map
-	\item Map
-	
-\end{itemize}
-
+				\item Time Series Line Charts (Dygraphs)
+				\item Heat Maps
+				\begin{itemize}
+					\item Colour Heat Map
+					\item Data Outage
+					\item Three Dimensional Heat Map
+				\end{itemize}
+				\item Sankey Diagram
+				\item Tree Map
+				\item Map
+				
+			\end{itemize}
 
 These visualizations allow for the unique interpretation of the day in multiple ways. Different visualization methods highlight different characteristics of the energy usage.
-
-\begin{center}
-	
-	\begin{center}
-		\includegraphics[width=0.8\textwidth, trim=135 200 135 80, clip]{SystemOverviewGreen}
-	\end{center}
-\end{center}
 \end{frame}
 
 
 \begin{frame}{Database}
-\begin{block}{OpenTSDB}
+%\begin{block}{OpenTSDB}
 
 \begin{wrapfigure}{l}{0.39\textwidth}
 	\begin{center}
@@ -151,53 +188,82 @@ These visualizations allow for the unique interpretation of the day in multiple 
 	\end{center}
 \end{wrapfigure}
 
-Time series database (TSDB) is inherently useful for this type of data as it makes use of key-value pairs. These key value pairs are made up of a timestamp and a corresponding, associated value, which in this case represents energy usage for a specific time period.
-The database has a convenient set of utilities that allow for importing, managing, and querying any data required. OpenTSDB is made up of a Time Series Daemon (TSD) which allow for users to interact with the underlying data. The underlying data is stored using Apache HBase or Google Bigtable.
-The current installation uses Apache HBase as the underlying Hadoop database; it provides a distributed and  highly scalable data storage solution.
+Time series database (TSDB) is inherently useful for this type of data as it makes use of key-value pairs. These key value pairs are made up of a timestamp and a corresponding energy usage value for a specific time period.
+The database has a convenient set of utilities that allow for importing, managing, and querying the required data. OpenTSDB is made up of a Time Series Daemon (TSD) which allows users to interact with underlying data. This is stored using Apache HBase or Google Bigtable.
+These provide a distributed and  highly scalable data storage solution.
 Interaction with the data is done using number of supported methods: a telnet-style protocol, an HTTP API, or the built in user interface.
+
+%\vspace{5mm}
+%%\begin{block}{Writing to the Database}
+%	\textbf{Writing to the Database}
+
+\begin{exampleblock}{Writing to the Database}
 	
+	\small Metrics have been used as the major identifiers of the different data loggers and their readings, tags are used to affix additional information to the data points.
 	
-\end{block}
-
-\end{frame}
-
-\begin{frame}{Database}
-
-\begin{block}{Writing to Database}
-
-Writing data to the database can be done using three methods: Telnet, an HTTP API, or internel OpenTSDB importing tools.
-Each time series point is imported into the database and each component of the data specification is important for querying ability further down the line. Metrics have been used as the major identifiers of the different data loggers and their readings, tags are important to identify cases where data outages occurred. The use of tags is highly relevant when extra information can be affixed to specific data points in time. This can be in cases where a unique data outage occurred or an abnormal reading was taken and an explanation is required.
 	\begin{center}
 		\includegraphics[width=0.98\textwidth, trim=13 210 15 180, clip]{WritingToTheDatabaseNotBold}
 	\end{center}
-\end{block}
+\end{exampleblock}
+	
+%\end{block}
+	
+	
+%\end{block}
 
 \end{frame}
 
+%\begin{frame}{Database}
+%
+%\begin{block}{Writing to Database}
+%
+%Writing data to the database can be done using three methods: Telnet, an HTTP API, or internel OpenTSDB importing tools.
+%Each time series point is imported into the database and each component of the data specification is important for querying ability further down the line. Metrics have been used as the major identifiers of the different data loggers and their readings, tags are important to identify cases where data outages occurred. The use of tags is highly relevant when extra information can be affixed to specific data points in time. This can be in cases where a unique data outage occurred or an abnormal reading was taken and an explanation is required.
+%	\begin{center}
+%		\includegraphics[width=0.98\textwidth, trim=13 210 15 180, clip]{WritingToTheDatabaseNotBold}
+%	\end{center}
+%\end{block}
+%
+%\end{frame}
 
-\begin{frame}{Flask Server}
 
-\begin{wrapfigure}{l}{0.69\textwidth}
-	\begin{center}
-		\includegraphics[width=0.68\textwidth, trim=30 0 150 30, clip]{FlaskDiagram}
-	\end{center}
-\end{wrapfigure}
+\begin{frame}{Web Framework}{Flask Server}
 
-This web framework is used in order to provide processing for the visuals, as well as provide a front end for the system.
-The flask framework, in conjunction with the Python requests package allows for easily querying the OpenTSDB database.
-Flask makes use of the Jinja templating engine (within Python), this allows for the use of static web pages to be reused while creating dynamic content.
-This web server allows for short feedback cycles (testing) on the developers local machine. The web server can easily be ported to a more permanent solution on a dedicated server.
+\begin{columns}
+	\begin{column}{0.4\textwidth}
+		
+		The web framework is used to provide processing for visuals and a front end. The flask framework, in conjunction with the Python requests package allows for easily querying the OpenTSDB database.
+		Flask makes use of the Jinja2 templating engine (within Python), which allows for the use of static web pages to be reused while creating dynamic content.
+		The web server allows for short feedback cycles (testing) on the developers local machine. The web server can easily be ported to a more permanent solution on a dedicated server.
+		
+	\end{column}
+	\begin{column}{0.6\textwidth}  
+			\begin{center}
+			\includegraphics[width=\textwidth, trim=0 0 490 30, clip]{FlaskDiagram}
+		\end{center}
+	\end{column}
+\end{columns}
+
+%\begin{wrapfigure}{r}{0.55\textwidth}
+%	\begin{center}
+%		\includegraphics[width=0.55\textwidth, trim=0 0 490 30, clip]{FlaskDiagram}
+%	\end{center}
+%\end{wrapfigure}
+%
+%The web framework is used to provide processing for visuals and a front end. The flask framework, in conjunction with the Python requests package allows for easily querying the OpenTSDB database.
+%Flask makes use of the Jinja2 templating engine (within Python), which allows for the use of static web pages to be reused while creating dynamic content.
+%The web server allows for short feedback cycles (testing) on the developers local machine. The web server can easily be ported to a more permanent solution on a dedicated server.
 
 \end{frame}
 
-\begin{frame}{Dataloggers and IST}
-IST's product, ecWIN, is employed on the universities campuses such that there is a central point where the energy readings can be accumulated and managed. This system allows for the monitoring of energy usage from the data loggers installed throughout the campuses.
-This web portal has been used to draw the historical data from the data loggers, some of which go back to 2013.
-\end{frame}
+%\begin{frame}{Dataloggers and IST}
+%IST's product, ecWIN, is employed on the universities campuses such that there is a central point where the energy readings can be accumulated and managed. This system allows for the monitoring of energy usage from the data loggers installed throughout the campuses.
+%This web portal has been used to draw the historical data from the data loggers, some of which go back to 2013.
+%\end{frame}
 
 \begin{frame}{Dygraphs}
 
-Highly useful for examining, at a simple level, the normal magnitudes of energy usage/flow for the load/source in question. This form of visual highlights the trend of energy over time periods. It can highlight patterns, and anomalies within the data. This is highly relevant in cases where the validity of the data is in question.
+Simple, interactive visualisation of the energy usage. It can highlight patterns, and anomalies within the data. This is highly relevant in cases where the validity of the data is in question.
 	\begin{center}
 		\includegraphics[width=\textwidth, trim=0 0 0 0, clip]{DygraphsJubilee2014_2018}
 	\end{center}
@@ -205,18 +271,21 @@ Highly useful for examining, at a simple level, the normal magnitudes of energy 
 
 \begin{frame}{Heatmap}
 
-Colour representation of relative magnitudes of energy is created with the use of block corresponding to hours in the day. This is particularly useful for illustrating trends over regions of time. 
+%Colour representation of relative magnitudes of energy is created with the use of block corresponding to hours in the day. 
+%Colour representation of relative magnitudes of energy is shown. 
+Each block represents a time of day (y-axis), the date (x-axis) and the relative magnitude of energy (colour intensity and hue).
+This is particularly useful for illustrating trends over large regions of time. 
 
 % Zoomed out Jubilee Hall
 \begin{center}
-	\includegraphics[width=\textwidth, trim=30 30 70 50, clip]{HeatMapCollegeHouse}
+	\includegraphics[width=\textwidth, trim=30 50 70 50, clip]{HeatMapCollegeHouse}
 \end{center}
 \end{frame}
 
 
 \begin{frame}{Data Outage Visualisation}
-
-Advantages from Tristan
+Each block represents a time of day (y-axis), the date (x-axis) and the relative magnitude of energy (colour: black or white).
+This is particularly useful for highlighting data outages by strongly contrasting the points with data and those without. 
 
 % Zoomed out Jubilee Hall
 \begin{center}
@@ -227,9 +296,8 @@ Advantages from Tristan
 
 \begin{frame}{Sankey Diagram}
 
-
-The width of the pipes in these diagrams represent the magnitude of the energy usage over a specified time period. The ability to visually compare the widths with reference to eachother provides reference points of magnitudes. The widths of each of the bands are proportional to the energy incoming, and consumption through the system.
-This can effectively highlight unnaccounted for energy within the system, which can be cases where portions of the system are unmetered.
+The widths of each of the bands are proportional to the energy incoming, and consumption through the system. The ability to visually compare the widths with reference to eachother provides reference points of magnitudes. 
+This can effectively highlight unnaccounted for energy within the system, which can be the case where portions of the system are unmetered.
 \begin{center}
 	\includegraphics[width=\textwidth, trim=20 10 130 0, clip]{SankeyMatrix}
 \end{center}
@@ -237,9 +305,7 @@ This can effectively highlight unnaccounted for energy within the system, which 
 
 
 \begin{frame}{Treemap}
-
-Advantages from Tristan
-
+A display of the hierarchical nature of the data. The sizes of the geometrical shapes indicate the relative energy of the chosen meters. This is useful to identify the major energy consumers.
 % Zoomed out Jubilee Hall
 \begin{center}
 	\includegraphics[width=\textwidth, trim=0 0 0 10, clip]{Treemap}
@@ -249,24 +315,12 @@ Advantages from Tristan
 
 \begin{frame}{Choropleth Map}
 
-\begin{wrapfigure}{l}{0.7\textwidth}
+This visualization provides user with the geographical representation of the energy use of specific areas. This is particularly useful when building names are not known and to compare the energy usage in various buildings.
+
 	\begin{center}
 		\includegraphics[width=0.68\textwidth, trim=0 0 0 0, clip]{ChoroplethMap}
 	\end{center}
-\end{wrapfigure}
 
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
-Advantages from Tristan. Words and things
 
 % Zoomed out Jubilee Hall
 %\begin{center}
