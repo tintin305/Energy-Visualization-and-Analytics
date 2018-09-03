@@ -170,6 +170,7 @@ https://blog.timescale.com/time-series-data-why-and-how-to-use-a-relational-data
 http://basho.com/resources/time-series-databases/
 
 A curated list of awesome time series databases , benchmarks and papers: https://github.com/xephonhq/awesome-time-series-databas
+
 # General Notes
 
 It appears as if a time series database will work well for the data, or the use of a key-value database.
@@ -200,8 +201,8 @@ You can start MongoDB as a service, not sure if we should do that just yet.
 
 [This](http://adilmoujahid.com/posts/2015/01/interactive-data-visualization-d3-dc-python-mongodb/) guy used MongoDB to create a web app that managed the data, his choice for using a database was:
     It is true that you can use the data directly from a JSON file. The main reason for using MongoDB in this tutorial are:
-    - In this tutorial, we are only using a few fields (subset of the data). With MongoDB, we can query only the fields that we need. If you use the JSON file directly, you will have to send all the data to the browser before selecting the field that you are interested in. This may cause the browser to crash. 
-    - If you want to build a dashboard to visualize data that is constantly changing, then you need a database for managing the records. 
+    - In this tutorial, we are only using a few fields (subset of the data). With MongoDB, we can query only the fields that we need. If you use the JSON file directly, you will have to send all the data to the browser before selecting the field that you are interested in. This may cause the browser to crash.
+    - If you want to build a dashboard to visualize data that is constantly changing, then you need a database for managing the records.
     - In this tutorial, I wanted to introduced all the building blocks for creating interactive visualization. Even though, I could have managed by not using a database, I think that showing how a database can be integrated can be useful for people who want to build dashboards with complex datasets.
 
 # Testing out Graphite
@@ -235,7 +236,7 @@ This will tell you if it is set up.
 
 We have assumed that the installation has been carried out successfully and that we are able to make use of the system.
 
-When searching through the file system, I found Hbase installed in /opt/hbase. This had all kinds of files for its workings. 
+When searching through the file system, I found Hbase installed in /opt/hbase. This had all kinds of files for its workings.
 
 I also found a folder with OpenTSDB stuff in the /etc folder. This had some config files.
 
