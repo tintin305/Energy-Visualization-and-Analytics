@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Loggers</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script> 
+        $(function(){
+          $("#header").load("/html_templates/header.html"); 
+        });
+        </script> 
+
+
+<style>
+    div.scrollmenu {
+        width : 630px;
+        height:600px;
+        overflow: auto;
+        margin-left: 5px;
+        white-space: nowrap;
+    }
+    
+    div.scrollmenu a {
+        display: inline-block;
+        color: white;
+        display: block;
+        text-align: center;
+        padding: 14px;
+        text-decoration: none;
+    }
+    
+    div.scrollmenu a:hover {
+        background-color: #777;
+    }
+    /* The container */
+.container {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 18px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 25px;
+width: 25px;
+background-color: #eee;
+border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ top: 9px;
+left: 9px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: white;
+}
+
+#click {
+ background-color: #333;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 18px;
+cursor:pointer;
+
+}
+.side{
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+    </style>
+    </head>
+<body>
+
+    <div id="header"></div>
+    
+    <h1>
+        Logger List for Dygraphs Creation
+    </h1>
+
+
+    <div  style="float:left; margin:10px" class="scrollmenu">
+        <form name="form">
+
+            
+        {% for button in buttons %}
+                <label class="container">{{ button }}
+                    <input type="radio"  name="group1" onclick="myFunction(this.value)"  value='{{ button }}'>
+                    <span class="checkmark"></span>
+                  </label>
+        {% endfor %}
+        
+
+</div>
+
+    <div  style="float:left;margin:10px" >
+    
+    <div style="padding:5px;">
+Start date:<input type="date" id = "startTime" value="2013-01-02" >
+</div>
+
+<div style="padding:5px">
+End date:<input type="date" id = "endTime" value="2018-05-31" >
+</div>
+
+<div style="padding:5px;">
+Aggregators:
+<select id="aggregators">
+    <option value="sum">sum</option>
+    <option value="avg">avg</option>
+    <option value="count">count</option>
+    <option value="dev">dev</option>
+    <option value="ep50r3">ep50r3</option>
+    <option value="ep50r7">ep50r7</option>
+    <option value="ep75r3">ep75r3</option>    
+    <option value="ep75r7">ep75r7</option>
+    <option value="ep90r3">ep90r3</option>
+    <option value="ep90r7">ep90r7</option>
+    <option value="ep95r3">ep95r3</option>
+    <option value="ep95r7">ep95r7</option>
+    <option value="ep99r3">ep99r3</option>
+    <option value="ep99r7">ep99r7</option>
+    <option value="ep999r3">ep999r3</option>
+    <option value="ep999r7">ep999r7</option>
+    <option value="first">first</option>
+    <option value="last">last</option>
+    <option value="mimmin">mimmin</option>
+    <option value="mimmax">mimmax</option>
+    <option value="min">min</option>
+    <option value="max">max</option>
+    <option value="none">none</option>
+    <option value="p50">p50</option>
+    <option value="p75">p75</option>
+    <option value="p90">p90</option>
+    <option value="p95">p95</option>
+    <option value="p99">p99</option>
+    <option value="p999">p999</option>
+    <option value="zimsum">zimsum</option>
+  </select>
+  (<a href="http://opentsdb.net/docs/build/html/user_guide/query/aggregators.html" target="_blank">Aggregator selection</a>)
+</div>
+
+<div style="padding:5px;">
+  Down Sampling Magnitude:
+<input type="text" id="downsamplingMagnitude" value="5">
+</div>
+
+<div style="padding:5px;">
+Downsampling Time Range:
+<select id="timeDownsamplingRange">
+    <option value="ms">Milliseconds</option>
+    <option value="s">Seconds</option>
+    <option value="m">Minutes</option>
+    <option value="h">Hours</option>
+    <option value="d">Days (24 Hours)</option>
+    <option value="w">Weeks (7 Days)</option>
+    <option value="n">Months (30 Days)</option>
+    <option value="y">Years</option>    
+    <option value="0-all">Over Entire Date Range</option>
+  </select>
+  (<a href="http://opentsdb.net/docs/build/html/user_guide/query/dates.html" target="_blank">Time Ranges</a>)
+</div>
+
+<div style="padding:5px;">
+Down Sampling Type:
+  <select id="downsamplingType">
+    <option value="sum">Summation</option>
+    <option value="min">Minimum</option>
+    <option value="max">Maximum</option>
+    <option value="avg">Average</option>
+    <option value="dev">Standard Deviation</option>
+  </select>
+  (<a href="http://opentsdb.net/docs/build/html/api_http/aggregators.html" target="_blank">API Aggregators</a>)
+</div>
+
+  <div style="padding:5px;">
+    Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
+</div>
+
+<div style="padding:5px;">
+    <a style="color:white;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
+</div>
+
+</div>
+  <script>
+  function myFunction(browser) {
+      document.getElementById("result").value = browser;
+      document.getElementById("click").value = browser;
+
+    //   document.getElementById("aggregators").value = browser;
+  }
+
+
+
+  function redirectFunction(browser) {
+    logger = getClicked();
+    var startDate = document.getElementById("startTime").value
+    var endDate = document.getElementById("endTime").value
+    var aggregator = document.getElementById("aggregators").value
+    var downsamplingMagnitude = document.getElementById("downsamplingMagnitude").value
+    var timeDownsamplingRange = document.getElementById("timeDownsamplingRange").value
+    var downsamplingType = document.getElementById("downsamplingType").value
+    location.href ="/profiles/" + logger + "/" + startDate + "/" + endDate + "/" + aggregator + "/" +  downsamplingMagnitude + "/" + timeDownsamplingRange + "/" + downsamplingType + "/";
+    }
+
+  function getClicked(){
+    var selectedElement
+
+    for (var i=0; i<document.form.group1.length; i++)  {
+        if (document.form.group1[i].checked)  {
+            selectedElement = document.form.group1[i].value
+        }
+    }
+    document.getElementById("result").value = selectedElement;
+    return selectedElement;
+    }
+  </script>
+    </body>
+</html>
+
+

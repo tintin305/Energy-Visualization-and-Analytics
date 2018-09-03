@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Heat Map</title>
+    <script src="https://cmpt165.csil.sfu.ca/js/jquery-3.2.1.js"></script>
+    <script src="https://cmpt165.csil.sfu.ca/js/raphael-2.1.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script> 
+    $(function(){
+      $("#header").load("/html_templates/header.html"); 
+    });
+    </script> 
+    <style type="text/css">
+
+    #graphdiv {
+            position: absolute;
+            width:1400px;
+            height:600px;
+            }
+            .side {
+            display: inline-block;
+            vertical-align: top;}
+            
+            #pdfImg{
+                /* position: absolute; */
+                width:95%;
+                height:110vh;
+            }
+  
+    </style>
+    </head>
+<body>
+    
+        <div id="header"></div>
+    <h1>
+        Heat Map
+    </h1>
+
+
+    <div  class = "side" id="graphdiv"></div>
+    <embed src="/tmp/HeatMap/HeatMap.pdf?v={{refreshCache}}"  id="pdfImg"/>
+</body>
+</html>

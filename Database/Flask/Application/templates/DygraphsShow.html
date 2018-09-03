@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dygraphs</title>
+        <script type="text/javascript" src="/js/Dygraphs/dygraph.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script> 
+        $(function(){
+          $("#header").load("/html_templates/header.html"); 
+        });
+        </script> 
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('img').each(function(){
+    
+          var date = new Date;
+          // add the current unix timestamp in microseconds to the the image src as a query string
+          this.src = this.src + '?' + date.getTime();
+       });
+    
+    });
+    </script>
+
+        <link rel="stylesheet" type="text/css" href= "/css/Dygraphs/dygraph.css?={{refreshCache}}">
+
+        <style type="text/css">
+            #graphdiv {
+            position: absolute;
+            width:90%;
+            height:70vh;
+            }
+        </style>
+
+    </head>
+    <body>
+
+    <div id="header"></div>
+
+    <h1>
+        Dygraphs Visualization - {{loggerName}}
+    </h1>
+
+
+    <div id="graphdiv"></div>
+
+<script type="text/javascript">
+g = new Dygraph(
+    document.getElementById("graphdiv"),
+        "/tmp/Dygraphs/temp.csv?v={{refreshCache}}",
+        {
+            axes: {
+            x : {
+            valueFormatter: Dygraph.dateString_,
+            ticker: Dygraph.dateTicker
+            }
+            },
+            // legend: "always"
+        }
+);
+
+</script>
+
+    </body>
+
+
+    </html>

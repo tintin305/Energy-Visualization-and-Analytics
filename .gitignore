@@ -6,3 +6,36 @@
 *.fdb_latexmk
 *.fls
 Administration Documents/Project Plan/Project Plan Report/Report/Report\.pdf
+Database/Flask/Application/static/tmp/DataOutage/DataOutage.pdf
+Database/Flask/Application/static/tmp/DataOutage/tempDataOutage.csv
+Database/Flask/Application/static/tmp/DataOutage/tempData.csv
+Database/Flask/Application/static/tmp/TreeMap/url.txt
+Database/Flask/Application/static/tmp/TreeMap/temp.csv
+Database/Flask/Application/static/tmp/TreeMap/pythonData.json
+Database/Flask/Application/static/tmp/ThreeDimensionalHeatMap/temp.csv
+Database/Flask/Application/static/tmp/ThreeDimensionalHeatMap/queryDetails.txt
+Database/Flask/Application/static/tmp/ThreeDimensionalHeatMap/ThreeDimensionalHeatMap.pdf
+Database/Flask/Application/static/tmp/SankeyDiagram/url.txt
+Database/Flask/Application/static/tmp/SankeyDiagram/temp.csv
+Database/Flask/Application/static/tmp/SankeyDiagram/data_energyjson.txt
+Database/Flask/Application/static/tmp/Metrics/Metrics.csv
+Database/Flask/Application/static/tmp/Map/wits-buildings.txt
+Database/Flask/Application/static/tmp/Map/url.txt
+Database/Flask/Application/static/tmp/Map/temp.csv
+Database/Flask/Application/static/tmp/HeatMap/url.txt
+Database/Flask/Application/static/tmp/HeatMap/tempDataOutage.csv
+Database/Flask/Application/static/tmp/HeatMap/tempData.csv
+Database/Flask/Application/static/tmp/HeatMap/temp.csv
+Database/Flask/Application/static/tmp/HeatMap/queryDetails.txt
+Database/Flask/Application/static/tmp/HeatMap/HeatMap.pdf
+Database/Flask/Application/static/tmp/Dygraphs/url.txt
+Database/Flask/Application/static/tmp/Dygraphs/tempDataOutage.csv
+Database/Flask/Application/static/tmp/Dygraphs/tempData.csv
+Database/Flask/Application/static/tmp/Dygraphs/temp.csv
+Database/Flask/Application/static/tmp/Dygraphs/queryDetails.txt
+Database/Flask/Application/static/tmp/DataOutage/url.txt
+Database/Flask/Application/static/tmp/DataOutage/queryDetails.txt
+Database/Flask/Application/static/tmp/DataOutage/completeData.csv
+Database/Node Server/node_modules/.bin/
+Database/Node Server/node_modules/
+Database/Node Server/public/tmp/

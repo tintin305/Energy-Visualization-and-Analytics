@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sankey config</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script> 
+        $(function(){
+          $("#header").load("/html_templates/header.html"); 
+        });
+        </script> 
+
+<style>
+
+
+#click {
+ background-color: #333;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 18px;
+cursor:pointer;
+
+}
+
+    </style>
+    </head>
+<body>
+
+    <div id="header"></div>
+    
+    <h1>
+        Sankey List
+    </h1>
+
+    
+
+    <div class="scrollmenu">
+        <form name="form">
+
+                <label class="container">Matrix
+                    <input type="radio"  name="group1" onclick="myFunction(this.value)"  value='Matrix'>
+                    <span class="checkmark"></span>
+                  </label>   
+
+                  <label class="container">West Campus
+                    <input type="radio"  name="group1" onclick="myFunction(this.value)"  value='WestCampus'>
+                    <span class="checkmark"></span>
+                  </label>
+</div>
+    <br>
+
+<div style="padding:5px;">
+    Selected data logger is: <input type="text" id="result"     selectedLogger =  'this.value'; >
+</div>
+
+<div style="padding:5px;">
+Start date:
+<input type="date" id = "startTime" value="2018-01-01" >
+</div>
+
+<div style="padding:5px;">
+End date:
+<input type="date" id = "endTime" value="2018-06-30" >
+</div>
+
+<div style="padding:5px;">
+    <a style="color:white;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
+    </div>
+    
+
+<script>
+  function myFunction(browser) {
+      document.getElementById("result").value = browser;
+    //   str = "/profiles/" + browser
+      document.getElementById("click").value = browser;
+  }
+
+  function redirectFunction(browser) {
+
+            logger = getClicked();
+    var startDate = document.getElementById("startTime").value
+    var endDate = document.getElementById("endTime").value
+        location.href ="/Sankey/" + logger + "/" + startDate + "/" + endDate;
+        }
+           
+
+
+  function getClicked(){
+    var found_it
+
+for (var i=0; i<document.form.group1.length; i++)  {
+    if (document.form.group1[i].checked)  {
+        found_it = document.form.group1[i].value
+        }
+    }
+    document.getElementById("result").value = found_it;
+    return found_it;
+  }
+
+  </script>
+
+    </body>
+</html>
+
+

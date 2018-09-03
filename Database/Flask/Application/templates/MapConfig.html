@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Choropleth Map Config</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script> 
+        $(function(){
+          $("#header").load("/html_templates/header.html"); 
+        });
+        </script> 
+<style>
+
+#click {
+ background-color: #333; 
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 18px;
+cursor:pointer;
+}
+
+    </style>
+    </head>
+<body>
+
+    <div id="header"></div>
+    
+    <h1>
+        Choropleth Map Date Selector
+    </h1>
+
+ <div style="padding:5px;">
+    <a style="color:white;" type="button" id = "click" value = "" onclick="redirectFunction(this.value)">Click Me!</a>
+</div>
+    <div style="padding:5px;">
+Start date:
+<input type="date" id = "startTime" value="2018-01-01" >
+</div>
+<div style="padding:5px;">
+End date:
+<input type="date" id = "endTime" value="2018-06-30" >
+</div>
+
+<script>
+  function myFunction(browser) {
+      document.getElementById("result").value = browser;
+      document.getElementById("click").value = browser;
+  }
+
+  function redirectFunction(browser) {
+
+    var startDate = document.getElementById("startTime").value
+    var endDate = document.getElementById("endTime").value
+        location.href ="/MapConfig/" + startDate + "/" + endDate;
+        }
+
+  </script>
+
+    </body>
+</html>
+
+

@@ -170,6 +170,7 @@ https://blog.timescale.com/time-series-data-why-and-how-to-use-a-relational-data
 http://basho.com/resources/time-series-databases/
 
 A curated list of awesome time series databases , benchmarks and papers: https://github.com/xephonhq/awesome-time-series-databas
+
 # General Notes
 
 It appears as if a time series database will work well for the data, or the use of a key-value database.
@@ -200,8 +201,8 @@ You can start MongoDB as a service, not sure if we should do that just yet.
 
 [This](http://adilmoujahid.com/posts/2015/01/interactive-data-visualization-d3-dc-python-mongodb/) guy used MongoDB to create a web app that managed the data, his choice for using a database was:
     It is true that you can use the data directly from a JSON file. The main reason for using MongoDB in this tutorial are:
-    - In this tutorial, we are only using a few fields (subset of the data). With MongoDB, we can query only the fields that we need. If you use the JSON file directly, you will have to send all the data to the browser before selecting the field that you are interested in. This may cause the browser to crash. 
-    - If you want to build a dashboard to visualize data that is constantly changing, then you need a database for managing the records. 
+    - In this tutorial, we are only using a few fields (subset of the data). With MongoDB, we can query only the fields that we need. If you use the JSON file directly, you will have to send all the data to the browser before selecting the field that you are interested in. This may cause the browser to crash.
+    - If you want to build a dashboard to visualize data that is constantly changing, then you need a database for managing the records.
     - In this tutorial, I wanted to introduced all the building blocks for creating interactive visualization. Even though, I could have managed by not using a database, I think that showing how a database can be integrated can be useful for people who want to build dashboards with complex datasets.
 
 # Testing out Graphite
@@ -235,7 +236,7 @@ This will tell you if it is set up.
 
 We have assumed that the installation has been carried out successfully and that we are able to make use of the system.
 
-When searching through the file system, I found Hbase installed in /opt/hbase. This had all kinds of files for its workings. 
+When searching through the file system, I found Hbase installed in /opt/hbase. This had all kinds of files for its workings.
 
 I also found a folder with OpenTSDB stuff in the /etc folder. This had some config files.
 
@@ -268,7 +269,6 @@ This allows one to access: 127.0.0.1:4242 which is the GUI.
 
 /usr/share/opentsdb/bin/tsdb mkmetric mysql.bytes_received mysql.bytes_sent
 This now shows up on the GUI when searched for in the metric box.
-
 
 In order to get the csv data into the database a number of steps need to take place:
 
@@ -319,11 +319,94 @@ When testing, there were multiple errors while attempting to input negative numb
 An error was given that ".0" would not be accepted. However, this could have been due to the ".0" in the Unix timestamp field.
 
 The following [site](https://www.erol.si/2014/06/opentsdb-the-perfect-database-for-your-internet-of-things-projects/) was highly useful.
+
+Linking the database with D3.js and some other tools. [This](https://gist.github.com/stuart-warren/5354116) has some useful info.
+
+Query from command line:
+    /usr/share/opentsdb/bin/tsdb query 1y-ago  sum LoggerName
+
+### List Number of Metrics in Database
+
+Place [this](http://localhost:4242/api/suggest?type=metrics&max=10000s) into your web browser.
+
+### Delete Metric from Database
+
+/usr/share/opentsdb/bin/tsdb uid delete metrics "metricName"
+
+### Floating Point Numbers
+
+The OpenTSDB database is not commonly used for storing measurements that require exact values. The database makes use of IEEE 754 floating point single format with positive and negative value support.
+If the value input into the database lacks a ".", then it will import the number as an integer, this will be exported correctly.
+When one imports a value that has decimal points, the database will return a different number.
+
+From the [website](http://opentsdb.net/docs/build/html/user_guide/writing.html):
+    Note: Because OpenTSDB only supports floating point values, it is not suitable for storing measurements that require exact values like currency. This is why, when storing a value like 15.2 the database may return 15.199999809265137.
+
+Sort of solution:
+    https://groups.google.com/forum/#!topic/opentsdb/MOcjjLr3iDw
+
+### Duplicate Data Points
+
+Overwriting old data points will not negatively affect the database, one must just make sure that compactions are disabled.
+This is very convenient, as it makes writing the import scripts simplistic. http://opentsdb.net/docs/build/html/user_guide/writing.html
+
+### The Choice of the HTTP API
+
+[Note](http://opentsdb.net/docs/build/html/user_guide/writing.html):
+    The Telnet method of writing is discouraged as it doesn't provide a way of determining which data points failed to write due to formatting or storage errors. Instead use the HTTP API.
+
+### Query Limits
+
+It appears that there is a limit to the number of metrics that can possible be queried at any point in time. A number of workarounds were made for this use case. The case of the treemaps, we had to limit the number of metrics per query, and then concatenate the data returned. 
+
+### Purge Databse
+
+In order to delete the data from the database, there are a number of ways. I am still not sure that any of these work.
+However, I have found a method that works to delete metrics, I am unsure if the underlying data is deleted when this takes place, however, it achieved the required response from the server. 
+The first step was to create a file which had a list of the names of the loggers in the database. From this, a number of commands were used to edit this file in order to run it on the Linux system. The first step is to make sure that the file is saved as a LF line ending, as opposed to a CRLF ending. If this is not the case, Linux will see ^M characters at the end of each line in the file, this means that it cannot be run by bash. 
+The next step is to add the "delete metric" code to each line. 
+
+This is done with the use of:
+    awk '{print "/usr/share/opentsdb/bin/tsdb uid delete metrics " $1}' Metrics > Metrics
+
+Where Metrics is the name of the file that is being augmented. 
+Once this has happened, the file needs to be given execution permission:
+    sudo chmod +x Metrics
+
+Now the script can be executed on the server, this will delete all of the metrics. 
+
+### Create SSH Tunnel
+
+The first step is to use putty to open the tunnel. This is done using the settings:
+
+One can do the command using: putty.exe -load "Tunnel" -D 4242 -l username -pw password
+
+putty -ssh username@tsdb.eie.wits.ac.za -pw password -D 4242
+
+ ssh username@tsdb.eie.wits.ac.za -p 22 -p password -D 4242
+
+ ssh username@tsdb.eie.wits.ac.za -p 22 -p password -D 4242
+
+Once this was setup, the local PC cannot access the opentsdb GUI directly. One has to set up Firefox with a SOCKS5 proxy. Do this by:
+
+    * Proxy settings in firefox
+    * Manual proxy configuration
+    * SOCKS Host: localhost:4242
+    * Select SOCKS v5
+
+With these settings, one can then access the GUI, and it can be accessed with:
+    tsdb.eie.wits.ac.za:4242
+
+In the flask application, the 'localhost' parts need to be changed to 'tsdb.eie.wits.ac.za'. On top of this, the socks package is installed so that the socks proxy can be set up.
+In the requests command, extra parameters are introduced so that it can make use of the proxy. This forms the second argument of the requests' get command.
+In order to install the socket package use:
+    python -m pip install requests[socks]
+
 # Linux Commands Used
 
 ## Copy Files
 
-pscp -r 'C:\...' username@opentsdb.eie.wits.ac.za:'/home/username/.../'
+pscp -r 'C:\...' username@tsdb.eie.wits.ac.za:'/home/username/.../'
 
 ## Count Files in Folder
 
@@ -333,3 +416,74 @@ ls -1 | wc -l
 
 To make a .gz file simply:
     gzip -k filename
+
+## Size of Folder
+
+du -sh file_path
+
+## Getting a Shell Script to Work
+
+First create the shell script with:
+    touch filename.sh
+
+Then edit the file with the contents you want.
+You have to allow it to have execution ability, you can do this by using
+    chmod +x filename.sh
+
+Then you can run the script with
+    ./filename.sh
+Where the './' indicates that you are running it from inside the current folder.
+
+## Checking if a Service is Running
+
+To check the status of a specific service:
+    service service_name status
+
+To check the status of all services on the system:
+    service --status-all
+
+To start, restart, stop, services:
+    service service_name stop
+    service service_name start
+    service service_name restart
+
+## Install Python Packages
+
+I did not manage to get the server to install python packages using the pip command, there seemed to be an issue to do with the proxy, or internet access.
+However, it is possible to update linux packages, this can be used to install python packages using the apt-get command:
+    apt-get install python3-package_name
+
+## Run command and keep it running even when user logs out
+
+Use the [screen](https://www.ostechnix.com/4-ways-keep-command-running-log-ssh-session/) package.
+This will run the command, and the user can leave that session with it will running.
+You can launch a screen by the simply comand:
+    screen
+
+Once the screen is up and running, you can issue your normal commands.
+
+You can disconnect from the screen by using:
+    Ctrl + A followed by d
+
+To go back into your screen:
+    screen -r
+
+### Size of files in directory
+
+ls -l *
+
+## Delete all files that do not contain the *** file type
+
+find . ! -name "*.file_fype" | xargs rm
+
+### Bulk Import into Database
+
+sudo find . -name "*.gz" -exec /usr/share/opentsdb/bin/tsdb import {} \;
+
+### SSH Server
+
+python -m sshtunnel -U username -P password :4242 -R 
+127.0.0.1:4242 -p 22 146.141.16.82
+
+Bash: 
+    ssh -L 13000:localhost:22 username@tsdb.eie.wits.ac.za
