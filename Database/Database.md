@@ -359,21 +359,21 @@ This is very convenient, as it makes writing the import scripts simplistic. http
 
 It appears that there is a limit to the number of metrics that can possible be queried at any point in time. A number of workarounds were made for this use case. The case of the treemaps, we had to limit the number of metrics per query, and then concatenate the data returned. 
 
-### Purge Databse
+### Purge Database
 
 In order to delete the data from the database, there are a number of ways. I am still not sure that any of these work.
-However, I have found a method that works to delete metrics, I am unsure if the underlying data is deleted when this takes place, however, it achieved the required response from the server. 
-The first step was to create a file which had a list of the names of the loggers in the database. From this, a number of commands were used to edit this file in order to run it on the Linux system. The first step is to make sure that the file is saved as a LF line ending, as opposed to a CRLF ending. If this is not the case, Linux will see ^M characters at the end of each line in the file, this means that it cannot be run by bash. 
-The next step is to add the "delete metric" code to each line. 
+However, I have found a method that works to delete metrics, I am unsure if the underlying data is deleted when this takes place, however, it achieved the required response from the server.
+The first step was to create a file which had a list of the names of the loggers in the database. From this, a number of commands were used to edit this file in order to run it on the Linux system. The first step is to make sure that the file is saved as a LF line ending, as opposed to a CRLF ending. If this is not the case, Linux will see ^M characters at the end of each line in the file, this means that it cannot be run by bash.
+The next step is to add the "delete metric" code to each line.
 
 This is done with the use of:
     awk '{print "/usr/share/opentsdb/bin/tsdb uid delete metrics " $1}' Metrics > Metrics
 
-Where Metrics is the name of the file that is being augmented. 
+Where Metrics is the name of the file that is being augmented.
 Once this has happened, the file needs to be given execution permission:
     sudo chmod +x Metrics
 
-Now the script can be executed on the server, this will delete all of the metrics. 
+Now the script can be executed on the server, this will delete all of the metrics.
 
 ### Create SSH Tunnel
 

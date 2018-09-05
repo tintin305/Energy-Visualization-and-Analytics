@@ -3,7 +3,6 @@ import numpy as np
 import seaborn as sns
 import sys
 import os
-import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
@@ -11,7 +10,6 @@ import matplotlib.cm as cm
 import matplotlib as mpl
 import datetime
 import matplotlib.dates as mdates
-import sys 
 
 # The /1000 is to counteract the extra zero's in the CSV. Dygraphs reads the csv using the three zero's so it is easy to remove them for this specific case.
 def calculate_dates(unix):
