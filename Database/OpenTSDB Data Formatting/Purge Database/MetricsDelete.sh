@@ -168,8 +168,8 @@
 /usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_Standard_Bank_kWh
 /usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_Stationery_kVArh
 /usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_Stationery_kWh
-/usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_ISTPassword_Corner_kVarh
-/usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_ISTPassword_Corner_kWh
+/usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_ISTpassword_Corner_kVarh
+/usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_ISTpassword_Corner_kWh
 /usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_The_Sweets_Park_kVArh
 /usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_The_Sweets_Park_kWh
 /usr/share/opentsdb/bin/tsdb uid delete metrics WITS_EC_Matrix_Van_Schaik_Bookstore_kVArh

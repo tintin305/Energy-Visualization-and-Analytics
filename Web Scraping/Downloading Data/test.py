@@ -161,8 +161,8 @@ def userLogin():
     usernameField = driver.find_element_by_id('ContentPlaceHolder_Body_txtUsername')
     passwordField = driver.find_element_by_id('ContentPlaceHolder_Body_txtPassword')
 
-    usernameField.send_keys("ISTPassword")
-    passwordField.send_keys("ISTPassword")
+    usernameField.send_keys("ISTpassword")
+    passwordField.send_keys("ISTpassword")
 
     loginButton = driver.find_element_by_id('ContentPlaceHolder_Body_btnhdnLogin')
     loginButton.click()

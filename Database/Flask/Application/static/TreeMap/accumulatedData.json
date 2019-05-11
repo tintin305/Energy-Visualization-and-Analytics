@@ -612,7 +612,7 @@
 "value": 2549
 },
 {
-"key": "WITS_EC_Matrix_ISTPassword_Corner_kWh",
+"key": "WITS_EC_Matrix_ISTpassword_Corner_kWh",
 "region": "University of the Witwatersrand",
 "subregion": "East_Campus",
 "value": 39334
