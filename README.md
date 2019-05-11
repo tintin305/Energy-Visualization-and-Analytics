@@ -23,23 +23,23 @@ Examples of these are illustrated below.
 
 ## Choropleth Map
 
-![Choropleth Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents\Poster_Template\FeatherGraphics\ChoroplethMap.png?raw=true "Choropleth Map of West Campus")
+![Choropleth Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/ChoroplethMap.png?raw=true "Choropleth Map of West Campus")
 
 ## Data Outage Heat Map
 
-![Data Outage Heat Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents\Poster_Template\FeatherGraphics\DataOutageDavidWebster.png?raw=true "Data Outage Heat Map")
+![Data Outage Heat Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/DataOutageDavidWebster.png?raw=true "Data Outage Heat Map")
 
 ## Heat Map
 
-![Heat Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents\Poster_Template\FeatherGraphics\HeatMapCollegeHouse.png?raw=true "Heat Map")
+![Heat Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/HeatMapCollegeHouse.png?raw=true "Heat Map")
 
 ## Sankey Diagram
 
-![Sankey Diagram](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents\Poster_Template\FeatherGraphics\SankeyMatrix.png?raw=true "Sankey Diagram")
+![Sankey Diagram](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/SankeyMatrix.png?raw=true "Sankey Diagram")
 
 ## Treemap
 
-![Sunniside Residence](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents\Poster_Template\FeatherGraphics\Treemap.png?raw=true "Tree Map")
+![Sunniside Residence](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/Treemap.png?raw=true "Tree Map")
 
 ## Backend
 
