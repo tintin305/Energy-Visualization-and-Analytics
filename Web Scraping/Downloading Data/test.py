@@ -147,7 +147,7 @@ def chromeRun():
 
 
     # actions = ActionChains(driver)
-    # actions.send_keys("ISTPassword\788579")
+    # actions.send_keys("ISTpassword\788579")
     # actions.send_keys(Keys.TAB)
     # actions.send_keys("CNSPass5110")
     # actions.send_keys(Keys.TAB)
