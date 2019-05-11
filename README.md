@@ -22,7 +22,7 @@ Examples of these are illustrated below.
 
 ## Choropleth Map
 
-![Choropleth Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/ChoroplethMap.PNG?raw=true "Choropleth Map of West Campus")
+![Choropleth Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/Feathergraphics/ChoroplethMap.PNG?raw=true "Choropleth Map of West Campus")
 
 ## Data Outage Heat Map
 
