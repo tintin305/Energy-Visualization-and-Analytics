@@ -18,30 +18,32 @@ Examples of these are illustrated below.
 
 ## Dygraphs - Line Graphs
 
-<!-- <p>
-    <img src="https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/Feathergraphics/DygraphsSunisideResidence.png" width="220" height="240" />
-</p> -->
+
 ![Sunniside Residence](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/Feathergraphics/DygraphsSunisideResidence.png?raw=true "Sunniside Residence")
 
 ## Choropleth Map
 
-![Sunniside Residence](\Administration_Documents\Poster_Template\FeatherGraphics\ChoroplethMap.png)
+![Choropleth Map](https://github.com/tintin305/Lab-Project/blob/master\Administration_Documents\Poster_Template\FeatherGraphics\ChoroplethMap.png?raw=true "Choropleth Map of West Campus")
 
 ## Data Outage Heat Map
 
-![Sunniside Residence](\Administration_Documents\Poster_Template\FeatherGraphics\DataOutageDavidWebster.png)
+![Data Outage Heat Map](https://github.com/tintin305/Lab-Project/blob/master\Administration_Documents\Poster_Template\FeatherGraphics\DataOutageDavidWebster.png?raw=true "Data Outage Heat Map")
 
 ## Heat Map
 
-![Sunniside Residence](\Administration_Documents\Poster_Template\FeatherGraphics\HeatMapCollegeHouse.png)
+![Heat Map](https://github.com/tintin305/Lab-Project/blob/master\Administration_Documents\Poster_Template\FeatherGraphics\HeatMapCollegeHouse.png?raw=true "Heat Map")
 
 ## Sankey Diagram
 
-![Sunniside Residence](\Administration_Documents\Poster_Template\FeatherGraphics\SankeyMatrix.png)
+![Sankey Diagram](https://github.com/tintin305/Lab-Project/blob/master\Administration_Documents\Poster_Template\FeatherGraphics\SankeyMatrix.png?raw=true "Sankey Diagram")
 
 ## Treemap
 
-![Sunniside Residence](\Administration_Documents\Poster_Template\FeatherGraphics\Treemap.png)
+![Sunniside Residence](https://github.com/tintin305/Lab-Project/blob/master\Administration_Documents\Poster_Template\FeatherGraphics\Treemap.png?raw=true "Tree Map")
+
+## Backend
+
+The system makes use of the flask web server. The system is designed to make use of OpenTSDB for the data source.
 
 ## Running the Application
 
