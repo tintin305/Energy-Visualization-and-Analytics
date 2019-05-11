@@ -26,19 +26,19 @@ Examples of these are illustrated below.
 
 ## Data Outage Heat Map
 
-![Data Outage Heat Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/DataOutageDavidWebster.PNG?raw=true "Data Outage Heat Map")
+![Data Outage Heat Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/Feathergraphics/DataOutageDavidWebster.PNG?raw=true "Data Outage Heat Map")
 
 ## Heat Map
 
-![Heat Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/HeatMapCollegeHouse.PNG?raw=true "Heat Map")
+![Heat Map](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/Feathergraphics/HeatMapCollegeHouse.PNG?raw=true "Heat Map")
 
 ## Sankey Diagram
 
-![Sankey Diagram](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/SankeyMatrix.PNG?raw=true "Sankey Diagram")
+![Sankey Diagram](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/Feathergraphics/SankeyMatrix.PNG?raw=true "Sankey Diagram")
 
 ## Treemap
 
-![Sunniside Residence](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/FeatherGraphics/Treemap.PNG?raw=true "Tree Map")
+![Sunniside Residence](https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/Feathergraphics/Treemap.PNG?raw=true "Tree Map")
 
 ## Backend
 
