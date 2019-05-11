@@ -19,7 +19,7 @@ Examples of these are illustrated below.
 ## Dygraphs - Line Graphs
 
 <p>
-    <img src=".\Administration_Documents\Poster_Template\FeatherGraphics\DygraphsSunisideResidence.png" width="220" height="240" />
+    <img src="https://github.com/tintin305/Lab-Project/blob/master/Administration_Documents/Poster_Template/Feathergraphics/DygraphsSunisideResidence.png" width="220" height="240" />
 </p>
 <!-- ![Sunniside Residence](\Administration_Documents\Poster_Template\FeatherGraphics\DygraphsSunisideResidence.png?raw=true "Sunniside Residence") -->
 
